@@ -1,3 +1,3 @@
-Hello, World! big world! small world
+Hello, World! big world!
 hi bye
 
