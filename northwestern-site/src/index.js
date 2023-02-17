@@ -1,15 +1,12 @@
 import Header from "./Header"
-import Footer from "./Footer"
-import MainBody from "./MainBody"
-import React from "react"
 import ReactDOM  from "react-dom"
+import Footer from "./Footer"
 import "./style.css"
 
 function Page() {
     return (
         <div>
-        <Header />
-        <MainBody />
+        <Header/>
         <Footer />
         </div>
     )
