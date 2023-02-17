@@ -18,6 +18,16 @@
     padding:40px;
 }
 
+.category-items {
+    list-style: none;
+    display: flex;
+    font-size: 18px;
+}
+
+.category-items > li{
+    padding: 60px;
+}
+
 .mainBody {
     padding: 2%;
     display: flex;

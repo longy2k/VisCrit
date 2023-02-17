@@ -1,4 +1,4 @@
-import DocumentFile from "./tutorial_test.pdf"
+import DocumentFile from "./Northwestern.pdf"
 
 export default function DocumentReader(){
     return (

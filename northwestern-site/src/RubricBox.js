@@ -2,7 +2,11 @@
 export default function RubricBox(){
     return(
         <div className="component">
-            Check Box Here
+            <ul className="category-items">
+                <li>Available Categories</li>
+                <li>Comment</li>
+                <li>Location</li>
+            </ul>
         </div>
     )
 }
