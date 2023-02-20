@@ -2,6 +2,7 @@ import React from "react"
 import Logo from "./noImage.jpg"
 import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
 import MainBody from "./MainBody";
+import UploadP from "./UploadP";
 import Home from "./Home";
 import About from "./About";
 
@@ -19,7 +20,7 @@ export default function Header(){
             <Routes>
                 <Route exact path='/' element={< Home />}></Route>
                 <Route exact path='/about' element={< About />}></Route>
-                <Route exact path='/upload' element={< MainBody />}></Route>
+                <Route exact path='/upload' element={< UploadP />}></Route>
             </Routes>
         </Router>
     )
