@@ -9,16 +9,20 @@ body{
 }
 
 .nav-logo {
-    max-width: 40px;
+    max-width: 70%;
 }
 
 .nav-items {
     list-style: none;
     display: flex;
     font-size: 24px;
-    background-color: lavender;
+    background-color: rgba(0, 0, 0, 0.301);
     margin:0%;
-    justify-content: end;
+}
+
+li a {
+    color:white;
+    text-decoration: none;
 }
 
 .content-list {
