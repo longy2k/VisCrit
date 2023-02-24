@@ -34,7 +34,8 @@
 }
 
 .category-items > li{
-    padding: 60px;
+    margin-right: 200px;
+    padding: 10px
 }
 
 .mainBody {
@@ -45,12 +46,14 @@
 
 .component{
     flex:1;
-    height: 700px;
+    height: 900px;
     border: 2px solid black;
 }
+
 .component:first-child{
-    flex-grow: 1.5;
+    flex-grow: 1.1;
     margin-right: 20px;
+    border: none;
 }
 
 .uploadSection{
@@ -77,4 +80,15 @@
 }
 .checkBox{
     margin-right: 20px;
+}
+
+.docVisual {
+    height: 500px; 
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+
+.critiqueSection {
+    height: 380px;
+    border: 2px solid black;
 }

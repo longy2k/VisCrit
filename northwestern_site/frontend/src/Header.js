@@ -20,7 +20,7 @@ export default function Header(){
             <Routes>
                 <Route exact path='/' element={< Home />}></Route>
                 <Route exact path='/about' element={< About />}></Route>
-                <Route exact path='/upload' element={< UploadP />}></Route>
+                <Route exact path='/upload' element={< MainBody />}></Route>
             </Routes>
         </Router>
     )
