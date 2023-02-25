@@ -1,4 +1,3 @@
-
 export default function RubricBox(){
     function ShowHideCategory() {
         var x = document.getElementById("categoryContent");
