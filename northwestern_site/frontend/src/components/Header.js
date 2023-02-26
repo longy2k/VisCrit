@@ -4,7 +4,7 @@ import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
 import UploadP from "./UploadP";
 import Home from "./Home";
 import About from "./About";
-
+import MainBody from "./MainBody";
 
 export default function Header() {
     return (
@@ -17,7 +17,7 @@ export default function Header() {
         </ul>
             <Routes>
                 <Route exact path='/' element={< Home />}></Route>
-                <Route exact path='/about' element={< About />}></Route>
+                <Route exact path='/about' element={< MainBody />}></Route>
                 <Route exact path='/upload' element={< UploadP />}></Route>
             </Routes>
         </Router>
