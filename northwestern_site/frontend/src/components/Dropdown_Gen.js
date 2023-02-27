@@ -53,6 +53,7 @@ export default class Hierarchy{
     }
 
     returnHTML(){
+        console.log(this.subHierNames);
         return( 
             <div className="categoryDiv">
             <button className="categoryButton" onClick={this.ShowHideCategory} id={this.bText}>-</button>
@@ -60,7 +61,7 @@ export default class Hierarchy{
             <div id={this.name}>
                 {this.itemsToHTML()}
                 {this.subHierNames.map((item, i) => 
-                <div key={i}>{item.returnHTML}</div>)}
+                <div key={i}>{item.returnHTML()}</div>)}
             </div>
             </div>
         )
@@ -90,16 +91,4 @@ class Item{
         this.LikertValue = [null, null, null, null, null]
     }
 
-}
-
-function dropDownEX() {
-    return( 
-        <div className="categoryDiv">
-        <button className="categoryButton" onClick={this.ShowHideCategory} id="Toggle">-</button>
-        {this.name}
-        <div id={this.name}>
-            {this.genHtmlList()}
-        </div>
-        </div>
-    )
 }
