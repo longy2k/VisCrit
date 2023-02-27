@@ -11,7 +11,44 @@ body{
 .nav-logo {
     max-width: 70%;
 }
+.container{
+    display: flex;
+}
+/* this is what i added */
+.borl{
+    right: 50%;
+    /* width: 95%; */
+    height: 300px;
+    inline-size: 95%;
+   
+    overflow-wrap: break-word;
+    border-style:outset;
+    border-width: 5px;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 20px;
+    /* float: left; */
 
+
+}
+.borr{
+    right: 50%;
+    /* width: 95%; */
+    height: 300px;
+    inline-size: 95%;
+    overflow-wrap: break-word;
+    
+    border-style:outset;
+    border-width: 5px;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 20px;
+    /* float: right; */
+    
+
+}
+
+/* this is what i added */
 .nav-items {
     list-style: none;
     display: flex;
@@ -31,9 +68,7 @@ li a {
 }
 
 .content-list > li{
-    margin-left: 50px;
-    margin-right: 100px;
-    padding: 10px;
+    padding: 60px;
     
 }
 
@@ -45,11 +80,11 @@ li a {
     list-style: none;
     display: flex;
     font-size: 18px;
+    
 }
 
 .category-items > li{
-    margin-right: 200px;
-    padding: 10px
+    padding: 60px;
 }
 
 .mainBody {
@@ -60,15 +95,12 @@ li a {
 
 .component{
     flex:1;
-    height: 900px;
+    height: 700px;
     border: 2px solid black;
-    overflow-y: scroll;
 }
-
 .component:first-child{
-    flex-grow: 1.1;
+    flex-grow: 1.5;
     margin-right: 20px;
-    border: none;
 }
 
 .uploadSection{
@@ -101,15 +133,4 @@ input {
 }
 .checkBox{
     margin-right: 20px;
-}
-
-.docVisual {
-    height: 500px; 
-    border: 2px solid black;
-    margin-bottom: 20px;
-}
-
-.critiqueSection {
-    height: 380px;
-    border: 2px solid black;
 }
