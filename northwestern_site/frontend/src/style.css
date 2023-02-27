@@ -134,3 +134,14 @@ input {
 .checkBox{
     margin-right: 20px;
 }
+
+.docVisual {
+    height: 500px; 
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+
+.critiqueSection {
+    height: 376px;
+    border: 2px solid black;
+}
