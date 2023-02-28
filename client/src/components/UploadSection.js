@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { FileUploader } from "react-drag-drop-files";
 
-const fileTypes = ["PDF"];
+const fileTypes = ["PDF", "IMG", "JPG", "JPEG"];
 export default function UploadSection(){
     const [file, setFile] = useState(null);
     const handleChange = (file) => {

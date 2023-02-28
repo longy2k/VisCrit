@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.c50845e6.css",
-    "main.js": "/static/js/main.1717f5bf.js",
-    "static/media/Northwestern.pdf": "/static/media/Northwestern.43c517b65bdfc4eabfb4.pdf",
-    "index.html": "/index.html",
-    "main.c50845e6.css.map": "/static/css/main.c50845e6.css.map",
-    "main.1717f5bf.js.map": "/static/js/main.1717f5bf.js.map"
+    "main.css": "/CS410_northwestern/static/css/main.ac34fd24.css",
+    "main.js": "/CS410_northwestern/static/js/main.5df47c5f.js",
+    "static/media/Northwestern.pdf": "/CS410_northwestern/static/media/Northwestern.43c517b65bdfc4eabfb4.pdf",
+    "static/media/dashboard.png": "/CS410_northwestern/static/media/dashboard.454855901022243744d9.png",
+    "index.html": "/CS410_northwestern/index.html",
+    "main.ac34fd24.css.map": "/CS410_northwestern/static/css/main.ac34fd24.css.map",
+    "main.5df47c5f.js.map": "/CS410_northwestern/static/js/main.5df47c5f.js.map"
   },
   "entrypoints": [
-    "static/css/main.c50845e6.css",
-    "static/js/main.1717f5bf.js"
+    "static/css/main.ac34fd24.css",
+    "static/js/main.5df47c5f.js"
   ]
 }

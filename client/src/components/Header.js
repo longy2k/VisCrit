@@ -10,15 +10,19 @@ export default function Header() {
     return (
         <Router> 
         <ul className="nav-items">
-            <li style={{marginRight:"70%"}}> <Link to="/"><img src={Logo} className="nav-logo" alt="logo image"/></Link></li>
-            <li> <Link to="/">Home</Link></li>
-            <li> <Link to="/upload"> Upload</Link></li>
-            <li> <Link to="/testing">Testing</Link></li>
+            <li style={{marginRight:"600px", height:"0px"}}> <Link to="/CS410_northwestern"> 
+            <img src={Logo}
+            style={{ marginRight:"600px", height:"50px"}}
+            className="nav-logo" alt="logo image"/></Link>
+            </li>
+            <li> <Link to="/CS410_northwestern">Home</Link></li>
+            <li> <Link to="/CS410_northwestern/upload"> Upload</Link></li>
+            <li> <Link to="/CS410_northwestern/testing">Testing</Link></li>
         </ul>
             <Routes>
-                <Route exact path='/' element={< Home />}></Route>
-                <Route exact path='/testing' element={< MainBody />}></Route>
-                <Route exact path='/upload' element={< UploadP />}></Route>
+                <Route exact path='/CS410_northwestern/' element={< Home />}></Route>
+                <Route exact path='/CS410_northwestern/testing' element={< MainBody />}></Route>
+                <Route exact path='/CS410_northwestern/upload' element={< UploadP />}></Route>
             </Routes>
         </Router>
     )

@@ -2,9 +2,6 @@ import React from "react";
 import * as markerjs2 from "markerjs2";
 import TestImg from "../dashboard.png";
 
-/* 
-when uploading img, that img should be passed here
-*/
 export default function Marker() {
   const imgRef = React.useRef(null);
   const showMarkerArea = () => {
@@ -31,6 +28,8 @@ export default function Marker() {
         onClick={showMarkerArea}
       />
       <br/>
+      <br/>
+
     </div>
   );
 }

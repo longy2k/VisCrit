@@ -14,6 +14,7 @@ body{
 .container{
     display: flex;
 }
+
 /* this is what i added */
 .borl{
     right: 50%;
@@ -44,8 +45,6 @@ body{
     padding: 5px;
     margin-left: 20px;
     /* float: right; */
-    
-
 }
 
 /* this is what i added */
@@ -144,6 +143,6 @@ input {
 }
 
 .critiqueSection {
-    height: 376px;
+    height: 2%;
     border: 2px solid black;
 }
