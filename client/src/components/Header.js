@@ -10,10 +10,11 @@ export default function Header() {
     return (
         <Router> 
         <ul className="nav-items">
-            <li style={{marginRight:"600px", height:"0px"}}> <Link to="/CS410_northwestern"> 
+            <li> <Link to="/CS410_northwestern"> 
             <img src={Logo}
-            style={{ marginRight:"600px", height:"50px"}}
-            className="nav-logo" alt="logo image"/></Link>
+
+            className="nav-logo" alt="logo image"/>
+            </Link>
             </li>
             <li> <Link to="/CS410_northwestern">Home</Link></li>
             <li> <Link to="/CS410_northwestern/upload"> Upload</Link></li>
