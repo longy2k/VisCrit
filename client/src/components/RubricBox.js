@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import xksx from "xlsx"
+import * as XLSX from 'xlsx';
 import Hierarchy from "./Dropdown_Gen"
 
 export default function RubricBox(){
