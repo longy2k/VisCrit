@@ -9,8 +9,11 @@ body{
 }
 
 .nav-logo {
-    max-width: 70%;
+	width: 2em;
+	height:2em;
+    padding-right:45em;
 }
+
 .container{
     display: flex;
 }
@@ -52,14 +55,16 @@ body{
 .nav-items {
     list-style: none;
     display: flex;
-    font-size: 24px;
-    background-color: rgba(0, 0, 0, 0.301);
+    font-size: 150%;
+    background-color: rgb(70, 6, 93);
     margin:0%;
+    height: 4.3em;
 }
 
 li a {
     color:white;
     text-decoration: none;
+    margin-right:1em;
 }
 
 .content-list {
