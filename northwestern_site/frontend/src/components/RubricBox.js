@@ -15,7 +15,7 @@ export default function RubricBox(){
     
     const Hierarchies= [];
     const HierarchyMap = new Map();
-    
+
     for(let data in jsonData){
         if(data == 0){
             continue;
@@ -28,6 +28,7 @@ export default function RubricBox(){
             Hierarchies.push(HierarchyMap.get(jsonData[data][2]));
         }
     }
+
 
     return(
         <div className="component">

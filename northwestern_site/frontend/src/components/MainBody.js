@@ -1,8 +1,10 @@
 import React, {useState} from "react"
+import DocReader from "./DocumentReader"
+import Rubric from "./RubricBox"
 import XLSX from "xlsx"
 import Hierarchy from "./Dropdown_Gen"
 
-export default function RubricBox(){
+export default function MainBody() {
     const[jsonData, setData] = useState([]);
     const handleFile = async(e) => {
         const file = e.target.files[0];
@@ -15,7 +17,7 @@ export default function RubricBox(){
     
     const Hierarchies= [];
     const HierarchyMap = new Map();
-    
+
     for(let data in jsonData){
         if(data == 0){
             continue;
@@ -29,16 +31,13 @@ export default function RubricBox(){
         }
     }
 
-    return(
-        <div className="component">
-            <ul className="category-items">
-                <li>Available Categories</li>
-                <li>Comment</li>
-                <li>Location</li>
-            </ul>
-            <input type="file" onChange={(e) => handleFile(e)}/>
-            {Hierarchies.map((item, i) => 
-            <div key={i}>{item.returnHTML()}</div>)}
+    return (
+        <div>
+        <input type="file" onChange={(e) => handleFile(e)}/>
+        <div className="mainBody">
+            <DocReader />
+            <Rubric />
+        </div>
         </div>
     )
 }
