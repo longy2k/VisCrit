@@ -7,12 +7,12 @@ import React from "react";
 function Home(){
   const mystyle={
     color: "black",
-    
+
     padding: "10px",
     fontFamily: "side"
 
   }
- 
+
 
 
   return(
@@ -21,7 +21,7 @@ function Home(){
         display:"flex",
         justifyContent: "center",
 
-      
+
       }}> Welcome to VisCrit</h1>
       <div style={
         {
@@ -31,45 +31,45 @@ function Home(){
       }></div>
 
 
-    
+
     <div id="Borderor">
-      
+
       <ul className="borl">
-        
-        
+
+
         <div style={{
           display: "flex",
           justifyContent: "center"
         }}> The Slide Critique site is for users to upload a slide, dashboard, and other related
             ideas to be critiqued. The users who upload the slide are able to send invites through
             e-mail to their recipients. This site makes getting feedback from a large group of people
-            very easy. </div>
+            very easy. test test </div>
       </ul>
     </div>
 
-   
+
     <div id="Bordero">
       <ul className="borr">
-        
+
         <div style={{
           display: "flex",
           justifyContent: "center"
-          
+
         }}> Instructions: </div>
        good instructions go here:
       </ul>
-      
-    </div>
-    
 
-    
-    
-   
-    
-  
-    
     </div>
-    
+
+
+
+
+
+
+
+
+    </div>
+
   );
 }
 
@@ -83,31 +83,30 @@ function Home(){
 //     return (
 //         <div class= "home">
 //     <h2> Welcome to VisCrit </h2>
-    
-    
-//     <p> 
+
+
+//     <p>
 //     The Slide Critique site is for users to upload a slide, dashboard, and other related
 //     ideas to be critiqued. The users who upload the slide are able to send invites through
 //     e-mail to their recipients. This site makes getting feedback from a large group of people
 //     very easy.
-    
-    
+
+
 //     </p>
-    
-    
+
+
 //     </div>
-   
-  
-    
 
-     
+
+
+
+
 //     );
-    
 
 
-    
-    
-    
+
+
+
+
 // }
 // export default Home;
-

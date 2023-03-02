@@ -8,9 +8,9 @@ import MainBody from "./MainBody";
 
 export default function Header() {
     return (
-        <Router> 
+        <Router>
         <ul className="nav-items">
-            <li> <Link to="/CS410_northwestern"> 
+            <li> <Link to="/CS410_northwestern">
             <img src={Logo}
 
             className="nav-logo" alt="logo image"/>

@@ -18,7 +18,7 @@ export default function UploadP(){
 
 
     return (
-        <div className="Upload-Page">
+        <div className="UploadP">
             <h1>Create</h1>
             <UploadSection />
             <RubricSection />
