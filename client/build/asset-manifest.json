@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/CS410_northwestern/static/css/main.3beac62c.css",
-    "main.js": "/CS410_northwestern/static/js/main.7f94198a.js",
+    "main.js": "/CS410_northwestern/static/js/main.598aaaf2.js",
     "static/media/Northwestern.pdf": "/CS410_northwestern/static/media/Northwestern.43c517b65bdfc4eabfb4.pdf",
     "static/media/dashboard.png": "/CS410_northwestern/static/media/dashboard.454855901022243744d9.png",
     "index.html": "/CS410_northwestern/index.html",
     "main.3beac62c.css.map": "/CS410_northwestern/static/css/main.3beac62c.css.map",
-    "main.7f94198a.js.map": "/CS410_northwestern/static/js/main.7f94198a.js.map"
+    "main.598aaaf2.js.map": "/CS410_northwestern/static/js/main.598aaaf2.js.map"
   },
   "entrypoints": [
     "static/css/main.3beac62c.css",
-    "static/js/main.7f94198a.js"
+    "static/js/main.598aaaf2.js"
   ]
 }
