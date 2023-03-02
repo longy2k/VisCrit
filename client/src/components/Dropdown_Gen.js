@@ -1,3 +1,6 @@
+import Item from "./Item";
+import ItemsToHTML from "./ItemsToHTML";
+
 export default class Hierarchy{
     constructor(arr = [], bool) {
         this.isSub = bool;
@@ -18,7 +21,9 @@ export default class Hierarchy{
             this.subHierNames.push(this.subHierList.get(arr[8]));
         }
         this.bText=this.name+"Tog";
+        
     }
+
 
     getName() {
         return this.name;
@@ -59,36 +64,11 @@ export default class Hierarchy{
             <button className="categoryButton" onClick={this.ShowHideCategory} id={this.bText}>-</button>
             {this.name}
             <div id={this.name}>
-                {this.itemsToHTML()}
+                {ItemsToHTML(this.itemList)}
                 {this.subHierNames.map((item, i) => 
                 <div key={i}>{item.returnHTML()}</div>)}
             </div>
             </div>
         )
     }
-
-    itemsToHTML(){
-        return (
-            this.itemList.map((item, i) => 
-            <ul className="content-list" key={i}>
-            <li>
-                <div>
-                    {item.Display}                
-                </div>
-            </li>
-            <li><button className="checkBox" id="Mark">+</button> </li>
-            <li>Rating TODO</li>
-        </ul>))
-    }
-
-}
-
-class Item{
-    constructor(arr) {
-        this.RubicID = arr[0]
-        this.Display = arr[9]
-        this.LocationRt = null
-        this.LikertValue = [null, null, null, null, null]
-    }
-
 }

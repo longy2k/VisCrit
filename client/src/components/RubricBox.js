@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import * as XLSX from 'xlsx';
+import XLSX from "xlsx"
 import Hierarchy from "./Dropdown_Gen"
 
 export default function RubricBox(){
@@ -12,10 +12,10 @@ export default function RubricBox(){
         const jsonData = XLSX.utils.sheet_to_json(worksheet, {header: 1, blankrows:false})
         setData(jsonData)
     }
-
+    
     const Hierarchies= [];
     const HierarchyMap = new Map();
-    console.log(jsonData);
+    
     for(let data in jsonData){
         if(data == 0){
             continue;
@@ -28,8 +28,6 @@ export default function RubricBox(){
             Hierarchies.push(HierarchyMap.get(jsonData[data][2]));
         }
     }
-    console.log(Hierarchies)
-    console.log(HierarchyMap.size)
 
     return(
         <div className="component">
@@ -39,7 +37,7 @@ export default function RubricBox(){
                 <li>Location</li>
             </ul>
             <input type="file" onChange={(e) => handleFile(e)}/>
-            {Hierarchies.map((item, i) =>
+            {Hierarchies.map((item, i) => 
             <div key={i}>{item.returnHTML()}</div>)}
         </div>
     )
