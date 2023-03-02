@@ -17,13 +17,13 @@ export default function Header() {
             </Link>
             </li>
             <li> <Link to="/CS410_northwestern">Home</Link></li>
-            <li> <Link to="/CS410_northwestern/upload"> Upload</Link></li>
+            <li> <Link to="/CS410_northwestern/upload"> Create</Link></li>
             <li> <Link to="/CS410_northwestern/testing">Testing</Link></li>
         </ul>
             <Routes>
                 <Route exact path='/CS410_northwestern/' element={< Home />}></Route>
-                <Route exact path='/CS410_northwestern/testing' element={< MainBody />}></Route>
                 <Route exact path='/CS410_northwestern/upload' element={< CreatePage />}></Route>
+                <Route exact path='/CS410_northwestern/testing' element={< MainBody />}></Route>
             </Routes>
         </Router>
     )
