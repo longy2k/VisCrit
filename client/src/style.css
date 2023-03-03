@@ -110,6 +110,31 @@ li a {
     overflow-y: none;
 }
 
+.CreatePage {
+  width: 100%;
+}
+
+.createCenter {
+  width: 50%;
+  margin: auto;
+}
+
+
+.uploadSection {
+  width: 50%;
+  margin: auto;
+}
+
+.rubricSection {
+  width: 50%;
+  margin: 20px auto;
+}
+.rubricSection input{
+  width: 70%;
+}
+
+
+
 input {
     width: 20%;
     padding: 0.5%;
