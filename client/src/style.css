@@ -1,0 +1,154 @@
+body{
+    margin:0%;
+    padding:0%;
+}
+
+.nav {
+    display:flex;
+    float:right;
+}
+
+.nav-logo {
+	width: 2em;
+	height:2em;
+    padding-right:45em;
+}
+
+.container{
+    display: flex;
+}
+/* this is what i added */
+.borl{
+    right: 50%;
+    /* width: 95%; */
+    height: 300px;
+    inline-size: 95%;
+   
+    overflow-wrap: break-word;
+    border-style:outset;
+    border-width: 5px;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 20px;
+    /* float: left; */
+
+
+}
+.borr{
+    right: 50%;
+    /* width: 95%; */
+    height: 300px;
+    inline-size: 95%;
+    overflow-wrap: break-word;
+    
+    border-style:outset;
+    border-width: 5px;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 20px;
+    /* float: right; */
+    
+
+}
+
+/* this is what i added */
+.nav-items {
+    list-style: none;
+    display: flex;
+    font-size: 150%;
+    background-color: rgb(70, 6, 93);
+    margin:0%;
+    height: 4.3em;
+}
+
+li a {
+    color:white;
+    text-decoration: none;
+    margin-right:1em;
+}
+
+.content-list {
+    list-style: none;
+    display: flex;
+}
+
+.content-list > li{
+    padding: 60px;
+    
+}
+
+.nav-items > li {
+    padding:40px;
+}
+
+.category-items {
+    list-style: none;
+    display: flex;
+    font-size: 18px;
+    
+}
+
+.category-items > li{
+    padding: 60px;
+}
+
+.mainBody {
+    padding: 2%;
+    display: flex;
+    flex-direction: row;
+}
+
+.component{
+    flex:1;
+    height: 900px;
+    border: 2px solid black;
+    overflow-y: scroll;
+}
+.component:first-child{
+    flex-grow: 1.5;
+    margin-right: 20px;
+    overflow-y: none;
+}
+
+.uploadSection{
+   /* border: 2px solid black; */
+    margin-top: 2%;   
+}
+
+.rubricSection{
+   /* height: 400px;
+    border: 2px solid black; */
+    text-align: center;
+} 
+input {
+    width: 20%;
+    padding: 0.5%;
+    margin: 1%;
+}
+
+.categoryDiv{
+    padding: 0;
+    margin-left: 50px;
+}
+
+.categoryButton {
+    margin-right: 20px;
+}
+
+.content-list{
+    padding: 0;
+}
+.checkBox{
+    margin-right: 20px;
+}
+
+.docVisual {
+    height: 500px; 
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+
+.critiqueSection {
+    height: 376px;
+    border: 2px solid black;
+}

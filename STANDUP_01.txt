@@ -1,0 +1,41 @@
+# STANDUP 01 - 2/10/2023 TEAM Northwestern
+
+
+General Update and Intro
+========================
+Teams assembled and introduced, selected Project Leaders: Long Huynh
+Created Trello Board to keep track of issues, goals, and to overall help planning the project.
+Created Github repo: https://github.com/seyelence/CS410_northwestern
+
+Draft of Requirements
+=====================
+MAIN: We will need to build a software that
+Upload, annotate, and download PDFs
+Optional text comments
+Responsive
+Intuitive 
+Aesthetically pleasing 
+
+For technologies, we propose
+ReactJS for frontend
+Django for backend
+Figma for designing purposes (Prototype)
+
+Current Questions / Problems / Something you need
+=================================================
+Example upload material (slides or other materials)
+Regarding future needs, would we be given examples to showcase problems?
+Based on example sites given, will there be a need to implement some form of collaboration (example- google docs sharing)?
+Do people add categories, or are there a specific set of categories the client would prefer?
+
+Week 1 Plans
+==================================================
+Gain clarification of the project
+Create prototype through Figma
+Ask client for feedback
+If OK, begin coding architecture
+If NO, revise prototype through Figma
+
+List of Working Packages with responsible Student and Completion Dates
+======================================================================
+ Complete designs via Figma Thamany, Long, Christos, Jeffrey 2/16/2023
