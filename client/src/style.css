@@ -119,16 +119,21 @@ li a {
   margin: auto;
 }
 
-
 .uploadSection {
   width: 50%;
   margin: auto;
+}
+
+.importSection {
+  width: 50%;
+  margin: 20px auto;
 }
 
 .rubricSection {
   width: 50%;
   margin: 20px auto;
 }
+
 .rubricSection input{
   width: 70%;
 }
