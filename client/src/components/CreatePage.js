@@ -19,9 +19,11 @@ export default function CreatePage(){
 
     return (
         <div className="CreatePage">
+          <div className="createCenter">
             <h1>Create</h1>
             <UploadSection />
             <RubricSection />
+          </div>
         </div>
     )
 }
