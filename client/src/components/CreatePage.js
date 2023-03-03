@@ -23,8 +23,8 @@ export default function CreatePage(){
           <div className="createCenter">
             <h1>Create</h1>
             <UploadSection />
-            <ImportSection />
             <h3>Customize Rubric</h3>
+            <ImportSection />
             <RubricSection />
           </div>
         </div>

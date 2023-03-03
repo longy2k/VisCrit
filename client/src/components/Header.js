@@ -22,8 +22,8 @@ export default function Header() {
         </ul>
             <Routes>
                 <Route exact path='/CS410_northwestern/' element={< Home />}></Route>
-                <Route exact path='/CS410_northwestern/testing' element={< MainBody />}></Route>
                 <Route exact path='/CS410_northwestern/create' element={< CreatePage />}></Route>
+                <Route exact path='/CS410_northwestern/testing' element={< MainBody />}></Route>
             </Routes>
         </Router>
     )

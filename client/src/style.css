@@ -98,13 +98,14 @@ li a {
     flex-direction: row;
 }
 
-.component{
+.component {
     flex:1;
     height: 900px;
     border: 2px solid black;
     overflow-y: scroll;
 }
-.component:first-child{
+
+.component:first-child {
     flex-grow: 1.5;
     margin-right: 20px;
     overflow-y: none;
@@ -121,8 +122,22 @@ li a {
 
 .createCenter, h1, h3 {
   width: 50%;
-  margin: 10px auto;
+  margin: 20px auto;
 }
+
+.json-container {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.json-container pre {
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  padding: 10px;
+  overflow-x: auto;
+  font-size: 14px;
+}
+
 
 #addonButton {
   width: 100%;
