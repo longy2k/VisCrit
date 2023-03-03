@@ -2,7 +2,7 @@ import React, { useEffect, useState} from 'react'
 import UploadSection from "./UploadSection"
 import RubricSection from "./RubricSection"
 
-export default function UploadP(){
+export default function CreatePage(){
 
     const [backendData, setBackendData] = useState([{}])
 
@@ -18,7 +18,8 @@ export default function UploadP(){
 
 
     return (
-        <div className="Upload-Page">
+        <div className="CreatePage">
+            <h1>Create</h1>
             <UploadSection />
             <RubricSection />
         </div>
