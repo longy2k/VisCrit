@@ -24,6 +24,7 @@ export default function CreatePage(){
             <h1>Create</h1>
             <UploadSection />
             <ImportSection />
+            <h3>Customize Rubric</h3>
             <RubricSection />
           </div>
         </div>

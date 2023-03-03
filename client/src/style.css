@@ -114,9 +114,20 @@ li a {
   width: 100%;
 }
 
-.createCenter {
+.createCenter{
   width: 50%;
   margin: auto;
+}
+
+.createCenter, h1, h3 {
+  width: 50%;
+  margin: 10px auto;
+}
+
+#addonButton {
+  width: 100%;
+  margin: 5px 0px;
+  padding: 10px;
 }
 
 .uploadSection {
@@ -127,6 +138,10 @@ li a {
 .importSection {
   width: 50%;
   margin: 20px auto;
+}
+
+.importSection input {
+  width: 50%;
 }
 
 .rubricSection {
