@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f7ea366f.css",
+    "main.js": "/static/js/main.d919a641.js",
+    "static/media/Northwestern.pdf": "/static/media/Northwestern.43c517b65bdfc4eabfb4.pdf",
+    "static/media/dashboard.png": "/static/media/dashboard.454855901022243744d9.png",
+    "index.html": "/index.html",
+    "main.f7ea366f.css.map": "/static/css/main.f7ea366f.css.map",
+    "main.d919a641.js.map": "/static/js/main.d919a641.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f7ea366f.css",
+    "static/js/main.d919a641.js"
+  ]
+}
