@@ -8,14 +8,14 @@ export default function CritiqueBox(){
     console.log(currentItem)
     if(currentItem instanceof Item){
         return (
-            <div className="critiqueSection" onClick={(console.log(currentItem))}>
+            <div className="critiqueSection" >
                 <header>Critique Detail Entry</header>
                 {GenCommentSection(currentItem)}
             </div>
         )
     } else{
     return (
-        <div className="critiqueSection" onClick={(console.log(currentItem))}>
+        <div className="critiqueSection" >
             <header>Critique Detail Entry</header>
         </div>
     )}

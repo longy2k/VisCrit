@@ -8,10 +8,10 @@ export default function ItemsToHTML(itemList=[]){
         <ul className="content-list" key={i}>
         <li>
             <div>
-                {item.Display}                
+                {item.Display}
             </div>
         </li>
-        <li><button className="checkBox" onClick={(e) => {setItem(item); console.log(item.LikertValue)}}>+</button> </li>
+        <li><button className="checkBox" onClick={(e) => {setItem(item)}}>+</button> </li>
         <li>Rating TODO</li>
     </ul>))
 }

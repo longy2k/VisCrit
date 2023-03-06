@@ -11,4 +11,7 @@ export default class Item{
         this.path = arr[2] + ": "+ this.Ld2 + arr[6] 
     }
 
+    setComment(text){
+        this.LikertValue[0]=text;
+    }
 }

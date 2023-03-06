@@ -1,31 +1,26 @@
-import React, {Component} from 'react';
-
-class CommentBox extends Component {
+import React, {useState, useContext} from 'react';
+import { ItemContext } from './ItemContext';
+function CommentBox({thisItem}){
     
-    constructor(props){
-        super(props)
+    const [comment, setComment] = useState(thisItem.LikertValue[0]);
+    let {currentItem} = useContext(ItemContext);
 
-        this.state ={
-        comment: ''
-        }
+    const handleCommentChange = event => {
+        setComment(event.target.value)
+        thisItem.setComment(comment)
+        console.log(currentItem);
     }
 
-    handleCommentChange = event => {
-        this.setState({
-            comment: event.target.value
-        })
-    }
-    render(){
     return (
         <div>
         <form> 
             <div>
             <label>Comment</label>
-            <textarea type="text" value={this.state.comment} onChange={this.handleCommentChange}/>
+            <textarea type="text" value={comment} onChange={handleCommentChange}/>
             </div>
         </form>
         </div>
-    )}
+    )
 }
 
 export default CommentBox
