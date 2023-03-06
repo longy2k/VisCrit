@@ -1,20 +1,12 @@
 import React from 'react';
-import Header from "./components/Header"
-import ReactDOM  from "react-dom"
-import Footer from "./components/Footer"
-import "./style.css"
+import ReactDOM from 'react-dom/client';
+import './assets/css/index.css';
+import NavBar from './NavBar';
+import HomePage from './HomePage';
 
-function Page() {
-    return (
-        <div>
-        <Header/>
-        <Footer />
-        </div>
-    )
-}
-
-ReactDOM.render(
-    <Page />
-    ,
-    document.getElementById("root")
-)
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <NavBar />
+  </React.StrictMode>
+);

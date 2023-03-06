@@ -1,0 +1,39 @@
+.navBar {
+  background-color: rgb(70, 6, 93);
+  margin: 0;
+  overflow: hidden;
+}
+.navBar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.navBar ul li {
+  display: inline-block;
+  list-style-type: none;
+}
+.navBar ul li a {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  display: block;
+  line-height: 2em;
+  padding: 1em 3em;
+  text-decoration: none;
+}
+
+#logo {
+  font-size: 30px;
+}
+
+.navBar ul li:first-child {
+  margin-right: auto;
+}
+
+.navBar ul li:first-child a:hover {
+  text-decoration: none;
+}
+
+.navBar ul li a:hover {
+  text-decoration: underline;
+}

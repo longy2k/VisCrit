@@ -23,4 +23,5 @@ yarn-error.log*
 
 .env
 
-myvenv/
+client/node_modules/
+client/build/

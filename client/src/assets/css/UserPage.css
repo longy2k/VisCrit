@@ -1,0 +1,96 @@
+.userPage {
+  width: 85%;
+  height: 800px;
+  margin: auto;
+  /* background-color: red; */
+}
+
+
+.category-items {
+  list-style: none;
+  display: flex;
+  font-size: 18px;
+}
+
+
+.categoryButton {
+    margin-right: 20px;
+}
+
+.checkBox{
+    margin-right: 20px;
+}
+
+.critiqueSection {
+    height: 376px;
+    border: 2px solid black;
+}
+
+.rubricBox {
+  border: 2px solid black;
+  float: right;
+  width: 39%;
+  overflow-y: scroll;
+  height: 800px;
+  border-radius: 20px;
+}
+
+.category {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.category ul {
+
+}
+
+/*Available Categories, Comment, Location*/
+.toolBarMenu {
+  list-style: none;
+  display: flex;
+  font-size: 18px;
+}
+
+.toolBarMenu li {
+  margin: 0px 20px;
+}
+
+
+/*DONE*/
+
+/* pdf, img, ... */
+.fileView {
+  width: 60%;
+  height: 70%;
+  border: 2px solid black;
+  margin-bottom: 20px;
+  float: left;
+}
+
+#toolbar {
+  display: none;
+}
+
+/* RubricBox components */
+.rubricBox {
+  border: 2px solid black;
+  float: right;
+  width: 35%;
+  overflow-y: scroll;
+  height: 800px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.category {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.category ul {
+
+}
