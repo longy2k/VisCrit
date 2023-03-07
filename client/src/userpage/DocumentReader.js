@@ -1,12 +1,16 @@
-import DocumentFile from "../assets/pdf/Northwestern.pdf"
-import CommentB from './CritiqueBox'
-import EditFile from "./EditFile"
+import DocumentFile from "../assets/images/dashboard.png";
+import CommentBox from './CritiqueBox'
+import {AnnotateScript} from "./AnnotateScript.js"
 
 
 export default function DocumentReader(){
     return (
             <div className="fileView">
-              <object data={DocumentFile} type="application/pdf" width="100%" height="100%"></object>
-            </div>
+            {/*} <object data={DocumentFile} width="100%" height="100%" 
+             ></object> */} 
+            <AnnotateScript/>
+            <CommentBox/>
+         </div>
+    
     )
 }
