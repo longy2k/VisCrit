@@ -1,4 +1,4 @@
-import DocumentFile from "../assets/images/dashboard.png";
+import DocumentFile from "../assets/pdf/Northwestern.pdf";
 import CommentBox from './CritiqueBox'
 import {AnnotateScript} from "./AnnotateScript.js"
 
@@ -9,7 +9,7 @@ export default function DocumentReader(){
             {/*} <object data={DocumentFile} width="100%" height="100%" 
              ></object> */} 
             <AnnotateScript/>
-            <CommentBox/>
+             <CommentBox/>
          </div>
     
     )

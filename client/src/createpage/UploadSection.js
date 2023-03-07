@@ -6,7 +6,8 @@ export default function UploadSection() {
     const [file, setFile] = useState(null);
     const handleChange = (file) => {
         setFile(file);
-    }
+    } 
+    /* needs to do pdf -> img conversion here */ 
     return (
         <div className="uploadSection">
             <FileUploader handleChange={handleChange} name="file" types={fileTypes} />
