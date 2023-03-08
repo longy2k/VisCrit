@@ -14,7 +14,7 @@ function CommentBox({thisItem}){
     return (
         <div className="commentBox">
           <form id="commentForm">
-              <p>Comments</p>
+              <p>Comments ({currentItem.path})</p>
               <textarea id="commentArea" type="text" value={comment} onChange={handleCommentChange}/>
           </form>
         </div>
