@@ -7,6 +7,7 @@ export default function DocumentReader(){
     return (
             <div className="fileView">
               <object data={DocumentFile} type="application/pdf" width="100%" height="100%"></object>
+              <CommentB />
             </div>
     )
 }
