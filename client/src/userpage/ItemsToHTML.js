@@ -7,10 +7,9 @@ export default function ItemsToHTML(itemList=[]){
         itemList.map((item, i) =>
         <ul>
           <li>
-            {item.Display}
+            {item.Display}<button className="checkBox" onClick={(e) => {setItem(item)}}>+</button>
           </li>
-        <li><button className="checkBox" onClick={(e) => {setItem(item)}}>+</button> </li>
-        <li>Rating TODO</li>
+        {/* <li>Rating TODO</li>*/}
         </ul>)
       )
 }

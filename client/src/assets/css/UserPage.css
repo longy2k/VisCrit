@@ -17,9 +17,7 @@
     margin-right: 20px;
 }
 
-.checkBox{
-    margin-right: 20px;
-}
+/* CritiqueBox */
 
 .critiqueBox {
     width: 80%;
@@ -48,27 +46,8 @@
   resize: none;
 }
 
-.GenCommentSection {
-}
-
-.rubricBox {
-  border: 2px solid black;
-  float: right;
-  width: 39%;
-  overflow-y: scroll;
-  height: 800px;
-  border-radius: 20px;
-}
-
-.category {
-  border: 1px solid black;
-  border-radius: 10px;
-  margin: 10px;
-  padding: 10px;
-}
-
-.category ul {
-
+.checkBox{
+    margin-right: 20px;
 }
 
 /*Available Categories, Comment, Location*/
@@ -81,8 +60,6 @@
 .toolBarMenu li {
   margin: 0px 20px;
 }
-
-/*DONE*/
 
 /* pdf, img, ... */
 .fileView {
@@ -103,7 +80,7 @@
   float: right;
   width: 35%;
   overflow-y: scroll;
-  height: 800px;
+  height: 100%;
   margin-bottom: 20px;
   border-radius: 20px;
 }
@@ -116,5 +93,13 @@
 }
 
 .category ul {
+  list-style: none;
+}
 
+.category ul li button {
+  margin: 0px 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 1px 6px 3px 6px;
+  font-weight: bold;
 }
