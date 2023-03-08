@@ -12,13 +12,11 @@ function CommentBox({thisItem}){
     }
 
     return (
-        <div>
-        <form>
-            <div>
-            <label>Comment</label>
-            <textarea type="text" value={comment} onChange={handleCommentChange}/>
-            </div>
-        </form>
+        <div className="commentBox">
+          <form id="commentForm">
+              <p>Comments</p>
+              <textarea id="commentArea" type="text" value={comment} onChange={handleCommentChange}/>
+          </form>
         </div>
     )
 }

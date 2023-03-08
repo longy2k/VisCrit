@@ -9,8 +9,8 @@ export default function ItemsToHTML(itemList=[]){
           <li>
             {item.Display}
           </li>
-        {/*<li><button className="checkBox" onClick={(e) => {setItem(item)}}>+</button> </li>*/}
-        {/*<li>Rating TODO</li>*/}
+        <li><button className="checkBox" onClick={(e) => {setItem(item)}}>+</button> </li>
+        <li>Rating TODO</li>
         </ul>)
       )
 }
