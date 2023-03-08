@@ -63,7 +63,7 @@ export default class Hierarchy{
         return(
             <div className="category">
               <button className="categoryButton" onClick={this.ShowHideCategory} id={this.bText}>-</button>
-              {this.name}
+              <strong>{this.name}</strong>
               <div id={this.name}>
                 {ItemsToHTML(this.itemList)}
                 {this.subHierNames.map((item, i) =>

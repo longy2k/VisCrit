@@ -7,7 +7,7 @@ export default function RubricBox(){
     return(
           <div className="rubricBox">
               <ul className="toolBarMenu">
-                  <li>Available Categories</li>
+                  <li><strong>Available Categories</strong></li>
               </ul>
               {Hierarchy.map((item, i) =>
               <div key={i}>{item.returnHTML()}</div>)}
