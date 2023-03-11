@@ -1,10 +1,10 @@
 import React, {useState} from "react";
-import DocReader from "./DocumentReader";
-import Rubric from "./RubricBox";
+import DocumentReader from "./DocumentReader";
+import RubricBox from "./RubricBox";
 import Critque from "./CritiqueBox";
+import Data_Extractor from "./Data_Extract";
 import { ItemContext } from "./ItemContext";
 import * as XLSX from 'xlsx';
-import Data_Extractor from "./Data_Extract";
 
 import "../assets/css/UserPage.css";
 
@@ -23,12 +23,15 @@ export default function UserPage() {
 
     return (
         <div>
-            <input type="file" onChange={(e) => handleFile(e)}/>
+            <label htmlFor="upload">
+              Import
+            </label>
+            <input type="file" name="upload" id="upload" onChange={(e) => handleFile(e)} />
             {/*<button onClick={(e) => {console.log(Hierarchy)}}>Test</button>*/}
             <div className="userPage" >
                 <ItemContext.Provider value={{currentItem, setItem, Hierarchy}}>
-                    <DocReader />
-                    <Rubric  />
+                    <DocumentReader />
+                    <RubricBox  />
                 </ItemContext.Provider>
             </div>
         </div>
