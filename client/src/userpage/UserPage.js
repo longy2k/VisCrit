@@ -24,7 +24,7 @@ export default function UserPage() {
     return (
         <div>
             <input type="file" onChange={(e) => handleFile(e)}/>
-            <button onClick={(e) => {console.log(Hierarchy)}}>Test</button>
+            {/*<button onClick={(e) => {console.log(Hierarchy)}}>Test</button>*/}
             <div className="userPage" >
                 <ItemContext.Provider value={{currentItem, setItem, Hierarchy}}>
                     <DocReader />
