@@ -103,3 +103,36 @@
   padding: 1px 6px 3px 6px;
   font-weight: bold;
 }
+
+/* Hide file button */
+input[type="file"] {
+  display: none;
+}
+
+/* Import Button */
+
+label[for="upload"] {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+  background-color: #0077cc;
+  color: #fff;
+  font-size: 14px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+label[for="upload"]::before {
+  content: "Choose File";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
