@@ -1,10 +1,10 @@
-import React, {useState} from "react";
-import DocReader from "./DocumentReader";
-import Rubric from "./RubricBox";
+import React, { useEffect, useState} from 'react'
+import DocumentReader from "./DocumentReader";
+import RubricBox from "./RubricBox";
 import Critque from "./CritiqueBox";
+import Data_Extractor from "./Data_Extract";
 import { ItemContext } from "./ItemContext";
 import * as XLSX from 'xlsx';
-import Data_Extractor from "./Data_Extract";
 
 import "../assets/css/UserPage.css";
 
@@ -19,16 +19,20 @@ export default function UserPage() {
         const jsonData = XLSX.utils.sheet_to_json(worksheet, {header: 1, blankrows:false})
         setData(jsonData)
     }
+
     const Hierarchy = Data_Extractor(jsonData);
 
     return (
         <div>
-            <input type="file" onChange={(e) => handleFile(e)}/>
+            {/*<label htmlFor="upload">
+              Import
+            </label>
+            <input type="file" name="upload" id="upload" onChange={(e) => handleFile(e)} />*/}
             {/*<button onClick={(e) => {console.log(Hierarchy)}}>Test</button>*/}
             <div className="userPage" >
                 <ItemContext.Provider value={{currentItem, setItem, Hierarchy}}>
-                    <DocReader />
-                    <Rubric  />
+                    <DocumentReader />
+                    <RubricBox  />
                 </ItemContext.Provider>
             </div>
         </div>

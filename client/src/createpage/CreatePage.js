@@ -27,7 +27,7 @@ export default function CreatePage(){
             <UploadSection />
             <h3>Customize Rubric</h3>
             <ImportSection />
-            <Email />
+            {/*<Email />*/}
           </div>
         </div>
     )
