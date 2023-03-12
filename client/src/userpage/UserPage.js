@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useEffect, useState} from 'react'
 import DocumentReader from "./DocumentReader";
 import RubricBox from "./RubricBox";
 import Critque from "./CritiqueBox";
@@ -19,14 +19,15 @@ export default function UserPage() {
         const jsonData = XLSX.utils.sheet_to_json(worksheet, {header: 1, blankrows:false})
         setData(jsonData)
     }
+
     const Hierarchy = Data_Extractor(jsonData);
 
     return (
         <div>
-            <label htmlFor="upload">
+            {/*<label htmlFor="upload">
               Import
             </label>
-            <input type="file" name="upload" id="upload" onChange={(e) => handleFile(e)} />
+            <input type="file" name="upload" id="upload" onChange={(e) => handleFile(e)} />*/}
             {/*<button onClick={(e) => {console.log(Hierarchy)}}>Test</button>*/}
             <div className="userPage" >
                 <ItemContext.Provider value={{currentItem, setItem, Hierarchy}}>
