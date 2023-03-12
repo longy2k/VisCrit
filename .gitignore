@@ -25,3 +25,6 @@ yarn-error.log*
 
 /client/node_modules/
 /client/build/
+
+# Remove upload data
+/server/uploads/
