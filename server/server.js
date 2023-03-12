@@ -7,7 +7,11 @@ const app = express();
 // Create a storage engine for multer
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'uploads/'); // Set the destination folder where the uploaded files will be stored
+    const uploadDir = 'uploads/';
+    if (!fs.existsSync(uploadDir)) { // Check if the folder exists
+      fs.mkdirSync(uploadDir); // If it doesn't, create it
+    }
+    cb(null, uploadDir); // Set the destination folder where the uploaded files will be stored
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname); // Use the original file name as the file name for the uploaded file
