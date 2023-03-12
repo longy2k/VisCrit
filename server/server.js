@@ -7,9 +7,9 @@ const app = express();
 // Create a storage engine for multer
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    const uploadDir = 'uploads/';
+    const uploadDir = 'uploads';
     if (!fs.existsSync(uploadDir)) { // Check if the folder exists
-      fs.mkdirSync(uploadDir); // If it doesn't, create it
+      fs.mkdirSync(uploadDir, { recursive: true }); // If it doesn't, create it
     }
     cb(null, uploadDir); // Set the destination folder where the uploaded files will be stored
   },
@@ -28,15 +28,7 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
 });
 
 // Route for serving the uploaded files
-app.use(express.static('uploads'));
-
-
-app.use(express.static('public'));
-
-app.get('/uploads/:filename', (req, res) => {
-  const filePath = path.join(__dirname, 'uploads', req.params.filename);
-  res.sendFile(filePath);
-});
+app.use('/uploads', express.static('uploads'));
 
 // Start the server
 app.listen(5000, () => {
