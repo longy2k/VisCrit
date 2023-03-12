@@ -24,9 +24,9 @@ export default function RubricSection(){
 
         // Upload JSON file to server
         const formData = new FormData();
-        formData.append('file', new Blob([JSON.stringify(json)], { type: 'application/json' }), file.name.replace(/\.[^/.]+$/, ".json"));
+        formData.append('file', new Blob([JSON.stringify(json, null, 2)], { type: 'application/json' }), file.name.replace(/\.[^/.]+$/, ".json"));
         try {
-          const response = await axios.post('/api/upload', formData);
+          const response = await axios.post('/api/upload/', formData);
           console.log(response.data);
         } catch (error) {
           console.error(error);
