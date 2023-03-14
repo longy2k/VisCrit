@@ -24,10 +24,10 @@ export default function UserPage() {
 
     return (
         <div>
-            {/*<label htmlFor="upload">
+            <label htmlFor="upload">
               Import
             </label>
-            <input type="file" name="upload" id="upload" onChange={(e) => handleFile(e)} />*/}
+            <input type="file" name="upload" id="upload" onChange={(e) => handleFile(e)} />
             {/*<button onClick={(e) => {console.log(Hierarchy)}}>Test</button>*/}
             <div className="userPage" >
                 <ItemContext.Provider value={{currentItem, setItem, Hierarchy}}>
