@@ -7,36 +7,44 @@ const app = express();
 // Create a storage engine for multer
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    const uploadDir = 'uploads/';
-    if (!fs.existsSync(uploadDir)) { // Check if the folder exists
-      fs.mkdirSync(uploadDir); // If it doesn't, create it
+    let uploadDir = 'uploads';
+    if (file.mimetype === 'application/pdf') {
+      uploadDir = 'uploads/pdf';
+    } else if (file.mimetype === 'application/json') {
+      uploadDir = 'uploads/json';
     }
-    cb(null, uploadDir); // Set the destination folder where the uploaded files will be stored
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir, { recursive: true });
+    }
+    cb(null, uploadDir);
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname); // Use the original file name as the file name for the uploaded file
+    cb(null, file.originalname);
   }
 });
+
 
 // Create an instance of the multer middleware with the storage engine
 const upload = multer({ storage: storage });
 
 // Route for handling file uploads
 app.post('/api/upload', upload.single('file'), (req, res) => {
-  console.log(req.file); // The uploaded file object will be available in the req.file property
-  res.json({ path: req.file.path }); // Send the file name in JSON format
+  console.log(req.file);
+  let filePath;
+  if (req.file.mimetype === 'application/pdf') {
+    filePath = `uploads/pdf/${req.file.filename}`;
+  } else if (req.file.mimetype === 'application/json') {
+    filePath = `uploads/json/${req.file.filename}`;
+  }
+  res.json({ path: filePath });
 });
 
-// Route for serving the uploaded files
-app.use(express.static('uploads'));
+// Route for serving PDF files
+app.use('/uploads/pdf', express.static('uploads/pdf'));
 
+// Route for serving JSON files
+app.use('/uploads/json', express.static('uploads/json'));
 
-app.use(express.static('public'));
-
-app.get('/uploads/:filename', (req, res) => {
-  const filePath = path.join(__dirname, 'uploads', req.params.filename);
-  res.sendFile(filePath);
-});
 
 // Start the server
 app.listen(5000, () => {
@@ -47,20 +55,47 @@ app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 
-// Route for handling GET requests for uploaded files
-app.get('/api/upload', (req, res) => {
-  // Read the contents of the uploads directory
-  fs.readdir('uploads', (err, files) => {
+// Route for handling GET requests for the most recent PDF file
+app.get('/api/upload/pdf', (req, res) => {
+  fs.readdir('uploads/pdf', (err, files) => {
     if (err) {
       console.error(err);
       res.status(500).json({ error: 'Internal server error' });
       return;
     }
-    // Get the most recently modified file
     let mostRecentFile = '';
     let mostRecentTime = 0;
     files.forEach(file => {
-      const filePath = path.join('uploads', file);
+      const filePath = path.join('uploads/pdf', file);
+      fs.stat(filePath, (err, stats) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        if (stats.mtimeMs > mostRecentTime) {
+          mostRecentFile = file;
+          mostRecentTime = stats.mtimeMs;
+        }
+        if (file === files[files.length - 1]) {
+          res.json({ path: `uploads/pdf/${mostRecentFile}` });
+        }
+      });
+    });
+  });
+});
+
+// Route for handling GET requests for the most recent JSON file
+app.get('/api/upload/json', (req, res) => {
+  fs.readdir('uploads/json', (err, files) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal server error' });
+      return;
+    }
+    let mostRecentFile = '';
+    let mostRecentTime = 0;
+    files.forEach(file => {
+      const filePath = path.join('uploads/json', file);
       fs.stat(filePath, (err, stats) => {
         if (err) {
           console.error(err);
@@ -72,7 +107,7 @@ app.get('/api/upload', (req, res) => {
         }
         if (file === files[files.length - 1]) {
           // Send the file data as a JSON response
-          res.json({ path: `uploads/${mostRecentFile}` });
+          res.json({ path: `uploads/json/${mostRecentFile}` });
         }
       });
     });

@@ -6,7 +6,7 @@ export default function DocumentReader() {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    fetch('/api/upload')
+    fetch('/api/upload/pdf')
       .then(response => response.json())
       .then(data => {
         console.log(data.path);

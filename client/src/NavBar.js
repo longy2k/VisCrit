@@ -13,7 +13,7 @@ export default function NavBar() {
                 <li> <Link to="/CS410_northwestern/"><span id="logo">VisCrit</span></Link></li>
                 <li> <Link to="/CS410_northwestern/">Home</Link></li>
                 <li> <Link to="/CS410_northwestern/create">Create</Link></li>
-                <li> <Link to="/CS410_northwestern/view">UserView</Link></li>
+                <li> <Link to="/CS410_northwestern/view">UserPage</Link></li>
             </ul>
           </div>
           <Routes>
