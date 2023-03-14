@@ -1,0 +1,80 @@
+[
+  {
+    "VisCrit": "Steps"
+  },
+  {
+    "__EMPTY": 1,
+    "VisCrit": "Instructor creates an instance of VisCrit that points to a URL continaing an instance of this workbook file (well, a subset of this file, just the 'Rubric' through 'Parameters' sheets. This file contains everything needed for Viscrit to find images, show rubric, prompts, etc, see below"
+  },
+  {
+    "__EMPTY": 2,
+    "VisCrit": "Prompt for password if 'SitePassword' isn't NULL in Parameters worksheet"
+  },
+  {
+    "__EMPTY": 3,
+    "VisCrit": "VisCrit displays interface based on that file, user selected from possible images in box above image"
+  },
+  {
+    "__EMPTY": 4,
+    "VisCrit": "VisCrit displays 'OnEntry' Popups as described in Parameters Worksheet "
+  },
+  {
+    "__EMPTY": 5,
+    "VisCrit": "General View Worksheet: Every time user adds a critique by pushing (+) button in hierarchy, a row is added to VisCrit's internal databse (autosaving progress). "
+  },
+  {
+    "__EMPTY": 6,
+    "VisCrit": "Critique Entry View: Shows how a critique is added"
+  },
+  {
+    "__EMPTY": 7,
+    "VisCrit": "There is no 'save' button, only 'download' of an xls version of their outputfile. Don't let them download until they have entered critiques for all Rubric entries (see Rubric sheet) where 'isMandatory' is true"
+  },
+  {
+    "VisCrit": "Who's it for",
+    "__EMPTY_1": "Worksheets in this book"
+  },
+  {
+    "VisCrit": "For coders",
+    "__EMPTY_1": "Notes",
+    "__EMPTY_2": "This"
+  },
+  {
+    "__EMPTY_1": "VisCritUI_GlobalView",
+    "__EMPTY_2": "The general UI"
+  },
+  {
+    "__EMPTY_1": "VisCritUI_AddCritique",
+    "__EMPTY_2": "UI view when a critique is being added"
+  },
+  {
+    "VisCrit": "InputFile",
+    "__EMPTY_1": "Rubric ",
+    "__EMPTY_2": "Shows what to put in the Rubric box"
+  },
+  {
+    "__EMPTY_1": "Rubrik_ColumnDefinitions",
+    "__EMPTY_2": "Explains each column in Rubric sheet"
+  },
+  {
+    "__EMPTY_1": "FileNames",
+    "__EMPTY_2": "String display names for available filename list, and PNG file to display in the window. "
+  },
+  {
+    "__EMPTY_1": "CritiquerIDs",
+    "__EMPTY_2": "Show these string values in the dropdown for available Critiquer IDs"
+  },
+  {
+    "__EMPTY_1": "TextPrompts",
+    "__EMPTY_2": "Text prompts  to display (with OK button) for pre-defined stages, like 'OnEntry' or 'OnSubmit', in the sequence order specified"
+  },
+  {
+    "__EMPTY_1": "Parameters",
+    "__EMPTY_2": "Custom image & display parameters"
+  },
+  {
+    "VisCrit": "OutputFile",
+    "__EMPTY_1": "Output",
+    "__EMPTY_2": "Specification for the output file - this won't be in the inputfile, this should be what VisCrit creates and saves locally, and also the format of the user's local copy"
+  }
+]
