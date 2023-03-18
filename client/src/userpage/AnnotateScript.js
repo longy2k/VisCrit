@@ -69,12 +69,10 @@ function AnnotateScript() {
       </div>
 
       <img
-        width="1650px"
-        height="805px"
         ref={imgRef}
         src={`http://localhost:5000/${data.path}`}
-        className="image"
         alt="get Image to annotate"
+        id = "annotatedImg"
       />
     </div>
   );
