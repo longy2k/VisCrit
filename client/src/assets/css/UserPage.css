@@ -136,3 +136,60 @@ label[for="upload"]::before {
   opacity: 0;
   cursor: pointer;
 }
+.email{
+  width: 50%;
+  color: black;
+  
+}
+/* .box{
+  border: 2px solid red;
+  width: 220px;
+  margin: 20px;
+  padding: 30px;
+  background: black;
+  color: white;
+
+} */
+
+.buttin{
+  border-radius: 25px;
+  background: blue;
+  padding: 5px;
+  width: 300px;
+  height: 50px;
+  font-weight: bold;
+  color: white;
+  
+}
+.borde{
+  width: 300px;
+  border: 15px black;
+  padding: 25px;
+  margin: 20px;
+  background-color: #0077cc;
+  border-radius: 30px;
+
+}
+.txtb{
+  
+  border-radius: 20px;
+  
+ 
+  padding: 5px;
+  margin: 5px;
+}
+.txtb1{
+  height: 20px;
+  width: 250px;
+  
+  border-radius: 20px;
+  background: white;
+  padding: 5px;
+  margin: 5px;
+}
+.cen{
+  text-align: center;
+  color: white;
+}
+
+
