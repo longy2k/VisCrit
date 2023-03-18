@@ -8,7 +8,7 @@ const app = express();
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     let uploadDir = 'uploads';
-    if (file.mimetype === 'image/jpeg') {
+    if (file.mimetype === 'image/png') {
       uploadDir = 'uploads/img';
     } else if (file.mimetype === 'application/json') {
       uploadDir = 'uploads/json';
@@ -31,7 +31,7 @@ const upload = multer({ storage: storage });
 app.post('/api/upload', upload.single('file'), (req, res) => {
   console.log(req.file);
   let filePath;
-  if (req.file.mimetype === 'image/jpeg') {
+  if (req.file.mimetype === 'image/png') {
     filePath = `uploads/img/${req.file.filename}`;
   } else if (req.file.mimetype === 'application/json') {
     filePath = `uploads/json/${req.file.filename}`;
