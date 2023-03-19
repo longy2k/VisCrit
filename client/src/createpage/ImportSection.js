@@ -1,7 +1,9 @@
 import React, {useState} from "react";
-import Data_Extractor from "../userpage/Data_Extract";
 import * as XLSX from 'xlsx';
 import axios from 'axios';
+import CritqueBox from "../userpage/CritiqueBox";
+import { ItemContext } from "../userpage/ItemContext";
+import Data_Extractor from "../userpage/Data_Extract";
 
 export default function RubricSection(){
 
@@ -16,7 +18,7 @@ export default function RubricSection(){
       reader.onload = async (e) => {
         const data = e.target.result;
         const workbook = XLSX.read(data, { type: "array" });
-        const sheetName = workbook.SheetNames[0];
+        const sheetName = workbook.SheetNames[3];
         const worksheet = workbook.Sheets[sheetName];
         const json = XLSX.utils.sheet_to_json(worksheet);
         setJsonData(json);
@@ -36,6 +38,7 @@ export default function RubricSection(){
     }
   };
 
+  const Hierarchy = Data_Extractor(jsonData);
 
   return (
       <div className="importSection">

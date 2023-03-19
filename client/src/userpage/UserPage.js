@@ -20,7 +20,7 @@ export default function UserPage() {
         setData(jsonData)
     }
 
-    const Hierarchy = Data_Extractor(jsonData);
+    {/* const Hierarchy = Data_Extractor(jsonData); */}
 
     return (
         <div>
@@ -30,10 +30,10 @@ export default function UserPage() {
             <input type="file" name="upload" id="upload" onChange={(e) => handleFile(e)} />
             {/*<button onClick={(e) => {console.log(Hierarchy)}}>Test</button>*/}
             <div className="userPage" >
-                <ItemContext.Provider value={{currentItem, setItem, Hierarchy}}>
-                    <DocumentReader />
+                <DocumentReader />
+
                     <RubricBox  />
-                </ItemContext.Provider>
+  
             </div>
         </div>
     )
