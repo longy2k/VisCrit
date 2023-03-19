@@ -18,7 +18,7 @@ export default function RubricSection(){
       reader.onload = async (e) => {
         const data = e.target.result;
         const workbook = XLSX.read(data, { type: "array" });
-        const sheetName = workbook.SheetNames[3];
+        const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
         const json = XLSX.utils.sheet_to_json(worksheet);
         setJsonData(json);
@@ -38,8 +38,6 @@ export default function RubricSection(){
     }
   };
 
-  const Hierarchy = Data_Extractor(jsonData);
-
   return (
       <div className="importSection">
         <form>
@@ -55,7 +53,18 @@ export default function RubricSection(){
         </form>
         <div className="json-container">
           {jsonData && (
-            <pre>{JSON.stringify(jsonData, null, 2)}</pre>
+            <div>
+              {jsonData.map((item, index) => (
+                <div key={index}>
+                  <div className="rubricBlock">
+                    <p>{item.RubricID}</p>
+                    <p>{item.CatLevel01}</p>
+                    <p>{item.CatLevel_Item}</p>
+                    <p>{item.CatLevel_Item_DisplayText}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           )}
         </div>
       </div>

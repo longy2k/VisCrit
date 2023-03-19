@@ -31,9 +31,7 @@ export default function UserPage() {
             {/*<button onClick={(e) => {console.log(Hierarchy)}}>Test</button>*/}
             <div className="userPage" >
                 <DocumentReader />
-
-                    <RubricBox  />
-  
+                <RubricBox  />
             </div>
         </div>
     )
