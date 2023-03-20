@@ -3,16 +3,19 @@ import { ItemContext } from "./ItemContext"
 
 export default function RubricBox(){
     let {Hierarchy} = useContext(ItemContext)
-    const [data, setData] = useState({});
+    const [jsonData, setData] = useState({});
 
-    useEffect(() => {
+{/*    useEffect(() => {
       fetch('/api/upload/json')
         .then(response => response.json())
-        .then(data => {
-          console.log(data.path);
-          setData(data);
+        .then(jsonData => {
+          console.log("Path: " + jsonData.path);
+          setData(jsonData);
         });
     }, []);
+
+    console.log(JSON.stringify(jsonData, null, 2));
+*/}
 
     return(
           <div className="rubricBox">
@@ -21,6 +24,9 @@ export default function RubricBox(){
               </ul>
               {Hierarchy.map((item, i) =>
               <div key={i}>{item.returnHTML()}</div>)}
+              {/*{Object.keys(jsonData).map((key) => (
+                  <li key={key}>{key}: {JSON.stringify(jsonData[key])}</li>
+              ))}*/}
           </div>
     )
 }
