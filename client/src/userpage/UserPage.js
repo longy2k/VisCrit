@@ -1,12 +1,10 @@
 import React, { useEffect, useState} from 'react'
-import DocumentReader from "./DocumentReader";
 import RubricBox from "./RubricBox";
-import Critque from "./CritiqueBox";
 import Data_Extractor from "./Data_Extract";
 import { ItemContext } from "./ItemContext";
 import * as XLSX from 'xlsx';
-
 import "../assets/css/UserPage.css";
+import AnnotateScript from './AnnotateScript';
 
 export default function UserPage() {
     const[jsonData, setData] = useState([]);
@@ -28,10 +26,10 @@ export default function UserPage() {
     return (
         <div>
             <div className="userPage" >
-              <ItemContext.Provider value={{currentItem, setItem, Hierarchy}}>
-                <DocumentReader />
-                <RubricBox  />
-               </ItemContext.Provider>
+                <ItemContext.Provider value={{currentItem, setItem, Hierarchy}}>
+                    <RubricBox/>
+                    <AnnotateScript/>
+                </ItemContext.Provider>
             </div>
         </div>
     )

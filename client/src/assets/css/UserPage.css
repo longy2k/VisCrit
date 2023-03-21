@@ -28,7 +28,15 @@
   margin: 0px;
 }
 
+#annotatedImg {
+  width : 53vw;
+  height:35vw;
+  border: 2px solid black;
+  margin-bottom: 20px;
+  float: left;
+}
 .commentBox {
+  
 }
 
 #commentForm p {
@@ -78,11 +86,11 @@
 .rubricBox {
   border: 2px solid black;
   float: right;
-  width: 35%;
   overflow-y: scroll;
-  height: 100%;
   margin-bottom: 20px;
   border-radius: 20px;
+  width : 30vw;
+  height:35vw;
 }
 
 .category {
