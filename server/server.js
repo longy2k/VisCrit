@@ -106,8 +106,15 @@ app.get('/api/upload/json', (req, res) => {
           mostRecentTime = stats.mtimeMs;
         }
         if (file === files[files.length - 1]) {
-          // Send the file data as a JSON response
-          res.json({ path: `uploads/json/${mostRecentFile}` });
+          // Read the content of the most recent file and send it as a JSON response
+          fs.readFile(path.join('uploads/json', mostRecentFile), 'utf8', (err, data) => {
+            if (err) {
+              console.error(err);
+              res.status(500).json({ error: 'Internal server error' });
+              return;
+            }
+            res.json(JSON.parse(data));
+          });
         }
       });
     });
