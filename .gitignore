@@ -29,3 +29,4 @@ yarn-error.log*
 
 # Remove upload data
 /server/uploads/
+/client/uploads/
