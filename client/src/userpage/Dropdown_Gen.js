@@ -3,7 +3,8 @@ import ItemsToHTML from "./ItemsToHTML";
 
 export default class Hierarchy{
 
-    constructor(arr = [], bool) {
+    constructor(arr = [], bool, index = []) {
+        this.index = index;
         this.isSub = bool;
         if(this.isSub){
         this.name = arr[8];
@@ -14,11 +15,17 @@ export default class Hierarchy{
         this.subHierNames=[];
         this.subHierList= new Map();
         if(arr[4] == "NULL"){
-            this.itemList.push(new Item(arr));
+            let itemLocation = [...this.index];
+            itemLocation.push(this.itemList.length);
+            this.itemList.push(new Item(arr, itemLocation));
         } else if (this.isSub){
-            this.itemList.push(new Item(arr));
+            let itemLocation = [...this.index];
+            itemLocation.push(this.itemList.length);
+            this.itemList.push(new Item(arr, itemLocation));
         } else {
-            this.subHierList.set(arr[8], new Hierarchy(arr, true));
+            let subIndex = [...this.index];
+            subIndex.push(this.subHierNames.length);
+            this.subHierList.set(arr[8], new Hierarchy(arr, true, subIndex));
             this.subHierNames.push(this.subHierList.get(arr[8]));
         }
         this.bText=this.name+"Tog";
@@ -32,11 +39,17 @@ export default class Hierarchy{
 
     addItem(arr=[]) {
         if(arr[4] == "NULL"){
-            this.itemList.push(new Item(arr))
+            let itemLocation = [...this.index];
+            itemLocation.push(this.itemList.length);
+            this.itemList.push(new Item(arr, itemLocation))
         } else if (this.subHierList.has(arr[8])){
-            this.subHierList.get(arr[8]).itemList.push(new Item(arr))
+            let itemLocation = [...this.subHierList.get(arr[8]).index];
+            itemLocation.push(this.itemList.length);
+            this.subHierList.get(arr[8]).itemList.push(new Item(arr, itemLocation))
         } else {
-            this.subHierList.set(arr[8], new Hierarchy(arr, true))
+            let subIndex = [...this.index];
+            subIndex.push(this.subHierNames.length);
+            this.subHierList.set(arr[8], new Hierarchy(arr, true, subIndex))
             this.subHierNames.push(this.subHierList.get(arr[8]));
         }
     }

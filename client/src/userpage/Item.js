@@ -1,8 +1,10 @@
 export default class Item{
-    constructor(arr) {
+    constructor(arr, itemLoc=[]) {
+        this.itemLocation = itemLoc;
         this.RubicID = arr[0]
-        this.Ld2 = arr[4] + ": ";
-        if(arr[4] === "NULL"){
+        this.cat2 = arr[4]
+        this.Ld2 = this.cat2 + ": ";
+        if(this.cat2 === "NULL"){
             this.Ld2 = ""
         }
         this.Display = arr[9]

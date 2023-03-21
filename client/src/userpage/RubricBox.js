@@ -2,8 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import { ItemContext } from "./ItemContext"
 
 export default function RubricBox(){
-    let {Hierarchy} = useContext(ItemContext)
-    const [jsonData, setData] = useState({});
+    let {Hierarchy} = useContext(ItemContext);
 
 {/*    useEffect(() => {
       fetch('/api/upload/json')
