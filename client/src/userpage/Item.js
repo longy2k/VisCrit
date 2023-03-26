@@ -1,16 +1,16 @@
 export default class Item{
     constructor(arr, itemLoc=[]) {
         this.itemLocation = itemLoc;
-        this.RubicID = arr[0]
-        this.cat2 = arr[4]
+        this.RubicID = arr.RubicID;
+        this.cat2 = arr.CatLevel02
         this.Ld2 = this.cat2 + ": ";
         if(this.cat2 === "NULL"){
             this.Ld2 = ""
         }
-        this.Display = arr[9]
+        this.Display = arr.CatLevel_Item_DisplayText
         this.LocationRt = null
         this.LikertValue = ["", "", "", "", ""]
-        this.path = arr[2] + ": "+ this.Ld2 + arr[6]
+        this.path = arr.CatLevel01 + ": "+ this.Ld2 + arr.CatLevel_Item
     }
 
     setComment(text){
