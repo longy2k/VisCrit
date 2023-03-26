@@ -1,12 +1,10 @@
 import React, { useEffect, useState} from 'react'
-import DocumentReader from "./DocumentReader";
 import RubricBox from "./RubricBox";
-import Critque from "./CritiqueBox";
 import Data_Extractor from "./Data_Extract";
 import { ItemContext } from "./ItemContext";
 import * as XLSX from 'xlsx';
-
 import "../assets/css/UserPage.css";
+import AnnotateScript from './AnnotateScript';
 
 export default function UserPage() {
     const [currentItem, setItem] = useState({});
