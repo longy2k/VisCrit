@@ -2,7 +2,7 @@ import React, { useEffect, useState} from 'react'
 import RubricBox from "./RubricBox";
 import Data_Extractor from "./Data_Extract";
 import { ItemContext } from "./ItemContext";
-import * as XLSX from 'xlsx';
+// import * as XLSX from 'xlsx';
 import "../assets/css/UserPage.css";
 import AnnotateScript from './AnnotateScript';
 
@@ -23,8 +23,9 @@ export default function UserPage() {
         <div>
             <div className="userPage" >
               <ItemContext.Provider value={{currentItem, setItem, Hierarchy, setHierarchy}}>
-                <DocumentReader />
+                {/* <DocumentReader /> */}
                 <RubricBox  />
+                <AnnotateScript/>
                </ItemContext.Provider>
             </div>
         </div>
