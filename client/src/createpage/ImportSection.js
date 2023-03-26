@@ -18,9 +18,9 @@ export default function RubricSection(){
       reader.onload = async (e) => {
         const data = e.target.result;
         const workbook = XLSX.read(data, { type: "array" });
-        const sheetName = workbook.SheetNames[3];
+        const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
-        const json = XLSX.utils.sheet_to_json(worksheet, {header: 1, blankrows:false});
+        const json = XLSX.utils.sheet_to_json(worksheet);
         setJsonData(json);
         console.log(json);
 
@@ -52,7 +52,7 @@ export default function RubricSection(){
             />
         </form>
         <div className="json-container">
-          {/*{jsonData && (
+          {jsonData && (
             <div>
               {jsonData.map((item, index) => (
                 <div key={index}>
@@ -61,11 +61,21 @@ export default function RubricSection(){
                     <p>{item.CatLevel01}</p>
                     <p>{item.CatLevel_Item}</p>
                     <p>{item.CatLevel_Item_DisplayText}</p>
+                    <p>{item.CatLevel02}</p>
+                    <p>{item.CatLevel02_DefaultStateOpen}</p>
+                    <p>{item.CatLevel02_DisplayText}</p>
+                    <p>{item.CatLevel02_MouseOverText}</p>
+                    <p>{item.CatLevel_Item}</p>
+                    <p>{item.CatLevel_Item_DisplayText}</p>
+                    <p>{item.CatLevel_Item_MouseOverText}</p>
+                    <p>{item.HasLikert}</p>
+                    <p>{item.HasLocation}</p>
+                    <p>{item.MustEnterCritique}</p>
                   </div>
                 </div>
               ))}
             </div>
-          )}*/}
+          )}
         </div>
       </div>
   )
