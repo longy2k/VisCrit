@@ -7,29 +7,25 @@ import "../assets/css/UserPage.css";
 import AnnotateScript from './AnnotateScript';
 
 export default function UserPage() {
-    const[jsonData, setData] = useState([]);
     const [currentItem, setItem] = useState({});
+    const [Hierarchy, setHierarchy] = useState([]);
 
     useEffect(() => {
       fetch('/api/upload/json')
         .then(response => response.json())
         .then(jsonData => {
           console.log("Path: " + jsonData.path);
-          setData(jsonData);
+          setHierarchy(Data_Extractor(jsonData));
         });
     }, []);
-
-    console.log(jsonData);
-
-    const Hierarchy = Data_Extractor(jsonData);
 
     return (
         <div>
             <div className="userPage" >
-                <ItemContext.Provider value={{currentItem, setItem, Hierarchy}}>
-                    <RubricBox/>
-                    <AnnotateScript/>
-                </ItemContext.Provider>
+              <ItemContext.Provider value={{currentItem, setItem, Hierarchy, setHierarchy}}>
+                <DocumentReader />
+                <RubricBox  />
+               </ItemContext.Provider>
             </div>
         </div>
     )
