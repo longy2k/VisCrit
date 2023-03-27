@@ -117,7 +117,7 @@ input[type="file"] {
   display: none;
 }
 
-/* Import Button */
+/* Import Button
 
 label[for="upload"] {
   position: relative;
@@ -143,7 +143,7 @@ label[for="upload"]::before {
   height: 100%;
   opacity: 0;
   cursor: pointer;
-}
+} */
 .email{
   width: 50%;
   color: black;
