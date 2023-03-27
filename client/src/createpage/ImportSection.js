@@ -8,6 +8,7 @@ import Data_Extractor from "../userpage/Data_Extract";
 export default function RubricSection(){
 
   const [jsonData, setJsonData] = useState(null);
+  const [fileUploaded, setFileUploaded] = useState(false);
 
   const readUploadFile = async (e) => {
     e.preventDefault();
@@ -21,7 +22,7 @@ export default function RubricSection(){
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
         const json = XLSX.utils.sheet_to_json(worksheet);
-        setJsonData(json);
+        setJsonData(json);setFileUploaded(true);
         console.log(json);
 
         // Upload JSON file to server
@@ -37,6 +38,10 @@ export default function RubricSection(){
       reader.readAsArrayBuffer(file);
     }
   };
+
+  function handleSendButtonClick() {
+    alert("SENT! (sort of, not really)");
+  }
 
   return (
       <div className="importSection">
@@ -78,6 +83,11 @@ export default function RubricSection(){
               ))}
             </div>
           )}
+            {fileUploaded && (
+              <button className="sendButton" onClick={handleSendButtonClick}>
+                Send
+              </button>
+            )}
         </div>
       </div>
   )
