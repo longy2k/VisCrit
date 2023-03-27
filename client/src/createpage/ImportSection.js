@@ -41,7 +41,7 @@ export default function RubricSection(){
   };
 
   function handleSendButtonClick() {
-    alert("SENT! (sort of, not really)");
+    // alert("SENT! (sort of, not really)");
   }
 
   return (
@@ -106,9 +106,9 @@ export default function RubricSection(){
             </div>
           )}
             {fileUploaded && (
-              <button className="sendButton" onClick={handleSendButtonClick}>
+              <a href="/cs410_northwestern/view"><button className="sendButton" onClick={handleSendButtonClick}>
                 Send
-              </button>
+              </button></a>
             )}
         </div>
       </div>
