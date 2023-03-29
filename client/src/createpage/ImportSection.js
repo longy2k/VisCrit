@@ -80,9 +80,9 @@ export default function RubricSection(){
                 ))}
               </div>
             ))}
+            <h2>Participants (ADD EMAIL COMPONENT BELOW)</h2>
           </div>
         )}
-        <h2>Participants (ADD EMAIL COMPONENT BELOW)</h2>
             {fileUploaded && (
               <a href="/view/"><button className="sendButton" onClick={handleSendButtonClick}>
                 Send
