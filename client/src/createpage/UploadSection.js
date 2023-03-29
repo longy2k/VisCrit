@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { FileUploader } from "react-drag-drop-files";
 
-const fileTypes = ["PNG", "IMG", "JPG", "JPEG"];
+const fileTypes = ["PDF", "PNG", "IMG", "JPG", "JPEG"];
 
 export default function UploadSection() {
   const [file, setFile] = useState(null);

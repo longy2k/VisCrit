@@ -8,8 +8,8 @@ const app = express();
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     let uploadDir = 'uploads';
-    if (file.mimetype === 'image/png') {
-      uploadDir = 'uploads/img';
+    if (file.mimetype === 'application/pdf') {
+      uploadDir = 'uploads/pdf';
     } else if (file.mimetype === 'application/json') {
       uploadDir = 'uploads/json';
     }
@@ -31,16 +31,16 @@ const upload = multer({ storage: storage });
 app.post('/api/upload', upload.single('file'), (req, res) => {
   console.log(req.file);
   let filePath;
-  if (req.file.mimetype === 'image/png') {
-    filePath = `uploads/img/${req.file.filename}`;
+  if (req.file.mimetype === 'application/pdf') {
+    filePath = `uploads/pdf/${req.file.filename}`;
   } else if (req.file.mimetype === 'application/json') {
     filePath = `uploads/json/${req.file.filename}`;
   }
   res.json({ path: filePath });
 });
 
-// Route for serving image files
-app.use('/uploads/img', express.static('uploads/img'));
+// Route for serving PDF files
+app.use('/uploads/pdf', express.static('uploads/pdf'));
 
 // Route for serving JSON files
 app.use('/uploads/json', express.static('uploads/json'));
@@ -55,9 +55,9 @@ app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 
-// Route for handling GET requests for the most recent image file
-app.get('/api/upload/img', (req, res) => {
-  fs.readdir('uploads/img', (err, files) => {
+// Route for handling GET requests for the most recent PDF file
+app.get('/api/upload/pdf', (req, res) => {
+  fs.readdir('uploads/pdf', (err, files) => {
     if (err) {
       console.error(err);
       res.status(500).json({ error: 'Internal server error' });
@@ -66,7 +66,7 @@ app.get('/api/upload/img', (req, res) => {
     let mostRecentFile = '';
     let mostRecentTime = 0;
     files.forEach(file => {
-      const filePath = path.join('uploads/img', file);
+      const filePath = path.join('uploads/pdf', file);
       fs.stat(filePath, (err, stats) => {
         if (err) {
           console.error(err);
@@ -77,7 +77,7 @@ app.get('/api/upload/img', (req, res) => {
           mostRecentTime = stats.mtimeMs;
         }
         if (file === files[files.length - 1]) {
-          res.json({ path: `uploads/img/${mostRecentFile}` });
+          res.json({ path: `uploads/pdf/${mostRecentFile}` });
         }
       });
     });
