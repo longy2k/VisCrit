@@ -43,7 +43,6 @@ label[for="upload"]::before {
 }
 
 .sendButton {
-  display: inline-block;
   background-color: #7C4DFF;
   color: white;
   padding: 5px 20px;

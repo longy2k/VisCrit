@@ -10,16 +10,16 @@ export default function NavBar() {
         <Router>
           <div className="navBar">
             <ul>
-                <li> <Link to="/CS410_northwestern/"><span id="logo">VisCrit</span></Link></li>
-                <li> <Link to="/CS410_northwestern/">Home</Link></li>
-                <li> <Link to="/CS410_northwestern/create">Create</Link></li>
-                <li> <Link to="/CS410_northwestern/view">UserPage</Link></li>
+                <li> <Link to="/"><span id="logo">VisCrit</span></Link></li>
+                <li> <Link to="/">Home</Link></li>
+                <li> <Link to="create/">Create</Link></li>
+                <li> <Link to="/view/">UserPage</Link></li>
             </ul>
           </div>
           <Routes>
-              <Route exact path='/CS410_northwestern/' element={< HomePage />}></Route>
-              <Route exact path='/CS410_northwestern/create' element={< CreatePage />}></Route>
-              <Route exact path='/CS410_northwestern/view' element={< UserPage />}></Route>
+              <Route exact path='/' element={< HomePage />}></Route>
+              <Route exact path='/create/' element={< CreatePage />}></Route>
+              <Route exact path='/view/' element={< UserPage />}></Route>
           </Routes>
         </Router>
     )
