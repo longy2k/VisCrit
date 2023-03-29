@@ -24,9 +24,9 @@ export default function CreatePage(){
         <div className="createPage">
           <div className="center">
             <h1>Create or Import Rubric</h1>
-            <h3>Upload Media</h3>
+            <h2>Upload Media</h2>
             <UploadSection />
-            <h3>Customize Rubric</h3>
+            <h2>Customize Rubric</h2>
             <ImportSection />
             {/*<Email />*/}
           </div>

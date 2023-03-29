@@ -8,10 +8,19 @@
   margin: auto;
 }
 
-.rubricBlock {
+.groupedRubricBlock {
   border: 1px solid black;
+  border-radius: 10px;
   margin: 20px 0px;
-  padding: 0px 20px;
+  padding: 20px 20px;
+}
+
+.groupedRubricBlock p {
+  margin: 10px 0px;
+}
+
+.groupedRubricBlock p:last-child {
+  margin: 10px 0px 0px 0px;
 }
 
 /* Import Button */
