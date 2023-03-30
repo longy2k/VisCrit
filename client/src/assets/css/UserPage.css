@@ -71,11 +71,26 @@
 
 /* pdf, img, ... */
 .fileView {
-  width: 60%;
-  height: 70%;
+  width: 60%; 
+  height: 100%; 
+  max-height: 100%;
   border: 2px solid black;
   margin-bottom: 20px;
   float: left;
+  overflow-y: auto;
+}
+
+.react-pdf__Page__canvas {
+  background-color: red;
+  min-width: none;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.react-pdf__Page__textContent,
+.react-pdf__Page__annotations, .annotationLayer,
+.textLayer {
+  display: none;
 }
 
 #toolbar {
