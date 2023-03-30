@@ -1,28 +1,3 @@
-// import React, { useState, useEffect } from 'react';
-// import CommentB from './CritiqueBox';
-// import AnnotateScript from "./AnnotateScript";
-
-// export default function DocumentReader() {
-//   const [data, setData] = useState({});
-
-//   useEffect(() => {
-//     fetch('/api/upload/pdf')
-//       .then(response => response.json())
-//       .then(data => {
-//         console.log(data.path);
-//         setData(data);
-//       });
-//   }, []);
-
-//   return (
-//     <div className="fileView">
-//     {data.path && <embed src={`http://localhost:5000/${data.path}`}
-//       type="application/pdf" width="100%" height="100%" />}
-//       <CommentB />
-//     </div>
-//   );
-// }
-
 import React, { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import CommentB from './CritiqueBox';
@@ -49,18 +24,20 @@ export default function DocumentReader() {
   }, []);
 
   return (
-    <div className="fileView">
-      {data.path && (
-        <Document
-          file={`http://localhost:5000/${data.path}`}
-          onLoadSuccess={onDocumentLoadSuccess}
-        >
-          {Array.from(new Array(numPages), (el, index) => (
-            <Page key={`page_${index + 1}`} pageNumber={index + 1} />
-          ))}
-        </Document>
-      )}
-      <CommentB />
+    <div className='docView'>
+      <div className="fileView">
+        {data.path && (
+          <Document
+            file={`http://localhost:5000/${data.path}`}
+            onLoadSuccess={onDocumentLoadSuccess}
+          >
+            {Array.from(new Array(numPages), (el, index) => (
+              <Page key={`page_${index + 1}`} pageNumber={index + 1} />
+            ))}
+          </Document>
+        )}
+      </div>
+      <CommentB/>
     </div>
   );
 }
