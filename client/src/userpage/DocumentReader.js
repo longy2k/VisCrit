@@ -47,8 +47,8 @@ export default function DocumentReader() {
         )}
       </div>
       <div className="pageNavigation">
-          <button disabled={pageNumber <= 1} onClick={handlePreviousPage}>LEFT</button>
-          <button disabled={pageNumber >= numPages} onClick={handleNextPage}>RIGHT</button>
+          <button className="leftButton" disabled={pageNumber <= 1} onClick={handlePreviousPage}>&#8592;</button>
+          <button className="rightButton" disabled={pageNumber >= numPages} onClick={handleNextPage}>&#8594;</button>
       </div>
       <CommentB/>
     </div>

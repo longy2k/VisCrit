@@ -220,7 +220,6 @@ label[for="upload"]::before {
   color: white;
 }
 
-
 .exportButton {
   background-color: #7C4DFF;
   color: white;
@@ -231,4 +230,18 @@ label[for="upload"]::before {
   cursor: pointer;
   float: right;
   margin: 10px 10px 20px 20px;
+}
+
+.pageNavigation {
+  float: right;
+  margin: 10px 0px;
+}
+
+.leftButton {
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.rightButton {
+  padding: 5px;
 }
