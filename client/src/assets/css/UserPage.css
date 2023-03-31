@@ -35,9 +35,7 @@
   margin-bottom: 20px;
   float: left;
 }
-.commentBox {
-  
-}
+
 
 #commentForm p {
   margin: 0px 15%;
@@ -104,6 +102,7 @@
 
 /* RubricBox components */
 .rubricBox {
+  padding-top: 100px; /* to allow popup to display for top elements, will need a better fix*/
   border: 2px solid black;
   float: right;
   overflow-y: scroll;
@@ -220,4 +219,41 @@ label[for="upload"]::before {
   color: white;
 }
 
+/* On Hover Effects */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  
+}
 
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 320px;
+  background-color: whitesmoke;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext{
+  visibility: visible;
+  border: 1px solid black;
+  width: 320 px;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px; 
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 19%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: gray transparent transparent transparent;
+}

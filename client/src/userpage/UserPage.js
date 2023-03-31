@@ -19,7 +19,7 @@ export default function UserPage() {
           setHierarchy(Data_Extractor(jsonData));
         });
     }, []);
-
+    
     return (
         <div>
             <div className="userPage" >

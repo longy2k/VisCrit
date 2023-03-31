@@ -2,7 +2,7 @@ import React from "react";
 import CommentBox from "./CommentBox";
 import CritiqueBox from "./CritiqueBox";
 
-export default function GenCommentSection(item){
+export default function GenCommentSection(item, index){
     return(
         <div className="GenCommentSection">
         {/*<ul className="category-items">
@@ -16,7 +16,7 @@ export default function GenCommentSection(item){
                 RATING
             </li>
         </ul>*/}
-        <CommentBox thisItem={item}/>
+        <CommentBox thisItem={item} index={index}/>
         </div>
     )
 }
