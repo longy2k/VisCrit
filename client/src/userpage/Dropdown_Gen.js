@@ -3,14 +3,15 @@ import ItemsToHTML from "./ItemsToHTML";
 
 export default class Hierarchy{
     /* Contructs a Hierarchy with item, boolean for whether this is a sub Hierarchy, and index location of current Hierarchy in Data_Extract */
-    constructor(arr = [], bool, index = []) {
-        this.index = index;
+    constructor(arr = [], bool) {
         this.isSub = bool;
         /* Checks if is subHierarchy before assigning correct Hierarchy name */
         if(this.isSub){
         this.name = arr.CatLevel02_DisplayText;
+        this.mouseOver = arr.CatLevel02_MouseOverText;
         } else{
-          this.name = arr.CatLevel01;
+            this.mouseOver = arr.CatLevel01_MouseOverText;
+            this.name = arr.CatLevel01;
         }
         /* ItemList is where all the items in the current Hierarchy is stored */
         this.itemList=[];
@@ -20,17 +21,11 @@ export default class Hierarchy{
         this.subHierList= new Map();
         /* Checks if there is subHierarchy, if not, adds to Item list. If there is, create new sub Hierarchy and add item to sub Hierarchy ItemList*/
         if(arr.CatLevel02 == "NULL"){
-            let itemLocation = [...this.index];
-            itemLocation.push(this.itemList.length);
-            this.itemList.push(new Item(arr, itemLocation));
+            this.itemList.push(new Item(arr));
         } else if (this.isSub){
-            let itemLocation = [...this.index];
-            itemLocation.push(this.itemList.length);
-            this.itemList.push(new Item(arr, itemLocation));
+            this.itemList.push(new Item(arr));
         } else {
-            let subIndex = [...this.index];
-            subIndex.push(this.subHierNames.length);
-            this.subHierList.set(arr.CatLevel02_DisplayText, new Hierarchy(arr, true, subIndex));
+            this.subHierList.set(arr.CatLevel02_DisplayText, new Hierarchy(arr, true));
             this.subHierNames.push(this.subHierList.get(arr.CatLevel02_DisplayText));
         }
         this.bText=this.name+"Tog";
@@ -44,17 +39,11 @@ export default class Hierarchy{
     /* Adds item to correct Hierarchy, essentially the same as the add Item in constructor */
     addItem(arr=[]) {
         if(arr.CatLevel02 == "NULL"){
-            let itemLocation = [...this.index];
-            itemLocation.push(this.itemList.length);
-            this.itemList.push(new Item(arr, itemLocation))
+            this.itemList.push(new Item(arr))
         } else if (this.subHierList.has(arr.CatLevel02_DisplayText)){
-            let itemLocation = [...this.subHierList.get(arr.CatLevel02_DisplayText).index];
-            itemLocation.push(this.itemList.length);
-            this.subHierList.get(arr.CatLevel02_DisplayText).itemList.push(new Item(arr, itemLocation))
+            this.subHierList.get(arr.CatLevel02_DisplayText).itemList.push(new Item(arr))
         } else {
-            let subIndex = [...this.index];
-            subIndex.push(this.subHierNames.length);
-            this.subHierList.set(arr.CatLevel02_DisplayText, new Hierarchy(arr, true, subIndex))
+            this.subHierList.set(arr.CatLevel02_DisplayText, new Hierarchy(arr, true))
             this.subHierNames.push(this.subHierList.get(arr.CatLevel02_DisplayText));
         }
     }
@@ -82,7 +71,10 @@ export default class Hierarchy{
         return(
             <div className="category">
               <button className="categoryButton" onClick={this.ShowHideCategory} id={this.bText}>-</button>
-              <strong>{this.name}</strong>
+              <div className="tooltip">
+                <span className="tooltiptext">{this.mouseOver}</span>
+                <strong>{this.name}</strong>
+                </div>
               <div id={this.name}>
                 {ItemsToHTML(this.itemList)}
                 {this.subHierNames.map((item, i) =>
