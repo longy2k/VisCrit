@@ -9,6 +9,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 export default function DocumentReader() {
   const [data, setData] = useState({});
   const [numPages, setNumPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
 
   function onDocumentLoadSuccess({ numPages: nextNumPages }) {
     setNumPages(nextNumPages);
@@ -23,19 +24,31 @@ export default function DocumentReader() {
       });
   }, []);
 
+  const handlePreviousPage = () => {
+    setPageNumber(pageNumber - 1);
+  }
+
+  const handleNextPage = () => {
+    setPageNumber(pageNumber + 1);
+  }
+
   return (
     <div className='docView'>
       <div className="fileView">
         {data.path && (
-          <Document
-            file={`http://localhost:5000/${data.path}`}
-            onLoadSuccess={onDocumentLoadSuccess}
-          >
-            {Array.from(new Array(numPages), (el, index) => (
-              <Page key={`page_${index + 1}`} pageNumber={index + 1} />
-            ))}
-          </Document>
+          <>
+            <Document
+              file={`http://localhost:5000/${data.path}`}
+              onLoadSuccess={onDocumentLoadSuccess}
+            >
+              <Page pageNumber={pageNumber} />
+            </Document>
+          </>
         )}
+      </div>
+      <div className="pageNavigation">
+          <button className="leftButton" disabled={pageNumber <= 1} onClick={handlePreviousPage}>&#8592;</button>
+          <button className="rightButton" disabled={pageNumber >= numPages} onClick={handleNextPage}>&#8594;</button>
       </div>
       <CommentB/>
     </div>

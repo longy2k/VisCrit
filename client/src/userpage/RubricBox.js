@@ -1,6 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { ItemContext } from "./ItemContext"
 
+function handleExportButtonClick() {
+    alert("EXPORTED! (sort of, not really)");
+  }
+
 export default function RubricBox(){
     let {Hierarchy} = useContext(ItemContext);
 
@@ -11,6 +15,9 @@ export default function RubricBox(){
               </ul>
               {Hierarchy.map((item, i) =>
               <div key={i}>{item.returnHTML()}</div>)}
+              <a href="#"><button className="exportButton" onClick={handleExportButtonClick}>
+                Export
+              </button></a>
           </div>
     )
 }
