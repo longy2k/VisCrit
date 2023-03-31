@@ -43,12 +43,12 @@ export default function DocumentReader() {
             >
               <Page pageNumber={pageNumber} />
             </Document>
-            <div className="pageNavigation">
-              <button disabled={pageNumber <= 1} onClick={handlePreviousPage}>LEFT</button>
-              <button disabled={pageNumber >= numPages} onClick={handleNextPage}>RIGHT</button>
-            </div>
           </>
         )}
+      </div>
+      <div className="pageNavigation">
+          <button disabled={pageNumber <= 1} onClick={handlePreviousPage}>LEFT</button>
+          <button disabled={pageNumber >= numPages} onClick={handleNextPage}>RIGHT</button>
       </div>
       <CommentB/>
     </div>
