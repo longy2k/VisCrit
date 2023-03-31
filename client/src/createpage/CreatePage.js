@@ -3,11 +3,8 @@ import UploadSection from "./UploadSection"
 import ImportSection from "./ImportSection"
 
 import '../assets/css/CreatePage.css';
-import dataGetter from './DataGetterEmail';
-import Email from './Email';
-import Datagetter from './DataGetterEmail';
-import HomeComponent from './DataGetterEmail';
-import EmailData from './DataGetterEmail';
+
+
 import EmailDatas from './EmailTesting';
 
 export default function CreatePage(){
