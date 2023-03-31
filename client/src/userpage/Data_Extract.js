@@ -7,15 +7,12 @@ export default function Data_Extractor(jsonData=[]){
     const HierarchyMap = new Map();
     let index = -1;
     for(let data in jsonData){
-        let itemLocation = [];
         if(HierarchyMap.has(jsonData[data].CatLevel01)){
-            itemLocation.push(index);
             HierarchyMap.get(jsonData[data].CatLevel01).addItem(jsonData[data]);
         }
         else{
             index+=1; 
-            itemLocation.push(index);
-            HierarchyMap.set(jsonData[data].CatLevel01, new Hierarchy(jsonData[data], false, itemLocation));
+            HierarchyMap.set(jsonData[data].CatLevel01, new Hierarchy(jsonData[data], false));
             Hierarchies.push(HierarchyMap.get(jsonData[data].CatLevel01));
         }
     }

@@ -2,32 +2,54 @@ import React, {useContext} from "react";
 import { ItemContext } from "./ItemContext";
 
 export default function ItemsToHTML(itemList=[]){
-    const {setItem} = useContext(ItemContext);
+    const {currentItem, setItem} = useContext(ItemContext);
+
+    function CommentResults(item=[]){
+      return(
+        <div>
+          {ButtonGen(0,item)}
+          {ButtonGen(1,item)}
+          {ButtonGen(2,item)}
+          {ButtonGen(3,item)}
+          {ButtonGen(4,item)}
+        </div>
+      )
+    }
+
+    function RemoveComment(item, num){
+      item.setComment("", num);
+      /* force re-render by setting Item to something*/
+      if(currentItem === null){
+        setItem([]);
+      } else {
+        setItem(null);
+      }
+    }
+
+    function ButtonGen(num=0, item=[]){
+      return(
+        <div style={{'visibility':`${item.LikertValue[num] === '' ?  'hidden':'visible'}` }} className="tooltip">
+          <span className="tooltiptext">{item.LikertValue[num]}</span>
+          <button onClick={()=>{RemoveComment(item,num)}}>{num+1}</button>
+        </div>
+      )
+    }
+
     return (
         itemList.map((item, i) =>
         <ul>
           <li>
-            {item.Display}<button className="checkBox" onClick={() => {setItem(item)}}>+</button>
+            <div className="tooltip">
+              <span className="tooltiptext">{item.mouseOver}</span>
+              {item.Display}
+            </div>
+              <button className="checkBox" onClick={() => {setItem(item)}}>+</button>
+            
           </li>
-        {commentResults(item.LikertValue)}
+          {CommentResults(item)}
         </ul>)
       )
 }
 
-function commentResults(likeRating=[]){
-  return(
-    <div>
-      {likeRating[0]==="" ? null: buttonGen()}
-      {likeRating[1]==="" ? null: buttonGen()}
-      {likeRating[2]==="" ? null: buttonGen()}
-      {likeRating[3]==="" ? null: buttonGen()}
-      {likeRating[4]==="" ? null: buttonGen()}
-    </div>
-  )
-}
 
-function buttonGen(){
-  return(
-    <button>_</button>
-  )
-}
+
