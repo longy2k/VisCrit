@@ -3,7 +3,12 @@ import UploadSection from "./UploadSection"
 import ImportSection from "./ImportSection"
 
 import '../assets/css/CreatePage.css';
+import dataGetter from './DataGetterEmail';
 import Email from './Email';
+import Datagetter from './DataGetterEmail';
+import HomeComponent from './DataGetterEmail';
+import EmailData from './DataGetterEmail';
+import EmailDatas from './EmailTesting';
 
 export default function CreatePage(){
 
@@ -27,7 +32,11 @@ export default function CreatePage(){
             <UploadSection />
             <h3>Customize Rubric</h3>
             <ImportSection />
-            {/*<Email />*/}
+           
+            <EmailDatas />
+            
+            
+            
           </div>
         </div>
     )
