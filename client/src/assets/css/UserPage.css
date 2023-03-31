@@ -221,3 +221,14 @@ label[for="upload"]::before {
 }
 
 
+.exportButton {
+  background-color: #7C4DFF;
+  color: white;
+  padding: 6px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  float: right;
+  margin: 10px 10px 20px 20px;
+}
