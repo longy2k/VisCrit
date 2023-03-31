@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const app = express();
 
+
 // Create a storage engine for multer
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -37,6 +38,14 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
     filePath = `uploads/json/${req.file.filename}`;
   }
   res.json({ path: filePath });
+});
+
+// react-pdf `Access-Control-Allow-Origin` to display pdf
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
 });
 
 // Route for serving PDF files

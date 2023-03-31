@@ -70,12 +70,32 @@
 }
 
 /* pdf, img, ... */
-.fileView {
-  width: 60%;
-  height: 70%;
-  border: 2px solid black;
-  margin-bottom: 20px;
+
+.docView {
+  width: 60%; 
+  height: 100%;
+  max-height: 100%;
   float: left;
+  /* border: 2px solid red; */
+}
+
+.fileView {
+  height: 65%;
+  border: 2px solid black;
+  overflow-y: auto;
+}
+
+.react-pdf__Page__canvas {
+  min-width: none;
+  width: 100% !important;
+  height: auto !important;
+  border-bottom: 1px solid black; /* Add a margin between pages */
+}
+
+.react-pdf__Page__textContent,
+.react-pdf__Page__annotations, .annotationLayer,
+.textLayer {
+  display: none;
 }
 
 #toolbar {
@@ -88,9 +108,9 @@
   float: right;
   overflow-y: scroll;
   margin-bottom: 20px;
-  border-radius: 20px;
+  border-radius: 10px;
   width : 30vw;
-  height:35vw;
+  height:42vw;
 }
 
 .category {
@@ -201,3 +221,14 @@ label[for="upload"]::before {
 }
 
 
+.exportButton {
+  background-color: #7C4DFF;
+  color: white;
+  padding: 6px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  float: right;
+  margin: 10px 10px 20px 20px;
+}
