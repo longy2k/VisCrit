@@ -31,7 +31,6 @@ export default function DocumentReader() {
     const context = canvas.getContext('2d');
     let isDrawing = false;
     let startX, startY;
-    let rectangles = []; // An array to store the rectangles
   
     canvas.addEventListener('mousedown', (event) => {
       context.fillStyle = "#0000FF";
@@ -78,10 +77,6 @@ export default function DocumentReader() {
       });
     });
   }
-  
-  
-  
-
 
   useEffect(() => {
     fetch('/api/upload/pdf')
@@ -93,10 +88,25 @@ export default function DocumentReader() {
   }, []);
 
   const handlePreviousPage = () => {
+    const canvases = document.querySelectorAll('.react-pdf__Page canvas');
+  
+    canvases.forEach((canvas) => {
+      if (!canvas.classList.contains('react-pdf__Page__canvas')) {
+        canvas.parentNode.removeChild(canvas);
+      }
+    });
+  
     setPageNumber(pageNumber - 1);
   }
-
   const handleNextPage = () => {
+    const canvases = document.querySelectorAll('.react-pdf__Page canvas');
+  
+    canvases.forEach((canvas) => {
+      if (!canvas.classList.contains('react-pdf__Page__canvas')) {
+        canvas.parentNode.removeChild(canvas);
+      }
+    });
+  
     setPageNumber(pageNumber + 1);
   }
 
