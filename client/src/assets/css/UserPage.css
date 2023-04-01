@@ -102,7 +102,7 @@
 
 /* RubricBox components */
 .rubricBox {
-  padding-top: 100px; /* to allow popup to display for top elements, will need a better fix*/
+  /* padding-top: 100px; to allow popup to display for top elements, will need a better fix */
   border: 2px solid black;
   float: right;
   overflow-y: scroll;

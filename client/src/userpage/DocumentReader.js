@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import CommentB from './CritiqueBox';
-import AnnotateScript from "./AnnotateScript";
 
 // Set the worker URL to the version bundled with react-pdf.
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -13,6 +12,13 @@ export default function DocumentReader() {
 
   function onDocumentLoadSuccess({ numPages: nextNumPages }) {
     setNumPages(nextNumPages);
+  }
+
+  function onRenderSuccess() {
+    const canvas = document.querySelector('.react-pdf__Page__canvas'); // get the canvas element
+    const context = canvas.getContext('2d'); // get the canvas context
+    context.fillStyle = 'blue';
+    context.fillRect(50, 600, 100, 50); // move the rectangle to (50, 400)
   }
 
   useEffect(() => {
@@ -40,8 +46,9 @@ export default function DocumentReader() {
             <Document
               file={`http://localhost:5000/${data.path}`}
               onLoadSuccess={onDocumentLoadSuccess}
+              renderMode="canvas"
             >
-              <Page pageNumber={pageNumber} />
+              <Page pageNumber={pageNumber} onRenderSuccess={onRenderSuccess} />
             </Document>
           </>
         )}
