@@ -21,8 +21,6 @@ export default function DocumentReader() {
     const context = canvas.getContext('2d'); // get the canvas context
     let isDrawing = false;
     let startX, startY;
-    context.fillStyle = 'blue';
-    context.fillRect(50, 600, 100, 50);
     canvas.addEventListener('mousedown', (event) => {
       isDrawing = true;
       console.log(isDrawing);
@@ -36,6 +34,8 @@ export default function DocumentReader() {
         const height = event.offsetY - startY;
         context.fillRect(startX, startY, width, height);
         console.log("YES");
+        context.fillStyle = 'blue';
+      context.fillRect(startX, startY, width, height);
       }
     });
 
