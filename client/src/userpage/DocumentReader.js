@@ -18,39 +18,38 @@ export default function DocumentReader() {
   
   let rectangles = []; // declare an empty array to store the rectangles
 
-  function onRenderSuccess() {
-    const canvas = document.querySelector('.react-pdf__Page__canvas'); // get the canvas element
-    const context = canvas.getContext('2d'); // get the canvas context
-    let isDrawing = false;
-    let startX, startY;
-    canvas.addEventListener('mousedown', (event) => {
-      isDrawing = true;
-      console.log(isDrawing);
-      startX = event.offsetX;
-      startY = event.offsetY;
-    });
+function onRenderSuccess() {
+  const canvas = document.querySelector('.react-pdf__Page__canvas'); // get the canvas element
+  const context = canvas.getContext('2d'); // get the canvas context
+  let isDrawing = false;
+  let startX, startY;
 
-    canvas.addEventListener('mousemove', (event) => {
-      if (isDrawing) {
-        const width = event.offsetX - startX;
-        const height = event.offsetY - startY;
-        context.fillRect(startX, startY, width, height);
-        console.log("YES");
-        context.fillStyle = 'blue';
-        context.fillRect(startX, startY, width, height);
-      }
-    });
+  canvas.addEventListener('mousedown', (event) => {
+    isDrawing = true;
+    startX = event.offsetX;
+    startY = event.offsetY;
+  });
 
-    canvas.addEventListener('mouseup', (event) => {
-      isDrawing = false;
+  canvas.addEventListener('mousemove', (event) => {
+    if (isDrawing) {
+      // context.clearRect(0, 0, canvas.width, canvas.height);
       const width = event.offsetX - startX;
       const height = event.offsetY - startY;
-      const rectangle = { x: startX, y: startY, width, height };
-      rectangles.push(rectangle); // add the rectangle to the array
-      console.log(rectangles); // display the array in the console
-    });
+      context.fillStyle = 'blue';
+      context.fillRect(startX, startY, width, height);
+    }
+  });
 
-  }
+  canvas.addEventListener('mouseup', (event) => {
+    isDrawing = false;
+    const width = event.offsetX - startX;
+    const height = event.offsetY - startY;
+    const rectangle = { x: startX, y: startY, width, height };
+    rectangles.push(rectangle); // add the rectangle to the array
+    console.log(rectangles); // display the array in the console
+  });
+}
+
 
   useEffect(() => {
     fetch('/api/upload/pdf')
