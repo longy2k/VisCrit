@@ -88,6 +88,7 @@
   width: 100% !important;
   height: auto !important;
   border-bottom: 1px solid black; /* Add a margin between pages */
+  background-color: white;
 }
 
 .react-pdf__Page__textContent,
