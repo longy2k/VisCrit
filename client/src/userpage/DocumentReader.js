@@ -15,6 +15,8 @@ export default function DocumentReader() {
   function onDocumentLoadSuccess({ numPages: nextNumPages }) {
     setNumPages(nextNumPages);
   }
+  
+  let rectangles = []; // declare an empty array to store the rectangles
 
   function onRenderSuccess() {
     const canvas = document.querySelector('.react-pdf__Page__canvas'); // get the canvas element
@@ -35,20 +37,19 @@ export default function DocumentReader() {
         context.fillRect(startX, startY, width, height);
         console.log("YES");
         context.fillStyle = 'blue';
-      context.fillRect(startX, startY, width, height);
+        context.fillRect(startX, startY, width, height);
       }
     });
 
     canvas.addEventListener('mouseup', (event) => {
       isDrawing = false;
+      const width = event.offsetX - startX;
+      const height = event.offsetY - startY;
+      const rectangle = { x: startX, y: startY, width, height };
+      rectangles.push(rectangle); // add the rectangle to the array
+      console.log(rectangles); // display the array in the console
     });
-    
-    // canvas.addEventListener('click', (event) => {
-    //   const x = event.offsetX; // get the x-coordinate of the cursor relative to the canvas
-    //   const y = event.offsetY; // get the y-coordinate of the cursor relative to the canvas
-    //   const imageData = context.getImageData(50, 600, 100, 50); // get the image data of the original rectangle
-    //   context.putImageData(imageData, x, y); // draw the image data at the cursor position
-    // });
+
   }
 
   useEffect(() => {
