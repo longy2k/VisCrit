@@ -93,10 +93,10 @@
 
 .react-pdf__Page canvas:first-child {
   position: absolute; /* or "position: fixed;" */
-  top: 0;
+  /* top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 0; */
   z-index: 1;
   background-color: red;
   width: 100%;

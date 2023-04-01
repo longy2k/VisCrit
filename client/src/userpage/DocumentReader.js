@@ -24,42 +24,64 @@ export default function DocumentReader() {
     const context = canvas.getContext('2d');
     let isDrawing = false;
     let startX, startY;
-  
-    canvas.addEventListener('mousedown', (event) => {
-      isDrawing = true;
+
+    canvas.addEventListener('click', (event) => {
+      console.log("clicked!");
+    
+      // set the fill color to green
+      context.fillStyle = "#00FF00";
+    
+      // set the start point and the width and height of the square
       const rect = canvas.getBoundingClientRect();
-      startX = event.clientX - rect.left;
-      startY = event.clientY - rect.top;
-      rectangle = { x: startX, y: startY, width: 0, height: 0 };
+      const adjustmentX = rect.left + window.pageXOffset;
+      const adjustmentY = rect.top + window.pageYOffset;
+    
+      // set the start point and the width and height of the square
+      startX = event.clientX - adjustmentX;
+      startY = event.clientY - adjustmentY;
+      const width = 50;
+      const height = 25;
+    
+      // draw the square on the canvas
+      context.fillRect(100, 0, width, height);
+      console.log(startX, startY);
     });
   
-    canvas.addEventListener('mousemove', (event) => {
-      if (isDrawing) {
-        const rect = canvas.getBoundingClientRect();
-        const currentX = event.clientX - rect.left;
-        const currentY = event.clientY - rect.top;
-        const width = currentX - startX;
-        const height = currentY - startY;
-        rectangle.width = width;
-        rectangle.height = height;
-        context.clearRect(0, 0, canvas.width, canvas.height);
+    // canvas.addEventListener('mousedown', (event) => {
+    //   isDrawing = true;
+    //   const rect = canvas.getBoundingClientRect();
+    //   startX = event.clientX - rect.left;
+    //   startY = event.clientY - rect.top;
+    //   rectangle = { x: startX, y: startY, width: 10, height: 10 };
+    // });
   
-        // Draw existing rectangles
-        context.fillStyle = 'blue';
-        rectangles.forEach((rect) => {
-          context.fillRect(rect.x, rect.y, rect.width, rect.height);
-        });
+    // canvas.addEventListener('mousemove', (event) => {
+    //   if (isDrawing) {
+    //     const rect = canvas.getBoundingClientRect();
+    //     const currentX = event.clientX - rect.left;
+    //     const currentY = event.clientY - rect.top;
+    //     const width = currentX - startX;
+    //     const height = currentY - startY;
+    //     rectangle.width = width;
+    //     rectangle.height = height;
+    //     context.clearRect(0, 0, canvas.width, canvas.height);
   
-        // Draw the current rectangle
-        context.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
-      }
-    });
+    //     // Draw existing rectangles
+    //     context.fillStyle = 'blue';
+    //     rectangles.forEach((rect) => {
+    //       context.fillRect(rect.x, rect.y, rect.width, rect.height);
+    //     });
   
-    canvas.addEventListener('mouseup', (event) => {
-      isDrawing = false;
-      rectangles.push(rectangle);
-      rectangle = null;
-    });
+    //     // Draw the current rectangle
+    //     context.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+    //   }
+    // });
+  
+    // canvas.addEventListener('mouseup', (event) => {
+    //   isDrawing = false;
+    //   rectangles.push(rectangle);
+    //   rectangle = null;
+    // });
   }
   
   // let rectangles = []; // declare an empty array to store the rectangles
