@@ -19,14 +19,36 @@ export default function DocumentReader() {
   function onRenderSuccess() {
     const canvas = document.querySelector('.react-pdf__Page__canvas'); // get the canvas element
     const context = canvas.getContext('2d'); // get the canvas context
+    let isDrawing = false;
+    let startX, startY;
     context.fillStyle = 'blue';
-    context.fillRect(50, 600, 100, 50); // move the rectangle to (50, 400)
-    canvas.addEventListener('click', (event) => {
-      const x = event.offsetX; // get the x-coordinate of the cursor relative to the canvas
-      const y = event.offsetY; // get the y-coordinate of the cursor relative to the canvas
-      const imageData = context.getImageData(50, 600, 100, 50); // get the image data of the original rectangle
-      context.putImageData(imageData, x, y); // draw the image data at the cursor position
+    context.fillRect(50, 600, 100, 50);
+    canvas.addEventListener('mousedown', (event) => {
+      isDrawing = true;
+      console.log(isDrawing);
+      startX = event.offsetX;
+      startY = event.offsetY;
     });
+
+    canvas.addEventListener('mousemove', (event) => {
+      if (isDrawing) {
+        const width = event.offsetX - startX;
+        const height = event.offsetY - startY;
+        context.fillRect(startX, startY, width, height);
+        console.log("YES");
+      }
+    });
+
+    canvas.addEventListener('mouseup', (event) => {
+      isDrawing = false;
+    });
+    
+    // canvas.addEventListener('click', (event) => {
+    //   const x = event.offsetX; // get the x-coordinate of the cursor relative to the canvas
+    //   const y = event.offsetY; // get the y-coordinate of the cursor relative to the canvas
+    //   const imageData = context.getImageData(50, 600, 100, 50); // get the image data of the original rectangle
+    //   context.putImageData(imageData, x, y); // draw the image data at the cursor position
+    // });
   }
 
   useEffect(() => {
