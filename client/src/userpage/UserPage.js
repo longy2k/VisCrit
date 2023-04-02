@@ -24,7 +24,8 @@ export default function UserPage() {
         <div>
             <div className="userPage" >
               <ItemContext.Provider value={{currentItem, setItem, Hierarchy, setHierarchy}}>
-                <DocumentReader /> {/* Show pdf files*/}
+                {/* Show pdf files*/}
+                <DocumentReader/>
                 <RubricBox  />
                 {/* <AnnotateScript/> Show png files */}
                </ItemContext.Provider>

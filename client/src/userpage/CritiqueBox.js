@@ -10,7 +10,7 @@ export default function CritiqueBox(){
     if(currentItem instanceof Item){
         return (
             <div className="critiqueBox" >
-                <button>Location</button> {/*for eventual location*/}
+                <button className="generalButton">Location</button> {/*for eventual location*/}
                 <button style={{'visibility':`${currentItem.LikertValue[0] === '' ?  'visible' : 'hidden'}` }}id="one" onClick={() => {setIndex(0)}}>1</button>
                 <button style={{'visibility':`${currentItem.LikertValue[1] === '' ?  'visible' : 'hidden'}` }}id="two" onClick={() => {setIndex(1)}}>2</button>
                 <button style={{'visibility':`${currentItem.LikertValue[2] === '' ?  'visible' : 'hidden'}` }}id="three" onClick={() => {setIndex(2)}}>3</button>

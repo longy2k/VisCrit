@@ -12,10 +12,12 @@ export default function RubricBox(){
           <div className="rubricBox">
               <ul className="toolBarMenu">
                   <li><strong>Available Categories</strong></li>
+                  <br></br>
+
               </ul>
               {Hierarchy.map((item, i) =>
               <div key={i}>{item.returnHTML()}</div>)}
-              <a href="#"><button className="exportButton" onClick={handleExportButtonClick}>
+              <a href="#"><button className="generalButton" style={{float:"right"}} onClick={handleExportButtonClick}>
                 Export
               </button></a>
           </div>

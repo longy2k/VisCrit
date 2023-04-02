@@ -5,27 +5,80 @@
   /* background-color: red; */
 }
 
-
-.category-items {
-  list-style: none;
-  display: flex;
-  font-size: 18px;
+button {
+  color: rgb(255, 255, 255);
+  background-color: #7700ff;
+  margin-bottom: 3px;
+  display: inline-block;
+  border: 0px solid transparent;
+  border-radius: 4px;
+  box-shadow: rgba(167, 167, 167, 0.4) 0px 2px 3px;
+  font-size: 14px;
 }
 
-
-.categoryButton {
-    margin-right: 20px;
+.generalButton {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  margin-right: .5em;
+  width: 120px;
+  height: 40px;
+  background-color: #7C4DFF;
+  color: #fff;
+  font-size: 14px;
+  border: 0px solid transparent;
+  border-radius: 4px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
 }
 
-/* CritiqueBox */
+/*
+ *
+ *          SCROLLBAR
+ *
+*/
 
-.critiqueBox {
-    width: 80%;
-    margin: 15px auto;
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
 }
 
-.critiqueBox p{
-  margin: 0px;
+::-webkit-scrollbar {
+	width: 6px;
+  background-color: #F5F5F5;
+
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4rem;
+	background-color: #3d3c3d;
+}
+
+/*
+ *
+ *          RATING BUTTONS
+ *
+*/
+
+#one {
+  background-color: #3c43ac;
+  display: inline-block;
+  padding: 0px 12px;
+  border: 0px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: 400;
+  height: 36px;
+  transition: all 150ms ease-in-out 0s;
+ }
+
+ #one:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(35, 38, 105);
+  box-shadow: rgba(16, 10, 118, 0.4) 0px 2px 3px;
 }
 
 .commentBoxButtons {
@@ -55,60 +108,113 @@
   margin: 10px 10px 20px 20px;
 }
 
-#annotatedImg {
-  width : 53vw;
-  height:35vw;
-  border: 2px solid black;
-  margin-bottom: 20px;
-  float: left;
-}
-
-
-#commentForm p {
-  margin: 10px 15% 0px 15%;
-  font-weight: bold;
-}
-
-
-#commentArea {
-  margin: 5px 15% 0px 15%;
-  height: 150px;
-  width: 70%;
-  border: 1px solid gray;
+#two {
+  background-color: #80add7; 
+  display: inline-block;
+  padding: 0px 12px;
+  border: 0px solid transparent;
   border-radius: 4px;
-  resize: none;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: 400;
+  height: 36px;
+  transition: all 150ms ease-in-out 0s;
 }
 
-.checkBox{
-    margin-right: 20px;
+#two:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(101, 131, 187);
+  box-shadow: rgba(88, 80, 243, 0.4) 0px 2px 3px;
+}
+
+#three {
+  background-color: #b3b3b5;
+  display: inline-block;
+  padding: 0px 12px;
+  border: 0px solid transparent;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: 400;
+  height: 36px;
+  transition: all 150ms ease-in-out 0s;
+}
+
+#three:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(147, 147, 147);
+  box-shadow: rgba(182, 182, 182, 0.4) 0px 2px 3px;
+}
+
+#four {
+  background-color: #e9a3a3;
+  display: inline-block;
+  padding: 0px 12px;
+  border: 0px solid transparent;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: 400;
+  height: 36px;
+  transition: all 150ms ease-in-out 0s;
+}
+
+#four:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(222, 137, 137);
+  box-shadow: rgba(247, 165, 165, 0.4) 0px 2px 3px;
 }
 
 
-/*Available Categories, Comment, Location*/
-.toolBarMenu {
-  list-style: none;
-  display: flex;
-  font-size: 18px;
+#five {
+  background-color: #c41010;
+  display: inline-block;
+  outline: 0;
+  appearance: none;
+  padding: 0px 12px;
+  border: 0px solid transparent;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: rgba(167, 167, 167, 0.4) 0px 2px 3px;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: 400;
+  height: 36px;
+  transition: all 150ms ease-in-out 0s;
 }
 
-.toolBarMenu li {
-  margin: 0px 20px;
+#five:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(153, 11, 11);
+  box-shadow: rgba(146, 15, 15, 0.4) 0px 2px 3px;
 }
 
-/* pdf, img, ... */
+/*
+ *
+ *          PDF / CANVAS
+ *
+*/
 
 .docView {
   width: 60%; 
   height: 100%;
   max-height: 100%;
   float: left;
-  /* border: 2px solid red; */
 }
 
 .fileView {
   height: 65%;
   border: 1px solid gray;
   overflow-y: auto;
+  border: 1px solid #eee;
+  box-shadow: 0px 3px 5px -2px black;
+ /* border-radius: 10px; */
 }
 
 .react-pdf__Page__canvas {
@@ -136,16 +242,19 @@
   display: none;
 }
 
-#toolbar {
-  display: none;
-}
+/*
+ *
+ *          RUBRIC COMPONENTS
+ *
+*/
 
-/* RubricBox components */
 .rubricBox {
   /* padding-top: 100px; to allow popup to display for top elements, will need a better fix */
-  border: 1px solid gray;
+  border: 1px solid #eee;
+  box-shadow: 0px 3px 5px -2px black;
   float: right;
   overflow-y: scroll;
+  overflow-x: hidden;
   margin-bottom: 20px;
   border-radius: 10px;
   width : 30vw;
@@ -153,7 +262,7 @@
 }
 
 .category {
-  border: 1px solid gray;
+  border: 1px solid #cfcaca;
   border-radius: 10px;
   margin: 10px;
   padding: 10px;
@@ -161,86 +270,122 @@
 
 .category ul {
   list-style: none;
+  margin: 0;
 }
 
 .category ul li button {
-  margin: 0px 10px;
-  border: 1px solid black;
-  border-radius: 20px;
-  padding: 1px 6px 3px 6px;
-  font-weight: bold;
+  display: inline-block;
+  margin: 0 .5rem;
+  border: 1.3px solid #7C4DFF;
+  background-color: white;
+  color: #7C4DFF;
+  font-size: 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-radius: 2rem;
 }
 
-/* Hide file button */
-input[type="file"] {
+.category ul li button:hover {
+  box-shadow: rgba(120, 117, 127, 0.4) 0px 2px 2px;
+}
+
+.categoryButton {
+  border-radius: .2rem;
+  display: inline-block;
+  border: 1px solid #7C4DFF;
+  background-color: #7C4DFF;
+  font-size: 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: white;
+  margin-right: 20px;
+}
+
+.categoryButton:hover {
+  color: #7C4DFF;
+  background-color: white;
+}
+
+.category-items {
+  list-style: none;
+  display: flex;
+  font-size: 18px;
+}
+
+#toolbar {
   display: none;
 }
 
-/* On Hover Effects */
-.tooltip {
-  position: relative;
-  display: inline-block;
-  
+/*Available Categories, Comment, Location*/
+.toolBarMenu {
+  list-style: none;
+  display: flex;
+  font-size: 24px;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 320px;
-  background-color: whitesmoke;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  position: absolute;
+/*
+ *
+ *          COMMENT BOX
+ *
+*/
+
+#commentForm p {
+  margin: .8% 15%;
+  font-weight: bold;
 }
 
-.tooltip:hover .tooltiptext{
-  visibility: visible;
-  border: 1px solid gray;
-  width: 320px;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -60px; 
+#commentArea {
+  margin: 5px 15% 20px 15%;
+  height: 150px;
+  width: 70%;
+  border: 1px solid #cfcaca;
+  box-shadow: 0px 3px 5px -2px black;
+  border-radius: 10px;
+  resize: none;
+  transition: box-shadow 0.15s ease;
 }
 
-.tooltip .tooltiptext::after {
-  content: " ";
-  position: absolute;
-  top: 100%;
-  left: 19%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: gray transparent transparent transparent;
+#commentArea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px hsla(260, 1%, 50%, 0.8);
 }
 
-.exportButton {
-  background-color: #7C4DFF;
-  color: white;
-  padding: 6px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  float: right;
-  margin: 10px 10px 20px 20px;
+.checkBox{
+  margin-right: 20px;
 }
 
-/* Import Button
+.critiqueBox {
+  width: 80%;
+  margin: 15px auto;
+}
+
+.critiqueBox p{
+  margin: 0px;
+}
+ 
+/*
+ *
+ *          EMAIL 
+ *
+*/
 
 .email{
   width: 50%;
   color: black;
-  
 }
-/* .box{
+
+.box{
   border: 2px solid red;
   width: 220px;
   margin: 20px;
   padding: 30px;
   background: black;
   color: white;
-
-} */
+} 
 
 .buttin{
   border-radius: 25px;
@@ -250,8 +395,8 @@ input[type="file"] {
   height: 50px;
   font-weight: bold;
   color: white;
-  
 }
+
 .borde{
   width: 300px;
   border: 15px black;
@@ -259,29 +404,81 @@ input[type="file"] {
   margin: 20px;
   background-color: #0077cc;
   border-radius: 30px;
-
 }
+
 .txtb{
-  
   border-radius: 20px;
-  
- 
   padding: 5px;
   margin: 5px;
 }
+
 .txtb1{
   height: 20px;
   width: 250px;
-  
   border-radius: 20px;
   background: white;
   padding: 5px;
   margin: 5px;
 }
+
 .cen{
   text-align: center;
   color: white;
 }
+
+/*
+ *
+ *          HOVER / TOOLTIP
+ *
+*/
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip a:hover {
+  opacity: 1;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  width: 20rem;
+  border-radius: 1rem;
+  padding: .3rem;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 70%;
+  margin-left: -2.5rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext{
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent transparent;
+}
+
+/*
+ *
+ *          PAGE NAVIGATION
+ *
+*/
 
 .pageNavigation {
   float: right;
@@ -289,10 +486,46 @@ input[type="file"] {
 }
 
 .leftButton {
-  padding: 5px;
-  margin-right: 10px;
+  position: relative;
+  display: inline-block;
+  margin-right: .5em;
+  width: 40px;
+  height: 40px;
+  background-color: #7C4DFF;
+  color: #fff;
+  font-size: 14px;
+  border: 0px solid transparent;
+  border-radius: 4px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .rightButton {
-  padding: 5px;
+  position: relative;
+  display: inline-block;
+  margin-right: .5em;
+  width: 40px;
+  height: 40px;
+  background-color: #7C4DFF;
+  color: #fff;
+  font-size: 14px;
+  border: 0px solid transparent;
+  border-radius: 4px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#annotatedImg {
+  width : 53vw;
+  height:35vw;
+  border: 2px solid black;
+  margin-bottom: 20px;
+  float: left;
+}
+
+/* Hide file button */
+input[type="file"] {
+  display: none;
 }
