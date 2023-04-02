@@ -5,39 +5,15 @@
   /* background-color: red; */
 }
 
-.category-items {
-  list-style: none;
-  display: flex;
-  font-size: 18px;
-}
-
-
-.categoryButton {
-    margin-right: 20px;
-}
-
-/* CritiqueBox */
-
-.critiqueBox {
-    width: 80%;
-    margin: 15px auto;
-}
-
-.critiqueBox p{
-  margin: 0px;
-}
-
-#annotatedImg {
-  width : 53vw;
-  height:35vw;
-  border: 2px solid black;
-  margin-bottom: 20px;
-  float: left;
-}
-
-#commentForm p {
-  margin: 0px 15%;
-  font-weight: bold;
+button {
+  color: rgb(255, 255, 255);
+  background-color: #7700ff;
+  margin-bottom: 3px;
+  display: inline-block;
+  border: 0px solid transparent;
+  border-radius: 4px;
+  box-shadow: rgba(167, 167, 167, 0.4) 0px 2px 3px;
+  font-size: 14px;
 }
 
 .generalButton {
@@ -56,20 +32,42 @@
   text-align: center;
   cursor: pointer;
 }
+
 /*
-*  the rating numbers' css
+ *
+ *          SCROLLBAR
+ *
 */
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+	width: 6px;
+  background-color: #F5F5F5;
+
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4rem;
+	background-color: #3d3c3d;
+}
+
+/*
+ *
+ *          RATING BUTTONS
+ *
+*/
+
 #one {
   background-color: #3c43ac;
   display: inline-block;
-  outline: 0;
-  appearance: none;
   padding: 0px 12px;
   border: 0px solid transparent;
   border-radius: 4px;
-  text-decoration: none;
   cursor: pointer;
-  box-shadow: rgba(31, 45, 174, 0.4) 0px 2px 3px;
   color: rgb(255, 255, 255);
   font-size: 14px;
   font-weight: 400;
@@ -84,16 +82,12 @@
 }
 
 #two {
-  background-color: #6f73e0; 
+  background-color: #80add7; 
   display: inline-block;
-  outline: 0;
-  appearance: none;
   padding: 0px 12px;
   border: 0px solid transparent;
   border-radius: 4px;
-  text-decoration: none;
   cursor: pointer;
-  box-shadow: rgba(59, 75, 223, 0.4) 0px 2px 3px;
   color: rgb(255, 255, 255);
   font-size: 14px;
   font-weight: 400;
@@ -103,21 +97,18 @@
 
 #two:hover {
   color: rgb(255, 255, 255);
-  background-color: rgb(75, 83, 222);
+  background-color: rgb(101, 131, 187);
   box-shadow: rgba(88, 80, 243, 0.4) 0px 2px 3px;
 }
 
 #three {
   background-color: #b3b3b5;
   display: inline-block;
-  outline: 0;
-  appearance: none;
   padding: 0px 12px;
   border: 0px solid transparent;
   border-radius: 4px;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: rgba(167, 167, 167, 0.4) 0px 2px 3px;
   color: rgb(255, 255, 255);
   font-size: 14px;
   font-weight: 400;
@@ -134,14 +125,11 @@
 #four {
   background-color: #e9a3a3;
   display: inline-block;
-  outline: 0;
-  appearance: none;
   padding: 0px 12px;
   border: 0px solid transparent;
   border-radius: 4px;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: rgba(167, 167, 167, 0.4) 0px 2px 3px;
   color: rgb(255, 255, 255);
   font-size: 14px;
   font-weight: 400;
@@ -179,47 +167,26 @@
   box-shadow: rgba(146, 15, 15, 0.4) 0px 2px 3px;
 }
 
-#commentArea {
-  margin: 5px 15% 20px 15%;
-  height: 150px;
-  width: 70%;
-  border: 2px solid black;
-  border-radius: 4px;
-  resize: none;
-}
-
-.checkBox{
-    margin-right: 20px;
-}
-
-/*Available Categories, Comment, Location*/
-.toolBarMenu {
-  list-style: none;
-  display: flex;
-  font-size: 18px;
-}
-
-.toolBarMenu li {
-  margin: 0px 20px;
-}
-
-/* pdf, img, ... */
+/*
+ *
+ *          PDF / CANVAS
+ *
+*/
 
 .docView {
   width: 60%; 
   height: 100%;
   max-height: 100%;
   float: left;
-  
-  /* border: 2px solid red; */
 }
 
 .fileView {
   height: 65%;
   border: 2px solid black;
   overflow-y: auto;
+  border: 1px solid #eee;
+  box-shadow: 0px 3px 5px -2px black;
  /* border-radius: 10px; */
-
 }
 
 .react-pdf__Page__canvas {
@@ -247,16 +214,19 @@
   display: none;
 }
 
-#toolbar {
-  display: none;
-}
+/*
+ *
+ *          RUBRIC COMPONENTS
+ *
+*/
 
-/* RubricBox components */
 .rubricBox {
   /* padding-top: 100px; to allow popup to display for top elements, will need a better fix */
-  border: 2px solid black;
+  border: 1px solid #eee;
+  box-shadow: 0px 3px 5px -2px black;
   float: right;
   overflow-y: scroll;
+  overflow-x: hidden;
   margin-bottom: 20px;
   border-radius: 10px;
   width : 30vw;
@@ -264,7 +234,7 @@
 }
 
 .category {
-  border: 1px solid black;
+  border: 1px solid #cfcaca;
   border-radius: 10px;
   margin: 10px;
   padding: 10px;
@@ -272,13 +242,12 @@
 
 .category ul {
   list-style: none;
-  margin: .1;
+  margin: 0;
 }
 
 .category ul li button {
   display: inline-block;
   margin: 0 .5rem;
-  padding: .1rem .5rem;
   border: 1.3px solid #7C4DFF;
   background-color: white;
   color: #7C4DFF;
@@ -287,7 +256,6 @@
   text-decoration: none;
   transition: all 0.2s ease;
   border-radius: 2rem;
-
 }
 
 .category ul li button:hover {
@@ -304,6 +272,7 @@
   text-decoration: none;
   transition: all 0.3s ease;
   color: white;
+  margin-right: 20px;
 }
 
 .categoryButton:hover {
@@ -311,52 +280,84 @@
   background-color: white;
 }
 
-/* Hide file button */
-input[type="file"] {
+.category-items {
+  list-style: none;
+  display: flex;
+  font-size: 18px;
+}
+
+#toolbar {
   display: none;
 }
 
-/* Import Button
-
-label[for="upload"] {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-  width: 120px;
-  height: 40px;
-  background-color: #0077cc;
-  color: #fff;
-  font-size: 14px;
-  line-height: 40px;
-  text-align: center;
-  border-radius: 4px;
-  cursor: pointer;
+/*Available Categories, Comment, Location*/
+.toolBarMenu {
+  list-style: none;
+  display: flex;
+  font-size: 24px;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
-label[for="upload"]::before {
-  content: "Choose File";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
-} */
+/*
+ *
+ *          COMMENT BOX
+ *
+*/
+
+#commentForm p {
+  margin: .8% 15%;
+  font-weight: bold;
+}
+
+#commentArea {
+  margin: 5px 15% 20px 15%;
+  height: 150px;
+  width: 70%;
+  border: 1px solid #cfcaca;
+  box-shadow: 0px 3px 5px -2px black;
+  border-radius: 10px;
+  resize: none;
+  transition: box-shadow 0.15s ease;
+}
+
+#commentArea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px hsla(260, 1%, 50%, 0.8);
+}
+
+.checkBox{
+  margin-right: 20px;
+}
+
+.critiqueBox {
+  width: 80%;
+  margin: 15px auto;
+}
+
+.critiqueBox p{
+  margin: 0px;
+}
+ 
+/*
+ *
+ *          EMAIL 
+ *
+*/
+
 .email{
   width: 50%;
   color: black;
-  
 }
-/* .box{
+
+.box{
   border: 2px solid red;
   width: 220px;
   margin: 20px;
   padding: 30px;
   background: black;
   color: white;
-
-} */
+} 
 
 .buttin{
   border-radius: 25px;
@@ -364,11 +365,10 @@ label[for="upload"]::before {
   padding: 5px;
   width: 300px;
   height: 50px;
-  
   font-weight: bold;
   color: white;
-  
 }
+
 .borde{
   width: 300px;
   border: 15px black;
@@ -376,68 +376,82 @@ label[for="upload"]::before {
   margin: 20px;
   background-color: #0077cc;
   border-radius: 30px;
-
 }
+
 .txtb{
-  
   border-radius: 20px;
-  
- 
   padding: 5px;
   margin: 5px;
 }
+
 .txtb1{
   height: 20px;
   width: 250px;
-  
   border-radius: 20px;
   background: white;
   padding: 5px;
   margin: 5px;
 }
+
 .cen{
   text-align: center;
   color: white;
 }
 
-/* On Hover Effects */
+/*
+ *
+ *          HOVER / TOOLTIP
+ *
+*/
+
 .tooltip {
   position: relative;
   display: inline-block;
-  
+}
+
+.tooltip a:hover {
+  opacity: 1;
 }
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 320px;
-  background-color: whitesmoke;
+  background-color: #555;
+  color: #fff;
   text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-
+  width: 20rem;
+  border-radius: 1rem;
+  padding: .3rem;
   position: absolute;
   z-index: 1;
+  bottom: 125%;
+  left: 70%;
+  margin-left: -2.5rem;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 .tooltip:hover .tooltiptext{
   visibility: visible;
-  border: 1px solid black;
-  width: 320 px;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -60px; 
+  opacity: 1;
 }
 
 .tooltip .tooltiptext::after {
-  content: " ";
+  content: "";
   position: absolute;
   top: 100%;
-  left: 19%;
+  left: 50%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: gray transparent transparent transparent;
+  border-color: transparent transparent transparent transparent;
 }
+
+/*
+ *
+ *          PAGE NAVIGATION
+ *
+*/
+
 .pageNavigation {
   float: right;
   margin: 10px 0px;
@@ -473,4 +487,17 @@ label[for="upload"]::before {
   line-height: 40px;
   text-align: center;
   cursor: pointer;
+}
+
+#annotatedImg {
+  width : 53vw;
+  height:35vw;
+  border: 2px solid black;
+  margin-bottom: 20px;
+  float: left;
+}
+
+/* Hide file button */
+input[type="file"] {
+  display: none;
 }

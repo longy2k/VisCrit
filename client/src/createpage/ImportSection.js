@@ -84,7 +84,7 @@ export default function RubricSection(){
           </div>
         )}
             {fileUploaded && (
-              <a href="/view/"><button className="sendButton" onClick={handleSendButtonClick}>
+              <a href="/view/"><button className="generalButton" style ={{float:"right", marginBottom:"3em"}} onClick={handleSendButtonClick}>
                 Send
               </button></a>
             )}
