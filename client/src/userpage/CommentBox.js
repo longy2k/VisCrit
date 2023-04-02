@@ -20,9 +20,9 @@ function CommentBox({thisItem, index}){
               <p>Comments ({thisItem.path})</p>
               <textarea id="commentArea" type="text" value={comment} onChange={handleCommentChange}/>
           </form>
-          <div>
-            <button onClick={() => {saveReturn(comment)}}>Submit</button>
-            <button onClick={() => {setItem(null)}}>Cancel</button>
+          <div className="commentBoxButtons">
+            <button className="submitButton" onClick={() => {saveReturn(comment)}}>Submit</button>
+            {/* <button className="cancelButton" onClick={() => {setItem(null)}}>Cancel</button> */}
           </div>
         </div>
     )

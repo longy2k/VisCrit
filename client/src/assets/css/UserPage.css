@@ -28,6 +28,33 @@
   margin: 0px;
 }
 
+.commentBoxButtons {
+  float: right;
+  margin: 0 13%;
+}
+
+.submitButton {
+  background-color: #7C4DFF;
+  color: white;
+  padding: 6px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px 10px 20px 20px;
+}
+
+.cancelButton {
+  background-color: #7C4DFF;
+  color: white;
+  padding: 6px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px 10px 20px 20px;
+}
+
 #annotatedImg {
   width : 53vw;
   height:35vw;
@@ -38,16 +65,16 @@
 
 
 #commentForm p {
-  margin: 0px 15%;
+  margin: 10px 15% 0px 15%;
   font-weight: bold;
 }
 
 
 #commentArea {
-  margin: 5px 15% 20px 15%;
+  margin: 5px 15% 0px 15%;
   height: 150px;
   width: 70%;
-  border: 2px solid black;
+  border: 1px solid gray;
   border-radius: 4px;
   resize: none;
 }
@@ -55,6 +82,7 @@
 .checkBox{
     margin-right: 20px;
 }
+
 
 /*Available Categories, Comment, Location*/
 .toolBarMenu {
@@ -79,7 +107,7 @@
 
 .fileView {
   height: 65%;
-  border: 2px solid black;
+  border: 1px solid gray;
   overflow-y: auto;
 }
 
@@ -115,7 +143,7 @@
 /* RubricBox components */
 .rubricBox {
   /* padding-top: 100px; to allow popup to display for top elements, will need a better fix */
-  border: 2px solid black;
+  border: 1px solid gray;
   float: right;
   overflow-y: scroll;
   margin-bottom: 20px;
@@ -125,7 +153,7 @@
 }
 
 .category {
-  border: 1px solid black;
+  border: 1px solid gray;
   border-radius: 10px;
   margin: 10px;
   padding: 10px;
@@ -148,33 +176,57 @@ input[type="file"] {
   display: none;
 }
 
-/* Import Button
-
-label[for="upload"] {
+/* On Hover Effects */
+.tooltip {
   position: relative;
-  overflow: hidden;
   display: inline-block;
-  width: 120px;
-  height: 40px;
-  background-color: #0077cc;
-  color: #fff;
-  font-size: 14px;
-  line-height: 40px;
-  text-align: center;
-  border-radius: 4px;
-  cursor: pointer;
+  
 }
 
-label[for="upload"]::before {
-  content: "Choose File";
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 320px;
+  background-color: whitesmoke;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
+}
+
+.tooltip:hover .tooltiptext{
+  visibility: visible;
+  border: 1px solid gray;
+  width: 320px;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px; 
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 19%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: gray transparent transparent transparent;
+}
+
+.exportButton {
+  background-color: #7C4DFF;
+  color: white;
+  padding: 6px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
-} */
+  float: right;
+  margin: 10px 10px 20px 20px;
+}
+
+/* Import Button
+
 .email{
   width: 50%;
   color: black;
@@ -229,57 +281,6 @@ label[for="upload"]::before {
 .cen{
   text-align: center;
   color: white;
-}
-
-/* On Hover Effects */
-.tooltip {
-  position: relative;
-  display: inline-block;
-  
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 320px;
-  background-color: whitesmoke;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-
-  position: absolute;
-  z-index: 1;
-}
-
-.tooltip:hover .tooltiptext{
-  visibility: visible;
-  border: 1px solid black;
-  width: 320 px;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -60px; 
-}
-
-.tooltip .tooltiptext::after {
-  content: " ";
-  position: absolute;
-  top: 100%;
-  left: 19%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: gray transparent transparent transparent;
-}
-
-.exportButton {
-  background-color: #7C4DFF;
-  color: white;
-  padding: 6px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  float: right;
-  margin: 10px 10px 20px 20px;
 }
 
 .pageNavigation {
