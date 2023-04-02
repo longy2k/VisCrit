@@ -16,6 +16,11 @@ button {
   font-size: 14px;
 }
 
+.generalButtonBox {
+  float: right;
+  margin: 0 13%;
+}
+
 .generalButton {
   position: relative;
   overflow: hidden;
