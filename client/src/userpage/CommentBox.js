@@ -21,8 +21,8 @@ function CommentBox({thisItem, index}){
               <textarea id="commentArea" type="text" value={comment} onChange={handleCommentChange}/>
           </form>
           <div>
-            <button onClick={() => {saveReturn(comment)}}>Submit</button>
-            <button onClick={() => {setItem(null)}}>Cancel</button>
+            <button className="generalButton" onClick={() => {saveReturn(comment)}}>Submit</button>
+            <button className="generalButton" onClick={() => {setItem(null)}}>Cancel</button>
           </div>
         </div>
     )
