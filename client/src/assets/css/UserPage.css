@@ -81,6 +81,33 @@ button {
   box-shadow: rgba(16, 10, 118, 0.4) 0px 2px 3px;
 }
 
+.commentBoxButtons {
+  float: right;
+  margin: 0 13%;
+}
+
+.submitButton {
+  background-color: #7C4DFF;
+  color: white;
+  padding: 6px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px 10px 20px 20px;
+}
+
+.cancelButton {
+  background-color: #7C4DFF;
+  color: white;
+  padding: 6px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px 10px 20px 20px;
+}
+
 #two {
   background-color: #80add7; 
   display: inline-block;
@@ -104,7 +131,7 @@ button {
 #three {
   background-color: #b3b3b5;
   display: inline-block;
-  padding: 0px 12px;
+  padding: 10px 15% 0px 12px;
   border: 0px solid transparent;
   border-radius: 4px;
   text-decoration: none;
@@ -142,6 +169,7 @@ button {
   background-color: rgb(222, 137, 137);
   box-shadow: rgba(247, 165, 165, 0.4) 0px 2px 3px;
 }
+
 
 #five {
   background-color: #c41010;
@@ -182,7 +210,7 @@ button {
 
 .fileView {
   height: 65%;
-  border: 2px solid black;
+  border: 1px solid gray;
   overflow-y: auto;
   border: 1px solid #eee;
   box-shadow: 0px 3px 5px -2px black;

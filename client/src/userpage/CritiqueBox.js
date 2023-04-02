@@ -17,7 +17,6 @@ export default function CritiqueBox(){
                 <button style={{'visibility':`${currentItem.LikertValue[3] === '' ?  'visible' : 'hidden'}` }}id="four" onClick={() => {setIndex(3)}}>4</button>
                 <button style={{'visibility':`${currentItem.LikertValue[4] === '' ?  'visible' : 'hidden'}` }}id="five" onClick={() => {setIndex(4)}}>5</button>
                 {GenCommentSection(currentItem, index)}
-                
             </div>
         )
     } else{
