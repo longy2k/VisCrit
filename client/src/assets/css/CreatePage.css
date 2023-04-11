@@ -11,7 +11,7 @@
 .groupedRubricBlock {
   border: 1px solid black;
   border-radius: 10px;
-  margin: 20px 0px;
+  margin: 10px 0px;
   padding: 20px 20px;
 }
 
@@ -65,4 +65,15 @@ label[for="upload"]::before {
   cursor: pointer;
   float: right;
   margin-bottom: 20px;
+}
+
+.participantsBlock {
+  margin-bottom: 20px;
+}
+
+.participants {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px 20px;
+  margin: 10px 0px;
 }

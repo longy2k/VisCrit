@@ -9,6 +9,7 @@ export default function RubricSection(){
 
   const [jsonData, setJsonData] = useState(null);
   const [fileUploaded, setFileUploaded] = useState(false);
+  const [participantsData, setParticipantsData] = useState([]);
 
   const readUploadFile = async (e) => {
     e.preventDefault();
@@ -35,6 +36,12 @@ export default function RubricSection(){
         } catch (error) {
           console.error(error);
         }
+        
+        const participantsSheetName = workbook.SheetNames[3];
+        const participantsWorksheet = workbook.Sheets[participantsSheetName];
+        const jsonData = XLSX.utils.sheet_to_json(participantsWorksheet);
+        const firstColumnData = jsonData.map(row => row[Object.keys(row)[0]]);
+        setParticipantsData(firstColumnData);
       };
       reader.readAsArrayBuffer(file);
     }
@@ -80,7 +87,13 @@ export default function RubricSection(){
                 ))}
               </div>
             ))}
-            <h2>Participants (ADD EMAIL COMPONENT BELOW)</h2>
+
+            <div className="participantsBlock">
+              <h2>Participants</h2>
+              {participantsData.map((data, index) => (
+                <div key={index} className="participants">{data}</div>
+              ))}
+            </div>
           </div>
         )}
             {fileUploaded && (
