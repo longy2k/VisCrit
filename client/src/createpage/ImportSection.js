@@ -40,8 +40,7 @@ export default function RubricSection(){
         const participantsSheetName = workbook.SheetNames[3];
         const participantsWorksheet = workbook.Sheets[participantsSheetName];
         const jsonData = XLSX.utils.sheet_to_json(participantsWorksheet);
-        const firstColumnData = jsonData.map(row => row[Object.keys(row)[0]]);
-        setParticipantsData(firstColumnData);
+        setParticipantsData(jsonData);
       };
       reader.readAsArrayBuffer(file);
     }
@@ -90,8 +89,12 @@ export default function RubricSection(){
 
             <div className="participantsBlock">
               <h2>Participants</h2>
-              {participantsData.map((data, index) => (
-                <div key={index} className="participants">{data}</div>
+              {participantsData.map((participant, index) => (
+                <div key={index} className="participants">
+                  {participant.EMAIL}<br />
+                    <span style={{ fontSize: '12px', fontWeight: 'bold' }}>{participant.GroupID}</span><br />
+                    <span style={{ fontSize: '12px', fontWeight: 'bold' }}>{participant.CritiquerIDs}</span><br/>
+                </div>
               ))}
             </div>
           </div>
