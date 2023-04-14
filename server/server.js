@@ -2,16 +2,19 @@ const express = require('express');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
-const app = express();
-
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const app = express();
+
+
+// Email component
 
 app.use(bodyParser.json());
 
 app.post('/send-email', (req, res) => {
   const { to } = req.body;
 
+  // Sender's email
   const transporter = nodemailer.createTransport({
     host: "smtp.ethereal.email",
     port: 587,
@@ -22,6 +25,7 @@ app.post('/send-email', (req, res) => {
     },
   });
 
+  // Sender's email content
   const mailOptions = {
     from: 'korey55@ethereal.email',
     to,
@@ -29,6 +33,7 @@ app.post('/send-email', (req, res) => {
     text: 'Thank you for subscribing to our newsletter.'
   };
 
+  // Email errors
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
       console.log(error);
