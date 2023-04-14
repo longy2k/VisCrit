@@ -46,9 +46,24 @@ export default function RubricSection(){
     }
   };
 
-  function handleSendButtonClick() {
-    // alert("SENT! (sort of, not really)");
-  }
+  // Email Submission
+
+  // const [to, setTo] = useState('');
+  const [subject, setSubject] = useState('');
+  const [text, setText] = useState('');
+
+  const handleSubmit = () => {
+    const to = participantsData.map((participant) => participant.EMAIL).join(',');
+    axios.post('/send-email', { to, subject, text })
+      .then((response) => {
+        console.log(response.data);
+        window.location.href = '/view/';
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  
 
   return (
       <div className="importSection">
@@ -100,9 +115,9 @@ export default function RubricSection(){
           </div>
         )}
             {fileUploaded && (
-              <a href="/view/"><button className="generalButton" style ={{float:"right", marginBottom:"3em"}} onClick={handleSendButtonClick}>
+              <button className="generalButton" style ={{float:"right", marginBottom:"3em"}} onClick={handleSubmit}>
                 Send
-              </button></a>
+              </button>
             )}
         </div>
       </div>
