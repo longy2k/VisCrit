@@ -4,6 +4,66 @@ const fs = require('fs');
 const path = require('path');
 const app = express();
 
+const nodemailer = require('nodemailer');
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+
+app.post('/send-email', (req, res) => {
+  const { to } = req.body;
+
+  const transporter = nodemailer.createTransport({
+    host: "smtp.ethereal.email",
+    port: 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: 'korey55@ethereal.email', 
+      pass: 'DG2rNC6eERYpzbvJxv'
+    },
+  });
+
+  const mailOptions = {
+    from: 'korey55@ethereal.email',
+    to,
+    subject: 'Welcome to our mailing list!',
+    text: 'Thank you for subscribing to our newsletter.'
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+      res.status(500).send('Error sending email');
+    } else {
+      console.log('Email sent: ' + info.response);
+      res.send('Email sent successfully');
+    }
+  }); 
+});
+
+// const transporter = nodemailer.createTransport({
+//   host: "smtp.ethereal.email",
+//   port: 587,
+//   secure: false, // true for 465, false for other ports
+//   auth: {
+//     user: 'korey55@ethereal.email', 
+//     pass: 'DG2rNC6eERYpzbvJxv'
+//   },
+// });
+
+// const mailOptions = {
+//   from: 'korey55@ethereal.email',
+//   to: 'myfriend@yahoo.com',
+//   subject: 'Sending Email using Node.js',
+//   text: 'That was easy!'
+// };
+
+// transporter.sendMail(mailOptions, function(error, info){
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log('Email sent: ' + info.response);
+//   }
+// }); 
 
 // Create a storage engine for multer
 const storage = multer.diskStorage({
