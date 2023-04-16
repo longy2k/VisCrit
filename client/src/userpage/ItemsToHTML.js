@@ -1,8 +1,7 @@
 import React, {useContext} from "react";
 import { ItemContext } from "./ItemContext";
-
 export default function ItemsToHTML(itemList=[]){
-    const {currentItem, setItem} = useContext(ItemContext);
+    const {currentItem, setItem, setPageNumber, setRectangles, setAccessCanvas} = useContext(ItemContext);
 
     function CommentResults(item=[]){
       return(
@@ -26,11 +25,23 @@ export default function ItemsToHTML(itemList=[]){
       }
     }
 
+    function drawRectangle(arr = []){
+      setAccessCanvas(true);
+      setRectangles(arr[1]);
+      setPageNumber(arr[0]);
+    }
+
+    function clearCanvas(){
+      console.log("tried to clear")
+      setRectangles([]);
+      setAccessCanvas(false);
+    }
+
     function ButtonGen(num=0, item=[]){
       return(
-        <div style={{'visibility':`${item.LikertValue[num] === '' ?  'hidden':'visible'}` }} className="tooltip">
+        <div style={{'visibility':`${item.LikertValue[num] === '' ?  'hidden':'visible'}` }} onMouseEnter={() => {drawRectangle(item.LocationRt[num])}} onMouseLeave={() => {clearCanvas()}} className="tooltip">
           <span className="tooltiptext">{item.LikertValue[num]}</span>
-          <button onClick={()=>{RemoveComment(item,num)}}>{num+1}</button>
+          <button className="commentRt" onClick={()=>{RemoveComment(item,num)}} >{num+1}</button>
         </div>
       )
     }
