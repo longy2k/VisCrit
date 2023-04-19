@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import CommentB from './CritiqueBox';
+import { ItemContext } from './ItemContext';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 
@@ -10,20 +11,28 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 export default function DocumentReader() {
   const [data, setData] = useState({});
   const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
-  
+
+  const {pageNumber, setPageNumber, currentItem, index, rectangles, setRectangles, accessCanvas, setAccessCanvas, setReRender} = useContext(ItemContext); 
+  const [refresh, setRefresh] = useState(accessCanvas);
   function onDocumentLoadSuccess({ numPages: nextNumPages }) {
     setNumPages(nextNumPages);
   }
   
-  let rectangles = []; // declare an empty array to store the rectangles
-
   function onRenderSuccess() {
+    console.log("ORS got called", rectangles);
+    if(rectangles!== []){
+        const canvases = document.querySelectorAll('.react-pdf__Page canvas');
+        canvases.forEach((canvas) => {
+          if (!canvas.classList.contains('react-pdf__Page__canvas')) {
+            canvas.parentNode.removeChild(canvas);
+          }
+      });
+    }
     const reactPdfPage = document.querySelector('.react-pdf__Page');
-    const canvas = document.createElement('canvas');
+    let canvas = document.createElement('canvas');
   
-    const canvasWidth = reactPdfPage.offsetWidth;
-    const canvasHeight = reactPdfPage.scrollHeight;
+    let canvasWidth = reactPdfPage.offsetWidth;
+    let canvasHeight = reactPdfPage.scrollHeight;
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
   
@@ -31,7 +40,11 @@ export default function DocumentReader() {
     const context = canvas.getContext('2d');
     let isDrawing = false;
     let startX, startY;
-  
+
+    rectangles.forEach(rectangle => {
+      context.fillRect(rectangle.startX, rectangle.startY, rectangle.width, rectangle.height);
+    }); // Draw all the saved rectangles
+
     canvas.addEventListener('mousedown', (event) => {
       context.fillStyle = "#0000FF";
   
@@ -52,8 +65,6 @@ export default function DocumentReader() {
   
         const width = event.clientX - adjustmentX - startX;
         const height = event.clientY - adjustmentY - startY;
-  
-        context.clearRect(0, 0, canvas.width, canvas.height);
   
         rectangles.forEach(rectangle => {
           context.fillRect(rectangle.startX, rectangle.startY, rectangle.width, rectangle.height);
@@ -76,6 +87,10 @@ export default function DocumentReader() {
         height: event.clientY - canvas.getBoundingClientRect().top - window.pageYOffset - startY
       });
     });
+
+    if(accessCanvas === false){
+      clearCanvas();
+    }
   }
 
   useEffect(() => {
@@ -85,6 +100,7 @@ export default function DocumentReader() {
         console.log(data.path);
         setData(data);
       });
+      
   }, []);
 
   const handlePreviousPage = () => {
@@ -98,6 +114,7 @@ export default function DocumentReader() {
   
     setPageNumber(pageNumber - 1);
   }
+
   const handleNextPage = () => {
     const canvases = document.querySelectorAll('.react-pdf__Page canvas');
   
@@ -106,13 +123,44 @@ export default function DocumentReader() {
         canvas.parentNode.removeChild(canvas);
       }
     });
-  
     setPageNumber(pageNumber + 1);
+  }
+
+
+  function clearCanvas(){
+      const canvases = document.querySelectorAll('.react-pdf__Page canvas');
+      canvases.forEach((canvas) => {
+        if (!canvas.classList.contains('react-pdf__Page__canvas')) {
+          canvas.parentNode.removeChild(canvas);
+        }
+      });
+      setRectangles([]);
+  }
+
+  const handleSave = () => {
+    currentItem.LocationRt[index].push(pageNumber);
+    currentItem.LocationRt[index].push(rectangles); 
+    const canvases = document.querySelectorAll('.react-pdf__Page canvas');
+  
+    canvases.forEach((canvas) => {
+      if (!canvas.classList.contains('react-pdf__Page__canvas')) {
+        canvas.parentNode.removeChild(canvas);
+      }
+    });
+    setRectangles([]);
+    setAccessCanvas(false);
+  }
+
+  function refreshDoc(){
+    if(refresh !== accessCanvas){
+      onRenderSuccess();
+      setRefresh(accessCanvas);
+    }
   }
 
   return (
     <div className='docView'>
-      <div className="fileView">
+      <div className="fileView" >
         {data.path && (
           <>
             <Document
@@ -120,12 +168,13 @@ export default function DocumentReader() {
               onLoadSuccess={onDocumentLoadSuccess}
               renderMode="canvas"
             >
-              <Page pageNumber={pageNumber} onRenderSuccess={onRenderSuccess} />
+              <Page pageNumber={pageNumber} onRenderSuccess={onRenderSuccess} />              
             </Document>
           </>
-        )}
+        )} {refreshDoc()}
       </div>
       <div className="pageNavigation">
+          <button onClick={handleSave}> Save </button>
           <button className="leftButton" disabled={pageNumber <= 1} onClick={handlePreviousPage}>&#8592;</button>
           <button className="rightButton" disabled={pageNumber >= numPages} onClick={handleNextPage}>&#8594;</button>
       </div>

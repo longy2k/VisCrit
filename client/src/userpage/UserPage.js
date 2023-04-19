@@ -10,7 +10,11 @@ import AnnotateScript from './AnnotateScript';
 export default function UserPage() {
     const [currentItem, setItem] = useState({});
     const [Hierarchy, setHierarchy] = useState([]);
-
+    const [accessCanvas, setAccessCanvas] = useState(false);
+    const [rectangles, setRectangles] = useState([]);
+    const [pageNumber, setPageNumber] = useState(1);
+    const [reRender, setReRender] = useState(null);
+    const [index, setIndex] = useState(-1);
     useEffect(() => {
       fetch('/api/upload/json')
         .then(response => response.json())
@@ -23,7 +27,7 @@ export default function UserPage() {
     return (
         <div>
             <div className="userPage" >
-              <ItemContext.Provider value={{currentItem, setItem, Hierarchy, setHierarchy}}>
+              <ItemContext.Provider value={{currentItem, setItem, Hierarchy, setHierarchy, pageNumber, setPageNumber, index, setIndex, rectangles, setRectangles, accessCanvas, setAccessCanvas,reRender, setReRender}}>
                 {/* Show pdf files*/}
                 <DocumentReader/>
                 <RubricBox  />

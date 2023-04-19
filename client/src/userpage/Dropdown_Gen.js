@@ -67,7 +67,6 @@ export default class Hierarchy{
     }
 
     returnHTML(){
-        console.log(this.subHierNames);
         return(
             <div className="category">
               <button className="categoryButton" onClick={this.ShowHideCategory} id={this.bText}>-</button>
