@@ -10,14 +10,14 @@ export default function NavBar() {
         <Router>
           <div className="navBar">
             <ul>
-                <li> <Link to="/"><span id="logo">VisCrit</span></Link></li>
-                <li> <Link to="/">Home</Link></li>
-                <li> <Link to="create/">Create</Link></li>
-                <li> <Link to="/view/">UserPage</Link></li>
+                <li><Link to="/"><span id="logo">VisCrit</span></Link></li>
+                <li><button>Upload</button></li>
+                {/* <li> <Link to="create/">Create</Link></li>
+                <li> <Link to="/view/">UserPage</Link></li> */}
             </ul>
           </div>
           <Routes>
-              <Route exact path='/' element={< HomePage />}></Route>
+              <Route exact path='/' element={< UserPage />}></Route>
               <Route exact path='/create/' element={< CreatePage />}></Route>
               <Route exact path='/view/' element={< UserPage />}></Route>
           </Routes>

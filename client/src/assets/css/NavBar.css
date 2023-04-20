@@ -3,37 +3,38 @@
   margin: 0;
   overflow: hidden;
 }
+
 .navBar ul {
+  list-style-type: none;
   margin: 0;
   padding: 0;
-  display: flex;
+  text-align: center;
 }
-.navBar ul li {
+
+.navBar li {
   display: inline-block;
-  list-style-type: none;
+  margin: 0;
 }
-.navBar ul li a {
-  font-size: 20px;
-  font-weight: bold;
+
+.navBar #logo {
+  display: inline-block;
   color: white;
-  display: block;
-  line-height: 2em;
-  padding: 1em 3em;
-  text-decoration: none;
+  font-size: 36px;
+  font-weight: bold;
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
 }
 
-#logo {
-  font-size: 30px;
+.navBar button {
+  background-color: white;
+  color: #7C4DFF;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px 25px;
 }
 
-.navBar ul li:first-child {
-  margin-right: auto;
-}
-
-.navBar ul li:first-child a:hover {
-  text-decoration: none;
-}
-
-.navBar ul li a:hover {
-  text-decoration: underline;
-}
