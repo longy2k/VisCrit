@@ -1,9 +1,6 @@
 import React, {useState} from "react";
 import * as XLSX from 'xlsx';
 import axios from 'axios';
-import CritqueBox from "../userpage/CritiqueBox";
-import { ItemContext } from "../userpage/ItemContext";
-import Data_Extractor from "../userpage/Data_Extract";
 
 export default function RubricSection(){
 
@@ -49,20 +46,20 @@ export default function RubricSection(){
   // Email Submission
 
   // const [to, setTo] = useState('');
-  const [subject, setSubject] = useState('');
-  const [text, setText] = useState('');
+  // const [subject, setSubject] = useState('');
+  // const [text, setText] = useState('');
 
-  const handleSubmit = () => {
-    const to = participantsData.map((participant) => participant.EMAIL).join(',');
-    axios.post('/send-email', { to, subject, text })
-      .then((response) => {
-        console.log(response.data);
-        window.location.href = '/view/';
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // const handleSubmit = () => {
+  //   const to = participantsData.map((participant) => participant.EMAIL).join(',');
+  //   axios.post('/send-email', { to, subject, text })
+  //     .then((response) => {
+  //       console.log(response.data);
+  //       window.location.href = '/view/';
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
   
 
   return (
@@ -78,7 +75,7 @@ export default function RubricSection(){
                 onChange={readUploadFile}
             />
         </form>
-        <div className="json-container">
+        {/* <div className="json-container">
         {jsonData && (
           <div>
             <h2>Overview</h2>
@@ -119,7 +116,7 @@ export default function RubricSection(){
                 Send
               </button>
             )}
-        </div>
+        </div> */}
       </div>
   )
 }
