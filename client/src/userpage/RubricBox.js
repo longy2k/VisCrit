@@ -1,13 +1,31 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { ItemContext } from "./ItemContext"
+import FileSaver from "file-saver"
+import * as XLSX from 'xlsx';
 
-function handleExportButtonClick() {
-    alert("EXPORTED! (sort of, not really)");
-  }
 
 export default function RubricBox(){
-    let {Hierarchy} = useContext(ItemContext);
+    let {Hierarchy, totalItems} = useContext(ItemContext);
+    
+    function handleExportButtonClick()  {
+    
+      var ws = XLSX.utils.json_to_sheet(totalItems);
+  
+      var wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "sheet1");
+  
 
+      let arrayBuffer = XLSX.write(wb, { bookType: "xlsx", type: "buffer" });
+
+      // Binary string
+      XLSX.write(wb, { bookType: "xlsx", type: "binary" });
+  
+      console.log(wb)
+  
+         XLSX.writeFile(wb, "studentsData.xlsx");
+    }
+
+    
     return(
           <div className="rubricBox">
               <ul className="toolBarMenu">
