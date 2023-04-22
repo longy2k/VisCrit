@@ -69,7 +69,6 @@
   background-color: #3c43ac;
   display: inline-block;
   margin: .2rem;
-  border-radius: 50%;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -89,7 +88,6 @@
   background-color: #80add7; 
   display: inline-block;
   margin: .2rem;
-  border-radius: 50%;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -109,7 +107,6 @@
   background-color: #b3b3b5;
   display: inline-block;
   margin: .2rem;
-  border-radius: 50%;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -129,7 +126,6 @@
   background-color: #e9a3a3;
   display: inline-block;
   margin: .2rem;
-  border-radius: 50%;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -150,7 +146,6 @@
   background-color: #c41010;
   display: inline-block;
   margin: .2rem;
-  border-radius: 50%;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -183,16 +178,14 @@
   height: 65%;
   border: 1px solid gray;
   overflow-y: auto;
-  border: 1px solid #eee;
   box-shadow: 0px 3px 5px -2px black;
- /* border-radius: 10px; */
 }
 
 .react-pdf__Page__canvas {
   min-width: none;
   width: 100% !important;
   height: auto !important;
-  border-bottom: 1px solid black; 
+  border-bottom: 1px solid gray; 
   background-color: white;
 }
 
@@ -240,6 +233,10 @@
   border-radius: 10px;
   margin: 0px;
   padding: 10px 0px;
+}
+
+.category:not(:first-child) {
+  margin-left: 20px;
 }
 
 .category ul {
@@ -324,7 +321,7 @@
   margin: 5px 15% 20px 15%;
   height: 150px;
   width: 70%;
-  border: 1px solid #cfcaca;
+  border: 1px solid black;
   box-shadow: 0px 3px 5px -2px black;
   border-radius: 10px;
   resize: none;
