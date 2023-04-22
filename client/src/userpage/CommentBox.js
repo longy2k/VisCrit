@@ -23,7 +23,6 @@ function CommentBox(){
           </form>
           <div className="generalButtonBox">
             <button className="generalButton" style={{'visibility':`${ accessCanvas ?  'hidden':'visible'}` }} onClick={() => {saveReturn(comment)}}>Submit</button>
-            {/* <button className="generalButton" onClick={() => {setItem(null)}}>Cancel</button> */}
           </div>
         </div>
     )

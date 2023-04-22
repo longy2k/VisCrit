@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh; /* Set the height of the body to 100% of the viewport height */
+  width: 100vw; /* Set the width of the body to 100% of the viewport width */
+  
 }
 
 code {

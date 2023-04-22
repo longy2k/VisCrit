@@ -5,7 +5,7 @@ export default function ItemsToHTML(itemList=[]){
 
     function CommentResults(item=[]){
       return(
-        <div>
+        <div id="buttonGen">
           {ButtonGen(0,item)}
           {ButtonGen(1,item)}
           {ButtonGen(2,item)}
@@ -51,13 +51,13 @@ export default function ItemsToHTML(itemList=[]){
         <ul>
           <li>
             <div className="tooltip">
-              <span className="tooltiptext">{item.mouseOver}</span>
+              {/* <span className="tooltiptext">{item.mouseOver}</span> */}
+              <button className="plus" onClick={() => {setItem(item)}}>+</button>
               {item.Display}
             </div>
-              <button className="checkBox" onClick={() => {setItem(item)}}>+</button>
-            
+            {CommentResults(item)}
           </li>
-          {CommentResults(item)}
+
         </ul>)
       )
 }
