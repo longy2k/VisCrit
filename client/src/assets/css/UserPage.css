@@ -248,6 +248,10 @@
   padding: 0;
 }
 
+.category ul li {
+  margin-left: 40px;
+}
+
 .category ul li button {
   display: inline-block;
   margin: 0 .5rem;
@@ -379,6 +383,9 @@
 .tooltip {
   position: relative;
   display: inline-block;
+}
+
+.tooltip h4 {
   margin: 0 0 0 20px;
 }
 
