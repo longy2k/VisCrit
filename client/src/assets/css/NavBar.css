@@ -36,5 +36,13 @@
   top: 0;
   right: 0;
   margin: 10px 25px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
+.navBar button:active {
+  background-color: #7C4DFF;
+  color: white;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+  transform: scale(0.95);
+}

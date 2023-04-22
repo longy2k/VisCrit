@@ -77,7 +77,7 @@ export default function NavBar() {
           <div className="navBar">
             <ul>
                 <li><Link to="/"><span id="logo">VisCrit</span></Link></li>
-                <li><button onClick={handleUploadButtonClick}>Upload</button></li>
+                <li><button className="uploadButton" onClick={handleUploadButtonClick}>Upload</button></li>
                 {/* <li> <Link to="create/">Create</Link></li>
                 <li> <Link to="/view/">UserPage</Link></li> */}
             </ul>
