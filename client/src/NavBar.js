@@ -44,6 +44,7 @@ export default function NavBar() {
             const participantsWorksheet = workbook.Sheets[participantsSheetName];
             const jsonData = XLSX.utils.sheet_to_json(participantsWorksheet);
             setParticipantsData(jsonData);
+            window.location.reload();
           };
           reader.readAsArrayBuffer(file);
         } else if (file.type === "application/pdf" || file.type === "image/jpeg" || file.type === "image/png") {
@@ -53,6 +54,7 @@ export default function NavBar() {
           try {
             const response = await axios.post('/api/upload/', formData);
             console.log(response.data);
+            window.location.reload();
           } catch (error) {
             console.error(error);
           }
@@ -67,7 +69,7 @@ export default function NavBar() {
       const uploadInput = document.createElement('input');
       uploadInput.type = 'file';
       uploadInput.accept = '.xlsx, .xls, .csv, .pdf, .jpeg, .png';
-      uploadInput.multiple = true;
+      uploadInput.multiple = false;
       uploadInput.onchange = readUploadFile;
       uploadInput.click();
     }
