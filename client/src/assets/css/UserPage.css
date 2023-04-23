@@ -227,7 +227,7 @@ html {
   overflow-y: scroll;
   border-radius: 10px;
   width : 35%;
-  height:42vw;
+  height:40vw;
   padding: 15px;
 }
 
@@ -320,7 +320,7 @@ html {
   border-radius: 5px;
   font-size: 14px;
   cursor: pointer;
-  margin: 10px 10px 20px 20px;
+  margin: 20px 0px;
   text-decoration: none;
   float: right;
 }
