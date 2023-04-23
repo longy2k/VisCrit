@@ -18,16 +18,15 @@ export default function CritiqueBox(){
         setComment(event.target.value)
       }
       
-      function saveReturn(savedComment){
-        if(index2 !== -1){
+    function saveReturn(savedComment) {
+        if (index2 !== -1){
             item2.setComment(savedComment, index2);
         }
+        totalItems.push(item2);
         setItem([...totalItems.slice(0, index2), item2, ...totalItems.slice(index2 + 1)]);
     }
-    
-      
 
-    if(item1 instanceof Item){
+    if (item1 instanceof Item) {
         return (
             <div className="critiqueBox">
                 <h4>{item1.path}</h4>
