@@ -407,13 +407,13 @@ html {
   background-color: #555;
   color: #fff;
   text-align: center;
-  width: 13rem;
+  width: 15rem;
   border-radius: 1rem;
-  padding: .3rem;
+  padding: .4rem;
   position: absolute;
   z-index: 1;
-  top: 100%;
-  left:60%;
+  bottom: 100%;
+  left:5%;
   margin-left: -2.5rem;
   opacity: 0;
   transition: opacity 0.3s;
