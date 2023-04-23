@@ -11,32 +11,34 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 export default function DocumentReader() {
   const [data, setData] = useState({});
   const [numPages, setNumPages] = useState(null);
-
-  const {pageNumber, setPageNumber, currentItem, index, rectangles, setRectangles, accessCanvas, setAccessCanvas, setReRender} = useContext(ItemContext); 
+  const { pageNumber, setPageNumber, currentItem, index, rectangles, setRectangles, accessCanvas, setAccessCanvas, setReRender } = useContext(ItemContext);
   const [refresh, setRefresh] = useState(accessCanvas);
-  let rectangles1 = rectangles;
+
+  // create an array that has same data as rectangles, but formatted enough for download
+  let copyOfRectangles = rectangles;
+
   function onDocumentLoadSuccess({ numPages: nextNumPages }) {
     setNumPages(nextNumPages);
   }
-  
+
   function onRenderSuccess() {
     console.log("ORS got called", rectangles);
-    if(rectangles!== []){
-        const canvases = document.querySelectorAll('.react-pdf__Page canvas');
-        canvases.forEach((canvas) => {
-          if (!canvas.classList.contains('react-pdf__Page__canvas')) {
-            canvas.parentNode.removeChild(canvas);
-          }
+    if (rectangles !== []) {
+      const canvases = document.querySelectorAll('.react-pdf__Page canvas');
+      canvases.forEach((canvas) => {
+        if (!canvas.classList.contains('react-pdf__Page__canvas')) {
+          canvas.parentNode.removeChild(canvas);
+        }
       });
     }
     const reactPdfPage = document.querySelector('.react-pdf__Page');
     let canvas = document.createElement('canvas');
-  
+
     let canvasWidth = reactPdfPage.offsetWidth;
     let canvasHeight = reactPdfPage.scrollHeight;
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
-  
+
     reactPdfPage.appendChild(canvas);
     const context = canvas.getContext('2d');
     let isDrawing = false;
@@ -46,44 +48,46 @@ export default function DocumentReader() {
       context.fillRect(rectangle.startX, rectangle.startY, rectangle.width, rectangle.height);
     }); // Draw all the saved rectangles
 
-    rectangles1.forEach(rectangle => {
-      context.fillRect(rectangle.startX, rectangle.startY, rectangle.width, rectangle.height);
-    }); // Draw all the saved rectangles
+    copyOfRectangles
+      .forEach(rectangle => {
+        context.fillRect(rectangle.startX, rectangle.startY, rectangle.width, rectangle.height);
+      });
 
     canvas.addEventListener('mousedown', (event) => {
       context.fillStyle = "#0000FF";
-  
+
       const rect = canvas.getBoundingClientRect();
       const adjustmentX = rect.left + window.pageXOffset;
       const adjustmentY = rect.top + window.pageYOffset;
-  
+
       startX = event.clientX - adjustmentX;
       startY = event.clientY - adjustmentY;
       isDrawing = true;
     });
-  
+
     canvas.addEventListener('mousemove', (event) => {
       if (isDrawing) {
         const rect = canvas.getBoundingClientRect();
         const adjustmentX = rect.left + window.pageXOffset;
         const adjustmentY = rect.top + window.pageYOffset;
-  
+
         const width = event.clientX - adjustmentX - startX;
         const height = event.clientY - adjustmentY - startY;
-  
+
         rectangles.forEach(rectangle => {
           context.fillRect(rectangle.startX, rectangle.startY, rectangle.width, rectangle.height);
         }); // Draw all the saved rectangles
-        rectangles1.forEach(rectangle => {
+
+        copyOfRectangles.forEach(rectangle => {
           context.fillRect(rectangle.startX, rectangle.startY, rectangle.width, rectangle.height);
-        }); // Draw all the saved rectangles
-  
+        });
+
         context.fillStyle = "#0000FF";
         context.fillRect(startX, startY, width, height);
-  
+
       }
     });
-  
+
     canvas.addEventListener('mouseup', (event) => {
       isDrawing = false;
       // Save the current rectangle to the array
@@ -94,21 +98,22 @@ export default function DocumentReader() {
         height: event.clientY - canvas.getBoundingClientRect().top - window.pageYOffset - startY
       })
 
-      // cannot set a var equal to const var, so create an array that has same data as rectangles
-      // 
-      rectangles1.push([
-        "startX: " + startX,
-        "startY: " + startY,
-       "width: " +  (event.clientX - canvas.getBoundingClientRect().left - window.pageXOffset - startX),
-       "height: " + (event.clientY - canvas.getBoundingClientRect().top - window.pageYOffset - startY)
-      ]);
+      // cannot use "rectangles" array, if it is formatted, then some of other functionalities stop working
+      // such as hovering over a rating and seeing a rectangle's location
+      copyOfRectangles
+        .push([
+          "startX: " + startX,
+          "startY: " + startY,
+          "width: " + (event.clientX - canvas.getBoundingClientRect().left - window.pageXOffset - startX),
+          "height: " + (event.clientY - canvas.getBoundingClientRect().top - window.pageYOffset - startY)
+        ]);
 
       console.log(rectangles)
-      console.log(rectangles1)
+      console.log(copyOfRectangles)
 
     });
 
-    if(accessCanvas === false){
+    if (accessCanvas === false) {
       clearCanvas();
     }
   }
@@ -120,24 +125,24 @@ export default function DocumentReader() {
         console.log(data.path);
         setData(data);
       });
-      
+
   }, []);
 
   const handlePreviousPage = () => {
     const canvases = document.querySelectorAll('.react-pdf__Page canvas');
-  
+
     canvases.forEach((canvas) => {
       if (!canvas.classList.contains('react-pdf__Page__canvas')) {
         canvas.parentNode.removeChild(canvas);
       }
     });
-  
+
     setPageNumber(pageNumber - 1);
   }
 
   const handleNextPage = () => {
     const canvases = document.querySelectorAll('.react-pdf__Page canvas');
-  
+
     canvases.forEach((canvas) => {
       if (!canvas.classList.contains('react-pdf__Page__canvas')) {
         canvas.parentNode.removeChild(canvas);
@@ -147,14 +152,14 @@ export default function DocumentReader() {
   }
 
 
-  function clearCanvas(){
-      const canvases = document.querySelectorAll('.react-pdf__Page canvas');
-      canvases.forEach((canvas) => {
-        if (!canvas.classList.contains('react-pdf__Page__canvas')) {
-          canvas.parentNode.removeChild(canvas);
-        }
-      });
-      setRectangles([]);
+  function clearCanvas() {
+    const canvases = document.querySelectorAll('.react-pdf__Page canvas');
+    canvases.forEach((canvas) => {
+      if (!canvas.classList.contains('react-pdf__Page__canvas')) {
+        canvas.parentNode.removeChild(canvas);
+      }
+    });
+    setRectangles([]);
   }
 
   const handleSave = () => {
@@ -162,7 +167,7 @@ export default function DocumentReader() {
     currentItem.LocationRt[index].push(rectangles);
 
     const canvases = document.querySelectorAll('.react-pdf__Page canvas');
-  
+
     canvases.forEach((canvas) => {
       if (!canvas.classList.contains('react-pdf__Page__canvas')) {
         canvas.parentNode.removeChild(canvas);
@@ -172,8 +177,8 @@ export default function DocumentReader() {
     setAccessCanvas(false);
   }
 
-  function refreshDoc(){
-    if(refresh !== accessCanvas){
+  function refreshDoc() {
+    if (refresh !== accessCanvas) {
       onRenderSuccess();
       setRefresh(accessCanvas);
     }
@@ -189,17 +194,17 @@ export default function DocumentReader() {
               onLoadSuccess={onDocumentLoadSuccess}
               renderMode="canvas"
             >
-              <Page pageNumber={pageNumber} onRenderSuccess={onRenderSuccess} />              
+              <Page pageNumber={pageNumber} onRenderSuccess={onRenderSuccess} />
             </Document>
           </>
         )} {refreshDoc()}
       </div>
       <div className="pageNavigation">
-          <button onClick={handleSave}> Save </button>
-          <button className="leftButton" disabled={pageNumber <= 1} onClick={handlePreviousPage}>&#8592;</button>
-          <button className="rightButton" disabled={pageNumber >= numPages} onClick={handleNextPage}>&#8594;</button>
+        <button onClick={handleSave}> Save </button>
+        <button className="leftButton" disabled={pageNumber <= 1} onClick={handlePreviousPage}>&#8592;</button>
+        <button className="rightButton" disabled={pageNumber >= numPages} onClick={handleNextPage}>&#8594;</button>
       </div>
-      <CommentB/>
+      <CommentB />
     </div>
   );
 }
