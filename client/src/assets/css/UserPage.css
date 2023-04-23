@@ -1,11 +1,10 @@
 .userPage {
   width: 85%;
-  height: 800px;
-  margin: 2% auto;
-  /* background-color: red; */
+  height: 89vh;
+  margin: 20px auto;
 }
 
-button {
+/* button {
   color: rgb(255, 255, 255);
   background-color: #7700ff;
   margin-bottom: 3px;
@@ -14,7 +13,7 @@ button {
   border-radius: 4px;
   box-shadow: rgba(167, 167, 167, 0.4) 0px 2px 3px;
   font-size: 14px;
-}
+} */
 
 .generalButtonBox {
   float: right;
@@ -70,7 +69,6 @@ button {
   background-color: #3c43ac;
   display: inline-block;
   margin: .2rem;
-  border-radius: 50%;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -90,7 +88,6 @@ button {
   background-color: #80add7; 
   display: inline-block;
   margin: .2rem;
-  border-radius: 50%;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -103,14 +100,13 @@ button {
 #two:hover {
   color: rgb(255, 255, 255);
   background-color: rgb(101, 131, 187);
-  box-shadow: rgba(88, 80, 243, 0.4) 0px 2px 3px;
+  box-shadow: rgba(95, 92, 158, 0.4) 0px 2px 3px;
 }
 
 #three {
   background-color: #b3b3b5;
   display: inline-block;
   margin: .2rem;
-  border-radius: 50%;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -130,7 +126,6 @@ button {
   background-color: #e9a3a3;
   display: inline-block;
   margin: .2rem;
-  border-radius: 50%;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -151,7 +146,6 @@ button {
   background-color: #c41010;
   display: inline-block;
   margin: .2rem;
-  border-radius: 50%;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -184,16 +178,14 @@ button {
   height: 65%;
   border: 1px solid gray;
   overflow-y: auto;
-  border: 1px solid #eee;
   box-shadow: 0px 3px 5px -2px black;
- /* border-radius: 10px; */
 }
 
 .react-pdf__Page__canvas {
   min-width: none;
   width: 100% !important;
   height: auto !important;
-  border-bottom: 1px solid black; 
+  border-bottom: 1px solid gray; 
   background-color: white;
 }
 
@@ -221,28 +213,40 @@ button {
 */
 
 .rubricBox {
-  /* padding-top: 100px; to allow popup to display for top elements, will need a better fix */
-  border: 1px solid #eee;
+  border: 1px solid black;
   box-shadow: 0px 3px 5px -2px black;
   float: right;
   overflow-y: scroll;
   overflow-x: hidden;
-  margin-bottom: 20px;
   border-radius: 10px;
-  width : 30vw;
+  width : 32%;
   height:42vw;
+  padding: 15px;
+}
+
+.rubricBox h3 {
+  padding: 10px 0;
+  margin: 0;
 }
 
 .category {
-  border: 1px solid #cfcaca;
   border-radius: 10px;
-  margin: 10px;
-  padding: 10px;
+  margin: 0px;
+  padding: 10px 0px;
+}
+
+.category:not(:first-child) {
+  margin-left: 20px;
 }
 
 .category ul {
   list-style: none;
   margin: 0;
+  padding: 0;
+}
+
+.category ul li {
+  margin-left: 40px;
 }
 
 .category ul li button {
@@ -264,22 +268,24 @@ button {
 }
 
 .categoryButton {
-  border-radius: .2rem;
-  display: inline-block;
   border: 1px solid #7C4DFF;
-  background-color: #7C4DFF;
-  font-size: 1.2rem;
-  text-align: center;
-  text-decoration: none;
+  border-radius: 5px;
+  padding: 1px 6px;
+  margin: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: white;
+  color: #7C4DFF;
+  cursor: pointer;
   transition: all 0.3s ease;
-  color: white;
-  margin-right: 20px;
 }
 
 .categoryButton:hover {
-  color: #7C4DFF;
-  background-color: white;
+  color: white;
+  background-color: #7C4DFF;
 }
+
+
 
 .category-items {
   list-style: none;
@@ -304,14 +310,14 @@ button {
 .csvLink{
   background-color: #7C4DFF;
   color: white;
-  padding: 12px 35px;
-  float:right;
+  padding: 12px 40px;
   border: none;
   border-radius: 5px;
   font-size: 14px;
   cursor: pointer;
   margin: 10px 10px 20px 20px;
   text-decoration: none;
+  float: right;
 }
 
 /*
@@ -329,7 +335,7 @@ button {
   margin: 5px 15% 20px 15%;
   height: 150px;
   width: 70%;
-  border: 1px solid #cfcaca;
+  border: 1px solid black;
   box-shadow: 0px 3px 5px -2px black;
   border-radius: 10px;
   resize: none;
@@ -341,9 +347,18 @@ button {
   box-shadow: 0 0 0 3px hsla(260, 1%, 50%, 0.8);
 }
 
-.checkBox{
-  margin-right: 20px;
+.plus {
+  border: none !important;
+  background-color: white;
+  text-align: center;
+  line-height: 20px;
+  color: #7C4DFF;
+  font-weight: bold;
+  font-size: 16px !important;
+  vertical-align: top;
 }
+
+
 
 .critiqueBox {
   width: 80%;
@@ -372,65 +387,6 @@ button {
 
 /*
  *
- *          EMAIL 
- *
-*/
-
-.email{
-  width: 50%;
-  color: black;
-}
-
-.box{
-  border: 2px solid red;
-  width: 220px;
-  margin: 20px;
-  padding: 30px;
-  background: black;
-  color: white;
-} 
-
-.buttin{
-  border-radius: 25px;
-  background: blue;
-  padding: 5px;
-  width: 300px;
-  height: 50px;
-  font-weight: bold;
-  color: white;
-}
-
-.borde{
-  width: 300px;
-  border: 15px black;
-  padding: 25px;
-  margin: 20px;
-  background-color: #0077cc;
-  border-radius: 30px;
-}
-
-.txtb{
-  border-radius: 20px;
-  padding: 5px;
-  margin: 5px;
-}
-
-.txtb1{
-  height: 20px;
-  width: 250px;
-  border-radius: 20px;
-  background: white;
-  padding: 5px;
-  margin: 5px;
-}
-
-.cen{
-  text-align: center;
-  color: white;
-}
-
-/*
- *
  *          HOVER / TOOLTIP
  *
 */
@@ -440,11 +396,15 @@ button {
   display: inline-block;
 }
 
+.tooltip h4 {
+  margin: 0 0 0 20px;
+}
+
 .tooltip a:hover {
   opacity: 1;
 }
 
-.tooltip .tooltiptext {
+.tooltiptext {
   visibility: hidden;
   background-color: #555;
   color: #fff;
@@ -475,6 +435,16 @@ button {
   border-width: 5px;
   border-style: solid;
   border-color: transparent transparent transparent transparent;
+}
+
+#buttonGen {
+  /* background-color: red; */
+  display: inline-block;
+}
+
+.commentRt {
+  padding: 0;
+  margin: 0;
 }
 
 /*

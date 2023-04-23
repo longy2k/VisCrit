@@ -3,9 +3,7 @@ import RubricBox from "./RubricBox";
 import Data_Extractor from "./Data_Extract";
 import DocumentReader from "./DocumentReader";
 import { ItemContext } from "./ItemContext";
-// import * as XLSX from 'xlsx';
 import "../assets/css/UserPage.css";
-import AnnotateScript from './AnnotateScript';
 
 export default function UserPage() {
     const [currentItem, setItem] = useState({});
@@ -27,15 +25,11 @@ export default function UserPage() {
     }, []);
     
     return (
-        <div>
-            <div className="userPage" >
+        <div className='userPage'>
               <ItemContext.Provider value={{totalItems, setTotalItems, currentItem, setItem, Hierarchy, setHierarchy, pageNumber, setPageNumber, index, setIndex, rectangles, setRectangles, accessCanvas, setAccessCanvas,reRender, setReRender}}>
-                {/* Show pdf files*/}
                 <DocumentReader/>
                 <RubricBox  />
-                {/* <AnnotateScript/> Show png files */}
                </ItemContext.Provider>
-            </div>
         </div>
     )
 }

@@ -72,7 +72,7 @@ export default class Hierarchy{
               <button className="categoryButton" onClick={this.ShowHideCategory} id={this.bText}>-</button>
               <div className="tooltip">
                 <span className="tooltiptext">{this.mouseOver}</span>
-                <strong>{this.name}</strong>
+                <h4>{this.name}</h4>
                 </div>
               <div id={this.name}>
                 {ItemsToHTML(this.itemList)}
