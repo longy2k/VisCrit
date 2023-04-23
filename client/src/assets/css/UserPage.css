@@ -100,7 +100,7 @@
 #two:hover {
   color: rgb(255, 255, 255);
   background-color: rgb(101, 131, 187);
-  box-shadow: rgba(88, 80, 243, 0.4) 0px 2px 3px;
+  box-shadow: rgba(95, 92, 158, 0.4) 0px 2px 3px;
 }
 
 #three {
@@ -304,6 +304,20 @@
   font-size: 24px;
   margin-top: 3rem;
   margin-bottom: 3rem;
+}
+
+/* export button, it is a link that looks like a button */ 
+.csvLink{
+  background-color: #7C4DFF;
+  color: white;
+  padding: 11px 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 10px 10px 20px 20px;
+  text-decoration: none;
+  float: right;
 }
 
 /*

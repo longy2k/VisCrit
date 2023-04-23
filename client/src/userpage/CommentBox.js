@@ -1,8 +1,10 @@
 import React, {useState, useContext} from 'react';
 import { ItemContext } from './ItemContext';
+
 function CommentBox(){
     const [comment, setComment] = useState("");
-    let {setItem, currentItem, index, accessCanvas} = useContext(ItemContext);
+    let {totalItems, setItem, currentItem, index, accessCanvas} = useContext(ItemContext);
+
     const handleCommentChange = event => {
         setComment(event.target.value)
     }
@@ -11,8 +13,9 @@ function CommentBox(){
         if(index != -1){
             currentItem.setComment(savedComment,index);
         }
+        totalItems.push(currentItem);
+        console.log(totalItems);
         setItem(null);
-        console.log(currentItem);
     }
 
     return (

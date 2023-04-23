@@ -13,6 +13,8 @@ export default function UserPage() {
     const [pageNumber, setPageNumber] = useState(1);
     const [reRender, setReRender] = useState(null);
     const [index, setIndex] = useState(-1);
+    const [totalItems, setTotalItems] = useState([]);
+    
     useEffect(() => {
       fetch('/api/upload/json')
         .then(response => response.json())
@@ -24,7 +26,7 @@ export default function UserPage() {
     
     return (
         <div className='userPage'>
-              <ItemContext.Provider value={{currentItem, setItem, Hierarchy, setHierarchy, pageNumber, setPageNumber, index, setIndex, rectangles, setRectangles, accessCanvas, setAccessCanvas,reRender, setReRender}}>
+              <ItemContext.Provider value={{totalItems, setTotalItems, currentItem, setItem, Hierarchy, setHierarchy, pageNumber, setPageNumber, index, setIndex, rectangles, setRectangles, accessCanvas, setAccessCanvas,reRender, setReRender}}>
                 <DocumentReader/>
                 <RubricBox  />
                </ItemContext.Provider>

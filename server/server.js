@@ -20,7 +20,7 @@ app.post('/send-email', (req, res) => {
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: 'korey55@ethereal.email', 
+      user: 'korey55@ethereal.email',
       pass: 'DG2rNC6eERYpzbvJxv'
     },
   });
@@ -34,7 +34,7 @@ app.post('/send-email', (req, res) => {
   };
 
   // Email errors
-  transporter.sendMail(mailOptions, function(error, info){
+  transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       console.log(error);
       res.status(500).send('Error sending email');
@@ -42,8 +42,10 @@ app.post('/send-email', (req, res) => {
       console.log('Email sent: ' + info.response);
       res.send('Email sent successfully');
     }
-  }); 
+  });
 });
+
+
 
 // const transporter = nodemailer.createTransport({
 //   host: "smtp.ethereal.email",
@@ -104,6 +106,7 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
   }
   res.json({ path: filePath });
 });
+
 
 // react-pdf `Access-Control-Allow-Origin` to display pdf
 app.use((req, res, next) => {
