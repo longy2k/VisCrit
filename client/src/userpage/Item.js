@@ -9,11 +9,14 @@ export default class Item{
         }
         this.Display = arr.CatLevel_Item_DisplayText;
         this.LocationRt = [[],[],[],[],[]];
-        this.LikertValue = ["", "", "", "", ""];
+        this.LikertValue = "";
+        this.Comment = ["", "", "", "", ""];
         this.path = arr.CatLevel01 + ": "+ this.Ld2 + arr.CatLevel_Item;
     }
 
     setComment(text, index){
-        this.LikertValue[index]=text;
+        this.Comment[index]=text;
+        this.LikertValue = index + 1;
     }
+
 }

@@ -39,8 +39,8 @@ export default function ItemsToHTML(itemList=[]){
 
     function ButtonGen(num=0, item=[]){
       return(
-        <div style={{'visibility':`${item.LikertValue[num] === '' ?  'hidden':'visible'}` }} onMouseEnter={() => {drawRectangle(item.LocationRt[num])}} onMouseLeave={() => {clearCanvas()}} className="tooltip">
-          <span className="tooltiptext">{item.LikertValue[num]}</span>
+        <div style={{'visibility':`${item.Comment[num] === '' ?  'hidden':'visible'}` }} onMouseEnter={() => {drawRectangle(item.LocationRt[num])}} onMouseLeave={() => {clearCanvas()}} className="tooltip">
+          <span className="tooltiptext">{item.Comment[num]}</span>
           <button className="commentRt" onClick={()=>{RemoveComment(item,num)}} >{num+1}</button>
         </div>
       )
