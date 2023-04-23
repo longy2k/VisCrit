@@ -14,6 +14,7 @@ export default function DocumentReader() {
 
   const {pageNumber, setPageNumber, currentItem, index, rectangles, setRectangles, accessCanvas, setAccessCanvas, setReRender} = useContext(ItemContext); 
   const [refresh, setRefresh] = useState(accessCanvas);
+  let rectangles1 = rectangles;
   function onDocumentLoadSuccess({ numPages: nextNumPages }) {
     setNumPages(nextNumPages);
   }
@@ -45,6 +46,10 @@ export default function DocumentReader() {
       context.fillRect(rectangle.startX, rectangle.startY, rectangle.width, rectangle.height);
     }); // Draw all the saved rectangles
 
+    rectangles1.forEach(rectangle => {
+      context.fillRect(rectangle.startX, rectangle.startY, rectangle.width, rectangle.height);
+    }); // Draw all the saved rectangles
+
     canvas.addEventListener('mousedown', (event) => {
       context.fillStyle = "#0000FF";
   
@@ -69,6 +74,9 @@ export default function DocumentReader() {
         rectangles.forEach(rectangle => {
           context.fillRect(rectangle.startX, rectangle.startY, rectangle.width, rectangle.height);
         }); // Draw all the saved rectangles
+        rectangles1.forEach(rectangle => {
+          context.fillRect(rectangle.startX, rectangle.startY, rectangle.width, rectangle.height);
+        }); // Draw all the saved rectangles
   
         context.fillStyle = "#0000FF";
         context.fillRect(startX, startY, width, height);
@@ -78,14 +86,26 @@ export default function DocumentReader() {
   
     canvas.addEventListener('mouseup', (event) => {
       isDrawing = false;
-  
       // Save the current rectangle to the array
       rectangles.push({
         startX: startX,
         startY: startY,
         width: event.clientX - canvas.getBoundingClientRect().left - window.pageXOffset - startX,
         height: event.clientY - canvas.getBoundingClientRect().top - window.pageYOffset - startY
-      });
+      })
+
+      // cannot set a var equal to const var, so create an array that has same data as rectangles
+      // 
+      rectangles1.push([
+        "startX: " + startX,
+        "startY: " + startY,
+       "width: " +  (event.clientX - canvas.getBoundingClientRect().left - window.pageXOffset - startX),
+       "height: " + (event.clientY - canvas.getBoundingClientRect().top - window.pageYOffset - startY)
+      ]);
+
+      console.log(rectangles)
+      console.log(rectangles1)
+
     });
 
     if(accessCanvas === false){
@@ -139,7 +159,8 @@ export default function DocumentReader() {
 
   const handleSave = () => {
     currentItem.LocationRt[index].push(pageNumber);
-    currentItem.LocationRt[index].push(rectangles); 
+    currentItem.LocationRt[index].push(rectangles);
+
     const canvases = document.querySelectorAll('.react-pdf__Page canvas');
   
     canvases.forEach((canvas) => {

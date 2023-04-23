@@ -14,9 +14,8 @@ function CommentBox(){
             currentItem.setComment(savedComment,index);
         }
         totalItems.push(currentItem);
-      //  console.log(totalItems);
+        console.log(totalItems);
         setItem(null);
-        //console.log(currentItem);
     }
 
     return (

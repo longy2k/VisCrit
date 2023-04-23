@@ -300,6 +300,20 @@ button {
   margin-bottom: 3rem;
 }
 
+/* export button, it is a link that looks like a button */ 
+.csvLink{
+  background-color: #7C4DFF;
+  color: white;
+  padding: 12px 35px;
+  float:right;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 10px 10px 20px 20px;
+  text-decoration: none;
+}
+
 /*
  *
  *          COMMENT BOX
@@ -356,17 +370,6 @@ button {
   margin: 10px 10px 20px 20px;
 }
 
-.cancelButton {
-  background-color: #7C4DFF;
-  color: white;
-  padding: 6px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  margin: 10px 10px 20px 20px;
-}
- 
 /*
  *
  *          EMAIL 
