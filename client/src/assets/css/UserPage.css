@@ -14,16 +14,10 @@ html {
   overflow-x: hidden;
 }
 
-.generalButtonBox {
-  float: right;
-  margin: 0 13%;
-}
-
 .generalButton {
   position: relative;
   overflow: hidden;
   display: inline-block;
-  margin-right: .5em;
   width: 120px;
   height: 40px;
   background-color: #7C4DFF;
@@ -34,6 +28,10 @@ html {
   line-height: 40px;
   text-align: center;
   cursor: pointer;
+}
+
+.pageNavigation .generalButton {
+  margin-right: 0.5em;
 }
 
 /*
@@ -331,15 +329,21 @@ html {
  *
 */
 
-#commentForm p {
-  margin: .8% 15%;
-  font-weight: bold;
+.critiqueBox {
+  width: 50%;
+  margin: 15px auto;
+}
+
+.critiqueBox h4{
+  margin: 5px 0;
 }
 
 #commentArea {
-  margin: 5px 15% 20px 15%;
+  margin: 10px 0;
+  padding: 10px;
   height: 150px;
-  width: 70%;
+  width: 100%;
+  box-sizing: border-box;
   border: 1px solid black;
   box-shadow: 0px 3px 5px -2px black;
   border-radius: 10px;
@@ -361,15 +365,6 @@ html {
   font-weight: bold;
   font-size: 16px !important;
   vertical-align: top;
-}
-
-.critiqueBox {
-  width: 80%;
-  margin: 15px auto;
-}
-
-.critiqueBox p{
-  margin: 0px;
 }
 
 .commentBoxButtons {
