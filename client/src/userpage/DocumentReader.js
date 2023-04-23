@@ -200,7 +200,7 @@ export default function DocumentReader() {
         )} {refreshDoc()}
       </div>
       <div className="pageNavigation">
-        <button onClick={handleSave}> Save </button>
+        <button className = "generalButton" onClick={handleSave}> Save </button>
         <button className="leftButton" disabled={pageNumber <= 1} onClick={handlePreviousPage}>&#8592;</button>
         <button className="rightButton" disabled={pageNumber >= numPages} onClick={handleNextPage}>&#8594;</button>
       </div>
