@@ -1,19 +1,18 @@
+/*
+ *
+ *          GENERAL 
+ *
+*/
+
 .userPage {
   width: 85%;
   height: 89vh;
   margin: 20px auto;
 }
 
-/* button {
-  color: rgb(255, 255, 255);
-  background-color: #7700ff;
-  margin-bottom: 3px;
-  display: inline-block;
-  border: 0px solid transparent;
-  border-radius: 4px;
-  box-shadow: rgba(167, 167, 167, 0.4) 0px 2px 3px;
-  font-size: 14px;
-} */
+html {
+  overflow-x: hidden;
+}
 
 .generalButtonBox {
   float: right;
@@ -49,13 +48,13 @@
 }
 
 ::-webkit-scrollbar {
-	width: 6px;
+	width: 4px;
+  height: 4px;              /* height of horizontal scroll */
   background-color: #F5F5F5;
-
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 4rem;
+  border-radius: 3rem;
 	background-color: #3d3c3d;
 }
 
@@ -68,7 +67,7 @@
 #one {
   background-color: #3c43ac;
   display: inline-block;
-  margin: .2rem;
+  margin: .1rem;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -76,6 +75,8 @@
   font-size: 14px;
   font-weight: 400;
   transition: all 150ms ease-in-out 0s;
+  border: none;
+
  }
 
  #one:hover {
@@ -87,7 +88,7 @@
 #two {
   background-color: #80add7; 
   display: inline-block;
-  margin: .2rem;
+  margin: .1rem;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -95,6 +96,7 @@
   font-size: 14px;
   font-weight: 400;
   transition: all 150ms ease-in-out 0s;
+  border: none;
 }
 
 #two:hover {
@@ -106,7 +108,7 @@
 #three {
   background-color: #b3b3b5;
   display: inline-block;
-  margin: .2rem;
+  margin: .1rem;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -114,6 +116,7 @@
   font-size: 14px;
   font-weight: 400;
   transition: all 150ms ease-in-out 0s;
+  border: none;
 }
 
 #three:hover {
@@ -125,7 +128,7 @@
 #four {
   background-color: #e9a3a3;
   display: inline-block;
-  margin: .2rem;
+  margin: .1rem;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -133,6 +136,8 @@
   font-size: 14px;
   font-weight: 400;
   transition: all 150ms ease-in-out 0s;
+  border: none;
+
 }
 
 #four:hover {
@@ -145,7 +150,7 @@
 #five {
   background-color: #c41010;
   display: inline-block;
-  margin: .2rem;
+  margin: .1rem;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -153,6 +158,8 @@
   font-size: 14px;
   font-weight: 400;
   transition: all 150ms ease-in-out 0s;
+  border: none;
+
 }
 
 #five:hover {
@@ -178,6 +185,7 @@
   height: 65%;
   border: 1px solid gray;
   overflow-y: auto;
+  overflow-x: hidden;
   box-shadow: 0px 3px 5px -2px black;
 }
 
@@ -217,9 +225,8 @@
   box-shadow: 0px 3px 5px -2px black;
   float: right;
   overflow-y: scroll;
-  overflow-x: hidden;
   border-radius: 10px;
-  width : 32%;
+  width : 35%;
   height:42vw;
   padding: 15px;
 }
@@ -284,8 +291,6 @@
   color: white;
   background-color: #7C4DFF;
 }
-
-
 
 .category-items {
   list-style: none;
@@ -358,8 +363,6 @@
   vertical-align: top;
 }
 
-
-
 .critiqueBox {
   width: 80%;
   margin: 15px auto;
@@ -409,13 +412,13 @@
   background-color: #555;
   color: #fff;
   text-align: center;
-  width: 20rem;
+  width: 13rem;
   border-radius: 1rem;
   padding: .3rem;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 70%;
+  top: 1%;
+  right:80%;
   margin-left: -2.5rem;
   opacity: 0;
   transition: opacity 0.3s;
@@ -440,10 +443,12 @@
 #buttonGen {
   /* background-color: red; */
   display: inline-block;
+  padding: 0;
+  margin: 0;
 }
 
 .commentRt {
-  padding: 0;
+  padding: 0px 4px 0px 4px;
   margin: 0;
 }
 
