@@ -436,15 +436,18 @@ html {
 }
 
 #buttonGen {
-  /* background-color: red; */
   display: inline-block;
   padding: 0;
   margin: 0;
 }
 
 .commentRt {
-  padding: 0px 4px 0px 4px;
-  margin: 0;
+  margin: .1rem !important;
+  width: 2rem;
+  height: 2rem;
+  color: rgb(255, 255, 255);
+  transition: all 150ms ease-in-out 0s;
+  border-radius: 0 !important;
 }
 
 /*
