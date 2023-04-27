@@ -197,3 +197,14 @@ app.get('/api/upload/json', (req, res) => {
     });
   });
 });
+
+app.get('/api/checkdirectory', (req, res) => {
+  const directoryPath = __dirname + '/uploads';
+  fs.access(directoryPath, (error) => {
+    if (error) {
+      res.send(false); // directory does not exist
+    } else {
+      res.send(true); // directory exists
+    }
+  });
+});
