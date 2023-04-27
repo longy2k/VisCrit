@@ -13,6 +13,15 @@ export default function DocumentReader() {
   const [numPages, setNumPages] = useState(null);
   const { pageNumber, setPageNumber, currentItem, index, rectangles, setRectangles, accessCanvas, setAccessCanvas, setReRender } = useContext(ItemContext);
   const [refresh, setRefresh] = useState(accessCanvas);
+  const [dirpdfExists, setpdfjsonExists] = useState(false);
+
+  useEffect(() => {
+    fetch('/api/checkdirectory/upload/pdf')
+    .then(response => response.json())
+    .then(data => {
+      setpdfjsonExists(data);
+    });
+  }, []);
 
   // create an array that has same data as rectangles, but formatted enough for download
   let copyOfRectangles = rectangles;
@@ -184,27 +193,34 @@ export default function DocumentReader() {
     }
   }
 
-  return (
-    <div className='docView'>
-      <div className="fileView" >
-        {data.path && (
-          <>
-            <Document
-              file={`http://localhost:5000/${data.path}`}
-              onLoadSuccess={onDocumentLoadSuccess}
-              renderMode="canvas"
-            >
-              <Page pageNumber={pageNumber} onRenderSuccess={onRenderSuccess} />
-            </Document>
-          </>
-        )} {refreshDoc()}
+  if(dirpdfExists){
+    return (
+      <div className='docView'>
+        <div className="fileView" >
+          {data.path && (
+            <>
+              <Document
+                file={`http://localhost:5000/${data.path}`}
+                onLoadSuccess={onDocumentLoadSuccess}
+                renderMode="canvas"
+              >
+                <Page pageNumber={pageNumber} onRenderSuccess={onRenderSuccess} />
+              </Document>
+            </>
+          )} {refreshDoc()}
+        </div>
+        <div className="pageNavigation">
+          <button className = "generalButton" onClick={handleSave}> Save </button>
+          <button className="leftButton" disabled={pageNumber <= 1} onClick={handlePreviousPage}>&#8592;</button>
+          <button className="rightButton" disabled={pageNumber >= numPages} onClick={handleNextPage}>&#8594;</button>
+        </div>
+        <CommentB />
       </div>
-      <div className="pageNavigation">
-        <button className = "generalButton" onClick={handleSave}> Save </button>
-        <button className="leftButton" disabled={pageNumber <= 1} onClick={handlePreviousPage}>&#8592;</button>
-        <button className="rightButton" disabled={pageNumber >= numPages} onClick={handleNextPage}>&#8594;</button>
-      </div>
-      <CommentB />
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div></div>
+    );
+  }
+
 }

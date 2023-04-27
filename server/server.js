@@ -198,8 +198,35 @@ app.get('/api/upload/json', (req, res) => {
   });
 });
 
+
+// Check whether uploads/ exist
 app.get('/api/checkdirectory', (req, res) => {
   const directoryPath = __dirname + '/uploads';
+  fs.access(directoryPath, (error) => {
+    if (error) {
+      res.send(false); // directory does not exist
+    } else {
+      res.send(true); // directory exists
+    }
+  });
+});
+
+// Check whether uploads/pdf exist
+app.get('/api/checkdirectory/upload/pdf', (req, res) => {
+  const directoryPath = __dirname + '/uploads/pdf';
+  fs.access(directoryPath, (error) => {
+    if (error) {
+      res.send(false); // directory does not exist
+    } else {
+      res.send(true); // directory exists
+    }
+  });
+});
+
+
+// Check whether uploads/json exist
+app.get('/api/checkdirectory/upload/json', (req, res) => {
+  const directoryPath = __dirname + '/uploads/json';
   fs.access(directoryPath, (error) => {
     if (error) {
       res.send(false); // directory does not exist
