@@ -41,6 +41,11 @@ export default function UserPage() {
       </div>
     );
   } else {
-    return <div>Directory does not exist</div>;
+    return (
+      <div className="directoryNotFound">
+        <h1 className="noUploadViscrit">VISCRIT</h1>
+        <p className="noUploadText">Please upload your files.</p>
+      </div>
+    );
   }
 }

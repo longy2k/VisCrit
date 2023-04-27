@@ -227,6 +227,7 @@ html {
   width : 35%;
   height:40vw;
   padding: 15px;
+  background-color: white;
 }
 
 .rubricBox h3 {
@@ -504,4 +505,28 @@ html {
 /* Hide file button */
 input[type="file"] {
   display: none;
+}
+
+/* No uploads/ dir css */
+
+.directoryNotFound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  background-color: #f0f0ff;
+}
+
+.noUploadViscrit {
+  font-size: 6em;
+  font-weight: bold;
+  color: #9f82ec;
+  margin-bottom: 0;
+}
+
+.noUploadText {
+  color: #9f82ec;
+  font-size: 1.5em;
+  margin-top: 0;
 }
