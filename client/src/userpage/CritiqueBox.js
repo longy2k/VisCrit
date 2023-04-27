@@ -28,18 +28,25 @@ export default function CritiqueBox(){
 
     if (item1 instanceof Item) {
         return (
-            <div className="critiqueBox">
-                <h4>{item1.path}</h4>
-                <button style={{visibility: `${item1.Comment[0] === '' ? 'visible' : 'hidden'}` }} id="one" onClick={() => {setIndex1(0)}}>1</button>
-                <button style={{visibility: `${item1.Comment[1] === '' ? 'visible' : 'hidden'}` }} id="two" onClick={() => {setIndex1(1)}}>2</button>
-                <button style={{visibility: `${item1.Comment[2] === '' ? 'visible' : 'hidden'}` }} id="three" onClick={() => {setIndex1(2)}}>3</button>
-                <button style={{visibility: `${item1.Comment[3] === '' ? 'visible' : 'hidden'}` }} id="four" onClick={() => {setIndex1(3)}}>4</button>
-                <button style={{visibility: `${item1.Comment[4] === '' ? 'visible' : 'hidden'}` }} id="five" onClick={() => {setIndex1(4)}}>5</button>
-                <button style={{visibility: `${index1 === -1 ? 'hidden' : 'visible'}`, margin: '0 10px'}} className="generalButton" onClick={() => {setCanvas1(true)}}>Location</button>
-                <textarea id="commentArea" type="text" value={comment} onChange={handleCommentChange} />
-                <span style={{ float: 'right', margin: '10px 0' }}>
-                    <button className="generalButton" style={{ visibility: `${canvas2 ? 'hidden' : 'visible'}` }} onClick={() => { saveReturn(comment) }}>Submit</button>
-                </span>
+            <div className='critiqueBoxContainer'>
+                <div className="critiqueBox">
+                    <h3 style={{margin: '10px 0'}}>{item1.path}</h3>
+                    <div style={{display: 'flex', alignItems: 'center', height:'40px'}}>
+                        <h4 style={{marginRight: '5px', marginTop: '0px'}}>Rating: </h4>
+                        <div style={{display: 'flex'}}>
+                            <button style={{visibility: `${item1.Comment[0] === '' ? 'visible' : 'hidden'}` }} id="one" onClick={() => {setIndex1(0)}}>1</button>
+                            <button style={{visibility: `${item1.Comment[1] === '' ? 'visible' : 'hidden'}` }} id="two" onClick={() => {setIndex1(1)}}>2</button>
+                            <button style={{visibility: `${item1.Comment[2] === '' ? 'visible' : 'hidden'}` }} id="three" onClick={() => {setIndex1(2)}}>3</button>
+                            <button style={{visibility: `${item1.Comment[3] === '' ? 'visible' : 'hidden'}` }} id="four" onClick={() => {setIndex1(3)}}>4</button>
+                            <button style={{visibility: `${item1.Comment[4] === '' ? 'visible' : 'hidden'}` }} id="five" onClick={() => {setIndex1(4)}}>5</button>
+                            <button style={{visibility: `${index1 === -1 ? 'hidden' : 'visible'}`, margin: '0 10px'}} className="generalButton" onClick={() => {setCanvas1(true)}}>Location</button>
+                        </div>
+                    </div>
+                    <textarea id="commentArea" type="text" value={comment} onChange={handleCommentChange} style={{margin: '10px 0'}}/>
+                    <span style={{ float: 'right', margin: '5px 0' }}>
+                        <button className="generalButton" style={{ visibility: `${canvas2 ? 'hidden' : 'visible'}` }} onClick={() => { saveReturn(comment) }}>Submit</button>
+                    </span>
+                </div>
             </div>
         )
     } else {
