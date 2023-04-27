@@ -39,7 +39,7 @@ export default function CritiqueBox(){
                             <button style={{visibility: `${item1.Comment[2] === '' ? 'visible' : 'hidden'}` }} id="three" onClick={() => {setIndex1(2)}}>3</button>
                             <button style={{visibility: `${item1.Comment[3] === '' ? 'visible' : 'hidden'}` }} id="four" onClick={() => {setIndex1(3)}}>4</button>
                             <button style={{visibility: `${item1.Comment[4] === '' ? 'visible' : 'hidden'}` }} id="five" onClick={() => {setIndex1(4)}}>5</button>
-                            <button style={{visibility: `${index1 === -1 ? 'hidden' : 'visible'}`, margin: '0 10px'}} className="generalButton" onClick={() => {setCanvas1(true)}}>Location</button>
+                            <button style={{visibility: `${index1 === -1 ? 'hidden' : 'visible'}`, margin: '-3px 10px'}} className="generalButton" onClick={() => {setCanvas1(true)}}>Location</button>
                         </div>
                     </div>
                     <textarea id="commentArea" type="text" value={comment} onChange={handleCommentChange} style={{margin: '10px 0'}}/>
