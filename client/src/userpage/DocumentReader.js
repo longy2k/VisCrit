@@ -11,7 +11,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 export default function DocumentReader() {
   const [data, setData] = useState({});
   const [numPages, setNumPages] = useState(null);
-  const { pageNumber, setPageNumber, currentItem, index, rectangles, setRectangles, accessCanvas, setAccessCanvas, setReRender } = useContext(ItemContext);
+  const { pageNumber, setPageNumber,  rectangles, setRectangles, accessCanvas} = useContext(ItemContext);
   const [refresh, setRefresh] = useState(accessCanvas);
   const [dirpdfExists, setpdfjsonExists] = useState(false);
 
@@ -31,7 +31,6 @@ export default function DocumentReader() {
   }
 
   function onRenderSuccess() {
-    console.log("ORS got called", rectangles);
     if (rectangles !== []) {
       const canvases = document.querySelectorAll('.react-pdf__Page canvas');
       canvases.forEach((canvas) => {
@@ -171,21 +170,6 @@ export default function DocumentReader() {
     setRectangles([]);
   }
 
-  const handleSave = () => {
-    currentItem.LocationRt[index].push(pageNumber);
-    currentItem.LocationRt[index].push(rectangles);
-
-    const canvases = document.querySelectorAll('.react-pdf__Page canvas');
-
-    canvases.forEach((canvas) => {
-      if (!canvas.classList.contains('react-pdf__Page__canvas')) {
-        canvas.parentNode.removeChild(canvas);
-      }
-    });
-    setRectangles([]);
-    setAccessCanvas(false);
-  }
-
   function refreshDoc() {
     if (refresh !== accessCanvas) {
       onRenderSuccess();
@@ -210,7 +194,6 @@ export default function DocumentReader() {
           )} {refreshDoc()}
         </div>
         <div className="pageNavigation">
-          <button className = "generalButton" onClick={handleSave}> Save </button>
           <button className="leftButton" disabled={pageNumber <= 1} onClick={handlePreviousPage}>&#8592;</button>
           <button className="rightButton" disabled={pageNumber >= numPages} onClick={handleNextPage}>&#8594;</button>
         </div>
