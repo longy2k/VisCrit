@@ -573,7 +573,7 @@ Display for rubricBox
   border: 1.3px solid #7C4DFF;
   background-color: white;
   color: #7C4DFF;
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-align: center;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -712,6 +712,12 @@ Display for rubricBox
 .tooltip {
   position: relative;
   display: inline-block;
+  margin-bottom: 1.5%;
+}
+
+.alignRatingContainer {
+  width: 275px;
+  display: inline-block;
 }
 
 .tooltip h4 {
@@ -733,7 +739,6 @@ Display for rubricBox
   position: absolute;
   z-index: 1;
   bottom: 100%;
-  left:5%;
   margin-left: -2.5rem;
   opacity: 0;
   transition: opacity 0.3s;
@@ -763,8 +768,8 @@ Display for rubricBox
 
 .commentRt {
   margin: .1rem !important;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   color: rgb(255, 255, 255);
   transition: all 150ms ease-in-out 0s;
   border-radius: 0 !important;
