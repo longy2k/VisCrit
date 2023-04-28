@@ -39,7 +39,14 @@ export default function ItemsToHTML(itemList=[]){
 
     function ButtonGen(num=0, item=[]){
       return(
-        <div style={{'visibility':`${item.Comment[num] === '' ?  'hidden':'visible'}` }} onMouseEnter={() => {drawRectangle(item.LocationRt[num])}} onMouseLeave={() => {clearCanvas()}} className="tooltip">
+        <div style={{
+          'visibility':`${item.Comment[num] === '' ?  'hidden':'visible'}`,
+          'display':`${item.Comment[num] === '' ?  'none':'flex'}`,
+          float:"right"
+        }} 
+        onMouseEnter={() => {drawRectangle(item.LocationRt[num])}} 
+        onMouseLeave={() => {clearCanvas()}} 
+        className="tooltip">
           <span className="tooltiptext">{item.Comment[num]}</span>
           <button className="commentRt" onClick={()=>{RemoveComment(item,num)}} >{num+1}</button>
         </div>
@@ -50,14 +57,15 @@ export default function ItemsToHTML(itemList=[]){
         itemList.map((item, i) =>
         <ul>
           <li>
+          <div className= "alignRatingContainer">
             <div className="tooltip">
               {/* <span className="tooltiptext">{item.mouseOver}</span> */}
               <button className="plus" onClick={() => {setItem(item)}}>+</button>
               {item.Display}
             </div>
-            {CommentResults(item)}
-          </li>
-
+           </div>
+          {CommentResults(item)}
+        </li>
         </ul>)
       )
 }
