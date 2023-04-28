@@ -4,7 +4,7 @@ import Item from './Item';
 
 export default function CritiqueBox(){
     const [comment, setComment] = useState("");
-    let {currentItem: item1, setAccessCanvas: setCanvas1, index: index1, setIndex: setIndex1} = useContext(ItemContext);
+    let {currentItem: item1, setAccessCanvas: setCanvas1, index: index1, setIndex: setIndex1, rectangles, pageNumber} = useContext(ItemContext);
     let {totalItems, setItem, currentItem: item2, index: index2, accessCanvas: canvas2} = useContext(ItemContext);
 
     useEffect(() => {
@@ -19,6 +19,9 @@ export default function CritiqueBox(){
       }
       
     function saveReturn(savedComment) {
+        item1.LocationRt[index1].push(pageNumber);
+        item1.LocationRt[index1].push(rectangles);
+        setCanvas1(false);
         if (index2 !== -1){
             item2.setComment(savedComment, index2);
         }
@@ -44,7 +47,7 @@ export default function CritiqueBox(){
                     </div>
                     <textarea id="commentArea" type="text" value={comment} onChange={handleCommentChange} style={{margin: '10px 0'}}/>
                     <span style={{ float: 'right', margin: '5px 0' }}>
-                        <button className="generalButton" style={{ visibility: `${canvas2 ? 'hidden' : 'visible'}` }} onClick={() => { saveReturn(comment) }}>Submit</button>
+                        <button className="generalButton"  onClick={() => { saveReturn(comment) }}>Submit</button>
                     </span>
                 </div>
             </div>
