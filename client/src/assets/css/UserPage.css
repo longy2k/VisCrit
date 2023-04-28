@@ -411,6 +411,7 @@ html {
 .tooltip {
   position: relative;
   display: inline-block;
+  margin-bottom: 1.5%;
 }
 
 .alignRatingContainer {
@@ -465,7 +466,6 @@ html {
 }
 
 .commentRt {
-  display: block;
   margin: .1rem !important;
   width: 1.5rem;
   height: 1.5rem;
