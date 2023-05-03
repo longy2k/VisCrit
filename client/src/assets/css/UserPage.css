@@ -854,3 +854,23 @@ input[type="file"] {
   font-size: 1.5em;
   margin-top: 0;
 }
+
+.uploadButton {
+  background-color: #fff;
+  color: #9f82ec;
+  border: 2px solid #9f82ec;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.3s ease-in-out;
+}
+
+.uploadButton:hover {
+  background-color: #9f82ec;
+  color: #fff;
+}
+
+
+
