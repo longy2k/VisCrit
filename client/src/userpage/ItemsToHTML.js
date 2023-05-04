@@ -16,12 +16,15 @@ export default function ItemsToHTML(itemList=[]){
     }
 
     function RemoveComment(item, num){
-      item.setComment("", num);
-      /* force re-render by setting Item to something*/
-      if(currentItem === null){
-        setItem([]);
-      } else {
-        setItem(null);
+      const confirmed = window.confirm('Are you sure you want to delete comment?');
+      if(confirmed){
+        item.setComment("", num);
+        /* force re-render by setting Item to something*/
+        if(currentItem === null){
+          setItem([]);
+        } else {
+          setItem(null);
+        }
       }
     }
 
