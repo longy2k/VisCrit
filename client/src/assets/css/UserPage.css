@@ -5,9 +5,9 @@
 */
 
 .userPage {
-  width: 85%;
-  height: 89vh;
-  margin: 20px auto;
+  width: 95%;
+  height: auto;
+  margin: 20px 0px 0px 20px ;
 }
 
 html {
@@ -382,9 +382,8 @@ Display for five
 */
 
 .docView {
-  width: 60%; 
-  height: 100%;
-  max-height: 100%;
+  width: 80%; 
+  height: 182.5vh;
   float: left;
 }
 /*
@@ -405,7 +404,7 @@ Display for docView
 
 
 .fileView {
-  height: 60%;
+  height: 50%;
   border: 1px solid #708090;
   overflow-y: auto;
   overflow-x: hidden;
@@ -446,16 +445,17 @@ Display for docView
 .rubricBoxContainer {
   /* border: 1px solid black; */
   /* box-shadow: 0px 3px 5px -2px black; */
-  float: right;
+ float: right;
   overflow-y: none;
   border-radius: 10px;
-  width : 35%;
+  width : 19vw;
   height:45vw;
   padding: 0;
 }
 /*
 Display for rubricBox container
 */
+/*
 @media screen and (max-width: 1150px) {
   .rubricBoxContainer {
     margin-top: 100px;
@@ -470,7 +470,7 @@ Display for rubricBox container
   .rubricBoxContainer {
     /* margin-top: 100px; */
     
-    width: 32vw;
+  /*  width: 32vw;
     height: 60vw;
     margin-right: -25px;
   }
@@ -484,7 +484,7 @@ Display for rubricBox container
     margin-right: -0px;
   }
 }
-
+*/
 
 
 /*
@@ -499,13 +499,14 @@ Display for rubricBox container k
   overflow-x: hidden;
   height:40vw;
   border-radius: 10px;
-  width : 95%;
+  width : 100%;
   padding: 15px;
   background-color: white;
 }
 /*
 Display for rubricBox 
 */
+/*
 @media screen and (max-width: 1150px) {
   .rubricBox {
     margin-top: 100px;
@@ -519,7 +520,7 @@ Display for rubricBox
 @media screen and (min-width: 1151px) {
   .rubricBox {
     /* margin-top: 100px; */
-    
+  /*  
     width: 32vw;
     height: 60vw;
     margin-right: -25px;
@@ -534,6 +535,7 @@ Display for rubricBox
     margin-right: -30px;
   }
 }
+*/
 
 
 

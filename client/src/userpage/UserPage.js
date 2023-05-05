@@ -6,6 +6,8 @@ import { ItemContext } from "./ItemContext";
 import "../assets/css/UserPage.css";
 import * as XLSX from 'xlsx';
 import axios from 'axios';
+import Draggable from "react-draggable";
+
 
 export default function UserPage() {
   const [currentItem, setItem] = useState({});
@@ -74,7 +76,8 @@ export default function UserPage() {
       }
     }
   };
-  
+
+
 
   const handleUploadButtonClick = (e) => {
     const uploadInput = document.createElement('input');
@@ -106,6 +109,7 @@ export default function UserPage() {
         <ItemContext.Provider value={{totalItems, setTotalItems, currentItem, setItem, Hierarchy, setHierarchy, pageNumber, setPageNumber, index, setIndex, rectangles, setRectangles, accessCanvas, setAccessCanvas,reRender, setReRender}}>
           <DocumentReader/>
           <RubricBox/>
+
         </ItemContext.Provider>
       </div>
     );
