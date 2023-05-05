@@ -19,7 +19,6 @@ export default function UserPage() {
   const [index, setIndex] = useState(-1);
   const [totalItems, setTotalItems] = useState([]);
   const [directoryExists, setDirectoryExists] = useState(false);
-  const [jsonData, setJsonData] = useState(null);
   const [fileUploaded, setFileUploaded] = useState(false);
   // const [participantsData, setParticipantsData] = useState([]);
 
@@ -27,7 +26,6 @@ export default function UserPage() {
     e.preventDefault();
     const files = e.currentTarget.files;
     if (files.length >= 2) {
-      const file = files[0];
       const reader = new FileReader();
   
       for (const file of files) {
@@ -38,8 +36,6 @@ export default function UserPage() {
             const sheetName = workbook.SheetNames[0];
             const worksheet = workbook.Sheets[sheetName];
             const json = XLSX.utils.sheet_to_json(worksheet);
-            setJsonData(json);
-            setFileUploaded(true);
             console.log(json);
     
             // Upload JSON file to server
@@ -56,7 +52,6 @@ export default function UserPage() {
             // const participantsWorksheet = workbook.Sheets[participantsSheetName];
             // const jsonData = XLSX.utils.sheet_to_json(participantsWorksheet);
             // setParticipantsData(jsonData);
-            window.location.reload();
           };
           reader.readAsArrayBuffer(file);
         } else if (file.type === "application/pdf" || file.type === "image/jpeg" || file.type === "image/png") {
@@ -66,7 +61,6 @@ export default function UserPage() {
           try {
             const response = await axios.post('/api/upload/', formData);
             console.log(response.data);
-            window.location.reload();
           } catch (error) {
             console.error(error);
           }
@@ -75,6 +69,7 @@ export default function UserPage() {
         }
       }
     }
+    setFileUploaded(true);
   };
 
 
@@ -101,7 +96,7 @@ export default function UserPage() {
       .then(data => {
         setDirectoryExists(data);
       });
-  }, []);
+  }, [fileUploaded]);
 
   if (directoryExists) {
     return (
