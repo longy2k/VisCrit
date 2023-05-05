@@ -9,13 +9,6 @@ export default function CritiqueBox(){
     let {currentItem: item1, setAccessCanvas: setCanvas1, index: index1, setIndex: setIndex1, rectangles, pageNumber} = useContext(ItemContext);
     let {totalItems, setItem, currentItem: item2, index: index2, accessCanvas: canvas2} = useContext(ItemContext);
 
-    const [MousePosition, setMousePosition] = useState({
-        left: 0,
-        top: 0
-    })
-  
-    function handleMouseMove(ev) { setMousePosition({left: ev.pageX, top: ev.pageY}); }
-
 
     useEffect(() => {
         if (item2 && Array.isArray(item2.Comment) && index2 !== -1) {
@@ -41,7 +34,7 @@ export default function CritiqueBox(){
 
     if (item1 instanceof Item) {
         return (
-            <div className='critiqueBoxContainer' onMouseMove={(ev)=> handleMouseMove(ev)} >
+            <div className='critiqueBoxContainer' >
                 <div className="critiqueBox">
                     <h3 style={{margin: '10px 0'}}>{item1.path}</h3>
                     <div style={{display: 'flex', alignItems: 'center', height:'40px'}}>
