@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext, useRef } from 'react'
 import { ItemContext } from "./ItemContext"
 import { CSVLink } from "react-csv";
 import CritiqueBox from './CritiqueBox';
+import Draggable from 'react-draggable';
 
 export default function RubricBox() {
   let {totalItems, Hierarchy} = useContext(ItemContext);
@@ -20,6 +21,7 @@ export default function RubricBox() {
 
   if (dirjsonExists) {
     return (
+      <Draggable>
       <div className="rubricBoxContainer">
         <button
           onClick={() =>
@@ -46,6 +48,7 @@ export default function RubricBox() {
         </div>
 
       </div>
+      </Draggable>
     );
   } else {
     return (
