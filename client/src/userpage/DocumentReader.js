@@ -197,7 +197,6 @@ export default function DocumentReader() {
           <button className="leftButton" disabled={pageNumber <= 1} onClick={handlePreviousPage}>&#8592;</button>
           <button className="rightButton" disabled={pageNumber >= numPages} onClick={handleNextPage}>&#8594;</button>
         </div>
-        <CommentB />
       </div>
     );
   } else {
