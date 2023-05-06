@@ -179,21 +179,6 @@ export default function DocumentReader() {
   if(dirpdfExists){
     return (
       <div className='docView'>
-        <div className="pageNavigation">
-        <button 
-        className='leftButton'
-        disabled={pageNumber <= 1} 
-        onClick={handlePreviousPage}>
-        &#8592;  
-        </button>
-
-        <button 
-          className='rightButton'
-          disabled={pageNumber >= numPages}
-          onClick={handleNextPage}>
-          &#8594;  
-          </button>
-        </div>
         <div className="fileView" >
           {data.path && (
             <>
