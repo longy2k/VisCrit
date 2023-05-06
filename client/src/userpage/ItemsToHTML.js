@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import { ItemContext } from "./ItemContext";
 import CritiqueBox from "./CritiqueBox";
 export default function ItemsToHTML(itemList=[]){
-    const {currentItem, setItem, setPageNumber, setRectangles, setAccessCanvas} = useContext(ItemContext);
+    const {currentItem, setItem, setPageNumber, setRectangles, setAccessCanvas, setIndex} = useContext(ItemContext);
 
     function CommentResults(item=[]){
       return(
@@ -56,6 +56,11 @@ export default function ItemsToHTML(itemList=[]){
         </div>
       )
     }
+    
+    function AddCommentHandler(item=null){
+      setItem(item);
+      setIndex(-1);
+    }
 
     return (
         itemList.map((item, i) =>
@@ -64,7 +69,7 @@ export default function ItemsToHTML(itemList=[]){
           <div className= "alignRatingContainer">
             <div className="tooltip">
               {/* <span className="tooltiptext">{item.mouseOver}</span> */}
-              <button className="plus" onClick={() => {setItem(item)}}>+</button>
+              <button className="plus" onClick={() => {AddCommentHandler(item)}}>+</button>
               {item.Display}
             </div>
             {item === currentItem ? <CritiqueBox/> : null}
