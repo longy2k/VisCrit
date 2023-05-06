@@ -38,7 +38,7 @@ export default function RubricBox() {
         <div
         className={`rubricBox ${isOpen ? 'open' : ''}`}
         ref={ref}
-          style={{ height: isOpen ? ref.current.scrollHeight : 0 }}
+          style={{ height: isOpen ? ref.current.scrollHeight : "0"}}
           onTransitionEnd={e =>
             ref.current === e.target && setTransitioning(false)
           }

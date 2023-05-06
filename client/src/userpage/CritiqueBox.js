@@ -35,7 +35,7 @@ export default function CritiqueBox(){
         return (
             <div className='critiqueBoxContainer' >
                 <div className="critiqueBox">
-                    <div style={{margin: '0', width: '15vw'}}>
+                    <div style={{margin: '0', width: '20vw'}}>
                         <h4> Rating: </h4>
                         <div style={{display: 'flex'}}>
                             <button style={{visibility: `${item1.Comment[0] === '' ? 'visible' : 'hidden'}` }} id="one" onClick={() => {setIndex1(0)}}>1</button>

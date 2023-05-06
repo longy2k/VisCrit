@@ -16,19 +16,15 @@ html {
 }
 
 .generalButton {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-  width: 120px;
-  height: 40px;
-  background-color: #7C4DFF;
-  color: #fff;
-  font-size: 14px;
-  border: 0px solid transparent;
-  border-radius: 4px;
-  line-height: 40px;
-  text-align: center;
+  background-color:  #7C4DFF;
+  color:  white;
+  border: 2px solid  #7C4DFF;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
   cursor: pointer;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.3s ease-in-out;
 }
 
 /* 
@@ -451,7 +447,7 @@ Display for docView
   position: absolute;
   margin-right: 14;
   width : 25%;
-  height: 900px;
+  height: auto;
   border-radius: 1rem;
   padding: 0;
   z-index: 1;
@@ -460,8 +456,10 @@ Display for docView
 
 
 .rubricBox.open {
-  transition: .3s ease-in-out;
+  height:900px !important;
+  transition:ease-in-out .2s;
 }
+
 /*
 Display for rubricBox container
 */
@@ -508,15 +506,14 @@ Display for rubricBox container
   box-shadow: 0px 3px 5px -2px black;
   overflow-y: scroll; 
   overflow-x: hidden;
-  height: 900px;
   max-height: 900px;
   border-radius: 10px;
   width : 100%;
   padding: 15px;
   background-color: white;
-  transition: .3s ease-in-out;
-
+  transition:ease-in-out .2s;
 }
+
 /*
 Display for rubricBox 
 */
@@ -650,6 +647,21 @@ Display for rubricBox
   margin-right: 70%;
   text-decoration: none;
   float:right;
+
+    background-color:  #7C4DFF;
+    color:  white;
+    border: 2px solid  #7C4DFF;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease-in-out;
+  }
+
+  .csvLink:hover {
+    background-color:  white;
+    color: #7C4DFF;
 }
 
 /*
@@ -791,18 +803,15 @@ Display for rubricBox
 }
 
 .leftButton {
-  position: relative;
-  display: inline-block;
-  margin-right: .5em;
-  width: 40px;
-  height: 40px;
-  background-color: #7C4DFF;
-  color: #fff;
-  font-size: 14px;
-  border: 0px solid transparent;
-  border-radius: 4px;
-  line-height: 40px;
-  text-align: center;
+  background-color:  #7C4DFF;
+  color:  white;
+  border: 2px solid  #7C4DFF;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.3s ease-in-out;
   cursor: pointer;
 }
 
@@ -849,19 +858,19 @@ input[type="file"] {
 .noUploadViscrit {
   font-size: 6em;
   font-weight: bold;
-  color: #9f82ec;
+  color:  #7C4DFF;
   margin-bottom: 0;
 }
 
 .noUploadText {
-  color: #9f82ec;
+  color:  #7C4DFF;
   font-size: 1.5em;
   margin-top: 0;
 }
 
 .uploadButton {
   background-color: #fff;
-  color: #9f82ec;
+  color:  #7C4DFF;
   border: 2px solid #9f82ec;
   padding: 10px 20px;
   border-radius: 6px;
@@ -872,6 +881,6 @@ input[type="file"] {
 }
 
 .uploadButton:hover {
-  background-color: #9f82ec;
+  background-color:  #7C4DFF;
   color: #fff;
 }
