@@ -456,7 +456,7 @@ Display for docView
 
 
 .rubricBox.open {
-  height:700px !important;
+  height:500px !important;
   transition:ease-in-out .2s;
 }
 
@@ -506,7 +506,7 @@ Display for rubricBox container
   box-shadow: 0px 3px 5px -2px black;
   overflow-y: scroll; 
   overflow-x: hidden;
-  max-height: 700px;
+  max-height: 500px;
   border-radius: 10px;
   width : 100%;
   padding: 15px;
