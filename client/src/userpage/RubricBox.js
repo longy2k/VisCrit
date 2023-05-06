@@ -45,18 +45,12 @@ export default function RubricBox() {
 
   if (dirjsonExists) {
     return (
-      <div className="rubricBoxContainer">
-        {/* <h3>VISCRIT</h3> */}
-        <h3>Available Categories</h3>
+    <div className="rubricBoxContainer">
+      <h3>Available Categories</h3>
+      <div className='rubricBox'>
         {Hierarchy.map((item, i) => <div key={i}>{item.returnHTML()}</div>)}
-        <CSVLink 
-            data={totalItems}
-            filename={"Export_Results.csv"}
-            className='csvLink'
-            onClick={handleExport}
-          >
-            Export
-          </CSVLink>
+      </div>
+      <div className="bottomContainer">
         <div className="pageNavigation">
           <button 
             className='leftButton'
@@ -72,7 +66,16 @@ export default function RubricBox() {
             &#8594;  
           </button>
         </div>
+        <CSVLink 
+          data={totalItems}
+          filename={"Export_Results.csv"}
+          className='csvLink'
+          onClick={handleExport}
+        >
+          Export
+        </CSVLink>
       </div>
+    </div>
     );
   } else {
     return (
