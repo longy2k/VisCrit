@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext, useRef } from 'react'
 import { ItemContext } from "./ItemContext"
-import CritiqueBox from './CritiqueBox';
 import Draggable from 'react-draggable';
 
 export default function RubricBox() {
@@ -46,7 +45,7 @@ export default function RubricBox() {
           {isOpen || isTransitioning ? (
             <>
               <h3>Available Categories</h3>
-              {Hierarchy.map((item, i) => <div key={i}>{item.returnHTML()} <CritiqueBox/> </div>
+              {Hierarchy.map((item, i) => <div key={i}>{item.returnHTML()}</div>
               )}
             </>
           ) : null}

@@ -1,5 +1,6 @@
 import React, {useContext} from "react";
 import { ItemContext } from "./ItemContext";
+import CritiqueBox from "./CritiqueBox";
 export default function ItemsToHTML(itemList=[]){
     const {currentItem, setItem, setPageNumber, setRectangles, setAccessCanvas} = useContext(ItemContext);
 
@@ -66,6 +67,7 @@ export default function ItemsToHTML(itemList=[]){
               <button className="plus" onClick={() => {setItem(item)}}>+</button>
               {item.Display}
             </div>
+            {item === currentItem ? <CritiqueBox/> : null}
            </div>
           {CommentResults(item)}
         </li>
