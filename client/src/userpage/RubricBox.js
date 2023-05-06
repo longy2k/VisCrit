@@ -1,47 +1,62 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState, useContext, useRef } from 'react'
 import { ItemContext } from "./ItemContext"
-import { CSVLink } from "react-csv";
+import Draggable from 'react-draggable';
 
 export default function RubricBox() {
-    let {totalItems, Hierarchy} = useContext(ItemContext);
-    const [dirjsonExists, setdirjsonExists] = useState(false);
+  let {totalItems, Hierarchy} = useContext(ItemContext);
+  const [dirjsonExists, setdirjsonExists] = useState(false);
+  const ref = useRef();
+  const [isOpen, setOpen] = useState(false);
+  const [isTransitioning, setTransitioning] = useState(false);
+  const buttonText = isOpen ? 'Collapse' : 'Show';
 
-    useEffect(() => {
-      fetch('/api/checkdirectory/upload/json')
-      .then(response => response.json())
-      .then(data => {
-        setdirjsonExists(data);
-      });
-    }, []);
-
-    function handleExport(event) {
-      const confirmed = window.confirm('Are you sure you want to export the results?');
-      if (!confirmed) {
-        event.preventDefault(); // prevent the default behavior of the onClick event
-      }
-    }
-
-    if (dirjsonExists) {
-      return (
-        <div className="rubricBoxContainer">
-          <div className='rubricBox'>
-            <h3>Available Categories</h3>
-            {Hierarchy.map((item, i) => <div key={i}>{item.returnHTML()}</div>)}
-          </div>
-          {/* Export button */}
-          <CSVLink 
-            data={totalItems}
-            filename={"Export_Results.csv"}
-            className='csvLink'
-            onClick={handleExport}
-          >
-            Export
-          </CSVLink>
-        </div>
-      );
+  const handleClick = () => {
+    if (isOpen) {
+      setOpen(false);
+      setTransitioning(true);
     } else {
-      return(
-        <div></div>
-      );
+      setOpen(true);
     }
+  };
+
+  useEffect(() => {
+    fetch('/api/checkdirectory/upload/json')
+    .then(response => response.json())
+    .then(data => {
+      setdirjsonExists(data);
+    });
+  }, []);
+
+  if (dirjsonExists) {
+    return (
+      <Draggable>
+      <div className="rubricBoxContainer">
+      <button className={`generalButton ${isOpen ? 'open' : ''}`} onClick={handleClick}>
+      {buttonText}
+    </button>
+        <div
+        className={`rubricBox ${isOpen ? 'open' : ''}`}
+        ref={ref}
+          style={{ height: isOpen ? ref.current.scrollHeight : "0"}}
+          onTransitionEnd={e =>
+            ref.current === e.target && setTransitioning(false)
+          }
+        >
+          {isOpen || isTransitioning ? (
+            <>
+              <h3>Available Categories</h3>
+              {Hierarchy.map((item, i) => <div key={i}>{item.returnHTML()}</div>
+              )}
+            </>
+          ) : null}
+        </div>
+
+      </div>
+      </Draggable>
+    );
+  } else {
+    return (
+      <div></div>
+    );
+  }
 }

@@ -2,10 +2,12 @@ import React, {useContext, useState, useEffect} from 'react';
 import { ItemContext } from './ItemContext';
 import Item from './Item';
 
+
 export default function CritiqueBox(){
     const [comment, setComment] = useState("");
     let {currentItem: item1, setAccessCanvas: setCanvas1, index: index1, setIndex: setIndex1, rectangles, pageNumber} = useContext(ItemContext);
     let {totalItems, setItem, currentItem: item2, index: index2, accessCanvas: canvas2} = useContext(ItemContext);
+
 
     useEffect(() => {
         if (item2 && Array.isArray(item2.Comment) && index2 !== -1) {
@@ -31,11 +33,10 @@ export default function CritiqueBox(){
 
     if (item1 instanceof Item) {
         return (
-            <div className='critiqueBoxContainer'>
+            <div className='critiqueBoxContainer' >
                 <div className="critiqueBox">
-                    <h3 style={{margin: '10px 0'}}>{item1.path}</h3>
-                    <div style={{display: 'flex', alignItems: 'center', height:'40px'}}>
-                        <h4 style={{marginRight: '5px', marginTop: '0px'}}>Rating: </h4>
+                    <div style={{margin: '0', width: '20vw'}}>
+                        <h4> Rating: </h4>
                         <div style={{display: 'flex'}}>
                             <button style={{visibility: `${item1.Comment[0] === '' ? 'visible' : 'hidden'}` }} id="one" onClick={() => {setIndex1(0)}}>1</button>
                             <button style={{visibility: `${item1.Comment[1] === '' ? 'visible' : 'hidden'}` }} id="two" onClick={() => {setIndex1(1)}}>2</button>
@@ -47,10 +48,12 @@ export default function CritiqueBox(){
                     </div>
                     <textarea id="commentArea" type="text" value={comment} onChange={handleCommentChange} style={{margin: '10px 0'}}/>
                     <span style={{ float: 'right', margin: '5px 0' }}>
-                        <button className="generalButton"  onClick={() => { saveReturn(comment) }}>Submit</button>
+                        <button className="generalButton" onClick={() => { saveReturn(comment) }}>Submit</button>
                     </span>
+                    <br/>
                 </div>
             </div>
+
         )
     } else {
     return (

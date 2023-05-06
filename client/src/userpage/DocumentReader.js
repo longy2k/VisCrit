@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import CommentB from './CritiqueBox';
 import { ItemContext } from './ItemContext';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
@@ -180,6 +179,21 @@ export default function DocumentReader() {
   if(dirpdfExists){
     return (
       <div className='docView'>
+        <div className="pageNavigation">
+        <button 
+        className='leftButton'
+        disabled={pageNumber <= 1} 
+        onClick={handlePreviousPage}>
+        &#8592;  
+        </button>
+
+        <button 
+          className='rightButton'
+          disabled={pageNumber >= numPages}
+          onClick={handleNextPage}>
+          &#8594;  
+          </button>
+        </div>
         <div className="fileView" >
           {data.path && (
             <>
@@ -193,11 +207,6 @@ export default function DocumentReader() {
             </>
           )} {refreshDoc()}
         </div>
-        <div className="pageNavigation">
-          <button className="leftButton" disabled={pageNumber <= 1} onClick={handlePreviousPage}>&#8592;</button>
-          <button className="rightButton" disabled={pageNumber >= numPages} onClick={handleNextPage}>&#8594;</button>
-        </div>
-        <CommentB />
       </div>
     );
   } else {

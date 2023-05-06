@@ -6,6 +6,8 @@ import { ItemContext } from "./ItemContext";
 import "../assets/css/UserPage.css";
 import * as XLSX from 'xlsx';
 import axios from 'axios';
+import { CSVLink } from "react-csv";
+
 
 export default function UserPage() {
   const [currentItem, setItem] = useState({});
@@ -69,7 +71,14 @@ export default function UserPage() {
     }
     setFileUploaded(true);
   };
-  
+
+  function handleExport(event) {
+    const confirmed = window.confirm('Are you sure you want to export the results?');
+    if (!confirmed) {
+      event.preventDefault(); // prevent the default behavior of the onClick event
+    }
+  }
+
 
   const handleUploadButtonClick = (e) => {
     const uploadInput = document.createElement('input');
@@ -99,9 +108,18 @@ export default function UserPage() {
     return (
       <div className='userPage'>
         <ItemContext.Provider value={{totalItems, setTotalItems, currentItem, setItem, Hierarchy, setHierarchy, pageNumber, setPageNumber, index, setIndex, rectangles, setRectangles, accessCanvas, setAccessCanvas,reRender, setReRender}}>
+        <CSVLink 
+            data={totalItems}
+            filename={"Export_Results.csv"}
+            className='csvLink'
+            onClick={handleExport}
+          >
+            Export
+          </CSVLink>
           <DocumentReader/>
           <RubricBox/>
         </ItemContext.Provider>
+
       </div>
     );
   } else {
@@ -110,7 +128,8 @@ export default function UserPage() {
         <h1 className="noUploadViscrit">VISCRIT</h1>
         <p className="noUploadText">Please upload your files.</p>
         <button className="uploadButton" onClick={handleUploadButtonClick}>Upload</button>
-      </div>
+      
+        </div>
     );
   }
 }

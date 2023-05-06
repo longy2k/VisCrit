@@ -5,9 +5,10 @@
 */
 
 .userPage {
-  width: 85%;
-  height: 89vh;
-  margin: 20px auto;
+  position: fixed;
+  width: 100%;
+  height: auto;
+  margin: 10px 10px 10px 15px;
 }
 
 html {
@@ -15,19 +16,15 @@ html {
 }
 
 .generalButton {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-  width: 120px;
-  height: 40px;
-  background-color: #7C4DFF;
-  color: #fff;
-  font-size: 14px;
-  border: 0px solid transparent;
-  border-radius: 4px;
-  line-height: 40px;
-  text-align: center;
+  background-color:  #7C4DFF;
+  color:  white;
+  border: 2px solid  #7C4DFF;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
   cursor: pointer;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.3s ease-in-out;
 }
 
 /* 
@@ -382,14 +379,14 @@ Display for five
 */
 
 .docView {
-  width: 60%; 
-  height: 100%;
-  max-height: 100%;
-  float: left;
+  width: 100%; 
+  height: auto;
+  margin:0;
+  padding: 0;
 }
 /*
 Display for docView
-*/
+*
 @media screen and (max-width: 1150px) {
   .docView {
     width: 200%;
@@ -397,7 +394,7 @@ Display for docView
     height: 100%;
   }
 }
-
+*/
 
 /*
 Display for docView
@@ -405,8 +402,9 @@ Display for docView
 
 
 .fileView {
-  height: 60%;
-  border: 1px solid #708090;
+  width: 98%;
+  height: 90vh;
+  border: 1px solid #000000;
   overflow-y: auto;
   overflow-x: hidden;
   box-shadow: 0px 3px 5px -2px black;
@@ -434,7 +432,7 @@ Display for docView
 .react-pdf__Page__textContent,
 .react-pdf__Page__annotations, .annotationLayer,
 .textLayer {
-  display: none;
+  width: 90% !important;
 }
 
 /*
@@ -444,18 +442,28 @@ Display for docView
 */
 
 .rubricBoxContainer {
-  /* border: 1px solid black; */
-  /* box-shadow: 0px 3px 5px -2px black; */
-  float: right;
-  overflow-y: none;
-  border-radius: 10px;
-  width : 35%;
-  height:45vw;
+  top: 0px;
+  right: 5px;
+  position: absolute;
+  margin-right: 14;
+  width : 34%;
+  height: auto;
+  border-radius: 1rem;
   padding: 0;
+  z-index: 1;
 }
+
+
+
+.rubricBox.open {
+  height:500px !important;
+  transition:ease-in-out .2s;
+}
+
 /*
 Display for rubricBox container
 */
+/*
 @media screen and (max-width: 1150px) {
   .rubricBoxContainer {
     margin-top: 100px;
@@ -466,15 +474,17 @@ Display for rubricBox container
   }
 }
 
+*/
+/*
 @media screen and (min-width: 1151px) {
-  .rubricBoxContainer {
-    /* margin-top: 100px; */
-    
+  .rubricBoxContainer {    
     width: 32vw;
     height: 60vw;
     margin-right: -25px;
   }
 }
+*/
+/*
 @media screen and (min-width: 500px) and (max-width: 1149px) {
   .rubricBoxContainer {
     margin-top: 170px;
@@ -485,27 +495,29 @@ Display for rubricBox container
   }
 }
 
-
+*/
 
 /*
-Display for rubricBox container k
+Display for rubricBox container 
 */
 
 
 .rubricBox {
-  border: 1px solid #708090;
   box-shadow: 0px 3px 5px -2px black;
-  overflow-y: scroll;
+  overflow-y: scroll; 
   overflow-x: hidden;
-  height:40vw;
+  max-height: 500px;
   border-radius: 10px;
-  width : 95%;
+  width : 100%;
   padding: 15px;
   background-color: white;
+  transition:ease-in-out .2s;
 }
+
 /*
 Display for rubricBox 
 */
+/*
 @media screen and (max-width: 1150px) {
   .rubricBox {
     margin-top: 100px;
@@ -515,16 +527,16 @@ Display for rubricBox
     margin-right: -30px;
   }
 }
-
+/*
 @media screen and (min-width: 1151px) {
-  .rubricBox {
-    /* margin-top: 100px; */
-    
+  .rubricBox {    
     width: 32vw;
     height: 60vw;
     margin-right: -25px;
   }
 }
+*/
+/*
 @media screen and (min-width: 500px) and (max-width: 1149px) {
   .rubricBox {
     margin-top: 170px;
@@ -534,6 +546,7 @@ Display for rubricBox
     margin-right: -30px;
   }
 }
+*/
 
 
 
@@ -549,7 +562,6 @@ Display for rubricBox
 
 .category {
   border-radius: 10px;
-  margin: 0px;
   padding: 10px 0px;
 }
 
@@ -607,6 +619,7 @@ Display for rubricBox
   list-style: none;
   display: flex;
   font-size: 18px;
+  
 }
 
 #toolbar {
@@ -624,16 +637,24 @@ Display for rubricBox
 
 /* export button, it is a link that looks like a button */ 
 .csvLink{
-  background-color: #7C4DFF;
-  color: white;
-  padding: 11px 40px;
-  border: none;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
-  margin: 18px 0px;
+
+  margin-right: 70%;
   text-decoration: none;
-  float: right;
+  float:right;
+    background-color:  #7C4DFF;
+    color:  white;
+    border: 2px solid  #7C4DFF;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease-in-out;
+  }
+
+  .csvLink:hover {
+    background-color:  white;
+    color: #7C4DFF;
 }
 
 /*
@@ -643,15 +664,13 @@ Display for rubricBox
 */
 
 .critiqueBoxContainer {
-  /* border: 1px solid black; */
   width: 100%;
   height: 35%;
-  margin: 0px auto;
-  margin-top: 55px;
+  margin: 0 0 0 2rem;
 }
 .critiqueBox {
-  width: 60%;
-  margin: auto;
+  width: 70%;
+  margin: 0px;
 }
 
 .critiqueBox h4{
@@ -688,20 +707,10 @@ Display for rubricBox
 }
 
 .commentBoxButtons {
-  float: right;
-  margin: 0 13%;
+  margin: 0 3%;
 }
 
-.submitButton {
-  background-color: #7C4DFF;
-  color: white;
-  padding: 6px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  margin: 10px 10px 20px 20px;
-}
+
 
 /*
  *
@@ -782,42 +791,46 @@ Display for rubricBox
 */
 
 .pageNavigation {
-  float: right;
-  margin: 10px 0px;
+  float: left;
+  margin-bottom: 1%;
 }
 
 .leftButton {
-  position: relative;
-  display: inline-block;
-  margin-right: .5em;
-  width: 40px;
-  height: 40px;
-  background-color: #7C4DFF;
-  color: #fff;
-  font-size: 14px;
-  border: 0px solid transparent;
-  border-radius: 4px;
-  line-height: 40px;
-  text-align: center;
+  background-color:  #7C4DFF;
+  color:  white;
+  border: 2px solid  #7C4DFF;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-right: 5px;
   cursor: pointer;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.leftButton:hover {
+  background-color:  white;
+  color: #7C4DFF;
 }
 
 .rightButton {
-  position: relative;
-  display: inline-block;
-  margin-right: .5em;
-  width: 40px;
-  height: 40px;
-  background-color: #7C4DFF;
-  color: #fff;
-  font-size: 14px;
-  border: 0px solid transparent;
-  border-radius: 4px;
-  line-height: 40px;
-  text-align: center;
+  background-color:  #7C4DFF;
+  color:  white;
+  border: 2px solid  #7C4DFF;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.3s ease-in-out;
   cursor: pointer;
 }
 
+.rightButton:hover {
+  background-color:  white;
+  color: #7C4DFF;
+}
 #annotatedImg {
   width : 53vw;
   height:35vw;
@@ -845,19 +858,19 @@ input[type="file"] {
 .noUploadViscrit {
   font-size: 6em;
   font-weight: bold;
-  color: #9f82ec;
+  color:  #7C4DFF;
   margin-bottom: 0;
 }
 
 .noUploadText {
-  color: #9f82ec;
+  color:  #7C4DFF;
   font-size: 1.5em;
   margin-top: 0;
 }
 
 .uploadButton {
   background-color: #fff;
-  color: #9f82ec;
+  color:  #7C4DFF;
   border: 2px solid #9f82ec;
   padding: 10px 20px;
   border-radius: 6px;
@@ -868,9 +881,6 @@ input[type="file"] {
 }
 
 .uploadButton:hover {
-  background-color: #9f82ec;
+  background-color:  #7C4DFF;
   color: #fff;
 }
-
-
-
