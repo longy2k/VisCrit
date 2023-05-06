@@ -404,7 +404,7 @@ Display for docView
 .fileView {
   width: 98%;
   height: 90vh;
-  border: 1px solid #708090;
+  border: 1px solid #000000;
   overflow-y: auto;
   overflow-x: hidden;
   box-shadow: 0px 3px 5px -2px black;
@@ -446,7 +446,7 @@ Display for docView
   right: 5px;
   position: absolute;
   margin-right: 14;
-  width : 25%;
+  width : 34%;
   height: auto;
   border-radius: 1rem;
   padding: 0;
@@ -456,7 +456,7 @@ Display for docView
 
 
 .rubricBox.open {
-  height:900px !important;
+  height:700px !important;
   transition:ease-in-out .2s;
 }
 
@@ -506,7 +506,7 @@ Display for rubricBox container
   box-shadow: 0px 3px 5px -2px black;
   overflow-y: scroll; 
   overflow-x: hidden;
-  max-height: 900px;
+  max-height: 700px;
   border-radius: 10px;
   width : 100%;
   padding: 15px;
@@ -637,17 +637,10 @@ Display for rubricBox
 
 /* export button, it is a link that looks like a button */ 
 .csvLink{
-  background-color: #7C4DFF;
-  color: white;
-  padding: 11px 40px;
-  border: none;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
+
   margin-right: 70%;
   text-decoration: none;
   float:right;
-
     background-color:  #7C4DFF;
     color:  white;
     border: 2px solid  #7C4DFF;
@@ -809,28 +802,35 @@ Display for rubricBox
   padding: 10px 20px;
   border-radius: 6px;
   font-size: 16px;
+  margin-right: 5px;
   cursor: pointer;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
   transition: 0.3s ease-in-out;
   cursor: pointer;
 }
 
+.leftButton:hover {
+  background-color:  white;
+  color: #7C4DFF;
+}
+
 .rightButton {
-  position: relative;
-  display: inline-block;
-  margin-right: .5em;
-  width: 40px;
-  height: 40px;
-  background-color: #7C4DFF;
-  color: #fff;
-  font-size: 14px;
-  border: 0px solid transparent;
-  border-radius: 4px;
-  line-height: 40px;
-  text-align: center;
+  background-color:  #7C4DFF;
+  color:  white;
+  border: 2px solid  #7C4DFF;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.3s ease-in-out;
   cursor: pointer;
 }
 
+.rightButton:hover {
+  background-color:  white;
+  color: #7C4DFF;
+}
 #annotatedImg {
   width : 53vw;
   height:35vw;
