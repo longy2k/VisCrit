@@ -457,6 +457,11 @@ Display for docView
   z-index: 1;
 }
 
+
+
+.rubricBox.open {
+  transition: .3s ease-in-out;
+}
 /*
 Display for rubricBox container
 */
@@ -495,7 +500,7 @@ Display for rubricBox container
 */
 
 /*
-Display for rubricBox container k
+Display for rubricBox container 
 */
 
 
@@ -509,6 +514,8 @@ Display for rubricBox container k
   width : 100%;
   padding: 15px;
   background-color: white;
+  transition: .3s ease-in-out;
+
 }
 /*
 Display for rubricBox 

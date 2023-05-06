@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext, useRef } from 'react'
 import { ItemContext } from "./ItemContext"
-import { CSVLink } from "react-csv";
 import CritiqueBox from './CritiqueBox';
 import Draggable from 'react-draggable';
 
@@ -10,6 +9,16 @@ export default function RubricBox() {
   const ref = useRef();
   const [isOpen, setOpen] = useState(false);
   const [isTransitioning, setTransitioning] = useState(false);
+  const buttonText = isOpen ? 'Collapse' : 'Show';
+
+  const handleClick = () => {
+    if (isOpen) {
+      setOpen(false);
+      setTransitioning(true);
+    } else {
+      setOpen(true);
+    }
+  };
 
   useEffect(() => {
     fetch('/api/checkdirectory/upload/json')
@@ -23,16 +32,12 @@ export default function RubricBox() {
     return (
       <Draggable>
       <div className="rubricBoxContainer">
-        <button className='generalButton'
-          onClick={() =>
-            isOpen ? (setOpen(false), setTransitioning(true)) : setOpen(true)
-          }
-        >
-          Show
-        </button>
+      <button className={`generalButton ${isOpen ? 'open' : ''}`} onClick={handleClick}>
+      {buttonText}
+    </button>
         <div
-          className='rubricBox'
-          ref={ref}
+        className={`rubricBox ${isOpen ? 'open' : ''}`}
+        ref={ref}
           style={{ height: isOpen ? ref.current.scrollHeight : 0 }}
           onTransitionEnd={e =>
             ref.current === e.target && setTransitioning(false)
