@@ -23,12 +23,12 @@ export default function RubricBox() {
     return (
       <Draggable>
       <div className="rubricBoxContainer">
-        <button
+        <button className='generalButton'
           onClick={() =>
             isOpen ? (setOpen(false), setTransitioning(true)) : setOpen(true)
           }
         >
-          Toggle
+          Show
         </button>
         <div
           className='rubricBox'

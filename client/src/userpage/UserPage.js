@@ -108,19 +108,18 @@ export default function UserPage() {
     return (
       <div className='userPage'>
         <ItemContext.Provider value={{totalItems, setTotalItems, currentItem, setItem, Hierarchy, setHierarchy, pageNumber, setPageNumber, index, setIndex, rectangles, setRectangles, accessCanvas, setAccessCanvas,reRender, setReRender}}>
+        <CSVLink 
+            data={totalItems}
+            filename={"Export_Results.csv"}
+            className='csvLink'
+            onClick={handleExport}
+          >
+            Export
+          </CSVLink>
           <DocumentReader/>
           <RubricBox/>
-
         </ItemContext.Provider>
-                {/* Export button */}
-                <CSVLink 
-                data={totalItems}
-                filename={"Export_Results.csv"}
-                className='csvLink'
-                onClick={handleExport}
-              >
-                Export
-              </CSVLink>
+
       </div>
     );
   } else {
