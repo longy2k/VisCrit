@@ -1,9 +1,9 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import { ItemContext } from "./ItemContext";
 import CritiqueBox from "./CritiqueBox";
 export default function ItemsToHTML(itemList=[]){
-    const {currentItem, setItem, setPageNumber, setRectangles, setAccessCanvas, setIndex} = useContext(ItemContext);
-
+    const {currentItem, setItem, setPageNumber, setRectangles, setAccessCanvas, setIndex, locked, setLock} = useContext(ItemContext);
+    
     function CommentResults(item=[]){
       return(
         <div id="buttonGen">
@@ -16,29 +16,24 @@ export default function ItemsToHTML(itemList=[]){
       )
     }
 
-    function RemoveComment(item, num){
-      const confirmed = window.confirm('Are you sure you want to delete comment?');
-      if(confirmed){
-        item.setComment("", num);
-        /* force re-render by setting Item to something*/
-        if(currentItem === null){
-          setItem([]);
-        } else {
-          setItem(null);
-        }
+    function drawRectangle(arr = []){
+      if(!locked){
+        setAccessCanvas(true);
+        setRectangles(arr[1]);
+        setPageNumber(arr[0]);
       }
     }
 
-    function drawRectangle(arr = []){
-      setAccessCanvas(true);
-      setRectangles(arr[1]);
-      setPageNumber(arr[0]);
+    function clearCanvas(){
+      if(!locked){
+        console.log("tried to clear")
+        setRectangles([]);
+        setAccessCanvas(false);
+      }
     }
 
-    function clearCanvas(){
-      console.log("tried to clear")
-      setRectangles([]);
-      setAccessCanvas(false);
+    function LockView(){
+      locked ? setLock(false) : setLock(true);
     }
 
     function ButtonGen(num=0, item=[]){
@@ -52,7 +47,7 @@ export default function ItemsToHTML(itemList=[]){
         onMouseLeave={() => {clearCanvas()}} 
         className="tooltip">
           <span className="tooltiptext">{item.Comment[num]}</span>
-          <button className="commentRt" onClick={()=>{RemoveComment(item,num)}} >{num+1}</button>
+          <button className="commentRt" onClick={()=>{LockView()}} >{num+1}</button>
         </div>
       )
     }
