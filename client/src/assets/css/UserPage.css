@@ -223,17 +223,20 @@ Display for docView
   padding: 0px 20px;
   right: 0;
   top: 0;
-  width: 20%;
+  min-width: 20%;
+  max-width: calc(20% - 40px);
+  /* subtract padding from max width */
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.rubricBoxContainer h3{
- margin: 0;
- padding: 10px 0;
- border-bottom: 1px solid gray;
+
+.rubricBoxContainer h3 {
+  margin: 0;
+  padding: 10px 0;
+  border-bottom: 1px solid gray;
 }
 
 .rubricBox {
@@ -357,16 +360,18 @@ Display for rubricBox
   transition: box-shadow 0.15s ease;
 }
 
+
 #commentArea:focus {
   outline: none;
 }
 
-.plus {
+button.plus {
   border: none !important;
   background-color: white;
   text-align: center;
   line-height: 20px;
   color: #7C4DFF;
+  padding: 0px 6px 1px 5px;
   font-weight: bold;
   font-size: 16px !important;
   vertical-align: top;
@@ -382,23 +387,9 @@ Display for rubricBox
  *
 */
 
-.tooltip {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 1.5%;
-}
-
 .alignRatingContainer {
   width: 80%;
   display: inline-block;
-}
-
-.tooltip h4 {
-  margin: 0 0 0 20px;
-}
-
-.tooltip a:hover {
-  opacity: 1;
 }
 
 .tooltiptext {
@@ -416,12 +407,42 @@ Display for rubricBox
   transition: opacity 0.3s;
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5%;
+}
+
+.tooltip h4 {
+  margin: 0 0 0 20px;
+}
+
+.tooltip a:hover {
+  opacity: 1;
+}
+
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
 }
 
 .tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent transparent;
+}
+
+.tooltip:hover .categoryHover {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip .categoryHover::after {
   content: "";
   position: absolute;
   top: 100%;
@@ -446,22 +467,6 @@ Display for rubricBox
   bottom: 10%;
   left: 0%;
   transition: opacity 0.3s;
-}
-
-.tooltip:hover .categoryHover {
-  visibility: visible;
-  opacity: 1;
-}
-
-.tooltip .categoryHover::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent transparent transparent;
 }
 
 #buttonGen {
