@@ -2,48 +2,48 @@ const express = require('express');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
-const nodemailer = require('nodemailer');
-const bodyParser = require('body-parser');
 const app = express();
 
+// const nodemailer = require('nodemailer');
+// const bodyParser = require('body-parser');
 
 // Email component
 
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
-app.post('/send-email', (req, res) => {
-  const { to } = req.body;
+// app.post('/send-email', (req, res) => {
+//   const { to } = req.body;
 
-  // Sender's email
-  const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: 'korey55@ethereal.email',
-      pass: 'DG2rNC6eERYpzbvJxv'
-    },
-  });
+//   // Sender's email
+//   const transporter = nodemailer.createTransport({
+//     host: "smtp.ethereal.email",
+//     port: 587,
+//     secure: false, // true for 465, false for other ports
+//     auth: {
+//       user: 'korey55@ethereal.email',
+//       pass: 'DG2rNC6eERYpzbvJxv'
+//     },
+//   });
 
-  // Sender's email content
-  const mailOptions = {
-    from: 'korey55@ethereal.email',
-    to,
-    subject: 'Welcome to our mailing list!',
-    text: 'Thank you for subscribing to our newsletter.'
-  };
+//   // Sender's email content
+//   const mailOptions = {
+//     from: 'korey55@ethereal.email',
+//     to,
+//     subject: 'Welcome to our mailing list!',
+//     text: 'Thank you for subscribing to our newsletter.'
+//   };
 
-  // Email errors
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      console.log(error);
-      res.status(500).send('Error sending email');
-    } else {
-      console.log('Email sent: ' + info.response);
-      res.send('Email sent successfully');
-    }
-  });
-});
+//   // Email errors
+//   transporter.sendMail(mailOptions, function (error, info) {
+//     if (error) {
+//       console.log(error);
+//       res.status(500).send('Error sending email');
+//     } else {
+//       console.log('Email sent: ' + info.response);
+//       res.send('Email sent successfully');
+//     }
+//   });
+// });
 
 
 
@@ -80,6 +80,8 @@ const storage = multer.diskStorage({
       uploadDir = 'uploads/pdf';
     } else if (file.mimetype === 'application/json') {
       uploadDir = 'uploads/json';
+    } else {
+      uploadDir = 'uploads/user_generated';
     }
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
@@ -103,9 +105,12 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
     filePath = `uploads/pdf/${req.file.filename}`;
   } else if (req.file.mimetype === 'application/json') {
     filePath = `uploads/json/${req.file.filename}`;
+  } else if (req.file.originalname.endsWith('.csv')) {
+    filePath = `uploads/csv/${req.file.filename}`;
   }
   res.json({ path: filePath });
 });
+
 
 
 // react-pdf `Access-Control-Allow-Origin` to display pdf
