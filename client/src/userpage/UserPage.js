@@ -6,7 +6,6 @@ import { ItemContext } from "./ItemContext";
 import "../assets/css/UserPage.css";
 import * as XLSX from 'xlsx';
 import axios from 'axios';
-import { CSVLink } from "react-csv";
 
 
 export default function UserPage() {
@@ -21,7 +20,6 @@ export default function UserPage() {
   const [directoryExists, setDirectoryExists] = useState(false);
   const [fileUploaded, setFileUploaded] = useState(false);
   const [locked , setLock] = useState(false);
-  // const [participantsData, setParticipantsData] = useState([]);
 
   const readUploadFile = async (e) => {
     e.preventDefault();
@@ -48,11 +46,6 @@ export default function UserPage() {
             } catch (error) {
               console.error(error);
             }
-    
-            // const participantsSheetName = workbook.SheetNames[3];
-            // const participantsWorksheet = workbook.Sheets[participantsSheetName];
-            // const jsonData = XLSX.utils.sheet_to_json(participantsWorksheet);
-            // setParticipantsData(jsonData);
           };
           reader.readAsArrayBuffer(file);
         } else if (file.type === "application/pdf" || file.type === "image/jpeg" || file.type === "image/png") {
@@ -72,13 +65,6 @@ export default function UserPage() {
     }
     setFileUploaded(true);
   };
-
-  // function handleExport(event) {
-  //   const confirmed = window.confirm('Are you sure you want to export the results?');
-  //   if (!confirmed) {
-  //     event.preventDefault(); // prevent the default behavior of the onClick event
-  //   }
-  // }
 
 
   const handleUploadButtonClick = (e) => {

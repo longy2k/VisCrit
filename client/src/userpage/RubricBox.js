@@ -1,15 +1,13 @@
 import React, { useEffect, useState, useContext, useRef } from 'react'
 import { ItemContext } from "./ItemContext"
 import { CSVLink } from "react-csv";
-import Draggable from 'react-draggable';
+import axios from 'axios';
 
 export default function RubricBox() {
   let { totalItems, Hierarchy, pageNumber, setPageNumber, numPages } = useContext(ItemContext);
   const [dirjsonExists, setdirjsonExists] = useState(false);
-  const ref = useRef();
   const [isOpen, setOpen] = useState(false);
   const [isTransitioning, setTransitioning] = useState(false);
-  const buttonText = isOpen ? 'Collapse' : 'Show';
 
   const handleClick = () => {
     if (isOpen) {
@@ -20,12 +18,21 @@ export default function RubricBox() {
     }
   };
 
-  function handleExport(event) {
-    const confirmed = window.confirm('Are you sure you want to export the results?');
-    if (!confirmed) {
-      event.preventDefault(); // prevent the default behavior of the onClick event
+  const handleExport = async () => {
+    try {
+      // Convert data to CSV string
+      const csvData = totalItems.map(item => Object.values(item).join(',')).join('\n');
+      // Create FormData object and append CSV file to it
+      const formData = new FormData();
+      formData.append('file', new Blob([csvData], { type: 'text/csv' }), 'Export_Results.csv');
+      // Send FormData to server using Axios
+      const response = await axios.post('/api/upload/', formData);
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
     }
-  }
+  }  
+
 
   useEffect(() => {
     fetch('/api/checkdirectory/upload/json')
