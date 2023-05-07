@@ -33,7 +33,6 @@ html {
 ::-webkit-scrollbar {
   width: 4px;
   height: 4px;
-  /* height of horizontal scroll */
   background-color: #F5F5F5;
 }
 
@@ -64,10 +63,7 @@ html {
 
 }
 
-/*
 
-display for #1
-*/
 
 #one:hover {
   color: rgb(255, 255, 255);
@@ -75,13 +71,7 @@ display for #1
   box-shadow: rgba(16, 10, 118, 0.4) 0px 2px 3px;
 }
 
-/*
-display for #one:hover
-*/
 
-/*
-display for #one:hover
-*/
 
 #two {
   background-color: #80add7;
@@ -98,13 +88,6 @@ display for #one:hover
   border: none;
 }
 
-/*
-display for #2
-*/
-
-/*
-display for #2
-*/
 
 #two:hover {
   color: rgb(255, 255, 255);
@@ -112,9 +95,6 @@ display for #2
   box-shadow: rgba(95, 92, 158, 0.4) 0px 2px 3px;
 }
 
-/*
-display for #two:hover
-*/
 
 #three {
   background-color: #b3b3b5;
@@ -131,19 +111,13 @@ display for #two:hover
   border: none;
 }
 
-/*
-display for three
-*/
-
 #three:hover {
   color: rgb(255, 255, 255);
   background-color: rgb(147, 147, 147);
   box-shadow: rgba(182, 182, 182, 0.4) 0px 2px 3px;
 }
 
-/*
-display for three:hover
-*/
+
 #four {
   background-color: #e9a3a3;
   display: inline-block;
@@ -160,17 +134,11 @@ display for three:hover
 
 }
 
-/*
-display for four 
-*/
-
-
 #four:hover {
   color: rgb(255, 255, 255);
   background-color: rgb(222, 137, 137);
   box-shadow: rgba(247, 165, 165, 0.4) 0px 2px 3px;
 }
-
 
 #five {
   background-color: #c41010;
@@ -187,10 +155,6 @@ display for four
   border: none;
 
 }
-
-/*
-Display for five box
-*/
 
 #five:hover {
   color: rgb(255, 255, 255);
@@ -277,10 +241,33 @@ Display for docView
   flex-grow: 1;
 }
 
-/*
-Display for rubricBox 
-*/
+@media only screen and (max-width: 1580px) {
+  .docView {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 68%;
+    height: 100%;
+  }
+  .category ul li{
+    margin-left: 1rem;
+    padding: 0;
+    list-style: none;
+  }
+  .rubricBoxContainer {
+    position: fixed;
+    width: 30%;
+  }
+.rubricBoxContainer .bottomContainer {
+  flex-direction: column;
+}
+.rubricBoxContainer .pageNavigation {
+  margin:0 0 0 33%;
+}
 
+
+
+}
 
 .category {
   border-radius: 10px;
@@ -337,13 +324,6 @@ Display for rubricBox
 .categoryButton:hover {
   color: white;
   background-color: #7C4DFF;
-}
-
-.category-items {
-  list-style: none;
-  display: flex;
-  font-size: 18px;
-
 }
 
 #toolbar {
@@ -425,7 +405,7 @@ Display for rubricBox
 }
 
 .alignRatingContainer {
-  width: 80%;
+  width: 85%;
   display: inline-block;
 }
 
