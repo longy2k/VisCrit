@@ -13,6 +13,7 @@ html {
   color: white;
   border: 1px solid #7C4DFF;
   padding: 5px 10px;
+  margin: 0;
   border-radius: 4px !important;
   font-size: 16px;
   cursor: pointer;

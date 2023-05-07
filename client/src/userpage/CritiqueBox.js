@@ -69,9 +69,9 @@ export default function CritiqueBox(){
                         </div>
                     </div>
                     <textarea id="commentArea" type="text" value={comment} onChange={handleCommentChange} style={{margin: '10px 0'}}/>
-                    <span style={{ float: 'right', margin: '0px -5px 5px 0' }}>
-                    <button className="generalButton" onClick={() => { RemoveComment() }}>Delete</button>
-                        <button className="generalButton" onClick={() => { saveReturn(comment) }}>Submit</button>
+                    <span style={{ float: 'right', margin: '0px -2px 5px 0' }}>
+                        <button className="generalButton" style={{ float: 'right', margin: '0 2px' }} onClick={() => { saveReturn(comment) }}>Submit</button>
+                        <button className="generalButton" style={{ float: 'right', margin: '0 2px' }} onClick={() => { RemoveComment() }}>Delete</button>
                     </span>
                     <br/>
                 </div>
