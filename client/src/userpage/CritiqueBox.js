@@ -57,7 +57,7 @@ export default function CritiqueBox(){
         return (
             <div className='critiqueBoxContainer' >
                 <div className="critiqueBox">
-                    <div style={{margin: '0', width: '20vw'}}>
+                    <div style={{margin: '0', width: "20vw"}}>
                         <h4> Rating: </h4>
                         <div style={{display: 'flex'}}>
                             <button  id="one" onClick={() => {IndexClick(0)}}>1</button>
@@ -65,13 +65,13 @@ export default function CritiqueBox(){
                             <button  id="three" onClick={() => {IndexClick(2)}}>3</button>
                             <button  id="four" onClick={() => {IndexClick(3)}}>4</button>
                             <button  id="five" onClick={() => {IndexClick(4)}}>5</button>
-                            <button style={{visibility: `${index1 === -1 ? 'hidden' : 'visible'}`, margin: '-3px 10px'}} className="generalButton" onClick={() => {setCanvas1(true)}}>Location</button>
+                            <button style={{margin: '-3px 13px'}} className="generalButton" onClick={() => {setCanvas1(true)}}>Location</button>
                         </div>
                     </div>
                     <textarea id="commentArea" type="text" value={comment} onChange={handleCommentChange} style={{margin: '10px 0'}}/>
-                    <span style={{ float: 'right', margin: '0px -5px 5px 0' }}>
-                    <button className="generalButton" onClick={() => { RemoveComment() }}>Delete</button>
-                        <button className="generalButton" onClick={() => { saveReturn(comment) }}>Submit</button>
+                    <span style={{ float: 'right', margin: '0px -2px 5px 0' }}>
+                        <button className="generalButton" style={{ float: 'right', margin: '0 2px' }} onClick={() => { saveReturn(comment) }}>Submit</button>
+                        <button className="generalButton" style={{ float: 'right', margin: '0 2px' }} onClick={() => { RemoveComment() }}>Delete</button>
                     </span>
                     <br/>
                 </div>

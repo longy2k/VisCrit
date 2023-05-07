@@ -13,11 +13,13 @@ html {
   height: 100%;
 }
 
+
 .generalButton {
   background-color: #7c4dff;
   color: white;
   border: 1px solid #7c4dff;
   padding: 5px 10px;
+  margin: 0;
   border-radius: 4px !important;
   font-size: 16px;
   cursor: pointer;
@@ -31,10 +33,29 @@ html {
 */
 
 @media only screen and (max-width: 1665px) {
-  .category{
+  .docView {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .docView .fileView {
+    width: 90%;
+    height: 100vh;
+    border-right: 1px solid black;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .category {
     margin: 0;
     padding: 0;
   }
+  .category ul li {
+    margin-left: 13%;
+  }
+
   .pageNavigation .leftButton {
     background-color: #7c4dff;
     color: white;
@@ -75,28 +96,16 @@ html {
     background-color: white;
     color: #7c4dff;
   }
-  .category ul li {
-    margin-right: -100%;
-  }
+
   .critiqueBoxContainer .critiqueBox {
-    width: 100%;
-    margin: 0px;
-  }
-  .docView {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 68%;
-    height: 100%;
+    width: 90%;
   }
 
   .rubricBoxContainer {
-    position: fixed;
-    width: 33%;
+    width: 25%;
   }
-
   ul .alignRatingContainer {
-    width: 80%;
+    width: 90%;
     display: inline-block;
   }
 
@@ -104,7 +113,7 @@ html {
     background-color: #3c43ac;
     margin: 0.1rem;
     border-radius: 0.2rem;
-    width: 2.5rem;
+    width: 3rem;
     height: 2rem;
     cursor: pointer;
     color: rgb(255, 255, 255);
@@ -119,7 +128,7 @@ html {
     display: inline-block;
     border-radius: 0.2rem;
     margin: 0.1rem;
-    width: 2.5rem;
+    width: 3rem;
     height: 2rem;
     cursor: pointer;
     color: rgb(255, 255, 255);
@@ -134,7 +143,7 @@ html {
     display: inline-block;
     margin: 0.1rem;
     border-radius: 0.2rem;
-    width: 2.5rem;
+    width: 3rem;
     height: 2rem;
     cursor: pointer;
     color: rgb(255, 255, 255);
@@ -148,7 +157,7 @@ html {
     background-color: #e9a3a3;
     display: inline-block;
     margin: 0.1rem;
-    width: 2rem;
+    width: 3rem;
     border-radius: 0.2rem;
     width: 2.5rem;
     cursor: pointer;
@@ -164,7 +173,7 @@ html {
     display: inline-block;
     border-radius: 0.2rem;
     margin: 0.1rem;
-    width: 2.5rem;
+    width: 3rem;
     height: 2rem;
     cursor: pointer;
     color: rgb(255, 255, 255);
@@ -363,25 +372,31 @@ html {
 
 .rubricBoxContainer {
   position: fixed;
-  padding: 0px 10px;
+  padding: 0px 20px;
   right: 0;
   top: 0;
-  width: 20%;
+  min-width: 20%;
+  max-width: 30%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+.rubricBoxContainer h3 {
+  margin: 0;
+  padding: 10px 0;
+  border-bottom: 1px solid gray;
+}
+
 .rubricBox {
   overflow-y: scroll;
   flex-grow: 1;
 }
-
 .category {
   border-radius: 10px;
   padding: 5px 0px;
-  margin: 0.5rem 0 0 1.5rem;
+  margin: 0;
 }
 
 .category:not(:first-child) {
@@ -461,11 +476,11 @@ html {
 .critiqueBoxContainer {
   width: 100%;
   height: 35%;
-  margin: 0 0 0 -1rem;
+  margin: 0 0 0 .5rem;
 }
 
 .critiqueBox {
-  width: 17rem;
+  width: 16rem;
   margin: 0px;
 }
 
@@ -476,7 +491,7 @@ html {
 #commentArea {
   margin: 10px 0;
   padding: 10px;
-  height: 85px;
+  height: 105px;
   width: 100%;
   box-sizing: border-box;
   border: 1px solid #7c4dff;
@@ -490,12 +505,13 @@ html {
   outline: none;
 }
 
-.plus {
+button.plus {
   border: none !important;
   background-color: white;
   text-align: center;
   line-height: 20px;
   color: #7c4dff;
+  padding: 0px 6px 1px 5px;
   font-weight: bold;
   font-size: 16px !important;
   vertical-align: top;
@@ -511,23 +527,9 @@ html {
  *
 */
 
-.tooltip {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 1.5%;
-}
-
 .alignRatingContainer {
   width: 85%;
   display: inline-block;
-}
-
-.tooltip h4 {
-  margin: 0 0 0 20px;
-}
-
-.tooltip a:hover {
-  opacity: 1;
 }
 
 .tooltiptext {
@@ -543,6 +545,20 @@ html {
   z-index: 1;
   right: 100%;
   transition: opacity 0.3s;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5%;
+}
+
+.tooltip h4 {
+  margin: 0 0 0 20px;
+}
+
+.tooltip a:hover {
+  opacity: 1;
 }
 
 .tooltip:hover .tooltiptext {
@@ -561,18 +577,34 @@ html {
   border-color: transparent transparent transparent transparent;
 }
 
+.tooltip:hover .categoryHover {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip .categoryHover::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent transparent;
+}
+
 .categoryHover {
   position: absolute;
   visibility: hidden;
   background-color: #818181;
   color: #fff;
-  width: 15rem;
+  width: 10rem;
   text-align: center;
   border-radius: 5px;
   padding: 5px 20px;
   margin: 0 0 0 20px;
   z-index: 1;
-  bottom: 10%;
+  bottom: 5%;
   left: 0%;
   transition: opacity 0.3s;
 }
@@ -723,21 +755,12 @@ html {
   font-weight: 900;
 }
 
-/*
-*
-*         OTHERS
-*
-*/ 
+/* CritiquerID Dropdown */
 
-#annotatedImg {
-  width: 53vw;
-  height: 35vw;
-  border: 2px solid black;
-  margin-bottom: 20px;
-  float: left;
-}
-
-/* Hide file button */
-input[type="file"] {
-  display: none;
+select {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin: 10px 0px;
 }

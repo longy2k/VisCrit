@@ -8,6 +8,11 @@ export default function RubricBox() {
   const [dirjsonExists, setdirjsonExists] = useState(false);
   const [isOpen, setOpen] = useState(false);
   const [isTransitioning, setTransitioning] = useState(false);
+  const [selectedOption, setSelectedOption] = useState('volvo');
+
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
 
   const handleClick = () => {
     if (isOpen) {
@@ -55,6 +60,16 @@ export default function RubricBox() {
   if (dirjsonExists) {
     return (
     <div className="rubricBoxContainer">
+    <form>
+      <label htmlFor="cars"> CritiquerID: </label>
+      <select id="cars" name="cars" value={selectedOption} onChange={handleOptionChange}>
+        <option value=""></option>
+        <option value="001">001</option>
+        <option value="002">002</option>
+        <option value="003">003</option>
+      </select>
+    </form>
+
       <h3>Available Categories</h3>
       <div className='rubricBox'>
         {Hierarchy.map((item, i) => <div key={i}>{item.returnHTML()}</div>)}
