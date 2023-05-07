@@ -69,7 +69,7 @@ export default function ItemsToHTML(itemList=[]){
           <div className= "alignRatingContainer">
             <div className="tooltip">
               {/* <span className="tooltiptext">{item.mouseOver}</span> */}
-              <button className="plus" onClick={() => {AddCommentHandler(item)}}>+</button>
+              <button className="plus" onClick={() => {AddCommentHandler(item)}}>{item === currentItem ? '-' : '+'}</button>
               {item.Display}
             </div>
             {item === currentItem ? <CritiqueBox/> : null}
