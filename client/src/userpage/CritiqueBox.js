@@ -7,7 +7,7 @@ export default function CritiqueBox(){
     const [comment, setComment] = useState("");
     let {currentItem: item1, setAccessCanvas: setCanvas1, index: index1, setIndex: setIndex1, rectangles, pageNumber, locked} = useContext(ItemContext);
     let {totalItems, setItem, currentItem: item2, index: index2, accessCanvas: canvas2} = useContext(ItemContext);
-
+    const {setPageNumber, setRectangles} = useContext(ItemContext);
 
     useEffect(() => {
         if (item2 && Array.isArray(item2.Comment) && index2 !== -1) {
@@ -30,6 +30,17 @@ export default function CritiqueBox(){
         }
       }
 
+    function drawRectangle(arr = []){
+          setCanvas1(true);
+          setRectangles(arr[1]);
+          setPageNumber(arr[0]);
+    }
+  
+    function clearCanvas(){
+          setRectangles([]);
+          setCanvas1(false);
+    }
+
     const handleCommentChange = event => {
         setComment(event.target.value)
       }
@@ -49,8 +60,14 @@ export default function CritiqueBox(){
     }
 
     function IndexClick(num = -1){
+        console.log(num);
+        clearCanvas();
         setIndex1(num);
         setComment(item1.Comment[num]);
+        if(item1.LocationRt[num].length != 0){
+            console.log(num, item1.LocationRt[num],item1.LocationRt);
+            drawRectangle(item1.LocationRt[num]);
+        }
     }
 
     if (item1 instanceof Item) {
