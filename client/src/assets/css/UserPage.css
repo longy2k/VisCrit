@@ -52,6 +52,7 @@ html {
   background-color: #3c43ac;
   display: inline-block;
   margin: .1rem;
+  border-radius: .2rem;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -85,6 +86,7 @@ display for #one:hover
 #two {
   background-color: #80add7;
   display: inline-block;
+  border-radius: .2rem;
   margin: .1rem;
   width: 2rem;
   height: 2rem;
@@ -118,6 +120,7 @@ display for #two:hover
   background-color: #b3b3b5;
   display: inline-block;
   margin: .1rem;
+  border-radius: .2rem;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -146,6 +149,7 @@ display for three:hover
   display: inline-block;
   margin: .1rem;
   width: 2rem;
+  border-radius: .2rem;
   height: 2rem;
   cursor: pointer;
   color: rgb(255, 255, 255);
@@ -171,6 +175,7 @@ display for four
 #five {
   background-color: #c41010;
   display: inline-block;
+  border-radius: .2rem;
   margin: .1rem;
   width: 2rem;
   height: 2rem;
@@ -363,11 +368,11 @@ Display for rubricBox
 .critiqueBoxContainer {
   width: 100%;
   height: 35%;
-  margin: 0 0 0 2rem;
+  margin: 0 0 0 -1rem;
 }
 
 .critiqueBox {
-  width: 70%;
+  width: 17rem;
   margin: 0px;
 }
 
@@ -382,7 +387,6 @@ Display for rubricBox
   width: 100%;
   box-sizing: border-box;
   border: 1px solid #7C4DFF;
-  ;
   box-shadow: 0px 3px 5px -2px #708090;
   border-radius: 5px;
   resize: none;
@@ -407,39 +411,6 @@ Display for rubricBox
 .commentBoxButtons {
   margin: 0 3%;
 }
-
-.categoryHover {
-  position: absolute;
-  visibility: hidden;
-  background-color: #818181;
-  color: #fff;
-  width: 15rem;
-  text-align: center;
-  border-radius: 5px;
-  padding: 5px 20px;
-  margin: 0 0 0 20px;
-  z-index: 1;
-  bottom: 10%;
-  left: 0%;
-  transition: opacity 0.3s;
-}
-
-.tooltip:hover .categoryHover {
-  visibility: visible;
-  opacity: 1;
-}
-
-.tooltip .categoryHover::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent transparent transparent;
-}
-
 
 /*
  *
@@ -487,6 +458,38 @@ Display for rubricBox
 }
 
 .tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent transparent;
+}
+
+.categoryHover {
+  position: absolute;
+  visibility: hidden;
+  background-color: #818181;
+  color: #fff;
+  width: 15rem;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 20px;
+  margin: 0 0 0 20px;
+  z-index: 1;
+  bottom: 10%;
+  left: 0%;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .categoryHover {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip .categoryHover::after {
   content: "";
   position: absolute;
   top: 100%;
