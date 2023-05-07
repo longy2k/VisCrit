@@ -30,7 +30,11 @@ html {
  *
 */
 
-@media only screen and (max-width: 1580px) {
+@media only screen and (max-width: 1665px) {
+  .category{
+    margin: 0;
+    padding: 0;
+  }
   .pageNavigation .leftButton {
     background-color: #7c4dff;
     color: white;
@@ -72,7 +76,7 @@ html {
     color: #7c4dff;
   }
   .category ul li {
-    margin-right: -10%;
+    margin-right: -100%;
   }
   .critiqueBoxContainer .critiqueBox {
     width: 100%;
@@ -88,7 +92,7 @@ html {
 
   .rubricBoxContainer {
     position: fixed;
-    width: 30%;
+    width: 33%;
   }
 
   ul .alignRatingContainer {
