@@ -9,9 +9,9 @@ html {
 }
 
 .generalButton {
-  background-color:  #7C4DFF;
-  color:  white;
-  border: 1px solid  #7C4DFF;
+  background-color: #7C4DFF;
+  color: white;
+  border: 1px solid #7C4DFF;
   padding: 5px 10px;
   border-radius: 4px !important;
   font-size: 16px;
@@ -26,19 +26,20 @@ html {
 */
 
 ::-webkit-scrollbar-track {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
 }
 
 ::-webkit-scrollbar {
-	width: 4px;
-  height: 4px;              /* height of horizontal scroll */
+  width: 4px;
+  height: 4px;
+  /* height of horizontal scroll */
   background-color: #F5F5F5;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 3rem;
-	background-color: #3d3c3d;
+  background-color: #3d3c3d;
 }
 
 /*
@@ -60,18 +61,19 @@ html {
   transition: all 150ms ease-in-out 0s;
   border: none;
 
- }
+}
 
 /*
 
 display for #1
 */
 
- #one:hover {
+#one:hover {
   color: rgb(255, 255, 255);
   background-color: rgb(35, 38, 105);
   box-shadow: rgba(16, 10, 118, 0.4) 0px 2px 3px;
 }
+
 /*
 display for #one:hover
 */
@@ -81,7 +83,7 @@ display for #one:hover
 */
 
 #two {
-  background-color: #80add7; 
+  background-color: #80add7;
   display: inline-block;
   margin: .1rem;
   width: 2rem;
@@ -93,6 +95,7 @@ display for #one:hover
   transition: all 150ms ease-in-out 0s;
   border: none;
 }
+
 /*
 display for #2
 */
@@ -179,6 +182,7 @@ display for four
   border: none;
 
 }
+
 /*
 Display for five box
 */
@@ -212,15 +216,6 @@ Display for five box
 Display for docView
 */
 
-/* .fileView {
-  width: 98%;
-  height: 90vh;
-  border: 1px solid #000000;
-  overflow-y: auto;
-  overflow-x: hidden;
-  box-shadow: 0px 3px 5px -2px black;
-} */
-
 .fileView {
   width: 100%;
   height: 100vh;
@@ -233,7 +228,7 @@ Display for docView
   min-width: none;
   width: 100% !important;
   height: auto !important;
-  border-bottom: 1px solid gray; 
+  border-bottom: 1px solid gray;
   background-color: white;
 }
 
@@ -248,7 +243,8 @@ Display for docView
 }
 
 .react-pdf__Page__textContent,
-.react-pdf__Page__annotations, .annotationLayer,
+.react-pdf__Page__annotations,
+.annotationLayer,
 .textLayer {
   width: 90% !important;
 }
@@ -283,7 +279,7 @@ Display for rubricBox
 
 .category {
   border-radius: 10px;
-  padding: 10px 0px;
+  padding: 5px 0px;
 }
 
 .category:not(:first-child) {
@@ -303,7 +299,6 @@ Display for rubricBox
 .category ul li button {
   display: inline-block;
   margin: 0 .5rem;
-  border: 1.3px solid #7C4DFF;
   background-color: white;
   color: #7C4DFF;
   font-size: 1rem;
@@ -316,6 +311,7 @@ Display for rubricBox
 .category ul li button:hover {
   color: #ffffff;
   background-color: #7C4DFF;
+
 }
 
 .categoryButton {
@@ -340,7 +336,7 @@ Display for rubricBox
   list-style: none;
   display: flex;
   font-size: 18px;
-  
+
 }
 
 #toolbar {
@@ -367,12 +363,13 @@ Display for rubricBox
   height: 35%;
   margin: 0 0 0 2rem;
 }
+
 .critiqueBox {
   width: 70%;
   margin: 0px;
 }
 
-.critiqueBox h4{
+.critiqueBox h4 {
   margin: 5px 0;
 }
 
@@ -382,7 +379,8 @@ Display for rubricBox
   height: 85px;
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid #7C4DFF;;
+  border: 1px solid #7C4DFF;
+  ;
   box-shadow: 0px 3px 5px -2px #708090;
   border-radius: 5px;
   resize: none;
@@ -437,21 +435,18 @@ Display for rubricBox
 
 .tooltiptext {
   visibility: hidden;
-  background-color: #555;
+  background-color: #818181;
   color: #fff;
   text-align: center;
-  width: 15rem;
-  border-radius: 1rem;
-  padding: .4rem;
-  position: absolute;
+  border-radius: 5px;
+  padding: 5px 20px;
+  margin: 0 0 0 20px;
   z-index: 1;
   bottom: 100%;
-  margin-left: -2.5rem;
-  opacity: 0;
   transition: opacity 0.3s;
 }
 
-.tooltip:hover .tooltiptext{
+.tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
 }
@@ -488,7 +483,7 @@ Display for rubricBox
  *
 */
 
-/* export button, it is a link that looks like a button */ 
+/* export button, it is a link that looks like a button */
 
 .bottomContainer {
   display: flex;
@@ -500,9 +495,9 @@ Display for rubricBox
 
 .csvLink {
   text-decoration: none;
-  background-color:  #7C4DFF;
-  color:  white;
-  border: 2px solid  #7C4DFF;
+  background-color: #7C4DFF;
+  color: white;
+  border: 2px solid #7C4DFF;
   padding: 10px 20px;
   border-radius: 6px;
   font-size: 16px;
@@ -510,18 +505,19 @@ Display for rubricBox
 }
 
 .csvLink:hover {
-  background-color:  white;
+  background-color: white;
   color: #7C4DFF;
 }
 
 .pageNavigation {
-  align-self: flex-start; /* Add this */
+  align-self: flex-start;
+  /* Add this */
 }
 
 .leftButton {
-  background-color:  #7C4DFF;
-  color:  white;
-  border: 2px solid  #7C4DFF;
+  background-color: #7C4DFF;
+  color: white;
+  border: 2px solid #7C4DFF;
   padding: 10px 20px;
   border-radius: 6px;
   font-size: 16px;
@@ -533,14 +529,14 @@ Display for rubricBox
 }
 
 .leftButton:hover {
-  background-color:  white;
+  background-color: white;
   color: #7C4DFF;
 }
 
 .rightButton {
-  background-color:  #7C4DFF;
-  color:  white;
-  border: 2px solid  #7C4DFF;
+  background-color: #7C4DFF;
+  color: white;
+  border: 2px solid #7C4DFF;
   padding: 10px 20px;
   border-radius: 6px;
   font-size: 16px;
@@ -551,12 +547,13 @@ Display for rubricBox
 }
 
 .rightButton:hover {
-  background-color:  white;
+  background-color: white;
   color: #7C4DFF;
 }
+
 #annotatedImg {
-  width : 53vw;
-  height:35vw;
+  width: 53vw;
+  height: 35vw;
   border: 2px solid black;
   margin-bottom: 20px;
   float: left;
@@ -580,19 +577,19 @@ input[type="file"] {
 .noUploadViscrit {
   font-size: 6em;
   font-weight: bold;
-  color:  #7C4DFF;
+  color: #7C4DFF;
   margin-bottom: 0;
 }
 
 .noUploadText {
-  color:  #7C4DFF;
+  color: #7C4DFF;
   font-size: 1.5em;
   margin-top: 0;
 }
 
 .uploadButton {
   background-color: #fff;
-  color:  #7C4DFF;
+  color: #7C4DFF;
   border: 2px solid #9f82ec;
   padding: 10px 20px;
   border-radius: 6px;
@@ -603,7 +600,7 @@ input[type="file"] {
 }
 
 .uploadButton:hover {
-  background-color:  #7C4DFF;
+  background-color: #7C4DFF;
   color: #fff;
 }
 
