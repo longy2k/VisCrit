@@ -5,7 +5,7 @@ import Item from './Item';
 
 export default function CritiqueBox(){
     const [comment, setComment] = useState("");
-    let {currentItem: item1, setAccessCanvas: setCanvas1, index: index1, setIndex: setIndex1, rectangles, pageNumber} = useContext(ItemContext);
+    let {currentItem: item1, setAccessCanvas: setCanvas1, index: index1, setIndex: setIndex1, rectangles, pageNumber, locked} = useContext(ItemContext);
     let {totalItems, setItem, currentItem: item2, index: index2, accessCanvas: canvas2} = useContext(ItemContext);
 
 
@@ -18,7 +18,10 @@ export default function CritiqueBox(){
     function RemoveComment(){
         if(index1 === -1){
             setItem(null);
-        } else {
+        } else if(locked){
+            alert("Please unlock item before deleting");
+        }
+            else {
             const confirmed = window.confirm('Are you sure you want to delete comment?');
             if(confirmed){
             item1.setComment("", index1);
