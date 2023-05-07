@@ -280,6 +280,7 @@ Display for rubricBox
 .category {
   border-radius: 10px;
   padding: 5px 0px;
+  margin: .5rem 0 0 1.5rem;
 }
 
 .category:not(:first-child) {
@@ -407,6 +408,37 @@ Display for rubricBox
   margin: 0 3%;
 }
 
+.categoryHover {
+  position: absolute;
+  visibility: hidden;
+  background-color: #818181;
+  color: #fff;
+  width: 15rem;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 20px;
+  margin: 0 0 0 20px;
+  z-index: 1;
+  bottom: 10%;
+  left: 0%;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .categoryHover {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip .categoryHover::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent transparent;
+}
 
 
 /*
@@ -422,7 +454,7 @@ Display for rubricBox
 }
 
 .alignRatingContainer {
-  width: 100%;
+  width: 80%;
   display: inline-block;
 }
 
@@ -435,15 +467,17 @@ Display for rubricBox
 }
 
 .tooltiptext {
+  position: absolute;
   visibility: hidden;
   background-color: #818181;
   color: #fff;
+  width: 15rem;
   text-align: center;
   border-radius: 5px;
   padding: 5px 20px;
   margin: 0 0 0 20px;
   z-index: 1;
-  bottom: 100%;
+  right: 100%;
   transition: opacity 0.3s;
 }
 
@@ -477,6 +511,7 @@ Display for rubricBox
   transition: all 150ms ease-in-out 0s;
   border-radius: 0 !important;
 }
+
 
 /*
  *
