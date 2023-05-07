@@ -50,7 +50,7 @@ html {
   }
 
   .category ul li {
-    width: 90%;
+    width: 100%;
   }
 
   .pageNavigation .leftButton {
@@ -87,6 +87,7 @@ html {
     padding: 5px 15px;
     border-radius: 6px;
     font-size: 16px;
+    margin-right: 1%;
     cursor: pointer;
   }
   .bottomContainer .csvLink:hover {
@@ -98,12 +99,16 @@ html {
     width: 90%;
   }
 
-  .rubricBoxContainer {
-    width: 26%;
+  .rubricBoxContainer .rubricBox {
+    width: 100%;
   }
-  
+
+  .rubricBoxContainer{
+    width: 27%;
+  }
+
   ul .alignRatingContainer {
-    width: 90%;
+    width: 80%;
     display: inline-block;
   }
 
