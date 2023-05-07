@@ -4,64 +4,19 @@
  *
 */
 
-.userPage {
-  position: fixed;
-  width: 100%;
-  height: auto;
-  margin: 10px 10px 10px 15px;
-}
-
 html {
   overflow-x: hidden;
 }
 
 .generalButton {
-  background-color:  #7C4DFF;
-  color:  white;
-  border: 2px solid  #7C4DFF;
-  padding: 10px 20px;
-  border-radius: 6px;
+  background-color: #7C4DFF;
+  color: white;
+  border: 1px solid #7C4DFF;
+  padding: 5px 10px;
+  border-radius: 4px !important;
   font-size: 16px;
   cursor: pointer;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
   transition: 0.3s ease-in-out;
-}
-
-/* 
-
-DISPLAY for generalButton
-
-*/ 
-@media screen and (max-width: 767px) {
-  .generalButton {
-    min-width: 90px;
-    height: 30px;
-    font-size: 12px;
-    line-height: 30px;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 991px) {
-  .generalButton {
-    min-width: 100px;
-    height: 35px;
-    font-size: 13px;
-    line-height: 35px;
-  }
-}
-
-
-/* 
-
-
-
-display for generalButton
-
- */
-
-
-.pageNavigation .generalButton {
-  margin-right: 0.5em;
 }
 
 /*
@@ -71,19 +26,20 @@ display for generalButton
 */
 
 ::-webkit-scrollbar-track {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
 }
 
 ::-webkit-scrollbar {
-	width: 4px;
-  height: 4px;              /* height of horizontal scroll */
+  width: 4px;
+  height: 4px;
+  /* height of horizontal scroll */
   background-color: #F5F5F5;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 3rem;
-	background-color: #3d3c3d;
+  background-color: #3d3c3d;
 }
 
 /*
@@ -105,71 +61,29 @@ display for generalButton
   transition: all 150ms ease-in-out 0s;
   border: none;
 
- }
-
- /*
-
-display for #1
-*/
-
-@media screen and (min-width: 800px)  {
-  #one {
-    width:2.5rem;
-    height:2.5rem;
-  }
 }
-
-@media screen and (max-width:675px) {
-  #one {
-    width:1.9rem;
-    height: 1.9rem;
-  }
-}
-
-@media screen and (max-width:575px) {
-  #one {
-    width:1.9rem;
-    height: 1.9rem;
-  }
-}
-
-
-
 
 /*
 
 display for #1
 */
 
- #one:hover {
+#one:hover {
   color: rgb(255, 255, 255);
   background-color: rgb(35, 38, 105);
   box-shadow: rgba(16, 10, 118, 0.4) 0px 2px 3px;
 }
+
 /*
 display for #one:hover
 */
-@media screen and (max-width: 767px) {
-  #one:hover {
-    background-color: #3c43ac;
-    box-shadow: rgba(16, 10, 118, 0.4) 0px 2px 3px;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 991px) {
-  #one:hover {
-    background-color: #3c43ac;
-    box-shadow: rgba(16, 10, 118, 0.4) 0px 2px 3px;
-  }
-}
-
 
 /*
 display for #one:hover
 */
 
 #two {
-  background-color: #80add7; 
+  background-color: #80add7;
   display: inline-block;
   margin: .1rem;
   width: 2rem;
@@ -181,22 +95,10 @@ display for #one:hover
   transition: all 150ms ease-in-out 0s;
   border: none;
 }
+
 /*
 display for #2
 */
-@media only screen and (min-width: 800px) {
-  #two {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  #two {
-    width:1.3rem;
-    height:1.3rem;
-  }
-}
 
 /*
 display for #2
@@ -206,20 +108,6 @@ display for #2
   color: rgb(255, 255, 255);
   background-color: rgb(101, 131, 187);
   box-shadow: rgba(95, 92, 158, 0.4) 0px 2px 3px;
-}
-/*
-display for #two:hover
-*/
-@media only screen and (max-width: 600px) {
-  #two:hover {
-    box-shadow: rgba(88, 80, 243, 0.4) 0px 2px 5px;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  #two:hover {
-    box-shadow: rgba(88, 80, 243, 0.4) 0px 2px 7px;
-  }
 }
 
 /*
@@ -239,24 +127,7 @@ display for #two:hover
   transition: all 150ms ease-in-out 0s;
   border: none;
 }
-/*
-display for three
-*/
-@media only screen and (min-width: 800px) {
-  #three {
-    margin: 0.1rem;
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-}
 
-@media only screen and (max-width: 675px) {
-  #three {
-    margin: 0.1rem;
-    width: 1.9rem;
-    height: 1.9rem;
-  }
-}
 /*
 display for three
 */
@@ -266,20 +137,7 @@ display for three
   background-color: rgb(147, 147, 147);
   box-shadow: rgba(182, 182, 182, 0.4) 0px 2px 3px;
 }
-/*
-display for three:hover
-*/
-@media only screen and (max-width: 600px) {
-  #three:hover {
-    box-shadow: rgba(88, 80, 243, 0.4) 0px 2px 5px;
-  }
-}
 
-@media only screen and (max-width: 400px) {
-  #three:hover {
-    box-shadow: rgba(88, 80, 243, 0.4) 0px 2px 7px;
-  }
-}
 /*
 display for three:hover
 */
@@ -296,22 +154,6 @@ display for three:hover
   transition: all 150ms ease-in-out 0s;
   border: none;
 
-}
-/*
-display for four 
-*/
-@media only screen and (min-width: 800px) {
-  #four {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-}
-
-@media only screen and (max-width: 675px) {
-  #four {
-    width: 1.9rem;
-    height: 1.9rem;
-  }
 }
 
 /*
@@ -340,30 +182,9 @@ display for four
   border: none;
 
 }
+
 /*
 Display for five box
-*/
-@media only screen and (min-width: 800px) {
-  #five {
-    width: 2.5rem;
-    height: 2.5rem;
-    
-  }
-}
-
-@media only screen and (max-width: 675px) {
-  #five {
-    width: 1.9rem;
-    height: 1.9rem;
-    
-  }
-}
-
-
-
-
-/*
-Display for five 
 */
 
 #five:hover {
@@ -378,43 +199,36 @@ Display for five
  *
 */
 
+.userPage {
+  position: relative;
+  height: 100%;
+}
+
 .docView {
-  width: 100%; 
-  height: auto;
-  margin:0;
-  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 78%;
+  height: 100%;
 }
-/*
-Display for docView
-*
-@media screen and (max-width: 1150px) {
-  .docView {
-    width: 200%;
-    max-width: 100%;
-    height: 100%;
-  }
-}
-*/
 
 /*
 Display for docView
 */
-
 
 .fileView {
-  width: 98%;
-  height: 90vh;
-  border: 1px solid #000000;
+  width: 100%;
+  height: 100vh;
+  border-right: 1px solid black;
   overflow-y: auto;
   overflow-x: hidden;
-  box-shadow: 0px 3px 5px -2px black;
 }
 
 .react-pdf__Page__canvas {
   min-width: none;
   width: 100% !important;
   height: auto !important;
-  border-bottom: 1px solid gray; 
+  border-bottom: 1px solid gray;
   background-color: white;
 }
 
@@ -425,12 +239,12 @@ Display for docView
   right: 0;
   bottom: 0;
   z-index: 1;
-  /* background-color: red; */
   opacity: 0.25;
 }
 
 .react-pdf__Page__textContent,
-.react-pdf__Page__annotations, .annotationLayer,
+.react-pdf__Page__annotations,
+.annotationLayer,
 .textLayer {
   width: 90% !important;
 }
@@ -442,127 +256,30 @@ Display for docView
 */
 
 .rubricBoxContainer {
-  top: 0px;
-  right: 5px;
-  position: absolute;
-  margin-right: 14;
-  width : 34%;
-  height: auto;
-  border-radius: 1rem;
-  padding: 0;
-  z-index: 1;
+  position: fixed;
+  padding: 0px 10px;
+  right: 0;
+  top: 0;
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
-
-
-.rubricBox.open {
-  height:500px !important;
-  transition:ease-in-out .2s;
-}
-
-/*
-Display for rubricBox container
-*/
-/*
-@media screen and (max-width: 1150px) {
-  .rubricBoxContainer {
-    margin-top: 100px;
-    
-    width: 90vw;
-    height: 126vw;
-    margin-right: 20px;
-  }
-}
-
-*/
-/*
-@media screen and (min-width: 1151px) {
-  .rubricBoxContainer {    
-    width: 32vw;
-    height: 60vw;
-    margin-right: -25px;
-  }
-}
-*/
-/*
-@media screen and (min-width: 500px) and (max-width: 1149px) {
-  .rubricBoxContainer {
-    margin-top: 170px;
-    
-    width: 90vw;
-    height: 126vw;
-    margin-right: -0px;
-  }
-}
-
-*/
-
-/*
-Display for rubricBox container 
-*/
-
 
 .rubricBox {
-  box-shadow: 0px 3px 5px -2px black;
-  overflow-y: scroll; 
-  overflow-x: hidden;
-  max-height: 500px;
-  border-radius: 10px;
-  width : 100%;
-  padding: 15px;
-  background-color: white;
-  transition:ease-in-out .2s;
+  overflow-y: scroll;
+  flex-grow: 1;
 }
 
 /*
 Display for rubricBox 
 */
-/*
-@media screen and (max-width: 1150px) {
-  .rubricBox {
-    margin-top: 100px;
-    
-    width: 90vw;
-    height: 126vw;
-    margin-right: -30px;
-  }
-}
-/*
-@media screen and (min-width: 1151px) {
-  .rubricBox {    
-    width: 32vw;
-    height: 60vw;
-    margin-right: -25px;
-  }
-}
-*/
-/*
-@media screen and (min-width: 500px) and (max-width: 1149px) {
-  .rubricBox {
-    margin-top: 170px;
-    
-    width: 90vw;
-    height: 126vw;
-    margin-right: -30px;
-  }
-}
-*/
 
-
-
-/*
-Display for rubricBox 
-*/
-
-
-.rubricBox h3 {
-  padding: 10px 0;
-  margin: 0;
-}
 
 .category {
   border-radius: 10px;
-  padding: 10px 0px;
+  padding: 5px 0px;
 }
 
 .category:not(:first-child) {
@@ -582,7 +299,6 @@ Display for rubricBox
 .category ul li button {
   display: inline-block;
   margin: 0 .5rem;
-  border: 1.3px solid #7C4DFF;
   background-color: white;
   color: #7C4DFF;
   font-size: 1rem;
@@ -595,6 +311,7 @@ Display for rubricBox
 .category ul li button:hover {
   color: #ffffff;
   background-color: #7C4DFF;
+
 }
 
 .categoryButton {
@@ -619,7 +336,7 @@ Display for rubricBox
   list-style: none;
   display: flex;
   font-size: 18px;
-  
+
 }
 
 #toolbar {
@@ -635,28 +352,6 @@ Display for rubricBox
   margin-bottom: 3rem;
 }
 
-/* export button, it is a link that looks like a button */ 
-.csvLink{
-
-  margin-right: 70%;
-  text-decoration: none;
-  float:right;
-    background-color:  #7C4DFF;
-    color:  white;
-    border: 2px solid  #7C4DFF;
-    padding: 10px 20px;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-    transition: 0.3s ease-in-out;
-  }
-
-  .csvLink:hover {
-    background-color:  white;
-    color: #7C4DFF;
-}
-
 /*
  *
  *          COMMENT BOX
@@ -668,22 +363,24 @@ Display for rubricBox
   height: 35%;
   margin: 0 0 0 2rem;
 }
+
 .critiqueBox {
   width: 70%;
   margin: 0px;
 }
 
-.critiqueBox h4{
+.critiqueBox h4 {
   margin: 5px 0;
 }
 
 #commentArea {
   margin: 10px 0;
   padding: 10px;
-  height: 150px;
+  height: 85px;
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid gray;
+  border: 1px solid #7C4DFF;
+  ;
   box-shadow: 0px 3px 5px -2px #708090;
   border-radius: 5px;
   resize: none;
@@ -692,7 +389,6 @@ Display for rubricBox
 
 #commentArea:focus {
   outline: none;
-  box-shadow: 0 0 0 3px hsla(260, 1%, 50%, 0.8);
 }
 
 .plus {
@@ -725,7 +421,7 @@ Display for rubricBox
 }
 
 .alignRatingContainer {
-  width: 275px;
+  width: 100%;
   display: inline-block;
 }
 
@@ -739,21 +435,18 @@ Display for rubricBox
 
 .tooltiptext {
   visibility: hidden;
-  background-color: #555;
+  background-color: #818181;
   color: #fff;
   text-align: center;
-  width: 15rem;
-  border-radius: 1rem;
-  padding: .4rem;
-  position: absolute;
+  border-radius: 5px;
+  padding: 5px 20px;
+  margin: 0 0 0 20px;
   z-index: 1;
   bottom: 100%;
-  margin-left: -2.5rem;
-  opacity: 0;
   transition: opacity 0.3s;
 }
 
-.tooltip:hover .tooltiptext{
+.tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
 }
@@ -790,15 +483,41 @@ Display for rubricBox
  *
 */
 
+/* export button, it is a link that looks like a button */
+
+.bottomContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid gray;
+}
+
+.csvLink {
+  text-decoration: none;
+  background-color: #7C4DFF;
+  color: white;
+  border: 2px solid #7C4DFF;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.csvLink:hover {
+  background-color: white;
+  color: #7C4DFF;
+}
+
 .pageNavigation {
-  float: left;
-  margin-bottom: 1%;
+  align-self: flex-start;
+  /* Add this */
 }
 
 .leftButton {
-  background-color:  #7C4DFF;
-  color:  white;
-  border: 2px solid  #7C4DFF;
+  background-color: #7C4DFF;
+  color: white;
+  border: 2px solid #7C4DFF;
   padding: 10px 20px;
   border-radius: 6px;
   font-size: 16px;
@@ -810,14 +529,14 @@ Display for rubricBox
 }
 
 .leftButton:hover {
-  background-color:  white;
+  background-color: white;
   color: #7C4DFF;
 }
 
 .rightButton {
-  background-color:  #7C4DFF;
-  color:  white;
-  border: 2px solid  #7C4DFF;
+  background-color: #7C4DFF;
+  color: white;
+  border: 2px solid #7C4DFF;
   padding: 10px 20px;
   border-radius: 6px;
   font-size: 16px;
@@ -828,12 +547,13 @@ Display for rubricBox
 }
 
 .rightButton:hover {
-  background-color:  white;
+  background-color: white;
   color: #7C4DFF;
 }
+
 #annotatedImg {
-  width : 53vw;
-  height:35vw;
+  width: 53vw;
+  height: 35vw;
   border: 2px solid black;
   margin-bottom: 20px;
   float: left;
@@ -852,25 +572,24 @@ input[type="file"] {
   justify-content: center;
   align-items: center;
   height: 85vh;
-  background-color: #f0f0ff;
 }
 
 .noUploadViscrit {
   font-size: 6em;
   font-weight: bold;
-  color:  #7C4DFF;
+  color: #7C4DFF;
   margin-bottom: 0;
 }
 
 .noUploadText {
-  color:  #7C4DFF;
+  color: #7C4DFF;
   font-size: 1.5em;
   margin-top: 0;
 }
 
 .uploadButton {
   background-color: #fff;
-  color:  #7C4DFF;
+  color: #7C4DFF;
   border: 2px solid #9f82ec;
   padding: 10px 20px;
   border-radius: 6px;
@@ -881,6 +600,12 @@ input[type="file"] {
 }
 
 .uploadButton:hover {
-  background-color:  #7C4DFF;
+  background-color: #7C4DFF;
   color: #fff;
+}
+
+.logo {
+  color: #c5b0ff;
+  font-size: 20px;
+  font-weight: 900;
 }

@@ -77,7 +77,7 @@ export default function DocumentReader() {
         const rect = canvas.getBoundingClientRect();
         const adjustmentX = rect.left + window.pageXOffset;
         const adjustmentY = rect.top + window.pageYOffset;
-
+        context.clearRect(0,0, canvas.width, canvas.height);
         const width = event.clientX - adjustmentX - startX;
         const height = event.clientY - adjustmentY - startY;
 
@@ -179,21 +179,6 @@ export default function DocumentReader() {
   if(dirpdfExists){
     return (
       <div className='docView'>
-        <div className="pageNavigation">
-        <button 
-        className='leftButton'
-        disabled={pageNumber <= 1} 
-        onClick={handlePreviousPage}>
-        &#8592;  
-        </button>
-
-        <button 
-          className='rightButton'
-          disabled={pageNumber >= numPages}
-          onClick={handleNextPage}>
-          &#8594;  
-          </button>
-        </div>
         <div className="fileView" >
           {data.path && (
             <>
