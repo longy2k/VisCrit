@@ -77,7 +77,7 @@ export default function DocumentReader() {
         const rect = canvas.getBoundingClientRect();
         const adjustmentX = rect.left + window.pageXOffset;
         const adjustmentY = rect.top + window.pageYOffset;
-
+        context.clearRect(0,0, canvas.width, canvas.height);
         const width = event.clientX - adjustmentX - startX;
         const height = event.clientY - adjustmentY - startY;
 
