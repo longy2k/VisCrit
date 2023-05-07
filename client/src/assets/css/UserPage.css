@@ -8,15 +8,167 @@ html {
   overflow-x: hidden;
 }
 
+.userPage {
+  position: relative;
+  height: 100%;
+}
+
 .generalButton {
-  background-color: #7C4DFF;
+  background-color: #7c4dff;
   color: white;
-  border: 1px solid #7C4DFF;
+  border: 1px solid #7c4dff;
   padding: 5px 10px;
   border-radius: 4px !important;
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+}
+
+/*
+ *
+ *          RESPONSIVENESS 
+ *
+*/
+
+@media only screen and (max-width: 1580px) {
+  .pageNavigation .leftButton {
+    background-color: #7c4dff;
+    color: white;
+    border: 2px solid #7c4dff;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-right: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  .pageNavigation .rightButton {
+    background-color: #7c4dff;
+    color: white;
+    border: 2px solid #7c4dff;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  .bottomContainer .csvLink {
+    text-decoration: none;
+    background-color: #7c4dff;
+    color: white;
+    border: 2px solid #7c4dff;
+    padding: 5px 15px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .bottomContainer .csvLink:hover {
+    background-color: white;
+    color: #7c4dff;
+  }
+  .category ul li {
+    margin-right: -10%;
+  }
+  .critiqueBoxContainer .critiqueBox {
+    width: 100%;
+    margin: 0px;
+  }
+  .docView {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 68%;
+    height: 100%;
+  }
+
+  .rubricBoxContainer {
+    position: fixed;
+    width: 30%;
+  }
+
+  ul .alignRatingContainer {
+    width: 80%;
+    display: inline-block;
+  }
+
+  .critiqueBoxContainer #one {
+    background-color: #3c43ac;
+    margin: 0.1rem;
+    border-radius: 0.2rem;
+    width: 2.5rem;
+    height: 2rem;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 150ms ease-in-out 0s;
+    border: none;
+  }
+
+  .critiqueBoxContainer #two {
+    background-color: #80add7;
+    display: inline-block;
+    border-radius: 0.2rem;
+    margin: 0.1rem;
+    width: 2.5rem;
+    height: 2rem;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 150ms ease-in-out 0s;
+    border: none;
+  }
+
+  .critiqueBoxContainer #three {
+    background-color: #b3b3b5;
+    display: inline-block;
+    margin: 0.1rem;
+    border-radius: 0.2rem;
+    width: 2.5rem;
+    height: 2rem;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 150ms ease-in-out 0s;
+    border: none;
+  }
+
+  .critiqueBoxContainer #four {
+    background-color: #e9a3a3;
+    display: inline-block;
+    margin: 0.1rem;
+    width: 2rem;
+    border-radius: 0.2rem;
+    width: 2.5rem;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 150ms ease-in-out 0s;
+    border: none;
+  }
+
+  .critiqueBoxContainer #five {
+    background-color: #c41010;
+    display: inline-block;
+    border-radius: 0.2rem;
+    margin: 0.1rem;
+    width: 2.5rem;
+    height: 2rem;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 150ms ease-in-out 0s;
+    border: none;
+  }
 }
 
 /*
@@ -27,13 +179,13 @@ html {
 
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 
 ::-webkit-scrollbar {
   width: 4px;
   height: 4px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -50,8 +202,8 @@ html {
 #one {
   background-color: #3c43ac;
   display: inline-block;
-  margin: .1rem;
-  border-radius: .2rem;
+  margin: 0.1rem;
+  border-radius: 0.2rem;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -60,10 +212,7 @@ html {
   font-weight: 400;
   transition: all 150ms ease-in-out 0s;
   border: none;
-
 }
-
-
 
 #one:hover {
   color: rgb(255, 255, 255);
@@ -71,13 +220,11 @@ html {
   box-shadow: rgba(16, 10, 118, 0.4) 0px 2px 3px;
 }
 
-
-
 #two {
   background-color: #80add7;
   display: inline-block;
-  border-radius: .2rem;
-  margin: .1rem;
+  border-radius: 0.2rem;
+  margin: 0.1rem;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -88,19 +235,17 @@ html {
   border: none;
 }
 
-
 #two:hover {
   color: rgb(255, 255, 255);
   background-color: rgb(101, 131, 187);
   box-shadow: rgba(95, 92, 158, 0.4) 0px 2px 3px;
 }
 
-
 #three {
   background-color: #b3b3b5;
   display: inline-block;
-  margin: .1rem;
-  border-radius: .2rem;
+  margin: 0.1rem;
+  border-radius: 0.2rem;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -117,13 +262,12 @@ html {
   box-shadow: rgba(182, 182, 182, 0.4) 0px 2px 3px;
 }
 
-
 #four {
   background-color: #e9a3a3;
   display: inline-block;
-  margin: .1rem;
+  margin: 0.1rem;
   width: 2rem;
-  border-radius: .2rem;
+  border-radius: 0.2rem;
   height: 2rem;
   cursor: pointer;
   color: rgb(255, 255, 255);
@@ -131,7 +275,6 @@ html {
   font-weight: 400;
   transition: all 150ms ease-in-out 0s;
   border: none;
-
 }
 
 #four:hover {
@@ -143,8 +286,8 @@ html {
 #five {
   background-color: #c41010;
   display: inline-block;
-  border-radius: .2rem;
-  margin: .1rem;
+  border-radius: 0.2rem;
+  margin: 0.1rem;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -153,7 +296,6 @@ html {
   font-weight: 400;
   transition: all 150ms ease-in-out 0s;
   border: none;
-
 }
 
 #five:hover {
@@ -168,11 +310,6 @@ html {
  *
 */
 
-.userPage {
-  position: relative;
-  height: 100%;
-}
-
 .docView {
   position: absolute;
   left: 0;
@@ -180,10 +317,6 @@ html {
   width: 78%;
   height: 100%;
 }
-
-/*
-Display for docView
-*/
 
 .fileView {
   width: 100%;
@@ -241,38 +374,10 @@ Display for docView
   flex-grow: 1;
 }
 
-@media only screen and (max-width: 1580px) {
-  .docView {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 68%;
-    height: 100%;
-  }
-  .category ul li{
-    margin-left: 1rem;
-    padding: 0;
-    list-style: none;
-  }
-  .rubricBoxContainer {
-    position: fixed;
-    width: 30%;
-  }
-.rubricBoxContainer .bottomContainer {
-  flex-direction: column;
-}
-.rubricBoxContainer .pageNavigation {
-  margin:0 0 0 33%;
-}
-
-
-
-}
-
 .category {
   border-radius: 10px;
   padding: 5px 0px;
-  margin: .5rem 0 0 1.5rem;
+  margin: 0.5rem 0 0 1.5rem;
 }
 
 .category:not(:first-child) {
@@ -291,10 +396,10 @@ Display for docView
 
 .category ul li button {
   display: inline-block;
-  margin: 0 .5rem;
+  margin: 0 0.5rem;
   background-color: white;
-  border: 1px solid #7C4DFF;
-  color: #7C4DFF;
+  border: 1px solid #7c4dff;
+  color: #7c4dff;
   font-size: 1rem;
   text-align: center;
   text-decoration: none;
@@ -304,39 +409,43 @@ Display for docView
 
 .category ul li button:hover {
   color: #ffffff;
-  background-color: #7C4DFF;
-
+  background-color: #7c4dff;
 }
 
 .categoryButton {
-  border: 1px solid #7C4DFF;
+  border: 1px solid #7c4dff;
   border-radius: 5px;
   padding: 1px 6px;
   margin: 5px;
   font-size: 16px;
   font-weight: bold;
   background-color: white;
-  color: #7C4DFF;
+  color: #7c4dff;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .categoryButton:hover {
   color: white;
-  background-color: #7C4DFF;
+  background-color: #7c4dff;
 }
 
 #toolbar {
   display: none;
 }
 
-/*Available Categories, Comment, Location*/
 .toolBarMenu {
   list-style: none;
   display: flex;
   font-size: 24px;
   margin-top: 3rem;
   margin-bottom: 3rem;
+}
+
+#buttonGen {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
 }
 
 /*
@@ -366,7 +475,7 @@ Display for docView
   height: 85px;
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid #7C4DFF;
+  border: 1px solid #7c4dff;
   box-shadow: 0px 3px 5px -2px #708090;
   border-radius: 5px;
   resize: none;
@@ -382,7 +491,7 @@ Display for docView
   background-color: white;
   text-align: center;
   line-height: 20px;
-  color: #7C4DFF;
+  color: #7c4dff;
   font-weight: bold;
   font-size: 16px !important;
   vertical-align: top;
@@ -480,14 +589,8 @@ Display for docView
   border-color: transparent transparent transparent transparent;
 }
 
-#buttonGen {
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-}
-
 .commentRt {
-  margin: .1rem !important;
+  margin: 0.1rem !important;
   width: 1.5rem;
   height: 1.5rem;
   color: rgb(255, 255, 255);
@@ -495,14 +598,11 @@ Display for docView
   border-radius: 0 !important;
 }
 
-
 /*
  *
- *          PAGE NAVIGATION
+ *          BOTTOM CONTAINER: navigation, export, logo
  *
 */
-
-/* export button, it is a link that looks like a button */
 
 .bottomContainer {
   display: flex;
@@ -514,29 +614,29 @@ Display for docView
 
 .csvLink {
   text-decoration: none;
-  background-color: #7C4DFF;
+  background-color: #7c4dff;
   color: white;
-  border: 2px solid #7C4DFF;
+  border: 2px solid #7c4dff;
   padding: 10px 20px;
   border-radius: 6px;
   font-size: 16px;
+  transition: 0.3s ease-in-out;
   cursor: pointer;
 }
 
 .csvLink:hover {
   background-color: white;
-  color: #7C4DFF;
+  color: #7c4dff;
 }
 
 .pageNavigation {
   align-self: flex-start;
-  /* Add this */
 }
 
 .leftButton {
-  background-color: #7C4DFF;
+  background-color: #7c4dff;
   color: white;
-  border: 2px solid #7C4DFF;
+  border: 2px solid #7c4dff;
   padding: 10px 20px;
   border-radius: 6px;
   font-size: 16px;
@@ -549,13 +649,13 @@ Display for docView
 
 .leftButton:hover {
   background-color: white;
-  color: #7C4DFF;
+  color: #7c4dff;
 }
 
 .rightButton {
-  background-color: #7C4DFF;
+  background-color: #7c4dff;
   color: white;
-  border: 2px solid #7C4DFF;
+  border: 2px solid #7c4dff;
   padding: 10px 20px;
   border-radius: 6px;
   font-size: 16px;
@@ -567,8 +667,63 @@ Display for docView
 
 .rightButton:hover {
   background-color: white;
-  color: #7C4DFF;
+  color: #7c4dff;
 }
+
+/*
+ *
+ *          LANDING PAGE: no uploads/ dir css 
+ *
+*/
+.directoryNotFound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+}
+
+.noUploadViscrit {
+  font-size: 6em;
+  font-weight: bold;
+  color: #7c4dff;
+  margin-bottom: 0;
+}
+
+.noUploadText {
+  color: #7c4dff;
+  font-size: 1.5em;
+  margin-top: 0;
+}
+
+.uploadButton {
+  background-color: #fff;
+  color: #7c4dff;
+  border: 2px solid #9f82ec;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.3s ease-in-out;
+}
+
+.uploadButton:hover {
+  background-color: #7c4dff;
+  color: #fff;
+}
+
+.logo {
+  color: #c5b0ff;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+/*
+*
+*         OTHERS
+*
+*/ 
 
 #annotatedImg {
   width: 53vw;
@@ -581,50 +736,4 @@ Display for docView
 /* Hide file button */
 input[type="file"] {
   display: none;
-}
-
-/* No uploads/ dir css */
-
-.directoryNotFound {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 85vh;
-}
-
-.noUploadViscrit {
-  font-size: 6em;
-  font-weight: bold;
-  color: #7C4DFF;
-  margin-bottom: 0;
-}
-
-.noUploadText {
-  color: #7C4DFF;
-  font-size: 1.5em;
-  margin-top: 0;
-}
-
-.uploadButton {
-  background-color: #fff;
-  color: #7C4DFF;
-  border: 2px solid #9f82ec;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-  transition: 0.3s ease-in-out;
-}
-
-.uploadButton:hover {
-  background-color: #7C4DFF;
-  color: #fff;
-}
-
-.logo {
-  color: #c5b0ff;
-  font-size: 20px;
-  font-weight: 900;
 }
