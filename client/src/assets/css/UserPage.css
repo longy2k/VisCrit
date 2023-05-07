@@ -300,6 +300,7 @@ Display for rubricBox
   display: inline-block;
   margin: 0 .5rem;
   background-color: white;
+  border: 1px solid #7C4DFF;
   color: #7C4DFF;
   font-size: 1rem;
   text-align: center;
