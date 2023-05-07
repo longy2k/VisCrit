@@ -58,7 +58,7 @@ export default function ItemsToHTML(itemList=[]){
     }
     
     function AddCommentHandler(item=null){
-      setItem(item);
+      item === currentItem ? setItem(null) : setItem(item);
       setIndex(-1);
     }
 
