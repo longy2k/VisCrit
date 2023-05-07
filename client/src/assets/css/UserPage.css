@@ -48,12 +48,9 @@ html {
     overflow-y: auto;
     overflow-x: hidden;
   }
-  .category {
-    margin: 0;
-    padding: 0;
-  }
+
   .category ul li {
-    margin-left: 13%;
+    width: 90%;
   }
 
   .pageNavigation .leftButton {
@@ -102,8 +99,9 @@ html {
   }
 
   .rubricBoxContainer {
-    width: 25%;
+    width: 26%;
   }
+  
   ul .alignRatingContainer {
     width: 90%;
     display: inline-block;
