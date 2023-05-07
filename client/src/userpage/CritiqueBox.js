@@ -65,7 +65,7 @@ export default function CritiqueBox(){
                             <button  id="three" onClick={() => {IndexClick(2)}}>3</button>
                             <button  id="four" onClick={() => {IndexClick(3)}}>4</button>
                             <button  id="five" onClick={() => {IndexClick(4)}}>5</button>
-                            <button style={{visibility: `${index1 === -1 ? 'hidden' : 'visible'}`, margin: '-3px 13px'}} className="generalButton" onClick={() => {setCanvas1(true)}}>Location</button>
+                            <button style={{margin: '-3px 13px'}} className="generalButton" onClick={() => {setCanvas1(true)}}>Location</button>
                         </div>
                     </div>
                     <textarea id="commentArea" type="text" value={comment} onChange={handleCommentChange} style={{margin: '10px 0'}}/>
