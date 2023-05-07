@@ -15,12 +15,24 @@ export default function CritiqueBox(){
         }
       }, [index2, item2]);
     
+    function RemoveComment(){
+        if(index1 === -1){
+            setItem(null);
+        } else {
+            const confirmed = window.confirm('Are you sure you want to delete comment?');
+            if(confirmed){
+            item1.setComment("", index1);
+            setItem(null);
+            }
+        }
+      }
 
     const handleCommentChange = event => {
         setComment(event.target.value)
       }
       
     function saveReturn(savedComment) {
+        item1.LocationRt[index1]=[]
         if(index1 != -1){
             item1.LocationRt[index1].push(pageNumber);
             item1.LocationRt[index1].push(rectangles);
@@ -55,6 +67,7 @@ export default function CritiqueBox(){
                     </div>
                     <textarea id="commentArea" type="text" value={comment} onChange={handleCommentChange} style={{margin: '10px 0'}}/>
                     <span style={{ float: 'right', margin: '0px -5px 5px 0' }}>
+                    <button className="generalButton" onClick={() => { RemoveComment() }}>Delete</button>
                         <button className="generalButton" onClick={() => { saveReturn(comment) }}>Submit</button>
                     </span>
                     <br/>
