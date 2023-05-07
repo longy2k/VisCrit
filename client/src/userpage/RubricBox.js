@@ -18,21 +18,23 @@ export default function RubricBox() {
     }
   };
 
-  const handleExport = async () => {
+  const handleExport = async (event) => {
+    const confirmed = window.confirm('Are you sure you want to export the results?');
+    if (!confirmed) {
+      event.preventDefault();
+      return;
+    }
     try {
-      // Convert data to CSV string
-      const csvData = totalItems.map(item => Object.values(item).join(',')).join('\n');
-      // Create FormData object and append CSV file to it
+      const headers = Object.keys(totalItems[0]);
+      const csvData = `${headers.join(',')}\n${totalItems.map(item => headers.map(header => item[header]).join(',')).join('\n')}`;
       const formData = new FormData();
       formData.append('file', new Blob([csvData], { type: 'text/csv' }), 'Export_Results.csv');
-      // Send FormData to server using Axios
       const response = await axios.post('/api/upload/', formData);
       console.log(response.data);
     } catch (error) {
       console.error(error);
     }
-  }  
-
+  }
 
   useEffect(() => {
     fetch('/api/checkdirectory/upload/json')
