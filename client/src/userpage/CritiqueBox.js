@@ -47,7 +47,7 @@ export default function CritiqueBox(){
                         </div>
                     </div>
                     <textarea id="commentArea" type="text" value={comment} onChange={handleCommentChange} style={{margin: '10px 0'}}/>
-                    <span style={{ float: 'right', margin: '5px 0' }}>
+                    <span style={{ float: 'right', margin: '0px -5px 5px 0' }}>
                         <button className="generalButton" onClick={() => { saveReturn(comment) }}>Submit</button>
                     </span>
                     <br/>

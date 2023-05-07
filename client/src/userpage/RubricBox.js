@@ -58,13 +58,15 @@ export default function RubricBox() {
             onClick={handlePreviousPage}>
             &#8592;  
           </button>
-
           <button 
             className='rightButton'
             disabled={pageNumber >= numPages}
             onClick={handleNextPage}>
             &#8594;  
           </button>
+        </div>
+        <div className="logo">
+          VISCRIT
         </div>
         <CSVLink 
           data={totalItems}
