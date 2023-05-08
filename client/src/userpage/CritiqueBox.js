@@ -1,22 +1,14 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, {useContext, useState} from 'react';
 import { ItemContext } from './ItemContext';
 import Item from './Item';
-
+import ExportItem from './ExportItem';
 
 export default function CritiqueBox(){
     const [comment, setComment] = useState("");
-    let {currentItem: item1, setAccessCanvas: setCanvas1, index: index1, setIndex: setIndex1, rectangles, pageNumber, locked, critiquerID} = useContext(ItemContext);
-    let {totalItems, setItem, currentItem: item2, index: index2, accessCanvas: canvas2} = useContext(ItemContext);
-
-
-    useEffect(() => {
-        if (item2 && Array.isArray(item2.Comment) && index2 !== -1) {
-          setComment(item2.Comment[index2]);
-        }
-      }, [index2, item2]);
+    let {currentItem, setAccessCanvas, index, setIndex, rectangles, pageNumber, locked, critiquerID, totalItems, setItem} = useContext(ItemContext);
     
     function RemoveComment(){
-        if(index1 === -1){
+        if(index === -1){
             setItem(null);
         } else if(locked){
             alert("Please unlock item before deleting");
@@ -24,7 +16,7 @@ export default function CritiqueBox(){
             else {
             const confirmed = window.confirm('Are you sure you want to delete comment?');
             if(confirmed){
-            item1.setComment("", index1);
+            currentItem.setComment("", index);
             setItem(null);
             }
         }
@@ -35,28 +27,24 @@ export default function CritiqueBox(){
       }
       
     function saveReturn(savedComment) {
-        item1.LocationRt[index1]=[]
-        item1.critiquerID = critiquerID;
-        if(index1 != -1){
-            item1.LocationRt[index1].push(pageNumber);
-            item1.LocationRt[index1].push(rectangles);
-
-            if (index2 !== -1){
-                item2.setComment(savedComment, index2);
-            }
-            totalItems.push(item2);
+        currentItem.LocationRt[index]=[]
+        currentItem.critiquerID = critiquerID;
+        if(index != -1){
+            currentItem.LocationRt[index].push(pageNumber);
+            currentItem.LocationRt[index].push(rectangles);
+            currentItem.setComment(savedComment, index);
+            totalItems.push(new ExportItem(currentItem, index));
         }
-        setCanvas1(false);
-        setItem([...totalItems.slice(0, index2), item2, ...totalItems.slice(index2 + 1)]);
-        console.log(totalItems);
+        setAccessCanvas(false);
+        setItem(null);
     }
 
     function IndexClick(num = -1){
-        setIndex1(num);
-        setComment(item1.Comment[num]);
+        setIndex(num);
+        setComment(currentItem.Comment[num]);
     }
 
-    if (item1 instanceof Item) {
+    if (currentItem instanceof Item) {
         return (
             <div className='critiqueBoxContainer' >
                 <div className="critiqueBox">
@@ -68,7 +56,7 @@ export default function CritiqueBox(){
                             <button  id="three" onClick={() => {IndexClick(2)}}>3</button>
                             <button  id="four" onClick={() => {IndexClick(3)}}>4</button>
                             <button  id="five" onClick={() => {IndexClick(4)}}>5</button>
-                            <button style={{margin: '-3px 13px'}} className="generalButton" onClick={() => {setCanvas1(true)}}>Location</button>
+                            <button style={{margin: '-3px 13px'}} className="generalButton" onClick={() => {setAccessCanvas(true)}}>Location</button>
                         </div>
                     </div>
                     <textarea id="commentArea" type="text" value={comment} onChange={handleCommentChange} style={{margin: '10px 0'}}/>
