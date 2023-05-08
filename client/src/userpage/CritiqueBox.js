@@ -5,7 +5,7 @@ import Item from './Item';
 
 export default function CritiqueBox(){
     const [comment, setComment] = useState("");
-    let {currentItem: item1, setAccessCanvas: setCanvas1, index: index1, setIndex: setIndex1, rectangles, pageNumber, locked} = useContext(ItemContext);
+    let {currentItem: item1, setAccessCanvas: setCanvas1, index: index1, setIndex: setIndex1, rectangles, pageNumber, locked, critiquerID} = useContext(ItemContext);
     let {totalItems, setItem, currentItem: item2, index: index2, accessCanvas: canvas2} = useContext(ItemContext);
 
 
@@ -36,16 +36,19 @@ export default function CritiqueBox(){
       
     function saveReturn(savedComment) {
         item1.LocationRt[index1]=[]
+        item1.critiquerID = critiquerID;
         if(index1 != -1){
             item1.LocationRt[index1].push(pageNumber);
             item1.LocationRt[index1].push(rectangles);
-            setCanvas1(false);
+
             if (index2 !== -1){
                 item2.setComment(savedComment, index2);
             }
             totalItems.push(item2);
         }
+        setCanvas1(false);
         setItem([...totalItems.slice(0, index2), item2, ...totalItems.slice(index2 + 1)]);
+        console.log(totalItems);
     }
 
     function IndexClick(num = -1){

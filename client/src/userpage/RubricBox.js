@@ -4,14 +4,16 @@ import { CSVLink } from "react-csv";
 import axios from 'axios';
 
 export default function RubricBox() {
-  let { totalItems, Hierarchy, pageNumber, setPageNumber, numPages } = useContext(ItemContext);
+  let { totalItems, Hierarchy, pageNumber, setPageNumber, numPages ,critiquerID, setCritiquerID} = useContext(ItemContext);
   const [dirjsonExists, setdirjsonExists] = useState(false);
   const [isOpen, setOpen] = useState(false);
   const [isTransitioning, setTransitioning] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('volvo');
+
 
   const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
+    if(totalItems.length === 0){
+      setCritiquerID(event.target.value);
+    }
   };
 
   const handleClick = () => {
@@ -62,7 +64,7 @@ export default function RubricBox() {
     <div className="rubricBoxContainer">
     <form>
       <label htmlFor="cars"> CritiquerID: </label>
-      <select id="cars" name="cars" value={selectedOption} onChange={handleOptionChange}>
+      <select id="cars" name="cars" value={critiquerID} onChange={handleOptionChange}>
         <option value=""></option>
         <option value="001">001</option>
         <option value="002">002</option>
@@ -94,7 +96,7 @@ export default function RubricBox() {
         </div>
         <CSVLink 
           data={totalItems}
-          filename={"Export_Results.csv"}
+          filename={critiquerID + "_"+"Export_Results.csv"}
           className='csvLink'
           onClick={handleExport}
         >

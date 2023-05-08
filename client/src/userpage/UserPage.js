@@ -20,7 +20,7 @@ export default function UserPage() {
   const [directoryExists, setDirectoryExists] = useState(false);
   const [fileUploaded, setFileUploaded] = useState(false);
   const [locked , setLock] = useState(false);
-
+  const [critiquerID, setCritiquerID] = useState('volvo');
   const readUploadFile = async (e) => {
     e.preventDefault();
     const files = e.currentTarget.files;
@@ -94,7 +94,7 @@ export default function UserPage() {
   if (directoryExists) {
     return (
       <div className='userPage'>
-        <ItemContext.Provider value={{totalItems, setTotalItems, currentItem, setItem, Hierarchy, setHierarchy, pageNumber, setPageNumber, index, setIndex, rectangles, setRectangles, accessCanvas, setAccessCanvas,reRender, setReRender, locked, setLock}}>
+        <ItemContext.Provider value={{totalItems, setTotalItems, currentItem, setItem, Hierarchy, setHierarchy, pageNumber, setPageNumber, index, setIndex, rectangles, setRectangles, accessCanvas, setAccessCanvas,reRender, setReRender, locked, setLock, critiquerID, setCritiquerID}}>
           <DocumentReader/>
           <RubricBox/>
         </ItemContext.Provider>
