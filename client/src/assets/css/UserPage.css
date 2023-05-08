@@ -8,10 +8,16 @@ html {
   overflow-x: hidden;
 }
 
+.userPage {
+  position: relative;
+  height: 100%;
+}
+
+
 .generalButton {
-  background-color: #7C4DFF;
+  background-color: #7c4dff;
   color: white;
-  border: 1px solid #7C4DFF;
+  border: 1px solid #7c4dff;
   padding: 5px 10px;
   margin: 0;
   border-radius: 4px !important;
@@ -22,20 +28,180 @@ html {
 
 /*
  *
+ *          RESPONSIVENESS 
+ *
+*/
+
+@media only screen and (max-width: 1665px) {
+  .docView {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .docView .fileView {
+    width: 90%;
+    height: 100vh;
+    border-right: 1px solid black;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .category ul li {
+    width: 100%;
+  }
+
+  .pageNavigation .leftButton {
+    background-color: #7c4dff;
+    color: white;
+    border: 2px solid #7c4dff;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-right: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  .pageNavigation .rightButton {
+    background-color: #7c4dff;
+    color: white;
+    border: 2px solid #7c4dff;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  .bottomContainer .csvLink {
+    text-decoration: none;
+    background-color: #7c4dff;
+    color: white;
+    border: 2px solid #7c4dff;
+    padding: 5px 15px;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-right: 1%;
+    cursor: pointer;
+  }
+  .bottomContainer .csvLink:hover {
+    background-color: white;
+    color: #7c4dff;
+  }
+
+  .critiqueBoxContainer .critiqueBox {
+    width: 90%;
+  }
+
+  .rubricBoxContainer .rubricBox {
+    width: 100%;
+  }
+
+  .rubricBoxContainer{
+    width: 27%;
+  }
+
+  ul .alignRatingContainer {
+    width: 80%;
+    display: inline-block;
+  }
+
+  .critiqueBoxContainer #one {
+    background-color: #3c43ac;
+    margin: 0.1rem;
+    border-radius: 0.2rem;
+    width: 3rem;
+    height: 2rem;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 150ms ease-in-out 0s;
+    border: none;
+  }
+
+  .critiqueBoxContainer #two {
+    background-color: #80add7;
+    display: inline-block;
+    border-radius: 0.2rem;
+    margin: 0.1rem;
+    width: 3rem;
+    height: 2rem;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 150ms ease-in-out 0s;
+    border: none;
+  }
+
+  .critiqueBoxContainer #three {
+    background-color: #b3b3b5;
+    display: inline-block;
+    margin: 0.1rem;
+    border-radius: 0.2rem;
+    width: 3rem;
+    height: 2rem;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 150ms ease-in-out 0s;
+    border: none;
+  }
+
+  .critiqueBoxContainer #four {
+    background-color: #e9a3a3;
+    display: inline-block;
+    margin: 0.1rem;
+    width: 3rem;
+    border-radius: 0.2rem;
+    width: 2.5rem;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 150ms ease-in-out 0s;
+    border: none;
+  }
+
+  .critiqueBoxContainer #five {
+    background-color: #c41010;
+    display: inline-block;
+    border-radius: 0.2rem;
+    margin: 0.1rem;
+    width: 3rem;
+    height: 2rem;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 150ms ease-in-out 0s;
+    border: none;
+  }
+}
+
+/*
+ *
  *          SCROLLBAR
  *
 */
 
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 
 ::-webkit-scrollbar {
   width: 4px;
   height: 4px;
-  /* height of horizontal scroll */
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -52,8 +218,8 @@ html {
 #one {
   background-color: #3c43ac;
   display: inline-block;
-  margin: .1rem;
-  border-radius: .2rem;
+  margin: 0.1rem;
+  border-radius: 0.2rem;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -73,8 +239,8 @@ html {
 #two {
   background-color: #80add7;
   display: inline-block;
-  border-radius: .2rem;
-  margin: .1rem;
+  border-radius: 0.2rem;
+  margin: 0.1rem;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -94,8 +260,8 @@ html {
 #three {
   background-color: #b3b3b5;
   display: inline-block;
-  margin: .1rem;
-  border-radius: .2rem;
+  margin: 0.1rem;
+  border-radius: 0.2rem;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -115,9 +281,9 @@ html {
 #four {
   background-color: #e9a3a3;
   display: inline-block;
-  margin: .1rem;
+  margin: 0.1rem;
   width: 2rem;
-  border-radius: .2rem;
+  border-radius: 0.2rem;
   height: 2rem;
   cursor: pointer;
   color: rgb(255, 255, 255);
@@ -125,7 +291,6 @@ html {
   font-weight: 400;
   transition: all 150ms ease-in-out 0s;
   border: none;
-
 }
 
 #four:hover {
@@ -137,8 +302,8 @@ html {
 #five {
   background-color: #c41010;
   display: inline-block;
-  border-radius: .2rem;
-  margin: .1rem;
+  border-radius: 0.2rem;
+  margin: 0.1rem;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -147,7 +312,6 @@ html {
   font-weight: 400;
   transition: all 150ms ease-in-out 0s;
   border: none;
-
 }
 
 #five:hover {
@@ -162,11 +326,6 @@ html {
  *
 */
 
-.userPage {
-  position: relative;
-  height: 100%;
-}
-
 .docView {
   position: absolute;
   left: 0;
@@ -174,10 +333,6 @@ html {
   width: 78%;
   height: 100%;
 }
-
-/*
-Display for docView
-*/
 
 .fileView {
   width: 100%;
@@ -224,14 +379,12 @@ Display for docView
   right: 0;
   top: 0;
   min-width: 20%;
-  max-width: calc(20% - 40px);
-  /* subtract padding from max width */
+  max-width: 30%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-
 
 .rubricBoxContainer h3 {
   margin: 0;
@@ -243,12 +396,6 @@ Display for docView
   overflow-y: scroll;
   flex-grow: 1;
 }
-
-/*
-Display for rubricBox 
-*/
-
-
 .category {
   border-radius: 10px;
   padding: 5px 0px;
@@ -271,10 +418,10 @@ Display for rubricBox
 
 .category ul li button {
   display: inline-block;
-  margin: 0 .5rem;
+  margin: 0 0.5rem;
   background-color: white;
-  border: 1px solid #7C4DFF;
-  color: #7C4DFF;
+  border: 1px solid #7c4dff;
+  color: #7c4dff;
   font-size: 1rem;
   text-align: center;
   text-decoration: none;
@@ -284,46 +431,43 @@ Display for rubricBox
 
 .category ul li button:hover {
   color: #ffffff;
-  background-color: #7C4DFF;
-
+  background-color: #7c4dff;
 }
 
 .categoryButton {
-  border: 1px solid #7C4DFF;
+  border: 1px solid #7c4dff;
   border-radius: 5px;
   padding: 1px 6px;
   margin: 5px;
   font-size: 16px;
   font-weight: bold;
   background-color: white;
-  color: #7C4DFF;
+  color: #7c4dff;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .categoryButton:hover {
   color: white;
-  background-color: #7C4DFF;
-}
-
-.category-items {
-  list-style: none;
-  display: flex;
-  font-size: 18px;
-
+  background-color: #7c4dff;
 }
 
 #toolbar {
   display: none;
 }
 
-/*Available Categories, Comment, Location*/
 .toolBarMenu {
   list-style: none;
   display: flex;
   font-size: 24px;
   margin-top: 3rem;
   margin-bottom: 3rem;
+}
+
+#buttonGen {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
 }
 
 /*
@@ -335,11 +479,11 @@ Display for rubricBox
 .critiqueBoxContainer {
   width: 100%;
   height: 35%;
-  margin: 0 0 0 2rem;
+  margin: 0 0 0 .5rem;
 }
 
 .critiqueBox {
-  width: 17rem;
+  width: 16rem;
   margin: 0px;
 }
 
@@ -353,13 +497,12 @@ Display for rubricBox
   height: 105px;
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid #7C4DFF;
+  border: 1px solid #7c4dff;
   box-shadow: 0px 3px 5px -2px #708090;
   border-radius: 5px;
   resize: none;
   transition: box-shadow 0.15s ease;
 }
-
 
 #commentArea:focus {
   outline: none;
@@ -370,7 +513,7 @@ button.plus {
   background-color: white;
   text-align: center;
   line-height: 20px;
-  color: #7C4DFF;
+  color: #7c4dff;
   padding: 0px 6px 1px 5px;
   font-weight: bold;
   font-size: 16px !important;
@@ -388,7 +531,7 @@ button.plus {
 */
 
 .alignRatingContainer {
-  width: 80%;
+  width: 85%;
   display: inline-block;
 }
 
@@ -458,25 +601,35 @@ button.plus {
   visibility: hidden;
   background-color: #818181;
   color: #fff;
-  width: 15rem;
+  width: 10rem;
   text-align: center;
   border-radius: 5px;
   padding: 5px 20px;
   margin: 0 0 0 20px;
   z-index: 1;
-  bottom: 10%;
+  bottom: 5%;
   left: 0%;
   transition: opacity 0.3s;
 }
 
-#buttonGen {
-  display: inline-block;
-  padding: 0;
-  margin: 0;
+.tooltip:hover .categoryHover {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip .categoryHover::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent transparent;
 }
 
 .commentRt {
-  margin: .1rem !important;
+  margin: 0.1rem !important;
   width: 1.5rem;
   height: 1.5rem;
   color: rgb(255, 255, 255);
@@ -484,14 +637,11 @@ button.plus {
   border-radius: 0 !important;
 }
 
-
 /*
  *
- *          PAGE NAVIGATION
+ *          BOTTOM CONTAINER: navigation, export, logo
  *
 */
-
-/* export button, it is a link that looks like a button */
 
 .bottomContainer {
   display: flex;
@@ -503,29 +653,29 @@ button.plus {
 
 .csvLink {
   text-decoration: none;
-  background-color: #7C4DFF;
+  background-color: #7c4dff;
   color: white;
-  border: 2px solid #7C4DFF;
+  border: 2px solid #7c4dff;
   padding: 10px 20px;
   border-radius: 6px;
   font-size: 16px;
+  transition: 0.3s ease-in-out;
   cursor: pointer;
 }
 
 .csvLink:hover {
   background-color: white;
-  color: #7C4DFF;
+  color: #7c4dff;
 }
 
 .pageNavigation {
   align-self: flex-start;
-  /* Add this */
 }
 
 .leftButton {
-  background-color: #7C4DFF;
+  background-color: #7c4dff;
   color: white;
-  border: 2px solid #7C4DFF;
+  border: 2px solid #7c4dff;
   padding: 10px 20px;
   border-radius: 6px;
   font-size: 16px;
@@ -538,13 +688,13 @@ button.plus {
 
 .leftButton:hover {
   background-color: white;
-  color: #7C4DFF;
+  color: #7c4dff;
 }
 
 .rightButton {
-  background-color: #7C4DFF;
+  background-color: #7c4dff;
   color: white;
-  border: 2px solid #7C4DFF;
+  border: 2px solid #7c4dff;
   padding: 10px 20px;
   border-radius: 6px;
   font-size: 16px;
@@ -556,24 +706,14 @@ button.plus {
 
 .rightButton:hover {
   background-color: white;
-  color: #7C4DFF;
+  color: #7c4dff;
 }
 
-#annotatedImg {
-  width: 53vw;
-  height: 35vw;
-  border: 2px solid black;
-  margin-bottom: 20px;
-  float: left;
-}
-
-/* Hide file button */
-input[type="file"] {
-  display: none;
-}
-
-/* No uploads/ dir css */
-
+/*
+ *
+ *          LANDING PAGE: no uploads/ dir css 
+ *
+*/
 .directoryNotFound {
   display: flex;
   flex-direction: column;
@@ -585,19 +725,19 @@ input[type="file"] {
 .noUploadViscrit {
   font-size: 6em;
   font-weight: bold;
-  color: #7C4DFF;
+  color: #7c4dff;
   margin-bottom: 0;
 }
 
 .noUploadText {
-  color: #7C4DFF;
+  color: #7c4dff;
   font-size: 1.5em;
   margin-top: 0;
 }
 
 .uploadButton {
   background-color: #fff;
-  color: #7C4DFF;
+  color: #7c4dff;
   border: 2px solid #9f82ec;
   padding: 10px 20px;
   border-radius: 6px;
@@ -608,7 +748,7 @@ input[type="file"] {
 }
 
 .uploadButton:hover {
-  background-color: #7C4DFF;
+  background-color: #7c4dff;
   color: #fff;
 }
 
