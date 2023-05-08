@@ -24,6 +24,7 @@ export default function DocumentReader() {
 
   // create an array that has same data as rectangles, but formatted enough for download
   let copyOfRectangles = rectangles;
+  let location = rectangles;
 
   function onDocumentLoadSuccess({ numPages: nextNumPages }) {
     setNumPages(nextNumPages);
@@ -95,6 +96,17 @@ export default function DocumentReader() {
       }
     });
 
+    canvas.addEventListener('click', function(event) {
+      var rect = canvas.getBoundingClientRect();
+      var x = event.clientX - rect.left;
+      var y = event.clientY - rect.top;
+      location.push([
+          "Coordinates: " +
+          "X: " + x,
+          "Y: " + y
+        ]);
+    });
+
     canvas.addEventListener('mouseup', (event) => {
       isDrawing = false;
       // Save the current rectangle to the array
@@ -109,15 +121,12 @@ export default function DocumentReader() {
       // such as hovering over a rating and seeing a rectangle's location
       copyOfRectangles
         .push([
+          "Size: " + 
           "startX: " + startX,
           "startY: " + startY,
           "width: " + (event.clientX - canvas.getBoundingClientRect().left - window.pageXOffset - startX),
           "height: " + (event.clientY - canvas.getBoundingClientRect().top - window.pageYOffset - startY)
         ]);
-
-      console.log(rectangles)
-      console.log(copyOfRectangles)
-
     });
 
     if (accessCanvas === false) {
