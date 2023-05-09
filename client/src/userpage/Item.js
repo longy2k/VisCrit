@@ -1,7 +1,8 @@
 export default class Item{
     constructor(arr) {
+        this.critiquerID = "";
         this.mouseOver = arr.CatLevel_Item_MouseOverText;
-        this.RubicID = arr.RubicID;
+        this.RubricID = arr.RubricID;
         this.cat2 = arr.CatLevel02;
         this.Ld2 = this.cat2 + ": ";
         if(this.cat2 === "NULL"){
