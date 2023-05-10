@@ -16,7 +16,15 @@ html {
   
   border-radius: 8px;
   border: 1px solid black;
-  width: 100%;
+  margin-bottom: 50px;
+  /* width: 100%; */
+  
+
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
   
 }
 /* 
@@ -24,14 +32,10 @@ user guide
 
 
 */
-/* .distance-from-top{
-  margin-top: 250px;
-} */
-
-
 .user-guide-container {
   max-width: 100%;
   margin: 0 auto;
+  padding: 20px;
 }
 
 .user-guide-heading {
@@ -40,31 +44,59 @@ user guide
   font-weight: bold;
   color: #7c4dff;
   margin-bottom: 0;
-  
-
 }
 
-.user-guide-tabs-container {
+.user-guide-content {
+  display: flex;
+  width: 400%;
+  transition: transform 1.0s ease;
+}
+
+.user-guide-content > div {
+  flex-shrink: 0;
+  width: 25%;
+  padding: 0 10px;
+}
+
+.user-guide-pagination {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2px;
- 
+  margin-top: -25%;
 }
 
-.user-guide-tab {
-  border: none;
-  background-color: transparent;
+
+
+.arrow {
+  border: solid #7c4dff;
+  border-width: 0 10px 10px 0;
+  display: inline-block;
+  padding: 10px;
   cursor: pointer;
-  font-size: 25px;
-  font-weight: bold;
-  color: #333;
-  padding: 7px;
-  border-bottom: 3px solid transparent;
-  background: #7c4dff;
-  padding: 20px;
-  border-radius: 15px;
-  width: 50%;
 }
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform:rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+
+
+
+
+
+
+
+.distance-from-top{
+  margin-top: 15px;
+}
+
+
+
 
 /* 
 user guide
