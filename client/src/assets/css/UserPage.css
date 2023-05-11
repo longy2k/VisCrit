@@ -25,7 +25,6 @@ html {
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
-
 .locationButton {
   background-color: #7c4dff;
   color: white;
@@ -46,7 +45,6 @@ html {
   background:#7c4dff;
   color: white;
 }
-
 /*
  *
  *          RESPONSIVENESS 
@@ -866,10 +864,9 @@ user guide
   margin-top: 15px;
 }
 
-#test li {
+#Aesthetics {
+  margin-left: 3rem;
 }
-
-
 
 /* 
 user guide
