@@ -15,6 +15,7 @@ export default function UserPage() {
   const [accessCanvas, setAccessCanvas] = useState(false);
   const [rectangles, setRectangles] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
+  const [numPages, setNumPages] = useState(null);
   const [reRender, setReRender] = useState(null);
   const [index, setIndex] = useState(-1);
   const [totalItems, setTotalItems] = useState([]);
@@ -95,7 +96,7 @@ export default function UserPage() {
   if (directoryExists) {
     return (
       <div className='userPage'>
-        <ItemContext.Provider value={{totalItems, setTotalItems, currentItem, setItem, Hierarchy, setHierarchy, pageNumber, setPageNumber, index, setIndex, rectangles, setRectangles, accessCanvas, setAccessCanvas,reRender, setReRender, locked, setLock, critiquerID, setCritiquerID}}>
+        <ItemContext.Provider value={{totalItems, setTotalItems, currentItem, setItem, Hierarchy, setHierarchy, pageNumber, setPageNumber, numPages, setNumPages, index, setIndex, rectangles, setRectangles, accessCanvas, setAccessCanvas,reRender, setReRender, locked, setLock, critiquerID, setCritiquerID}}>
           <DocumentReader/>
           <RubricBox/>
         </ItemContext.Provider>

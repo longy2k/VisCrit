@@ -9,8 +9,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 export default function DocumentReader() {
   const [data, setData] = useState({});
-  const [numPages, setNumPages] = useState(null);
-  const { pageNumber, setPageNumber,  rectangles, setRectangles, accessCanvas} = useContext(ItemContext);
+  const { pageNumber, setPageNumber, rectangles, numPages, setNumPages, setRectangles, accessCanvas} = useContext(ItemContext);
   const [refresh, setRefresh] = useState(accessCanvas);
   const [dirpdfExists, setpdfjsonExists] = useState(false);
 

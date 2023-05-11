@@ -4,7 +4,7 @@ import { CSVLink } from "react-csv";
 import axios from 'axios';
 
 export default function RubricBox() {
-  let { totalItems, Hierarchy, pageNumber, setPageNumber, numPages ,critiquerID, setCritiquerID} = useContext(ItemContext);
+  let { totalItems, Hierarchy, pageNumber, setPageNumber, numPages, setNumPages, critiquerID, setCritiquerID} = useContext(ItemContext);
   const [dirjsonExists, setdirjsonExists] = useState(false);
   const [isOpen, setOpen] = useState(false);
   const [isTransitioning, setTransitioning] = useState(false);
