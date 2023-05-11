@@ -26,6 +26,27 @@ html {
   transition: 0.3s ease-in-out;
 }
 
+.locationButton {
+  background-color: #7c4dff;
+  color: white;
+  border: 1px solid #7c4dff;
+  padding: 5px 10px;
+  margin: 0;
+  border-radius: 4px !important;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.locationButton:active{
+  background:#7c4dff;
+  color: white;
+}
+
+.locationButton:focus{
+  background:#7c4dff;
+  color: white;
+}
+
 /*
  *
  *          RESPONSIVENESS 
@@ -484,7 +505,7 @@ html {
 }
 
 .critiqueBox {
-  width: 16rem;
+  width: 17rem;
   margin: 0px;
 }
 

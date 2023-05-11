@@ -40,8 +40,8 @@ export default function ItemsToHTML(itemList=[]){
       return(
         <div style={{
           'visibility':`${item.Comment[num] === '' ?  'hidden':'visible'}`,
-          'display':`${item.Comment[num] === '' ?  'none':'block'}`,
-          margin:"-10px",
+          'display':`${item.Comment[num] === '' ?  'none':'inline-flex'}`,
+          marginRight:"-53px",
         }} 
         onMouseEnter={() => {drawRectangle(item.LocationRt[num])}} 
         onMouseLeave={() => {clearCanvas()}} 
