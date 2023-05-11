@@ -3,6 +3,9 @@ export default class ExportItem{
         this.UserID = item.critiquerID;
         this.RubricID = item.RubricID;
         this.LocationRect = item.LocationRt[index][1].length>0 ? item.LocationRt[index][1] : "NULL";
+        if(this.LocationRect != "NULL"){
+            this.LocationRect = "["+JSON.stringify(this.LocationRect[0]).replaceAll(",", "|")+"]";
+        }
         this.LikertValue = index+1;
         this.TextInput = item.Comment[index];
     }
