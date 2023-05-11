@@ -1,5 +1,5 @@
 export default class Item{
-    constructor(arr) {
+    constructor(arr=[]) {
         this.critiquerID = "";
         this.mouseOver = arr.CatLevel_Item_MouseOverText;
         this.RubricID = arr.RubricID;
