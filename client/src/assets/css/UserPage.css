@@ -386,6 +386,7 @@ html {
 .annotationLayer,
 .textLayer {
   width: 90% !important;
+  display: none;
 }
 
 /*
