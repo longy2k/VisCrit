@@ -750,6 +750,7 @@ button.plus {
 */
 
 .directoryNotFound {
+  padding: 15% 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -831,7 +832,7 @@ user guide
   
 }
 .user-guide-container {
-  max-width: 1100px;
+  max-width: 60%;
   margin: 0 auto;
   padding: 20px;
 }
