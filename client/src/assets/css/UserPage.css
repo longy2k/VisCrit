@@ -26,27 +26,6 @@ html {
   transition: 0.3s ease-in-out;
 }
 
-.locationButton {
-  background-color: #7c4dff;
-  color: white;
-  border: 1px solid #7c4dff;
-  padding: 5px 10px;
-  margin: 0;
-  border-radius: 4px !important;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-}
-.locationButton:active{
-  background:#7c4dff;
-  color: white;
-}
-
-.locationButton:focus{
-  background:#7c4dff;
-  color: white;
-}
-
 /*
  *
  *          RESPONSIVENESS 
@@ -235,6 +214,22 @@ html {
  *          RATING BUTTONS
  *
 */
+
+.selected {
+  position: relative;
+  transition: all 150ms ease-in-out 0s;
+}
+
+.selected::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 0;
+  margin-left: 15%;
+  width: 70%;
+  height: 2px; 
+  background-color: #7c4dff; 
+}
 
 #one {
   background-color: #3c43ac;
@@ -546,6 +541,23 @@ button.plus {
   margin: 0 3%;
 }
 
+.locationButton {
+  background-color: #7c4dff;
+  color: white;
+  border: 1px solid #7c4dff;
+  padding: 5px 10px;
+  margin: 0;
+  border-radius: 4px !important;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.locationButton:focus{
+  background:#7c4dff;
+  color: white;
+}
+
 /*
  *
  *          HOVER / TOOLTIP
@@ -733,15 +745,15 @@ button.plus {
 
 /*
  *
- *          LANDING PAGE: no uploads/ dir css 
+ *          LANDING PAGE: no uploads/ dir css, userguide
  *
 */
+
 .directoryNotFound {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 85vh;
 }
 
 .noUploadViscrit {
@@ -790,30 +802,32 @@ select {
   margin: 10px 0px;
 }
 
-/* 
-user guide
-
-
+/*
+ *
+ *          USER GUIDE
+ *
 */
+.containerGuide{
+  margin-left: 32%;
+  width: 35%;
+  overflow: hidden;
+}
+
 .picture{
-  
   border-radius: 8px;
   border: 1px solid black;
   margin-bottom: 50px;
-  /* width: 100%; */
-  
-
-
   display: block;
   margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-  
+  margin-left: 20%;
+  width: 100%;
+  margin-bottom: 30%;
+
 }
 .user-guide-container {
-  max-width: 100%;
-  margin: 0 auto;
+  width: 90%;
   padding: 20px;
+  margin-bottom: 10%;
 }
 
 .user-guide-heading {
@@ -826,13 +840,14 @@ user guide
 
 .user-guide-content {
   display: flex;
-  width: 400%;
-  transition: transform 1.0s ease;
+  width: 300%;
+  transition: transform .5s ease;
 }
 
 .user-guide-content > div {
   flex-shrink: 0;
   width: 25%;
+  margin-right: 10%;
   padding: 0 10px;
 }
 
@@ -841,9 +856,6 @@ user guide
   justify-content: space-between;
   margin-top: -25%;
 }
-
-
-
 .arrow {
   border: solid #7c4dff;
   border-width: 0 10px 10px 0;
@@ -865,12 +877,3 @@ user guide
 .distance-from-top{
   margin-top: 15px;
 }
-
-
-
-
-/* 
-user guide
-
-
-*/
