@@ -74,7 +74,7 @@ export default class Hierarchy{
                 <span className="categoryHover">{this.mouseOver}</span>
                 <h4>{this.name}</h4>
                 </div>
-              <div id={this.name}>
+            <div id={`${this.name} test`}>
                 {ItemsToHTML(this.itemList)}
                 {this.subHierNames.map((item, i) =>
                 <div key={i}>{item.returnHTML()}</div>)}
