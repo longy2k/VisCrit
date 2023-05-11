@@ -65,20 +65,21 @@ export default class Hierarchy{
         }
     }
 
-    returnHTML(){
-        return(
-            <div className="category">
-              <button className="categoryButton" onClick={this.ShowHideCategory} id={this.bText}>-</button>
-              <div className="tooltip">
-                <span className="categoryHover">{this.mouseOver}</span>
-                <h4>{this.name}</h4>
-                </div>
-            <div id={`${this.name}`}>
-                {ItemsToHTML(this.itemList)}
-                {this.subHierNames.map((item, i) =>
-                <div key={i}>{item.returnHTML()}</div>)}
-              </div>
+    returnHTML() {
+        return (
+          <div className="category">
+            <button className="categoryButton" onClick={this.ShowHideCategory} id={this.bText}>+</button>
+            <div className="tooltip">
+              <span className="categoryHover">{this.mouseOver}</span>
+              <h4>{this.name}</h4>
             </div>
-        )
-    }
+            <div id={`${this.name}`} style={{ display: "none" }}>
+              {ItemsToHTML(this.itemList)}
+              {this.subHierNames.map((item, i) => (
+                <div key={i}>{item.returnHTML()}</div>
+              ))}
+            </div>
+          </div>
+        );
+      }
 }
