@@ -7,11 +7,11 @@ export default function ItemsToHTML(itemList=[]){
     function CommentResults(item=[]){
       return(
         <div id="buttonGen">
-          {ButtonGen(0,item)}
-          {ButtonGen(1,item)}
-          {ButtonGen(2,item)}
-          {ButtonGen(3,item)}
           {ButtonGen(4,item)}
+          {ButtonGen(3,item)}
+          {ButtonGen(2,item)}
+          {ButtonGen(1,item)}
+          {ButtonGen(0,item)}
         </div>
       )
     }
