@@ -5,6 +5,7 @@ export default function ItemsToHTML(itemList=[]){
     const {currentItem, setItem, setPageNumber, setRectangles, setAccessCanvas, setIndex, locked, setLock} = useContext(ItemContext);
     
     function CommentResults(item=[]){
+      if(currentItem === null){
       return(
         <div id="buttonGen">
           {ButtonGen(4,item)}
@@ -14,6 +15,7 @@ export default function ItemsToHTML(itemList=[]){
           {ButtonGen(0,item)}
         </div>
       )
+      }
     }
 
     function drawRectangle(arr = []){
