@@ -32,7 +32,6 @@ export default class Hierarchy{
 
     }
 
-
     getName() {
         return this.name;
     }
