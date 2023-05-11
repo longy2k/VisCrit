@@ -63,8 +63,8 @@ export default function RubricBox() {
     return (
     <div className="rubricBoxContainer">
     <form>
-      <label htmlFor="cars"> CritiquerID: </label>
-      <select id="cars" name="cars" value={critiquerID} onChange={handleOptionChange}>
+      <label htmlFor=""> CritiquerID: </label>
+      <select value={critiquerID} onChange={handleOptionChange}>
         <option value=""></option>
         <option value="001">001</option>
         <option value="002">002</option>

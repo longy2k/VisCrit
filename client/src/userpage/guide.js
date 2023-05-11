@@ -19,8 +19,6 @@ const UserGuide = () => {
 
   return (
     <div className='containerGuide'>
-    <div className="user-guide-container">
-      <h1 className="user-guide-heading">VisCrit User Guide</h1>
       <div className="user-guide-content" style={{ transform: getContentTransform() }}>
         <div>
           <h2>Step 1: Getting Started</h2>
@@ -57,7 +55,6 @@ const UserGuide = () => {
           disabled={currentPage === totalPages}
         ></button>
       </div>
-    </div>
     </div>
   );
 };

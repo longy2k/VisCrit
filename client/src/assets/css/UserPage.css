@@ -810,8 +810,9 @@ select {
 
 
 .containerGuide{
-  margin-left: 32%;
-  width: 35%;
+  margin: 0 auto;
+  width: 0%;
+  min-width: 600px;
   overflow: hidden;
 }
 
@@ -826,11 +827,11 @@ select {
   margin-bottom: 30%;
 
 }
-.user-guide-container {
+/* .user-guide-container {
   width: 90%;
   padding: 20px;
   margin-bottom: 10%;
-}
+} */
 
 .user-guide-heading {
   text-align: center;
@@ -856,13 +857,13 @@ select {
 .user-guide-pagination {
   display: flex;
   justify-content: space-between;
-  margin-top: -25%;
+  margin-top: -50%;
 }
 .arrow {
   border: solid #7c4dff;
   border-width: 0 10px 10px 0;
   display: inline-block;
-  padding: 10px;
+  padding: 5px;
   cursor: pointer;
 }
 
