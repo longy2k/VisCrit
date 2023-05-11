@@ -79,11 +79,7 @@ const storage = multer.diskStorage({
     if (file.mimetype === 'application/pdf') {
       uploadDir = 'uploads/pdf';
     } else if (file.mimetype === 'application/json') {
-      if(file.originalname.endsWith('JSONData.json')){
-        uploadDir = 'uploads/userJSON';
-      } else{
-        uploadDir = 'uploads/json';
-      }
+      uploadDir = 'uploads/json';
     } else {
       uploadDir = 'uploads/user_generated';
     }

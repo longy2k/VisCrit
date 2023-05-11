@@ -37,7 +37,6 @@ export default function CritiqueBox(){
         }
         setAccessCanvas(false);
         setItem(null);
-        console.log(totalItems);
     }
 
     function IndexClick(num = -1){
