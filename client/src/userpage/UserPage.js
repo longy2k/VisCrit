@@ -6,6 +6,7 @@ import { ItemContext } from "./ItemContext";
 import "../assets/css/UserPage.css";
 import * as XLSX from 'xlsx';
 import axios from 'axios';
+import UserGuide from './guide';
 
 
 export default function UserPage() {
@@ -103,10 +104,13 @@ export default function UserPage() {
     );
   } else {
     return (
+      <div>
       <div className="directoryNotFound">
         <h1 className="noUploadViscrit">VISCRIT</h1>
         <p className="noUploadText">Please upload your files.</p>
         <button className="uploadButton" onClick={handleUploadButtonClick}>Upload</button>
+        </div>
+        <UserGuide/>
         </div>
     );
   }
