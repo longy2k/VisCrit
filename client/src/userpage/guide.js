@@ -28,7 +28,7 @@ const UserGuide = () => {
         </div>
         <div style={{opacity: currentPage === 2 ? 1 :0, tranform: getContentTransform()}}>
           <h2>Step 2: Next, you have to</h2>
-          <p>Choose a critqueID and select a category</p>
+          <p>Choose a critqueID and select a category:</p>
           <img className='picture' src={cat} alt="Step 2" />
         </div>
         <div style={{opacity: currentPage === 3 ? 1 :0, tranform: getContentTransform()}}>
