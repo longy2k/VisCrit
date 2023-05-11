@@ -807,6 +807,8 @@ select {
  *          USER GUIDE
  *
 */
+
+
 .containerGuide{
   margin-left: 32%;
   width: 35%;
@@ -819,7 +821,7 @@ select {
   margin-bottom: 50px;
   display: block;
   margin-left: auto;
-  margin-left: 20%;
+  margin-left: 15%;
   width: 100%;
   margin-bottom: 30%;
 
