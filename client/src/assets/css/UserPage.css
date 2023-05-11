@@ -773,12 +773,14 @@ user guide
 
 
 */
+
 .picture{
+  justify-content: center;
   
   border-radius: 8px;
   border: 1px solid black;
   margin-bottom: 50px;
-  /* width: 100%; */
+  /* width: 90%; */
   
 
 
@@ -789,7 +791,7 @@ user guide
   
 }
 .user-guide-container {
-  max-width: 100%;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -800,24 +802,28 @@ user guide
   font-weight: bold;
   color: #7c4dff;
   margin-bottom: 0;
+  
 }
 
 .user-guide-content {
   display: flex;
-  width: 400%;
+  width: 470%;
   transition: transform 1.0s ease;
+
+  
 }
 
 .user-guide-content > div {
   flex-shrink: 0;
-  width: 25%;
+  width: 20%;
   padding: 0 10px;
+  visibility: visible;
 }
 
 .user-guide-pagination {
   display: flex;
-  justify-content: space-between;
-  margin-top: -25%;
+  justify-content: space-between ;
+  margin-top: -35%;
 }
 
 
@@ -839,6 +845,11 @@ user guide
   transform:rotate(135deg);
   -webkit-transform: rotate(135deg);
 }
+/* .down{
+  transform: rotate(48deg);
+  -webkit-transform: rotate(48deg);
+
+} */
 
 .distance-from-top{
   margin-top: 15px;
