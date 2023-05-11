@@ -14,10 +14,11 @@ const UserGuide = () => {
   };
 
   const getContentTransform = () => {
-    return `translateX(-${(currentPage - 1) * 25}%)`;
+    return `translateX(-${(currentPage - 1) * 36}%)`;
   };
 
   return (
+    <div className='containerGuide'>
     <div className="user-guide-container">
       <h1 className="user-guide-heading">VisCrit User Guide</h1>
       <div className="user-guide-content" style={{ transform: getContentTransform() }}>
@@ -56,6 +57,7 @@ const UserGuide = () => {
           disabled={currentPage === totalPages}
         ></button>
       </div>
+    </div>
     </div>
   );
 };
