@@ -13,11 +13,14 @@ export default class Item{
         this.LikertValue = "";
         this.Comment = ["", "", "", "", ""];
         this.path = arr.CatLevel01 + ": "+ this.Ld2 + arr.CatLevel_Item;
+        this.Deleted = [0, 0, 0, 0, 0];
+
     }
 
     setComment(text, index){
         this.Comment[index]=text;
         this.LikertValue = index + 1;
+        this.Deleted[index] = text === "" ? true : false;
     }
 
 }

@@ -8,20 +8,25 @@ export default function CritiqueBox(){
     let {currentItem, setAccessCanvas, index, setIndex, rectangles, pageNumber, locked, critiquerID, totalItems, setItem} = useContext(ItemContext);
     const [selectedButtonIndex, setSelectedButtonIndex] = useState(-1);
 
-    function RemoveComment(){
-        if(index === -1){
+    function RemoveComment() {
+        if (index === -1) {
+          setItem(null);
+        } else if (locked) {
+          alert("Please unlock item before deleting");
+        } else {
+          const confirmed = window.confirm('Are you sure you want to delete comment?');
+          if (confirmed) {
+            const removedItem = totalItems.pop(); // remove the most recent item from totalItems
+            const deletedItem = new ExportItem(currentItem, index);
+            deletedItem.Deleted = true; 
+            totalItems.push(deletedItem);
             setItem(null);
-        } else if(locked){
-            alert("Please unlock item before deleting");
+           // console.log(totalItems);
+           // console.log('Removed item:', removedItem);
+          }
         }
-            else {
-            const confirmed = window.confirm('Are you sure you want to delete comment?');
-            if(confirmed){
-            currentItem.setComment("", index);
-            setItem(null);
-            }
-        }
-      }
+    }
+    
 
     const handleCommentChange = event => {
         setComment(event.target.value)
@@ -36,6 +41,7 @@ export default function CritiqueBox(){
             currentItem.setComment(savedComment, index);
             totalItems.push(new ExportItem(currentItem, index));
         }
+        console.log(totalItems);
         setAccessCanvas(false);
         setItem(null);
     }
