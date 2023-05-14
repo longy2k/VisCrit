@@ -63,7 +63,6 @@ export default function CritiqueBox() {
         <div className="critiqueBox">
           <div style={{ margin: "0", width: "20vw" }}>
             <h4> Rating: </h4>
-            
             <div style={{ display: "flex" }}>
               <button
                 id="one"onClick={() => { IndexClick(0);}} 
