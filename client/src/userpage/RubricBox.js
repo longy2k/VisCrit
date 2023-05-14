@@ -6,22 +6,11 @@ import axios from 'axios';
 export default function RubricBox() {
   let { totalItems, Hierarchy, pageNumber, setPageNumber, numPages, setNumPages, critiquerID, setCritiquerID} = useContext(ItemContext);
   const [dirjsonExists, setdirjsonExists] = useState(false);
-  const [isOpen, setOpen] = useState(false);
-  const [isTransitioning, setTransitioning] = useState(false);
 
 
   const handleOptionChange = (event) => {
     if(totalItems.length === 0){
       setCritiquerID(event.target.value);
-    }
-  };
-
-  const handleClick = () => {
-    if (isOpen) {
-      setOpen(false);
-      setTransitioning(true);
-    } else {
-      setOpen(true);
     }
   };
 
