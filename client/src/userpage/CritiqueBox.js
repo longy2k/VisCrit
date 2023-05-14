@@ -79,57 +79,37 @@ export default function CritiqueBox() {
 
             <div style={{ display: "flex" }}>
               <button
-                id="one"
-                onClick={() => {
-                  IndexClick(0);
-                }}
-                className={selectedButtonIndex === 0 ? "selected" : ""}
-              >
+                id="one"onClick={() => { IndexClick(0);}} 
+                className={selectedButtonIndex === 0 ? "selected" : ""}>
                 1
               </button>
               <button
                 id="two"
-                onClick={() => {
-                  IndexClick(1);
-                }}
-                className={selectedButtonIndex === 1 ? "selected" : ""}
-              >
+                onClick={() => {IndexClick(1); }}
+                className={selectedButtonIndex === 1 ? "selected" : ""}>
                 2
               </button>
               <button
                 id="three"
-                onClick={() => {
-                  IndexClick(2);
-                }}
-                className={selectedButtonIndex === 2 ? "selected" : ""}
-              >
+                onClick={() => { IndexClick(2); }} 
+                className={selectedButtonIndex === 2 ? "selected" : ""}>
                 3
               </button>
               <button
                 id="four"
-                onClick={() => {
-                  IndexClick(3);
-                }}
-                className={selectedButtonIndex === 3 ? "selected" : ""}
-              >
+                onClick={() => { IndexClick(3);}}
+                className={selectedButtonIndex === 3 ? "selected" : ""} >
                 4
               </button>
               <button
                 id="five"
-                onClick={() => {
-                  IndexClick(4);
-                }}
-                className={selectedButtonIndex === 4 ? "selected" : ""}
-              >
+                onClick={() => {IndexClick(4); }}  className={selectedButtonIndex === 4 ? "selected" : ""}>
                 5
               </button>
               <button
                 style={{ margin: "-3px 13px" }}
                 className="locationButton"
-                onClick={() => {
-                  setAccessCanvas(true);
-                }}
-              >
+                onClick={() => { setAccessCanvas(true); }}>
                 Location
               </button>
             </div>
@@ -145,19 +125,13 @@ export default function CritiqueBox() {
             <button
               className="generalButton"
               style={{ float: "right", margin: "0 2px" }}
-              onClick={() => {
-                saveReturn(comment);
-              }}
-            >
+              onClick={() => {saveReturn(comment); }}>
               Submit
             </button>
             <button
               className="generalButton"
               style={{ float: "right", margin: "0 2px" }}
-              onClick={() => {
-                RemoveComment();
-              }}
-            >
+              onClick={() => {  RemoveComment(); }}>
               Delete
             </button>
           </span>
