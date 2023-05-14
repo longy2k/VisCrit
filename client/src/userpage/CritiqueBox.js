@@ -5,33 +5,20 @@ import ExportItem from "./ExportItem";
 
 export default function CritiqueBox() {
   const [comment, setComment] = useState("");
-  let {
-    currentItem,
-    setAccessCanvas,
-    index,
-    setIndex,
-    rectangles,
-    pageNumber,
-    locked,
-    critiquerID,
-    totalItems,
-    setItem,
-  } = useContext(ItemContext);
+  let {currentItem, setAccessCanvas, index, setIndex, rectangles, pageNumber, locked, critiquerID, totalItems, setItem} = useContext(ItemContext);
   const [selectedButtonIndex, setSelectedButtonIndex] = useState(-1);
 
   function RemoveComment() {
     if (index === -1) {
       setItem(null);
-    } else if (locked) {
+    } 
+    else if (locked) {
       alert("Please unlock item before deleting");
-    } else {
-      const confirmed = window.confirm(
-        "Are you sure you want to delete comment?"
-      );
+    } 
+    else {
+      const confirmed = window.confirm("Are you sure you want to delete comment?");
       if (confirmed) {
-        const deletedItem = totalItems.find(
-          (item) => item.LikertValue === index + 1
-        );
+        const deletedItem = totalItems.find((item) => item.LikertValue === index + 1);
         if (deletedItem) {
           const itemIndex = totalItems.indexOf(deletedItem);
           totalItems.splice(itemIndex, 1);
@@ -76,7 +63,7 @@ export default function CritiqueBox() {
         <div className="critiqueBox">
           <div style={{ margin: "0", width: "20vw" }}>
             <h4> Rating: </h4>
-
+            
             <div style={{ display: "flex" }}>
               <button
                 id="one"onClick={() => { IndexClick(0);}} 
