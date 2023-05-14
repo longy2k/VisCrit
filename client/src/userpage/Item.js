@@ -20,7 +20,6 @@ export default class Item{
     setComment(text, index){
         this.Comment[index]=text;
         this.LikertValue = index + 1;
-        this.Deleted[index] = text === "" ? true : false;
+        this.Deleted[index] = text === "" ? 1 : 0;
     }
-
 }

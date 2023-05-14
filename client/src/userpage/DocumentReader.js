@@ -195,7 +195,7 @@ export default function DocumentReader() {
                 onLoadSuccess={onDocumentLoadSuccess}
                 renderMode="canvas"
               >
-                <Page pageNumber={pageNumber} onRenderSuccess={onRenderSuccess} />
+                <Page pageNumber={pageNumber} onRenderSuccess={onRenderSuccess} scale={5} />
               </Document>
             </>
           )} {refreshDoc()}

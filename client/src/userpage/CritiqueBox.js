@@ -16,17 +16,20 @@ export default function CritiqueBox(){
         } else {
           const confirmed = window.confirm('Are you sure you want to delete comment?');
           if (confirmed) {
-            const removedItem = totalItems.pop(); // remove the most recent item from totalItems
-            const deletedItem = new ExportItem(currentItem, index);
-            deletedItem.Deleted = true; 
-            totalItems.push(deletedItem);
+            const deletedItem = totalItems.find(item => item.LikertValue === index + 1);
+            if (deletedItem) {
+              const itemIndex = totalItems.indexOf(deletedItem);
+              totalItems.splice(itemIndex, 1);
+            }
+            currentItem.Deleted[index] = 1;
+            const newDeletedItem = new ExportItem(currentItem, index);
+            totalItems.push(newDeletedItem);
+            // console.log(totalItems);
+            currentItem.setComment("", index);
             setItem(null);
-           // console.log(totalItems);
-           // console.log('Removed item:', removedItem);
           }
         }
-    }
-    
+      }
 
     const handleCommentChange = event => {
         setComment(event.target.value)
@@ -41,7 +44,7 @@ export default function CritiqueBox(){
             currentItem.setComment(savedComment, index);
             totalItems.push(new ExportItem(currentItem, index));
         }
-        console.log(totalItems);
+        // console.log(totalItems);
         setAccessCanvas(false);
         setItem(null);
     }
