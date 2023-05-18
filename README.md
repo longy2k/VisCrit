@@ -1,6 +1,6 @@
 # VisCrit
 
-Team Members: Long Hyunh, Jeffrey Deng, Thamany Valbrune, and Christos K.
+Team Members: Long Hyunh, Jeffrey Deng, Thamany Valbrune, and Christos Kakouros
 ## Table of Contents
 
 **[1. Overview ](#heading--1)**
