@@ -4,74 +4,6 @@ const fs = require('fs');
 const path = require('path');
 const app = express();
 
-// const nodemailer = require('nodemailer');
-// const bodyParser = require('body-parser');
-
-// Email component
-
-// app.use(bodyParser.json());
-
-// app.post('/send-email', (req, res) => {
-//   const { to } = req.body;
-
-//   // Sender's email
-//   const transporter = nodemailer.createTransport({
-//     host: "smtp.ethereal.email",
-//     port: 587,
-//     secure: false, // true for 465, false for other ports
-//     auth: {
-//       user: 'korey55@ethereal.email',
-//       pass: 'DG2rNC6eERYpzbvJxv'
-//     },
-//   });
-
-//   // Sender's email content
-//   const mailOptions = {
-//     from: 'korey55@ethereal.email',
-//     to,
-//     subject: 'Welcome to our mailing list!',
-//     text: 'Thank you for subscribing to our newsletter.'
-//   };
-
-//   // Email errors
-//   transporter.sendMail(mailOptions, function (error, info) {
-//     if (error) {
-//       console.log(error);
-//       res.status(500).send('Error sending email');
-//     } else {
-//       console.log('Email sent: ' + info.response);
-//       res.send('Email sent successfully');
-//     }
-//   });
-// });
-
-
-
-// const transporter = nodemailer.createTransport({
-//   host: "smtp.ethereal.email",
-//   port: 587,
-//   secure: false, // true for 465, false for other ports
-//   auth: {
-//     user: 'korey55@ethereal.email', 
-//     pass: 'DG2rNC6eERYpzbvJxv'
-//   },
-// });
-
-// const mailOptions = {
-//   from: 'korey55@ethereal.email',
-//   to: 'myfriend@yahoo.com',
-//   subject: 'Sending Email using Node.js',
-//   text: 'That was easy!'
-// };
-
-// transporter.sendMail(mailOptions, function(error, info){
-//   if (error) {
-//     console.log(error);
-//   } else {
-//     console.log('Email sent: ' + info.response);
-//   }
-// }); 
-
 // Create a storage engine for multer
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -80,7 +12,10 @@ const storage = multer.diskStorage({
       uploadDir = 'uploads/pdf';
     } else if (file.mimetype === 'application/json') {
       uploadDir = 'uploads/json';
-    } else {
+    } else if (file.mimetype === 'image/png' ||file.mimetype === 'image/jpeg' ) {
+      uploadDir = 'uploads/image';
+    }
+     else {
       uploadDir = 'uploads/user_generated';
     }
     if (!fs.existsSync(uploadDir)) {
@@ -93,7 +28,6 @@ const storage = multer.diskStorage({
   }
 });
 
-
 // Create an instance of the multer middleware with the storage engine
 const upload = multer({ storage: storage });
 
@@ -103,6 +37,8 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
   let filePath;
   if (req.file.mimetype === 'application/pdf') {
     filePath = `uploads/pdf/${req.file.filename}`;
+  } else if (req.file.mimetype === 'image/jpeg' || req.file.mimetype === 'image/png') {
+      filePath = `uploads/image/${req.file.filename}`;
   } else if (req.file.mimetype === 'application/json') {
     filePath = `uploads/json/${req.file.filename}`;
   } else if (req.file.originalname.endsWith('.csv')) {
@@ -110,8 +46,6 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
   }
   res.json({ path: filePath });
 });
-
-
 
 // react-pdf `Access-Control-Allow-Origin` to display pdf
 app.use((req, res, next) => {
@@ -121,12 +55,9 @@ app.use((req, res, next) => {
   next();
 });
 
-// Route for serving PDF files
 app.use('/uploads/pdf', express.static('uploads/pdf'));
-
-// Route for serving JSON files
+app.use('/uploads/image', express.static('uploads/image'));
 app.use('/uploads/json', express.static('uploads/json'));
-
 
 // Start the server
 app.listen(5000, () => {
@@ -160,6 +91,35 @@ app.get('/api/upload/pdf', (req, res) => {
         }
         if (file === files[files.length - 1]) {
           res.json({ path: `uploads/pdf/${mostRecentFile}` });
+        }
+      });
+    });
+  });
+});
+
+// Route for handling GET requests for the most recent PDF file
+app.get('/api/upload/image', (req, res) => {
+  fs.readdir('uploads/image', (err, files) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal server error' });
+      return;
+    }
+    let mostRecentFile = '';
+    let mostRecentTime = 0;
+    files.forEach(file => {
+      const filePath = path.join('uploads/image', file);
+      fs.stat(filePath, (err, stats) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        if (stats.mtimeMs > mostRecentTime) {
+          mostRecentFile = file;
+          mostRecentTime = stats.mtimeMs;
+        }
+        if (file === files[files.length - 1]) {
+          res.json({ path: `uploads/image/${mostRecentFile}` });
         }
       });
     });
@@ -228,6 +188,16 @@ app.get('/api/checkdirectory/upload/pdf', (req, res) => {
   });
 });
 
+app.get('/api/checkdirectory/upload/image', (req, res) => {
+  const directoryPath = __dirname + '/uploads/image';
+  fs.access(directoryPath, (error) => {
+    if (error) {
+      res.send(false); // directory does not exist
+    } else {
+      res.send(true); // directory exists
+    }
+  });
+});
 
 // Check whether uploads/json exist
 app.get('/api/checkdirectory/upload/json', (req, res) => {
