@@ -59,7 +59,7 @@ export default function UserPage() {
       });
     };
 
-    if (files.length >= 1) {
+    if (files.length >= 2) {
       const reader = new FileReader();
 
       for (const file of files) {
