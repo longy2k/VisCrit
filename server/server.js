@@ -12,10 +12,7 @@ const storage = multer.diskStorage({
       uploadDir = 'uploads/pdf';
     } else if (file.mimetype === 'application/json') {
       uploadDir = 'uploads/json';
-    } else if (file.mimetype === 'image/png' ||file.mimetype === 'image/jpeg' ) {
-      uploadDir = 'uploads/image';
-    }
-     else {
+    } else {
       uploadDir = 'uploads/user_generated';
     }
     if (!fs.existsSync(uploadDir)) {
@@ -37,8 +34,6 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
   let filePath;
   if (req.file.mimetype === 'application/pdf') {
     filePath = `uploads/pdf/${req.file.filename}`;
-  } else if (req.file.mimetype === 'image/jpeg' || req.file.mimetype === 'image/png') {
-      filePath = `uploads/image/${req.file.filename}`;
   } else if (req.file.mimetype === 'application/json') {
     filePath = `uploads/json/${req.file.filename}`;
   } else if (req.file.originalname.endsWith('.csv')) {
@@ -47,7 +42,7 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
   res.json({ path: filePath });
 });
 
-// react-pdf `Access-Control-Allow-Origin` to display pdf
+// Set CORS headers
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -55,8 +50,10 @@ app.use((req, res, next) => {
   next();
 });
 
+// Route for serving PDF files
 app.use('/uploads/pdf', express.static('uploads/pdf'));
-app.use('/uploads/image', express.static('uploads/image'));
+
+// Route for serving JSON files
 app.use('/uploads/json', express.static('uploads/json'));
 
 // Start the server
@@ -64,6 +61,7 @@ app.listen(5000, () => {
   console.log('Server started on port 5000');
 });
 
+// Default route
 app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
@@ -91,35 +89,6 @@ app.get('/api/upload/pdf', (req, res) => {
         }
         if (file === files[files.length - 1]) {
           res.json({ path: `uploads/pdf/${mostRecentFile}` });
-        }
-      });
-    });
-  });
-});
-
-// Route for handling GET requests for the most recent PDF file
-app.get('/api/upload/image', (req, res) => {
-  fs.readdir('uploads/image', (err, files) => {
-    if (err) {
-      console.error(err);
-      res.status(500).json({ error: 'Internal server error' });
-      return;
-    }
-    let mostRecentFile = '';
-    let mostRecentTime = 0;
-    files.forEach(file => {
-      const filePath = path.join('uploads/image', file);
-      fs.stat(filePath, (err, stats) => {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        if (stats.mtimeMs > mostRecentTime) {
-          mostRecentFile = file;
-          mostRecentTime = stats.mtimeMs;
-        }
-        if (file === files[files.length - 1]) {
-          res.json({ path: `uploads/image/${mostRecentFile}` });
         }
       });
     });
@@ -163,50 +132,38 @@ app.get('/api/upload/json', (req, res) => {
   });
 });
 
-
-// Check whether uploads/ exist
+// Check whether the 'uploads' directory exists
 app.get('/api/checkdirectory', (req, res) => {
   const directoryPath = __dirname + '/uploads';
   fs.access(directoryPath, (error) => {
     if (error) {
-      res.send(false); // directory does not exist
+      res.send(false); // Directory does not exist
     } else {
-      res.send(true); // directory exists
+      res.send(true); // Directory exists
     }
   });
 });
 
-// Check whether uploads/pdf exist
+// Check whether the 'uploads/pdf' directory exists
 app.get('/api/checkdirectory/upload/pdf', (req, res) => {
   const directoryPath = __dirname + '/uploads/pdf';
   fs.access(directoryPath, (error) => {
     if (error) {
-      res.send(false); // directory does not exist
+      res.send(false); // Directory does not exist
     } else {
-      res.send(true); // directory exists
+      res.send(true); // Directory exists
     }
   });
 });
 
-app.get('/api/checkdirectory/upload/image', (req, res) => {
-  const directoryPath = __dirname + '/uploads/image';
-  fs.access(directoryPath, (error) => {
-    if (error) {
-      res.send(false); // directory does not exist
-    } else {
-      res.send(true); // directory exists
-    }
-  });
-});
-
-// Check whether uploads/json exist
+// Check whether the 'uploads/json' directory exists
 app.get('/api/checkdirectory/upload/json', (req, res) => {
   const directoryPath = __dirname + '/uploads/json';
   fs.access(directoryPath, (error) => {
     if (error) {
-      res.send(false); // directory does not exist
+      res.send(false); // Directory does not exist
     } else {
-      res.send(true); // directory exists
+      res.send(true); // Directory exists
     }
   });
 });
