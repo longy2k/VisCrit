@@ -14,7 +14,7 @@ Team Members: Long Hyunh, Jeffrey Deng, Thamany Valbrune, and Christos Kakouros
 
 ## Overview: <a name="heading--1"/>
 
-VisCrit is a web-based application created for Steven Franconeri from Northwestern University that focuses on critiquing the appearance of someone's data visualization according to a rubric. Users are able to upload a PDF, along with an excel sheet, which would be the rubric. Students are able to export their results and our client will be able to access these results. The application was created with ReactJS and ExpressJS.
+VisCrit is a web-based application that focuses on critiquing the appearance of someone's data visualization according to a rubric. Users are able to upload a PDF, along with an excel sheet, which would be the rubric. Students are able to export their results and our client will be able to access these results. The application was created with ReactJS and ExpressJS.
 
 ## Installation <a name="heading--2"/>
 
