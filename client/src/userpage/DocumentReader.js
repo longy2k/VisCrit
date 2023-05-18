@@ -53,9 +53,9 @@ export default function DocumentReader() {
     let isDrawing = false;
     let startX, startY;
 
-    // Draw all the saved rectangles
+    // Draw all the saved rectangles-- shows when rating is hovered
     rectangles.forEach((rectangle) => {
-      context.fillStyle = "#0000FF";
+      context.fillStyle = "rgba(0, 0, 255, .3)";
       context.fillRect(rectangle.startX, rectangle.startY, rectangle.width, rectangle.height);
     });
 
