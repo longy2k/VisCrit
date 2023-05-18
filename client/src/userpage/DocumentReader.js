@@ -55,6 +55,7 @@ export default function DocumentReader() {
 
     // Draw all the saved rectangles
     rectangles.forEach((rectangle) => {
+      context.fillStyle = "#0000FF";
       context.fillRect(rectangle.startX, rectangle.startY, rectangle.width, rectangle.height);
     });
 
@@ -64,7 +65,6 @@ export default function DocumentReader() {
 
     canvas.addEventListener("mousedown", (event) => {
       // Handle mouse down event for drawing rectangles
-      context.fillStyle = "#0000FF";
       const rect = canvas.getBoundingClientRect();
       const adjustmentX = rect.left + window.pageXOffset;
       const adjustmentY = rect.top + window.pageYOffset;

@@ -809,28 +809,17 @@ select {
  *
 */
 
-/* 
-user guide
-
-
-*/
-
 .picture{
   justify-content: center;
-  
   border-radius: 8px;
   border: 1px solid black;
   margin-bottom: 50px;
-  /* width: 90%; */
-  
-
-
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 80%;
-  
 }
+
 .user-guide-container {
   max-width: 60%;
   margin: 0 auto;
@@ -839,30 +828,17 @@ user guide
 
 .user-guide-heading {
   margin-top: 95px;
-  /* margin-top: 95px;
-  width: 0;
-  height: 0;
-  margin-left: 500px;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-top: 15px solid #7c4dff;
-  font-size: 0;
-  line-height: 0;
-  float: left; */
   text-align: center;
   font-size: 2em;
   font-weight: bold;
   color: #7c4dff;
   margin-bottom: 0;
-  
 }
 
 .user-guide-content {
   display: flex;
   width: 470%;
   transition: transform 1.0s ease;
-
-  
 }
 
 .user-guide-content > div {
@@ -877,8 +853,6 @@ user guide
   justify-content: space-between ;
   margin-top: -35%;
 }
-
-
 
 .arrow {
   border: solid #7c4dff;
@@ -897,28 +871,7 @@ user guide
   transform:rotate(135deg);
   -webkit-transform: rotate(135deg);
 }
-/* .down{
-  transform: rotate(48deg);
-  -webkit-transform: rotate(48deg);
-
-} */
 
 .distance-from-top{
   margin-top: 15px;
-}
-
-
-
-
-/* 
-user guide
-
-
-*/
-
-
-
-
-#Aesthetics {
-  margin-left: 3rem;
 }

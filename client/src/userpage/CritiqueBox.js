@@ -8,7 +8,7 @@ export default function CritiqueBox() {
   let {currentItem, setAccessCanvas, index, setIndex, rectangles, pageNumber, locked, critiquerID, totalItems, setItem} = useContext(ItemContext);
   const [selectedButtonIndex, setSelectedButtonIndex] = useState(-1);
 
-  // Remove comment function
+  // Remove a rating along with its comment function
   function RemoveComment() {
     if (index === -1) {
       setItem(null);

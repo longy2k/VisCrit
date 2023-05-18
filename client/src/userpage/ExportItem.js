@@ -1,4 +1,4 @@
-export default class ExportItem{
+export default class ExportItem {
     constructor(item, index = -1) {
         this.UserID = item.critiquerID;
         this.RubricID = item.RubricID;
@@ -8,10 +8,9 @@ export default class ExportItem{
         this.Deleted = item.Deleted[index];
     }
 
-    setComment(text, index){
+    setComment(text, index) {
         this.Comment[index]=text;
         this.LikertValue = index + 1;
         this.Deleted[index] = text === "" ? 1 : 0;
     }
-
 }
