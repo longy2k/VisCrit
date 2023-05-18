@@ -8,14 +8,13 @@ export default function CritiqueBox() {
   let {currentItem, setAccessCanvas, index, setIndex, rectangles, pageNumber, locked, critiquerID, totalItems, setItem} = useContext(ItemContext);
   const [selectedButtonIndex, setSelectedButtonIndex] = useState(-1);
 
+  // Remove a rating along with its comment function
   function RemoveComment() {
     if (index === -1) {
       setItem(null);
-    } 
-    else if (locked) {
+    } else if (locked) {
       alert("Please unlock item before deleting");
-    } 
-    else {
+    } else {
       const confirmed = window.confirm("Are you sure you want to delete comment?");
       if (confirmed) {
         const deletedItem = totalItems.find((item) => item.LikertValue === index + 1);
@@ -26,17 +25,18 @@ export default function CritiqueBox() {
         currentItem.Deleted[index] = 1;
         const newDeletedItem = new ExportItem(currentItem, index);
         totalItems.push(newDeletedItem);
-        // console.log(totalItems);
         currentItem.setComment("", index);
         setItem(null);
       }
     }
   }
 
+  // Handle comment change
   const handleCommentChange = (event) => {
     setComment(event.target.value);
   };
 
+  // Save and return comment
   function saveReturn(savedComment) {
     currentItem.LocationRt[index] = [];
     currentItem.critiquerID = critiquerID;
@@ -46,11 +46,11 @@ export default function CritiqueBox() {
       currentItem.setComment(savedComment, index);
       totalItems.push(new ExportItem(currentItem, index));
     }
-    // console.log(totalItems);
     setAccessCanvas(false);
     setItem(null);
   }
 
+  // Handle index button click
   function IndexClick(num = -1) {
     setIndex(num);
     setComment(currentItem.Comment[num]);
@@ -64,6 +64,7 @@ export default function CritiqueBox() {
           <div style={{ margin: "0", width: "20vw" }}>
             <h4> Rating: </h4>
             <div style={{ display: "flex" }}>
+              {/* Buttons rating values */}
               <button
                 id="one"onClick={() => { IndexClick(0);}} 
                 className={selectedButtonIndex === 0 ? "selected" : ""}>
@@ -89,7 +90,8 @@ export default function CritiqueBox() {
               </button>
               <button
                 id="five"
-                onClick={() => {IndexClick(4); }}  className={selectedButtonIndex === 4 ? "selected" : ""}>
+                onClick={() => {IndexClick(4); }}  
+                className={selectedButtonIndex === 4 ? "selected" : ""}>
                 5
               </button>
               <button
@@ -117,7 +119,7 @@ export default function CritiqueBox() {
             <button
               className="generalButton"
               style={{ float: "right", margin: "0 2px" }}
-              onClick={() => {  RemoveComment(); }}>
+              onClick={() => {RemoveComment(); }}>
               Delete
             </button>
           </span>

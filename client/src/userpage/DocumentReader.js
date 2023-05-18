@@ -1,27 +1,28 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
-import { Document, Page, pdfjs } from 'react-pdf';
-import { ItemContext } from './ItemContext';
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import 'react-pdf/dist/esm/Page/TextLayer.css';
+import React, { useState, useEffect, useContext, useRef } from "react";
+import { Document, Page, pdfjs } from "react-pdf";
+import { ItemContext } from "./ItemContext";
+import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import "react-pdf/dist/esm/Page/TextLayer.css";
 
-// Set the worker URL to the version bundled with react-pdf.
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 export default function DocumentReader() {
   const [data, setData] = useState({});
-  const { pageNumber, setPageNumber, rectangles, numPages, setNumPages, setRectangles, accessCanvas} = useContext(ItemContext);
+  const {pageNumber, setPageNumber, rectangles, 
+        numPages, setNumPages, setRectangles, accessCanvas} = useContext(ItemContext);
   const [refresh, setRefresh] = useState(accessCanvas);
   const [dirpdfExists, setpdfjsonExists] = useState(false);
 
   useEffect(() => {
-    fetch('/api/checkdirectory/upload/pdf')
-    .then(response => response.json())
-    .then(data => {
-      setpdfjsonExists(data);
-    });
+    // Check if the directory for PDF files exists
+    fetch("/api/checkdirectory/upload/pdf")
+      .then((response) => response.json())
+      .then((data) => {
+        setpdfjsonExists(data);
+      });
   }, []);
 
-  // create an array that has same data as rectangles, but formatted enough for download
+  // Create a copy of the rectangles array for formatting in exported results
   let copyOfRectangles = rectangles;
   let location = rectangles;
 
@@ -30,83 +31,83 @@ export default function DocumentReader() {
   }
 
   function onRenderSuccess() {
+    // Remove any additional canvases from previous renderings
     if (rectangles !== []) {
-      const canvases = document.querySelectorAll('.react-pdf__Page canvas');
+      const canvases = document.querySelectorAll(".react-pdf__Page canvas");
       canvases.forEach((canvas) => {
-        if (!canvas.classList.contains('react-pdf__Page__canvas')) {
+        if (!canvas.classList.contains("react-pdf__Page__canvas")) {
           canvas.parentNode.removeChild(canvas);
         }
       });
     }
-    const reactPdfPage = document.querySelector('.react-pdf__Page');
-    let canvas = document.createElement('canvas');
 
+    // Creating canvas layered on top of page
+    const reactPdfPage = document.querySelector(".react-pdf__Page");
+    let canvas = document.createElement("canvas");
     let canvasWidth = reactPdfPage.offsetWidth;
     let canvasHeight = reactPdfPage.scrollHeight;
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
-
     reactPdfPage.appendChild(canvas);
-    const context = canvas.getContext('2d');
+    const context = canvas.getContext("2d");
     let isDrawing = false;
     let startX, startY;
 
-    rectangles.forEach(rectangle => {
+    // Draw all the saved rectangles-- shows when rating is hovered
+    rectangles.forEach((rectangle) => {
+      context.fillStyle = "rgba(0, 0, 255, .3)";
       context.fillRect(rectangle.startX, rectangle.startY, rectangle.width, rectangle.height);
-    }); // Draw all the saved rectangles
+    });
 
-    copyOfRectangles
-      .forEach(rectangle => {
-        context.fillRect(rectangle.startX, rectangle.startY, rectangle.width, rectangle.height);
-      });
+    copyOfRectangles.forEach((rectangle) => {
+      context.fillRect(rectangle.startX, rectangle.startY, rectangle.width, rectangle.height);
+    });
 
-    canvas.addEventListener('mousedown', (event) => {
-      context.fillStyle = "#0000FF";
-
+    canvas.addEventListener("mousedown", (event) => {
+      // Handle mouse down event for drawing rectangles
       const rect = canvas.getBoundingClientRect();
       const adjustmentX = rect.left + window.pageXOffset;
       const adjustmentY = rect.top + window.pageYOffset;
-
       startX = event.clientX - adjustmentX;
       startY = event.clientY - adjustmentY;
       isDrawing = true;
     });
 
-    canvas.addEventListener('mousemove', (event) => {
+    // Handle mouse move event for drawing rectangles
+    canvas.addEventListener("mousemove", (event) => {
       if (isDrawing) {
         const rect = canvas.getBoundingClientRect();
         const adjustmentX = rect.left + window.pageXOffset;
         const adjustmentY = rect.top + window.pageYOffset;
-        context.clearRect(0,0, canvas.width, canvas.height);
+        context.clearRect(0, 0, canvas.width, canvas.height);
         const width = event.clientX - adjustmentX - startX;
         const height = event.clientY - adjustmentY - startY;
-
-        rectangles.forEach(rectangle => {
+        
+        // Draw all the saved rectangles
+        rectangles.forEach((rectangle) => {
           context.fillRect(rectangle.startX, rectangle.startY, rectangle.width, rectangle.height);
-        }); // Draw all the saved rectangles
+        }); 
 
-        copyOfRectangles.forEach(rectangle => {
+        copyOfRectangles.forEach((rectangle) => {
           context.fillRect(rectangle.startX, rectangle.startY, rectangle.width, rectangle.height);
         });
 
+        // Highlight color
         context.fillStyle = "#0000FF";
         context.fillRect(startX, startY, width, height);
-
       }
     });
 
-    canvas.addEventListener('click', function(event) {
+    // Handle click event to save the coordinates of a click on the canvas
+    canvas.addEventListener("click", function (event) {
       var rect = canvas.getBoundingClientRect();
       var x = event.clientX - rect.left;
       var y = event.clientY - rect.top;
-      location.push([
-          "Coordinates: " +
-          "X: " + x,
-          "Y: " + y
-        ]);
+      location.push(["Coordinates: " + "X: " + x, "Y: " + y]);
     });
 
-    canvas.addEventListener('mouseup', (event) => {
+    // Handle mouseup event to save the current rectangle, saves as an object array
+    canvas.addEventListener("mouseup", (event) => {
       isDrawing = false;
       // Save the current rectangle to the array
       rectangles.push({
@@ -114,19 +115,18 @@ export default function DocumentReader() {
         startY: startY,
         width: event.clientX - canvas.getBoundingClientRect().left - window.pageXOffset - startX,
         height: event.clientY - canvas.getBoundingClientRect().top - window.pageYOffset - startY
-      })
+      });
 
-      // cannot use "rectangles" array, if it is formatted, then some of other functionalities stop working
-      // such as hovering over a rating and seeing a rectangle's location
-      copyOfRectangles
-        .push([
-          "Size: " + 
-          "startX: " + startX,
-          "startY: " + startY,
-          "width: " + (event.clientX - canvas.getBoundingClientRect().left - window.pageXOffset - startX),
-          "height: " + (event.clientY - canvas.getBoundingClientRect().top - window.pageYOffset - startY)
-        ]);
+      // Copy the rectangles array, formatting the object array to show its contents
+      copyOfRectangles.push([
+        "Size: " +
+        "startX: " + startX,
+        "startY: " + startY,
+        "width: " + (event.clientX - canvas.getBoundingClientRect().left - window.pageXOffset - startX),
+        "height: " + (event.clientY - canvas.getBoundingClientRect().top - window.pageYOffset - startY)
+      ]);
     });
+
 
     if (accessCanvas === false) {
       clearCanvas();
@@ -134,43 +134,40 @@ export default function DocumentReader() {
   }
 
   useEffect(() => {
-    fetch('/api/upload/pdf')
-      .then(response => response.json())
-      .then(data => {
+    // Fetch PDF data from the server
+    fetch("/api/upload/pdf")
+      .then((response) => response.json())
+      .then((data) => {
         console.log(data.path);
         setData(data);
       });
-
   }, []);
 
+  // Handle page navigation for the file and the canvas
   const handlePreviousPage = () => {
-    const canvases = document.querySelectorAll('.react-pdf__Page canvas');
-
+    const canvases = document.querySelectorAll(".react-pdf__Page canvas");
     canvases.forEach((canvas) => {
-      if (!canvas.classList.contains('react-pdf__Page__canvas')) {
+      if (!canvas.classList.contains("react-pdf__Page__canvas")) {
         canvas.parentNode.removeChild(canvas);
       }
     });
-
     setPageNumber(pageNumber - 1);
-  }
+  };
 
   const handleNextPage = () => {
-    const canvases = document.querySelectorAll('.react-pdf__Page canvas');
-
+    const canvases = document.querySelectorAll(".react-pdf__Page canvas");
     canvases.forEach((canvas) => {
-      if (!canvas.classList.contains('react-pdf__Page__canvas')) {
+      if (!canvas.classList.contains("react-pdf__Page__canvas")) {
         canvas.parentNode.removeChild(canvas);
       }
     });
     setPageNumber(pageNumber + 1);
-  }
-
+  };
 
   function clearCanvas() {
-    const canvases = document.querySelectorAll('.react-pdf__Page canvas');
+    const canvases = document.querySelectorAll(".react-pdf__Page canvas");
     canvases.forEach((canvas) => {
-      if (!canvas.classList.contains('react-pdf__Page__canvas')) {
+      if (!canvas.classList.contains("react-pdf__Page__canvas")) {
         canvas.parentNode.removeChild(canvas);
       }
     });
@@ -178,34 +175,32 @@ export default function DocumentReader() {
   }
 
   function refreshDoc() {
+    // Refresh the document if the accessCanvas prop changes
     if (refresh !== accessCanvas) {
       onRenderSuccess();
       setRefresh(accessCanvas);
     }
   }
 
-  if(dirpdfExists){
+  if (dirpdfExists) {
     return (
-      <div className='docView'>
-        <div className="fileView" >
+      <div className="docView">
+        <div className="fileView">
           {data.path && (
             <>
               <Document
                 file={`http://localhost:5000/${data.path}`}
                 onLoadSuccess={onDocumentLoadSuccess}
-                renderMode="canvas"
-              >
-                <Page pageNumber={pageNumber} onRenderSuccess={onRenderSuccess} scale={5} />
+                renderMode="canvas">
+                <Page pageNumber={pageNumber} onRenderSuccess={onRenderSuccess} scale={5}/>
               </Document>
             </>
-          )} {refreshDoc()}
+          )}
+          {refreshDoc()}
         </div>
       </div>
     );
   } else {
-    return (
-      <div></div>
-    );
+    return <div></div>;
   }
-
 }

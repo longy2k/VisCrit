@@ -7,13 +7,14 @@ export default function RubricBox() {
   let { totalItems, Hierarchy, pageNumber, setPageNumber, numPages, setNumPages, critiquerID, setCritiquerID} = useContext(ItemContext);
   const [dirjsonExists, setdirjsonExists] = useState(false);
 
-
+  // Event handler for selecting a critiquer ID
   const handleOptionChange = (event) => {
-    if(totalItems.length === 0){
+    if (totalItems.length === 0) {
       setCritiquerID(event.target.value);
     }
   };
 
+  // Event handler for exporting results as CSV
   const handleExport = async (event) => {
     const confirmed = window.confirm('Are you sure you want to export the results?');
     if (!confirmed) {
@@ -40,6 +41,7 @@ export default function RubricBox() {
     });
   }, []);
 
+  // Handling page navigation
   const handlePreviousPage = () => {
     setPageNumber(pageNumber - 1);
   }
@@ -87,8 +89,7 @@ export default function RubricBox() {
           data={totalItems}
           filename={critiquerID + "_"+"Export_Results.csv"}
           className='csvLink'
-          onClick={handleExport}
-        >
+          onClick={handleExport}>
           Export
         </CSVLink>
       </div>

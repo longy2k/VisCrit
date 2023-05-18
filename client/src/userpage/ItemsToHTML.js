@@ -5,6 +5,7 @@ import CritiqueBox from "./CritiqueBox";
 export default function ItemsToHTML(itemList = []) {
   const {currentItem, setItem, setPageNumber, setRectangles, setAccessCanvas, setIndex, locked, setLock} = useContext(ItemContext);
 
+  // Generates the comment buttons for a specific item
   function CommentResults(item = []) {
     return (
       <div id="buttonGen">
@@ -17,6 +18,7 @@ export default function ItemsToHTML(itemList = []) {
     );
   }
 
+  // Event handler for drawing a rectangle on the canvas
   function drawRectangle(arr = []) {
     if (!locked) {
       setAccessCanvas(true);
@@ -25,6 +27,7 @@ export default function ItemsToHTML(itemList = []) {
     }
   }
 
+  // Event handler for clearing the canvas
   function clearCanvas() {
     if (!locked) {
       console.log("tried to clear");
@@ -33,10 +36,12 @@ export default function ItemsToHTML(itemList = []) {
     }
   }
 
+  // Toggles the locked state, if item is locked then must be unlocked before deleting
   function LockView() {
     locked ? setLock(false) : setLock(true);
   }
 
+  // Generates a comment button for a specific rating
   function ButtonGen(num = 0, item = [], currentItem) {
     const hideButton = item === currentItem;
     return (
@@ -61,18 +66,20 @@ export default function ItemsToHTML(itemList = []) {
     );
   }
 
-  function AddCommentHandler(item = null) {
+  // Event handler for adding or removing a comment box for an item
+  function addCommentHandler(item = null) {
     setItem(item);
     item === currentItem ? setItem(null) : setItem(item);
     setIndex(-1);
   }
 
+  // Render the list of items
   return itemList.map((item, i) => (
     <ul>
       <li>
         <div className="alignRatingContainer">
           <div className="tooltip">
-            <button className="plus" onClick={() => {AddCommentHandler(item);}}> {item === currentItem ? "-" : "+"} </button>
+            <button className="plus" onClick={() => {addCommentHandler(item);}}> {item === currentItem ? "-" : "+"} </button>
             {item.Display}
           </div>
           {item === currentItem ? <CritiqueBox /> : null}

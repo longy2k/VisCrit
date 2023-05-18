@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
+    "@react-pdf/renderer": "latest",
     "@recogito/annotorious": "^2.7.10",
     "@recogito/annotorious-selector-pack": "^0.5.3",
     "@testing-library/jest-dom": "^5.16.5",
@@ -16,6 +17,7 @@
     "fs": "^0.0.1-security",
     "json2xls": "^0.1.2",
     "jspdf": "^2.5.1",
+    "pdf-lib": "^1.17.1",
     "react": "^18.2.0",
     "react-csv": "^2.2.2",
     "react-dom": "^18.2.0",
