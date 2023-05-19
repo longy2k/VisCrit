@@ -22,23 +22,25 @@ VisCrit is a web-based application that focuses on critiquing the appearance of 
 
 * Run the client code by running:
 
-  * "cd client"
+  * `cd client`
 
-  * "npm install"
+  * `npm install`
 
-  * "npm start" 
+  * `npm start`
 
 * Run the server code in another terminal by running:
 
-  * "cd server"
+  * `cd server`
 
-  * "npm install"
+  * `npm install`
 
-  * "npm start"
+  * `npm start`
 
 ## Example Files Used <a name="heading--1-2"/>
 PDF:
 ![image width="30"](https://github.com/longy2k/VisCrit/assets/90154619/95ff538a-9a00-4129-976c-40d7c485650b)
+
+*If uploading an image, make sure the quality of it is good before uploading*
 
 Rubric:
 ![image width="30"](https://github.com/longy2k/VisCrit/assets/90154619/b5b66cd5-5ded-4e98-af40-70abe2689b71)
@@ -56,7 +58,7 @@ Rubric:
 | CatLevel01_MouseOverText | Hover over a category (CatLevel01), this text will display as a tooltip |
 | CatLevel02_MouseOverText | Hover over a category (CatLevel02), this text will display as a tooltip |
 
-**These header names are needed.**
+*These header names are needed.*
 
 ## After the files are uploaded, this is what you should see:
 ![image width="30"](https://github.com/longy2k/VisCrit/assets/90154619/758931af-ee00-449f-983f-06153fbe360c)
