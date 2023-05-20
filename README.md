@@ -18,6 +18,12 @@ VisCrit is a web-based application that focuses on critiquing the appearance of 
 
 ## Installation <a name="heading--2"/>
 
+Method 1:
+
+* Run as Docker: `docker-compose up`
+
+Method 2:
+
 * Download the GitHub repository
 
 * Run the client code by running:
