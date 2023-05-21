@@ -27,7 +27,7 @@ export default function RubricBox() {
       const csvData = `${headers.join(',')}\n${totalItems.map(item => headers.map(header => item[header]).join(',')).join('\n')}`;
       const formData = new FormData();
       formData.append('file', new Blob([csvData], { type: 'text/csv' }), 'Export_Results.csv');
-      const response = await axios.post(serverUrl+'/api/upload/', formData);
+      const response = await axios.post(serverUrl + '/api/upload/', formData);
       console.log(response.data);
     } catch (error) {
       console.error(error);
