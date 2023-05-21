@@ -12,7 +12,7 @@ export default function DocumentReader() {
         numPages, setNumPages, setRectangles, accessCanvas} = useContext(ItemContext);
   const [refresh, setRefresh] = useState(accessCanvas);
   const [dirpdfExists, setpdfjsonExists] = useState(false);
-  const serverUrl = "https://viscritbackend.onrender.com/";
+  const serverUrl = "https://viscritbackend.onrender.com";
 
   useEffect(() => {
     // Check if the directory for PDF files exists

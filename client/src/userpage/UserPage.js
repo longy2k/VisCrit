@@ -22,8 +22,8 @@ export default function UserPage() {
   const [directoryExists, setDirectoryExists] = useState(false);
   const [fileUploaded, setFileUploaded] = useState(false);
   const [locked, setLock] = useState(false);
-  const [critiquerID, setCritiquerID] = useState("volvo");
-  const serverUrl = "https://viscritbackend.onrender.com/";
+  const [critiquerID, setCritiquerID] = useState("user");
+  const serverUrl = "https://viscritbackend.onrender.com";
 
   // Function to read and process the uploaded file
   const readUploadFile = async (e) => {
