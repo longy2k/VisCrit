@@ -3,6 +3,7 @@ const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 const app = express();
+const cors = require("cors");
 
 // Create a storage engine for multer
 const storage = multer.diskStorage({
@@ -24,7 +25,12 @@ const storage = multer.diskStorage({
     cb(null, file.originalname);
   }
 });
-
+app.use(
+  cors({
+    origin: ["https://coderyders.onrender.com", "http://localhost:3000"],
+    credentials:  true,
+  })
+);
 // Create an instance of the multer middleware with the storage engine
 const upload = multer({ storage: storage });
 
@@ -44,8 +50,7 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
 
 // Set CORS headers
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-  res.setHeader('Access-Control-Allow-Origin', 'https://viscrit.onrender.com/');
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
