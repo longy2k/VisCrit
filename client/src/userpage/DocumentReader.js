@@ -190,8 +190,7 @@ export default function DocumentReader() {
           {data.path && (
             <>
               <Document
-                file={serverUrl + "/api/upload/pdf"}
-                onLoadSuccess={onDocumentLoadSuccess}
+                file={`${serverUrl}/${data.path}`}
                 renderMode="canvas">
                 <Page pageNumber={pageNumber} onRenderSuccess={onRenderSuccess} scale={5}/>
               </Document>
