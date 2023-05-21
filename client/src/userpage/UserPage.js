@@ -23,6 +23,7 @@ export default function UserPage() {
   const [fileUploaded, setFileUploaded] = useState(false);
   const [locked, setLock] = useState(false);
   const [critiquerID, setCritiquerID] = useState("volvo");
+  const serverUrl = "https://viscritbackend.onrender.com/";
 
   // Function to read and process the uploaded file
   const readUploadFile = async (e) => {
@@ -127,14 +128,14 @@ export default function UserPage() {
 
   // Fetch hierarchy and directory information on component mount, hierarchy is the excel file, fileUploaded is the PDF or image
   useEffect(() => {
-    fetch("/api/upload/json")
+    fetch(serverUrl + "/api/upload/json")
       .then((response) => response.json())
       .then((jsonData) => {
         console.log("Path: " + jsonData.path);
         setHierarchy(Data_Extractor(jsonData));
       });
 
-    fetch("/api/checkdirectory")
+    fetch(serverUrl + "/api/checkdirectory")
       .then((response) => response.json())
       .then((data) => {
         setDirectoryExists(data);

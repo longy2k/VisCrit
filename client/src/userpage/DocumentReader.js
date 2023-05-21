@@ -12,10 +12,11 @@ export default function DocumentReader() {
         numPages, setNumPages, setRectangles, accessCanvas} = useContext(ItemContext);
   const [refresh, setRefresh] = useState(accessCanvas);
   const [dirpdfExists, setpdfjsonExists] = useState(false);
+  const serverUrl = "https://viscritbackend.onrender.com/";
 
   useEffect(() => {
     // Check if the directory for PDF files exists
-    fetch("/api/checkdirectory/upload/pdf")
+    fetch(serverUrl + "/api/checkdirectory/upload/pdf")
       .then((response) => response.json())
       .then((data) => {
         setpdfjsonExists(data);
@@ -135,7 +136,7 @@ export default function DocumentReader() {
 
   useEffect(() => {
     // Fetch PDF data from the server
-    fetch("/api/upload/pdf")
+    fetch(serverUrl + "/api/upload/pdf")
       .then((response) => response.json())
       .then((data) => {
         console.log(data.path);

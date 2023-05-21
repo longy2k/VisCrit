@@ -6,6 +6,7 @@ import axios from 'axios';
 export default function RubricBox() {
   let { totalItems, Hierarchy, pageNumber, setPageNumber, numPages, setNumPages, critiquerID, setCritiquerID} = useContext(ItemContext);
   const [dirjsonExists, setdirjsonExists] = useState(false);
+  const serverUrl = "https://viscritbackend.onrender.com/";
 
   // Event handler for selecting a critiquer ID
   const handleOptionChange = (event) => {
@@ -34,7 +35,7 @@ export default function RubricBox() {
   }
 
   useEffect(() => {
-    fetch('/api/checkdirectory/upload/json')
+    fetch(serverUrl + '/api/checkdirectory/upload/json')
     .then(response => response.json())
     .then(data => {
       setdirjsonExists(data);
