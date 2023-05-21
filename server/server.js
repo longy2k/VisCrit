@@ -3,7 +3,6 @@ const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 const app = express();
-const cors = require("cors");
 
 // Create a storage engine for multer
 const storage = multer.diskStorage({
@@ -27,12 +26,6 @@ const storage = multer.diskStorage({
 });
 
 
-app.use(
-  cors({
-    origin: ["https://viscrit.onrender.com", "http://localhost:3000"],
-    credentials:  true,
-  })
-);
 // Create an instance of the multer middleware with the storage engine
 const upload = multer({ storage: storage });
 
