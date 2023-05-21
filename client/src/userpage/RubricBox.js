@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext, useRef } from 'react'
 import { ItemContext } from "./ItemContext"
 import { CSVLink } from "react-csv";
 import axios from 'axios';
+import UploadButton from './UploadButton';
 
 export default function RubricBox() {
   let { totalItems, Hierarchy, pageNumber, setPageNumber, numPages, setNumPages, critiquerID, setCritiquerID} = useContext(ItemContext);
@@ -63,7 +64,7 @@ export default function RubricBox() {
         <option value="003">003</option>
       </select>
     </form>
-
+    <UploadButton/>
       <h3>Available Categories</h3>
       <div className='rubricBox'>
         {Hierarchy.map((item, i) => <div key={i}>{item.returnHTML()}</div>)}

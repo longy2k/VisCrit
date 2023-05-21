@@ -8,7 +8,6 @@ import * as XLSX from "xlsx";
 import axios from "axios";
 //import UserGuide from "./Guide";
 import jsPDF from "jspdf";
-import UploadButton from "./UploadButton";
 
 export default function UserPage() {
   const [currentItem, setItem] = useState({});
@@ -117,16 +116,6 @@ export default function UserPage() {
     setFileUploaded(true);
   };
 
-  // Handle the click event for the upload button
-  const handleUploadButtonClick = (e) => {
-    const uploadInput = document.createElement("input");
-    uploadInput.type = "file";
-    uploadInput.accept = ".xlsx, .xls, .csv, .pdf, .jpeg, .png";
-    uploadInput.multiple = true;
-    uploadInput.onchange = readUploadFile;
-    uploadInput.click();
-  };
-
   // Fetch hierarchy and directory information on component mount, hierarchy is the excel file, fileUploaded is the PDF or image
   useEffect(() => {
     fetch(serverUrl + "/api/upload/json")
@@ -165,7 +154,6 @@ export default function UserPage() {
         <div className="directoryNotFound">
           <h1 className="noUploadViscrit">VISCRIT</h1>
           <p className="noUploadText">Please upload your files.</p>
-          <UploadButton style={{float: "right"}} onUpload={readUploadFile} />
         </div>
       </div>
     );
