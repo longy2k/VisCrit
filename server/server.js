@@ -25,6 +25,8 @@ const storage = multer.diskStorage({
     path.join(null, file.originalname);
   }
 });
+
+
 app.use(
   cors({
     origin: ["https://viscrit.onrender.com", "http://localhost:3000"],
