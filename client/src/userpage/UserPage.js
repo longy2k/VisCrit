@@ -80,7 +80,7 @@ export default function UserPage() {
               { type: "application/json",}),
               file.name.replace(/\.[^/.]+$/, ".json"));
             try {
-              const response = await axios.post("/api/upload/", formData);
+              const response = await axios.post(serverUrl+"/api/upload/", formData);
               console.log(response.data);
             } catch (error) {
               console.error(error);
@@ -92,7 +92,7 @@ export default function UserPage() {
           const formData = new FormData();
           formData.append("file", file, file.name);
           try {
-            const response = await axios.post("/api/upload/", formData);
+            const response = await axios.post(serverUrl+"/api/upload/", formData);
             console.log(response.data);
           } catch (error) {
             console.error(error);
@@ -103,7 +103,7 @@ export default function UserPage() {
           const formData = new FormData();
           formData.append("file", pdfBlob, file.name.replace(/\.[^/.]+$/, ".pdf"));
           try {
-            const response = await axios.post("/api/upload/", formData);
+            const response = await axios.post(serverUrl+"/api/upload/", formData);
             console.log(response.data);
           } catch (error) {
             console.error(error);
