@@ -27,7 +27,7 @@ const storage = multer.diskStorage({
 });
 app.use(
   cors({
-    origin: ["https://coderyders.onrender.com", "http://localhost:3000"],
+    origin: ["https://viscrit.onrender.com", "http://localhost:3000"],
     credentials:  true,
   })
 );
