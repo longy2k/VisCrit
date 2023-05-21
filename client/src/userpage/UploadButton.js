@@ -1,6 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import Data_Extractor from "./Data_Extract";
 
 export default function UploadButton({ onUpload }) {
+  const serverUrl = "https://viscritbackend.onrender.com";
+  const [Hierarchy, setHierarchy] = useState([]);
+  const [directoryExists, setDirectoryExists] = useState(false);
+  const [fileUploaded, setFileUploaded] = useState(false);
+
   const handleUploadButtonClick = () => {
     const uploadInput = document.createElement("input");
     uploadInput.type = "file";
@@ -14,7 +20,6 @@ export default function UploadButton({ onUpload }) {
     fetch(serverUrl + "/api/upload/json")
       .then((response) => response.json())
       .then((jsonData) => {
-        //console.log("Path: " + jsonData.path);
         setHierarchy(Data_Extractor(jsonData));
       });
 
