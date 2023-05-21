@@ -139,7 +139,7 @@ export default function DocumentReader() {
     fetch(serverUrl + "/api/upload/pdf")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.path);
+        //console.log(data.path);
         setData(data);
       });
   }, []);

@@ -30,7 +30,7 @@ export default function ItemsToHTML(itemList = []) {
   // Event handler for clearing the canvas
   function clearCanvas() {
     if (!locked) {
-      console.log("tried to clear");
+      //console.log("tried to clear");
       setRectangles([]);
       setAccessCanvas(false);
     }
