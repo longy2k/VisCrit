@@ -50,16 +50,16 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(
+  cors({
+    origin: ["https://viscrit.onrender.com/", "http://localhost:3000"] })
+  );
+
 // Route for serving PDF files
 app.use('/uploads/pdf', express.static('uploads/pdf'));
 
 // Route for serving JSON files
 app.use('/uploads/json', express.static('uploads/json'));
-
-// Start the server
-app.listen(5000, () => {
-  console.log('Server started on port 5000');
-});
 
 // Default route
 app.get('/', (req, res) => {
