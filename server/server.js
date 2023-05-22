@@ -25,15 +25,12 @@ const storage = multer.diskStorage({
     cb(null, file.originalname);
   }
 });
-
-// Enable CORS for specific origins
 app.use(
   cors({
-    origin: ["https://viscrit.onrender.com", "http://localhost:3000"],
-    credentials: true,
+    origin: ["https://coderyders.onrender.com", "http://localhost:3000"],
+    credentials:  true,
   })
 );
-
 // Create an instance of the multer middleware with the storage engine
 const upload = multer({ storage: storage });
 
@@ -51,17 +48,19 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
   res.json({ path: filePath });
 });
 
-// Serve static files
-app.use('/uploads/pdf', express.static('uploads/pdf'));
-app.use('/uploads/json', express.static('uploads/json'));
-
-// Set CORS headers for all routes
+// Set CORS headers
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
+
+// Route for serving PDF files
+app.use('/uploads/pdf', express.static('uploads/pdf'));
+
+// Route for serving JSON files
+app.use('/uploads/json', express.static('uploads/json'));
 
 // Start the server
 app.listen(5000, () => {

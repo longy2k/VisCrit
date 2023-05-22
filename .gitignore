@@ -2,12 +2,11 @@
 /node_modules
 /.pnp
 .pnp.js
-/client/node_modules/
-/server/node_modules/
-
 
 # testing
 /coverage
+
+# production
 
 # misc
 .DS_Store
@@ -16,9 +15,16 @@
 .env.test.local
 .env.production.local
 
-# debugging
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
 .env
+
+/client/node_modules/
+/server/node_modules/
+/client/build/
+
+# Remove upload data
+/server/uploads/
+/client/uploads/

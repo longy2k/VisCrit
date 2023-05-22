@@ -80,7 +80,7 @@ export default function UserPage() {
               { type: "application/json",}),
               file.name.replace(/\.[^/.]+$/, ".json"));
             try {
-              const response = await axios.post(serverUrl + "/api/upload/", formData);
+              const response = await axios.post("/api/upload/", formData);
               console.log(response.data);
             } catch (error) {
               console.error(error);
@@ -92,7 +92,7 @@ export default function UserPage() {
           const formData = new FormData();
           formData.append("file", file, file.name);
           try {
-            const response = await axios.post(serverUrl + "/api/upload/", formData);
+            const response = await axios.post("/api/upload/", formData);
             console.log(response.data);
           } catch (error) {
             console.error(error);
@@ -103,7 +103,7 @@ export default function UserPage() {
           const formData = new FormData();
           formData.append("file", pdfBlob, file.name.replace(/\.[^/.]+$/, ".pdf"));
           try {
-            const response = await axios.post(serverUrl + "/api/upload/", formData);
+            const response = await axios.post("/api/upload/", formData);
             console.log(response.data);
           } catch (error) {
             console.error(error);
@@ -116,12 +116,22 @@ export default function UserPage() {
     setFileUploaded(true);
   };
 
+  // Handle the click event for the upload button
+  const handleUploadButtonClick = (e) => {
+    const uploadInput = document.createElement("input");
+    uploadInput.type = "file";
+    uploadInput.accept = ".xlsx, .xls, .csv, .pdf, .jpeg, .png";
+    uploadInput.multiple = true;
+    uploadInput.onchange = readUploadFile;
+    uploadInput.click();
+  };
+
   // Fetch hierarchy and directory information on component mount, hierarchy is the excel file, fileUploaded is the PDF or image
   useEffect(() => {
     fetch(serverUrl + "/api/upload/json")
       .then((response) => response.json())
       .then((jsonData) => {
-        //console.log("Path: " + jsonData.path);
+        console.log("Path: " + jsonData.path);
         setHierarchy(Data_Extractor(jsonData));
       });
 
@@ -154,6 +164,9 @@ export default function UserPage() {
         <div className="directoryNotFound">
           <h1 className="noUploadViscrit">VISCRIT</h1>
           <p className="noUploadText">Please upload your files.</p>
+          <button className="uploadButton" onClick={handleUploadButtonClick}>
+            Upload
+          </button>
         </div>
       </div>
     );

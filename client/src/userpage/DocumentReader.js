@@ -139,7 +139,7 @@ export default function DocumentReader() {
     fetch(serverUrl + "/api/upload/pdf")
       .then((response) => response.json())
       .then((data) => {
-        //console.log(data.path);
+        console.log(data.path);
         setData(data);
       });
   }, []);
@@ -190,7 +190,8 @@ export default function DocumentReader() {
           {data.path && (
             <>
               <Document
-                file={`${serverUrl}/${data.path}`}
+                file={`https://viscritbackend.onrender.com/`}
+                onLoadSuccess={onDocumentLoadSuccess}
                 renderMode="canvas">
                 <Page pageNumber={pageNumber} onRenderSuccess={onRenderSuccess} scale={5}/>
               </Document>
