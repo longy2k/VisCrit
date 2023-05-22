@@ -45,7 +45,7 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
   } else if (req.file.mimetype === 'application/json') {
     filePath = `uploads/json/${req.file.filename}`;
   } else if (req.file.originalname.endsWith('.csv')) {
-    filePath = `uploads/csv/${req.file.filename}`;
+    filePath = `uploads/user_generated/${req.file.filename}`;
   }
   res.json({ path: filePath });
 });
@@ -55,6 +55,8 @@ app.use('/uploads/pdf', express.static('uploads/pdf'));
 
 // Route for serving JSON files
 app.use('/uploads/json', express.static('uploads/json'));
+
+app.use('/uploads/user_generated', express.static('uploads/user_generated'));
 
 // Start the server
 app.listen(5000, () => {
