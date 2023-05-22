@@ -159,7 +159,7 @@ app.get('/api/checkdirectory/upload/pdf', (req, res) => {
   });
 });
 
-// Route for retrieving all user-generated files
+// Route for retrieving the contents of user-generated files
 app.get('/api/files/user_generated', (req, res) => {
   fs.readdir('uploads/user_generated', (err, files) => {
     if (err) {
@@ -167,9 +167,36 @@ app.get('/api/files/user_generated', (req, res) => {
       res.status(500).json({ error: 'Internal server error' });
       return;
     }
-    res.json({ files });
+
+    const fileContents = [];
+    let completedCount = 0;
+
+    // Read the contents of each file and add it to the fileContents array
+    files.forEach((file, index) => {
+      const filePath = path.join('uploads/user_generated', file);
+      fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+          console.error(err);
+          res.status(500).json({ error: 'Internal server error' });
+          return;
+        }
+
+        fileContents[index] = {
+          fileName: file,
+          content: data,
+        };
+
+        completedCount++;
+
+        // Check if all files have been processed
+        if (completedCount === files.length) {
+          res.json({ files: fileContents });
+        }
+      });
+    });
   });
 });
+
 
 // Route for retrieving all PDF files
 app.get('/api/files/pdf', (req, res) => {
