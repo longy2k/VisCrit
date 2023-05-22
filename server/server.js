@@ -146,6 +146,7 @@ app.get('/api/checkdirectory', (req, res) => {
   });
 });
 
+
 // Check whether the 'uploads/pdf' directory exists
 app.get('/api/checkdirectory/upload/pdf', (req, res) => {
   const directoryPath = __dirname + '/uploads/pdf';
@@ -155,6 +156,42 @@ app.get('/api/checkdirectory/upload/pdf', (req, res) => {
     } else {
       res.send(true); // Directory exists
     }
+  });
+});
+
+// Route for retrieving all user-generated files
+app.get('/api/files/user_generated', (req, res) => {
+  fs.readdir('uploads/user_generated', (err, files) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal server error' });
+      return;
+    }
+    res.json({ files });
+  });
+});
+
+// Route for retrieving all PDF files
+app.get('/api/files/pdf', (req, res) => {
+  fs.readdir('uploads/pdf', (err, files) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal server error' });
+      return;
+    }
+    res.json({ files });
+  });
+});
+
+// Route for retrieving all JSON files
+app.get('/api/files/json', (req, res) => {
+  fs.readdir('uploads/json', (err, files) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal server error' });
+      return;
+    }
+    res.json({ files });
   });
 });
 
