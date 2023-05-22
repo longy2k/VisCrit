@@ -8,6 +8,7 @@ import * as XLSX from "xlsx";
 import axios from "axios";
 //import UserGuide from "./Guide";
 import jsPDF from "jspdf";
+import UploadButton from "./UploadButton";
 
 export default function UserPage() {
   const [currentItem, setItem] = useState({});

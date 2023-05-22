@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext, useRef } from 'react'
 import { ItemContext } from "./ItemContext"
 import { CSVLink } from "react-csv";
 import axios from 'axios';
+import UploadButton from './UploadButton';
 
 export default function RubricBox() {
   let { totalItems, Hierarchy, pageNumber, setPageNumber, numPages, setNumPages, critiquerID, setCritiquerID} = useContext(ItemContext);
@@ -53,7 +54,8 @@ export default function RubricBox() {
 
   if (dirjsonExists) {
     return (
-    <div className="rubricBoxContainer">
+    <div className="rubricBoxContainer"> 
+    <div className="rubricHeader">
     <form>
       <label htmlFor=""> CritiquerID: </label>
       <select value={critiquerID} onChange={handleOptionChange}>
@@ -62,8 +64,9 @@ export default function RubricBox() {
         <option value="002">002</option>
         <option value="003">003</option>
       </select>
-    </form>
-
+    </form>  
+    <UploadButton style={{display:"inline-block"}}/>
+</div>
       <h3>Available Categories</h3>
       <div className='rubricBox'>
         {Hierarchy.map((item, i) => <div key={i}>{item.returnHTML()}</div>)}
