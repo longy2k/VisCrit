@@ -26,13 +26,6 @@ html {
   transition: 0.3s ease-in-out;
 }
 
-.rubricHeader{
-display: flex;
-align-items: center;
-}
-form {
-  margin-right: 40%;
-}
 /*
  *
  *          RESPONSIVENESS 
@@ -396,6 +389,15 @@ form {
  *          RUBRIC COMPONENTS
  *
 */
+
+.rubricHeader{
+  display: flex;
+  align-items: center;
+}
+
+form {
+  margin-right: 40%;
+}
 
 .rubricBoxContainer {
   position: fixed;

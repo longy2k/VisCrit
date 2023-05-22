@@ -28,12 +28,18 @@ export default function RubricBox() {
       const csvData = `${headers.join(',')}\n${totalItems.map(item => headers.map(header => item[header]).join(',')).join('\n')}`;
       const formData = new FormData();
       formData.append('file', new Blob([csvData], { type: 'text/csv' }), 'Export_Results.csv');
-      const response = await axios.post(serverUrl+'/api/upload/', formData);
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data' // Set the content type to 'multipart/form-data'
+        }
+      };
+      const response = await axios.post(serverUrl + '/api/upload/', formData, config); // Pass the config object as the third argument
       console.log(response.data);
     } catch (error) {
       console.error(error);
     }
-  }
+  };
+
 
   useEffect(() => {
     fetch(serverUrl + '/api/checkdirectory/upload/json')
@@ -65,7 +71,7 @@ export default function RubricBox() {
         <option value="003">003</option>
       </select>
     </form>  
-    <UploadButton style={{display:"inline-block"}}/>
+    <UploadButton/>
 </div>
       <h3>Available Categories</h3>
       <div className='rubricBox'>
