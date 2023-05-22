@@ -190,7 +190,7 @@ export default function DocumentReader() {
           {data.path && (
             <>
               <Document
-                file={`https://viscritbackend.onrender.com/`}
+                file={`${serverUrl}/${data.path}`}
                 onLoadSuccess={onDocumentLoadSuccess}
                 renderMode="canvas">
                 <Page pageNumber={pageNumber} onRenderSuccess={onRenderSuccess} scale={5}/>
