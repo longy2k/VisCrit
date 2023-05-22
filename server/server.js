@@ -25,12 +25,7 @@ const storage = multer.diskStorage({
     cb(null, file.originalname);
   }
 });
-app.use(
-  cors({
-    origin: ["https://coderyders.onrender.com", "http://localhost:3000"],
-    credentials:  true,
-  })
-);
+
 // Create an instance of the multer middleware with the storage engine
 const upload = multer({ storage: storage });
 
@@ -47,6 +42,12 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
   }
   res.json({ path: filePath });
 });
+app.use(
+  cors({
+    origin: ["https://viscrit.onrender.com", "http://localhost:3000"],
+    credentials:  true,
+  })
+);
 
 // Set CORS headers
 app.use((req, res, next) => {
