@@ -30,16 +30,14 @@ export default function RubricBox() {
       formData.append('file', new Blob([csvData], { type: 'text/csv' }), 'Export_Results.csv');
       const config = {
         headers: {
-          'Content-Type': 'multipart/form-data' // Set the content type to 'multipart/form-data'
+          'Content-Type': 'multipart/form-data'
         }
       };
-      const response = await axios.post(serverUrl + '/api/upload/', formData, config); // Pass the config object as the third argument
-      console.log(response.data);
+      const response = await axios.post(serverUrl + '/api/upload/', + critiquerID, formData, config);
     } catch (error) {
       console.error(error);
     }
   };
-
 
   useEffect(() => {
     fetch(serverUrl + '/api/checkdirectory/upload/json')
