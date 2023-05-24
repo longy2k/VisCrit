@@ -390,6 +390,15 @@ html {
  *
 */
 
+.rubricHeader{
+  display: flex;
+  align-items: center;
+}
+
+form {
+  margin-right: 40%;
+}
+
 .rubricBoxContainer {
   position: fixed;
   padding: 0px 20px;

@@ -1,28 +1,25 @@
 import React, { useEffect, useState } from "react";
-import RubricBox from "./RubricBox";
 import Data_Extractor from "./Data_Extract";
-import DocumentReader from "./DocumentReader";
-import { ItemContext } from "./ItemContext";
 import "../assets/css/UserPage.css";
 import * as XLSX from "xlsx";
 import axios from "axios";
-import UserGuide from "./Guide";
 import jsPDF from "jspdf";
 
-export default function UserPage() {
-  const [currentItem, setItem] = useState({});
-  const [Hierarchy, setHierarchy] = useState([]);
-  const [accessCanvas, setAccessCanvas] = useState(false);
-  const [rectangles, setRectangles] = useState([]);
-  const [pageNumber, setPageNumber] = useState(1);
-  const [numPages, setNumPages] = useState(null);
-  const [reRender, setReRender] = useState(null);
-  const [index, setIndex] = useState(-1);
-  const [totalItems, setTotalItems] = useState([]);
-  const [directoryExists, setDirectoryExists] = useState(false);
+const UploadButton = ({ onUpload }) => {
+
   const [fileUploaded, setFileUploaded] = useState(false);
-  const [locked, setLock] = useState(false);
-  const [critiquerID, setCritiquerID] = useState("volvo");
+  const [Hierarchy, setHierarchy] = useState([]);
+  const serverUrl = "https://viscritbackend.onrender.com";
+  const [directoryExists, setDirectoryExists] = useState(false);
+
+  const handleUploadButtonClick = () => {
+    const uploadInput = document.createElement("input");
+    uploadInput.type = "file";
+    uploadInput.accept = ".xlsx, .xls, .csv, .pdf, .jpeg, .png";
+    uploadInput.multiple = true;
+    uploadInput.onchange = readUploadFile;
+    uploadInput.click();
+  };
 
   // Function to read and process the uploaded file
   const readUploadFile = async (e) => {
@@ -79,7 +76,7 @@ export default function UserPage() {
               { type: "application/json",}),
               file.name.replace(/\.[^/.]+$/, ".json"));
             try {
-              const response = await axios.post("/api/upload/", formData);
+              const response = await axios.post(serverUrl+"/api/upload/", formData);
               console.log(response.data);
             } catch (error) {
               console.error(error);
@@ -91,7 +88,7 @@ export default function UserPage() {
           const formData = new FormData();
           formData.append("file", file, file.name);
           try {
-            const response = await axios.post("/api/upload/", formData);
+            const response = await axios.post(serverUrl+"/api/upload/", formData);
             console.log(response.data);
           } catch (error) {
             console.error(error);
@@ -102,7 +99,7 @@ export default function UserPage() {
           const formData = new FormData();
           formData.append("file", pdfBlob, file.name.replace(/\.[^/.]+$/, ".pdf"));
           try {
-            const response = await axios.post("/api/upload/", formData);
+            const response = await axios.post(serverUrl+"/api/upload/", formData);
             console.log(response.data);
           } catch (error) {
             console.error(error);
@@ -115,60 +112,28 @@ export default function UserPage() {
     setFileUploaded(true);
   };
 
-  // Handle the click event for the upload button
-  const handleUploadButtonClick = (e) => {
-    const uploadInput = document.createElement("input");
-    uploadInput.type = "file";
-    uploadInput.accept = ".xlsx, .xls, .csv, .pdf, .jpeg, .png";
-    uploadInput.multiple = true;
-    uploadInput.onchange = readUploadFile;
-    uploadInput.click();
-  };
+    // Fetch hierarchy and directory information on component mount, hierarchy is the excel file, fileUploaded is the PDF or image
+    useEffect(() => {
+      fetch(serverUrl + "/api/upload/json")
+        .then((response) => response.json())
+        .then((jsonData) => {
+          setHierarchy(Data_Extractor(jsonData));
+        });
+  
+      fetch(serverUrl + "/api/checkdirectory")
+        .then((response) => response.json())
+        .then((data) => {
+          setDirectoryExists(data);
+        });
+    }, []); // Remove fileUploaded dependency
+  
+  return (
+    <div className="buttonDiv">
+      <button className="uploadButton" onClick={handleUploadButtonClick}>
+        Upload
+      </button>
+    </div>
+  );
+};
 
-  // Fetch hierarchy and directory information on component mount, hierarchy is the excel file, fileUploaded is the PDF or image
-  useEffect(() => {
-    fetch("/api/upload/json")
-      .then((response) => response.json())
-      .then((jsonData) => {
-        console.log("Path: " + jsonData.path);
-        setHierarchy(Data_Extractor(jsonData));
-      });
-
-    fetch("/api/checkdirectory")
-      .then((response) => response.json())
-      .then((data) => {
-        setDirectoryExists(data);
-      });
-  }, [fileUploaded]);
-
-  if (directoryExists) {
-    // Render when directory exists
-    return (
-      <div className="userPage">
-      <ItemContext.Provider 
-        value={{totalItems, setTotalItems, currentItem, setItem, Hierarchy, 
-                setHierarchy, pageNumber, setPageNumber, numPages, setNumPages, 
-                index, setIndex, rectangles, setRectangles, accessCanvas, 
-                setAccessCanvas,reRender, setReRender, locked, setLock, 
-                critiquerID, setCritiquerID}}>
-          <DocumentReader/>
-          <RubricBox/>
-        </ItemContext.Provider>
-      </div>
-    );
-  } else {
-    // Render when directory does not exist, this is the landing page
-    return (
-      <div>
-        <div className="directoryNotFound">
-          <h1 className="noUploadViscrit">VISCRIT</h1>
-          <p className="noUploadText">Please upload your files.</p>
-          <button className="uploadButton" onClick={handleUploadButtonClick}>
-            Upload
-          </button>
-        </div>
-        <UserGuide/>
-      </div>
-    );
-  }
-}
+export default UploadButton;

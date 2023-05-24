@@ -2,6 +2,8 @@ const express = require('express');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
+const cors = require('cors');
+
 const app = express();
 
 // Create a storage engine for multer
@@ -28,6 +30,12 @@ const storage = multer.diskStorage({
 // Create an instance of the multer middleware with the storage engine
 const upload = multer({ storage: storage });
 
+// Enable CORS
+app.use(cors({
+  origin: ["https://viscrit.onrender.com", "http://localhost:3000"],
+  credentials: true,
+}));
+
 // Route for handling file uploads
 app.post('/api/upload', upload.single('file'), (req, res) => {
   console.log(req.file);
@@ -37,17 +45,9 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
   } else if (req.file.mimetype === 'application/json') {
     filePath = `uploads/json/${req.file.filename}`;
   } else if (req.file.originalname.endsWith('.csv')) {
-    filePath = `uploads/csv/${req.file.filename}`;
+    filePath = `uploads/user_generated/${req.file.filename}`;
   }
   res.json({ path: filePath });
-});
-
-// Set CORS headers
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  next();
 });
 
 // Route for serving PDF files
@@ -55,6 +55,8 @@ app.use('/uploads/pdf', express.static('uploads/pdf'));
 
 // Route for serving JSON files
 app.use('/uploads/json', express.static('uploads/json'));
+
+app.use('/uploads/user_generated', express.static('uploads/user_generated'));
 
 // Start the server
 app.listen(5000, () => {
@@ -144,6 +146,7 @@ app.get('/api/checkdirectory', (req, res) => {
   });
 });
 
+
 // Check whether the 'uploads/pdf' directory exists
 app.get('/api/checkdirectory/upload/pdf', (req, res) => {
   const directoryPath = __dirname + '/uploads/pdf';
@@ -153,6 +156,69 @@ app.get('/api/checkdirectory/upload/pdf', (req, res) => {
     } else {
       res.send(true); // Directory exists
     }
+  });
+});
+
+// Route for retrieving the contents of user-generated files
+app.get('/api/files/user_generated', (req, res) => {
+  fs.readdir('uploads/user_generated', (err, files) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal server error' });
+      return;
+    }
+
+    const fileContents = [];
+    let completedCount = 0;
+
+    // Read the contents of each file and add it to the fileContents array
+    files.forEach((file, index) => {
+      const filePath = path.join('uploads/user_generated', file);
+      fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+          console.error(err);
+          res.status(500).json({ error: 'Internal server error' });
+          return;
+        }
+
+        fileContents[index] = {
+          fileName: file,
+          content: data,
+        };
+
+        completedCount++;
+
+        // Check if all files have been processed
+        if (completedCount === files.length) {
+          res.json({ files: fileContents });
+        }
+      });
+    });
+  });
+});
+
+
+// Route for retrieving all PDF files
+app.get('/api/files/pdf', (req, res) => {
+  fs.readdir('uploads/pdf', (err, files) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal server error' });
+      return;
+    }
+    res.json({ files });
+  });
+});
+
+// Route for retrieving all JSON files
+app.get('/api/files/json', (req, res) => {
+  fs.readdir('uploads/json', (err, files) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal server error' });
+      return;
+    }
+    res.json({ files });
   });
 });
 

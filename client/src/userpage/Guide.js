@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import "../assets/css/UserPage.css";
-import uploadimg from '../images/upload.png';
-import cat from '../images/category.png';
-import loc from '../images/location.png';
-import comment from '../images/comment.png';
+import uploadimg from '../assets/images/upload.png';
+import cat from '../assets/images/category.png';
+import loc from '../assets/images/location.png';
+import comment from '../assets/images/comment.png';
 
 const UserGuide = () => {
   const [currentPage, setCurrentPage] = useState(1);

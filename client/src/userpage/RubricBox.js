@@ -6,6 +6,7 @@ import axios from 'axios';
 export default function RubricBox() {
   let { totalItems, Hierarchy, pageNumber, setPageNumber, numPages, setNumPages, critiquerID, setCritiquerID} = useContext(ItemContext);
   const [dirjsonExists, setdirjsonExists] = useState(false);
+  const serverUrl = "https://viscritbackend.onrender.com";
 
   // Event handler for selecting a critiquer ID
   const handleOptionChange = (event) => {
@@ -21,20 +22,26 @@ export default function RubricBox() {
       event.preventDefault();
       return;
     }
+    
+    const currentDate = new Date();
+    const dateStr = currentDate.toISOString().slice(0, 10); // Get current date
+    const timeStr = currentDate.toLocaleTimeString().replace(/:/g, ''); // Get current time without colons
+    
+    const fileName = `${critiquerID || 'user'}_${dateStr}_${timeStr}_Export_Results.csv`;
+    
     try {
       const headers = Object.keys(totalItems[0]);
       const csvData = `${headers.join(',')}\n${totalItems.map(item => headers.map(header => item[header]).join(',')).join('\n')}`;
       const formData = new FormData();
-      formData.append('file', new Blob([csvData], { type: 'text/csv' }), 'Export_Results.csv');
-      const response = await axios.post('/api/upload/', formData);
-      console.log(response.data);
+      formData.append('file', new Blob([csvData], { type: 'text/csv' }), fileName);
+      const config = {headers: {'Content-Type': 'multipart/form-data'}};
+      const response = await axios.post(serverUrl + '/api/upload/', formData, config);
     } catch (error) {
       console.error(error);
     }
-  }
-
+  };
   useEffect(() => {
-    fetch('/api/checkdirectory/upload/json')
+    fetch(serverUrl + '/api/checkdirectory/upload/json')
     .then(response => response.json())
     .then(data => {
       setdirjsonExists(data);
@@ -52,7 +59,8 @@ export default function RubricBox() {
 
   if (dirjsonExists) {
     return (
-    <div className="rubricBoxContainer">
+    <div className="rubricBoxContainer"> 
+    <div className="rubricHeader">
     <form>
       <label htmlFor=""> CritiquerID: </label>
       <select value={critiquerID} onChange={handleOptionChange}>
@@ -61,8 +69,8 @@ export default function RubricBox() {
         <option value="002">002</option>
         <option value="003">003</option>
       </select>
-    </form>
-
+    </form>  
+</div>
       <h3>Available Categories</h3>
       <div className='rubricBox'>
         {Hierarchy.map((item, i) => <div key={i}>{item.returnHTML()}</div>)}
