@@ -12,7 +12,9 @@ import jsPDF from "jspdf";
 const UploadButton = ({ onUpload }) => {
 
   const [fileUploaded, setFileUploaded] = useState(false);
+  const [Hierarchy, setHierarchy] = useState([]);
   const serverUrl = "https://viscritbackend.onrender.com";
+  const [directoryExists, setDirectoryExists] = useState(false);
 
   const handleUploadButtonClick = () => {
     const uploadInput = document.createElement("input");
@@ -114,6 +116,21 @@ const UploadButton = ({ onUpload }) => {
     setFileUploaded(true);
   };
 
+    // Fetch hierarchy and directory information on component mount, hierarchy is the excel file, fileUploaded is the PDF or image
+    useEffect(() => {
+      fetch(serverUrl + "/api/upload/json")
+        .then((response) => response.json())
+        .then((jsonData) => {
+          setHierarchy(Data_Extractor(jsonData));
+        });
+  
+      fetch(serverUrl + "/api/checkdirectory")
+        .then((response) => response.json())
+        .then((data) => {
+          setDirectoryExists(data);
+        });
+    }, []); // Remove fileUploaded dependency
+  
   return (
     <div className="buttonDiv">
       <button className="uploadButton" onClick={handleUploadButtonClick}>

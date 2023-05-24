@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext, useRef } from 'react'
 import { ItemContext } from "./ItemContext"
 import { CSVLink } from "react-csv";
 import axios from 'axios';
-import UploadButton from './UploadButton';
 
 export default function RubricBox() {
   let { totalItems, Hierarchy, pageNumber, setPageNumber, numPages, setNumPages, critiquerID, setCritiquerID} = useContext(ItemContext);
@@ -23,22 +22,24 @@ export default function RubricBox() {
       event.preventDefault();
       return;
     }
+    
+    const currentDate = new Date();
+    const dateStr = currentDate.toISOString().slice(0, 10); // Get current date
+    const timeStr = currentDate.toLocaleTimeString().replace(/:/g, ''); // Get current time without colons
+    
+    const fileName = `${critiquerID || 'user'}_${dateStr}_${timeStr}_Export_Results.csv`;
+    
     try {
       const headers = Object.keys(totalItems[0]);
       const csvData = `${headers.join(',')}\n${totalItems.map(item => headers.map(header => item[header]).join(',')).join('\n')}`;
       const formData = new FormData();
-      formData.append('file', new Blob([csvData], { type: 'text/csv' }), 'Export_Results.csv');
-      const config = {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      };
-      const response = await axios.post(serverUrl + '/api/upload/', + critiquerID, formData, config);
+      formData.append('file', new Blob([csvData], { type: 'text/csv' }), fileName);
+      const config = {headers: {'Content-Type': 'multipart/form-data'}};
+      const response = await axios.post(serverUrl + '/api/upload/', formData, config);
     } catch (error) {
       console.error(error);
     }
   };
-
   useEffect(() => {
     fetch(serverUrl + '/api/checkdirectory/upload/json')
     .then(response => response.json())
@@ -69,7 +70,6 @@ export default function RubricBox() {
         <option value="003">003</option>
       </select>
     </form>  
-    <UploadButton/>
 </div>
       <h3>Available Categories</h3>
       <div className='rubricBox'>
