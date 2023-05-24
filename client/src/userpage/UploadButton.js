@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
-import RubricBox from "./RubricBox";
 import Data_Extractor from "./Data_Extract";
-import DocumentReader from "./DocumentReader";
-import { ItemContext } from "./ItemContext";
 import "../assets/css/UserPage.css";
 import * as XLSX from "xlsx";
 import axios from "axios";
-//import UserGuide from "./Guide";
 import jsPDF from "jspdf";
 
 const UploadButton = ({ onUpload }) => {

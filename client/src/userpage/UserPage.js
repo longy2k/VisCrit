@@ -6,9 +6,8 @@ import { ItemContext } from "./ItemContext";
 import "../assets/css/UserPage.css";
 import * as XLSX from "xlsx";
 import axios from "axios";
-//import UserGuide from "./Guide";
+import UserGuide from "./Guide";
 import jsPDF from "jspdf";
-import UploadButton from "./UploadButton";
 
 export default function UserPage() {
   const [currentItem, setItem] = useState({});
@@ -167,6 +166,7 @@ export default function UserPage() {
             <button className="uploadButton" onClick={handleUploadButtonClick}>
               Upload
             </button>
+            <UserGuide/>
           </div>
         </div>
       );
